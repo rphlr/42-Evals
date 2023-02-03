@@ -22,29 +22,29 @@ The following table shows the status of each evaluation form.
 
 <div align="center">
 
-| Project                                                   | Started | Finished ? | Final mark | Comments              |
-| --------------------------------------------------------- | ------- | ---------- | ---------- | --------------------- |
-| [Libft](https://github.com/rphlr/42-libft/)               | ✅      | ✅         | 125/100    | Francinette -strict 👌🏼 |
-| [printf](https://github.com/rphlr/42-printf)              | ✅      | ✅         | 💯          |                       |
-| [GNL](https://github.com/rphlr/42-get_next_line)          | ✅      | ✅         | 125/100    |                       |
-| [Born2beroot](https://github.com/rphlr/42-born2beroot)    | ✅      | ✅         | 125/100    |                       |
-| [push_swap](https://github.com/rphlr/42-push_swap)        | ❌      | ❌         |            |                       |
-| [so_long](https://github.com/rphlr/42-so_long)            | ❌      | ❌         |            |                       |
-| [fract-ol](https://github.com/rphlr/42-fract-ol)          | ❌      | ❌         |            |                       |
-| [FdF](https://github.com/rphlr/42-fdf)                    | ❌      | ❌         |            |                       |
-| [pipex](https://github.com/rphlr/42-pipex)                | ❌      | ❌         |            |                       |
-| [minitalk](https://github.com/rphlr/42-minitalk)          | ❌      | ❌         |            |                       |
-| [minishell](https://github.com/rphlr/42-minishell)        | ❌      | ❌         |            |                       |
-| [philosophers](https://github.com/rphlr/42-philosophers)  | ❌      | ❌         |            |                       |
-| [netpractice](https://github.com/rphlr/42-netpractice)    | ❌      | ❌         |            |                       |
-| [CPP](https://github.com/rphlr/42-cpp)                    | ❌      | ❌         |            |                       |
-| [cube3d](https://github.com/rphlr/42-cube3d)              | ❌      | ❌         |            |                       |
-| [miniRT](https://github.com/rphlr/42-miniRT)              | ❌      | ❌         |            |                       |
-| [inception](https://github.com/rphlr/42-inception)        | ❌      | ❌         |            |                       |
-| [containers](https://github.com/rphlr/42-containers)      | ❌      | ❌         |            |                       |
-| [webserv](https://github.com/rphlr/42-webserv)            | ❌      | ❌         |            |                       |
-| [irc](https://github.com/rphlr/42-irc)                    | ❌      | ❌         |            |                       |
-| [transcendence](https://github.com/rphlr/42-transcendence)| ❌      | ❌         |            |                       |
+| Project                                      | Status        |
+| -------------------------------------------- | ------------- |
+| [Libft](./Rank00/Libft)                      | Not yet added |
+| [ft_printf](./Rank01/ft_printf)              | Not yet added |
+| [Get_next_line](./Rank01/get_next_line)      | Not yet added |
+| [Born2beroot](./Rank01/Born2beroot)          | Not yet added |
+| [push_swap](./Rank02/push_swap)              | Not yet added |
+| [so_long](./Rank02/42-so_long)               | Not yet added |
+| [fract-ol](./Rank02/fract-ol)                | Not yet added |
+| [FdF](./Rank02/FdF)                          | Not yet added |
+| [pipex](./Rank02/pipex)                      | Not yet added |
+| [minitalk](./Rank02/minitalk)                | Not yet added |
+| [minishell](./Rank03/minishell)              | Not yet added |
+| [Philosophers](./Rank03/Philosophers)        | Not yet added |
+| [netpractice](./Rank04/netpractice)          | Not yet added |
+| [CPP](./Rank04/CPP_Modules/)                 | Not yet added |
+| [cub3d](./Rank04/cub3d)                      | Not yet added |
+| [miniRT](./Rank04/miniRT)                    | Not yet added |
+| [Inception](./Rank05/Inception)              | Not yet added |
+| [ft_containers](./Rank05/ft_containers)      | Not yet added |
+| [webserv](./Rank05/webserv)                  | Not yet added |
+| [ft_irc](./Rank05/ft_irc)                    | Not yet added |
+| [ft_transcendence](./Rank06/ft_transcendence)| Not yet added |
 
 </div>
 
