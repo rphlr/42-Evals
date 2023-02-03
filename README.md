@@ -17,7 +17,7 @@ The forms can be used by students to assess the performance of each of their pro
 # Language
 The forms are in french for now but I will post english version as soon as possible.
 
-### ✅ Evaluation Status
+### Evaluation Status
 The following table shows the status of each evaluation form.
 
 <div align="center">
