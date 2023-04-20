@@ -1,7 +1,7 @@
-![Image](img/1.png)
+![Image](img/1.jpg)
 
-![Image](img/2.png)
+![Image](img/2.jpg)
 
-![Image](img/3.png)
+![Image](img/3.jpg)
 
-![Image](img/4.png)
+![Image](img/4.jpg)
