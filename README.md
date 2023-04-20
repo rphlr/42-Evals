@@ -22,29 +22,48 @@ The following table shows the status of each evaluation form.
 
 <div align="center">
 
-| Project                                      | Status                              |
-| -------------------------------------------- | ----------------------------------- |
-| [Libft](./Rank00/Libft)                      | Added !                             |
-| [ft_printf](./Rank01/ft_printf)              | Not yet added                       |
-| [Get_next_line](./Rank01/get_next_line)      | Not yet added                       |
-| [Born2beroot](./Rank01/Born2beroot)          | Added !                             |
-| [push_swap](./Rank02/push_swap)              | Added !                             |
-| [so_long](./Rank02/42-so_long)               | Not yet added                       |
-| [fract-ol](./Rank02/fract-ol)                | Added !                             |
-| [FdF](./Rank02/FdF)                          | Added !                             |
-| [pipex](./Rank02/pipex)                      | Added !                             |
-| [minitalk](./Rank02/minitalk)                | Added !                             |
-| [minishell](./Rank03/minishell)              | Added !                             |
-| [Philosophers](./Rank03/Philosophers)        | Added !                             |
-| [netpractice](./Rank04/netpractice)          | Added !                             |
-| [CPP](./Rank04/CPP_Modules/)                 | Added but 5,6 and 8 still missing ! |
-| [cub3d](./Rank04/cub3d)                      | Added !                             |
-| [miniRT](./Rank04/miniRT)                    | Not yet added                       |
-| [Inception](./Rank05/Inception)              | Not yet added                       |
-| [ft_containers](./Rank05/ft_containers)      | Not yet added                       |
-| [webserv](./Rank05/webserv)                  | Not yet added                       |
-| [ft_irc](./Rank05/ft_irc)                    | Not yet added                       |
-| [ft_transcendence](./Rank06/ft_transcendence)| Not yet added                       |
+| Project                                      | Status                            |
+| -------------------------------------------- | --------------------------------- |
+| [Libft](./Rank00/Libft)                      | ✅                                |
+| [ft_printf](./Rank01/ft_printf)              | ✅                                |
+| [Get_next_line](./Rank01/get_next_line)      | ❌                                |
+| [Born2beroot](./Rank01/Born2beroot)          | ✅                                |
+| [push_swap](./Rank02/push_swap)              | ✅                                |
+| [so_long](./Rank02/42-so_long)               | ✅                                |
+| [fract-ol](./Rank02/fract-ol)                | ✅                                |
+| [FdF](./Rank02/FdF)                          | ✅                                |
+| [pipex](./Rank02/pipex)                      | ✅                                |
+| [minitalk](./Rank02/minitalk)                | ✅                                |
+| [minishell](./Rank03/minishell)              | ✅                                |
+| [Philosophers](./Rank03/Philosophers)        | ✅                                |
+| [netpractice](./Rank04/netpractice)          | ✅                                |
+| [CPP](./Rank04/CPP_Modules/)                 | ❌ ([👉🏼 Details 👈🏼](#cpp-details)) |
+| [cub3d](./Rank04/cub3d)                      | ✅                                |
+| [miniRT](./Rank04/miniRT)                    | ❌                                |
+| [Inception](./Rank05/Inception)              | ❌                                |
+| [ft_containers](./Rank05/ft_containers)      | ❌                                |
+| [webserv](./Rank05/webserv)                  | ❌                                |
+| [ft_irc](./Rank05/ft_irc)                    | ❌                                |
+| [ft_transcendence](./Rank06/ft_transcendence)| ❌                                |
+
+</div>
+
+### CPP details
+
+<div align="center">
+
+| Modules                              | Status |
+| ------------------------------------ | ------ |
+| [CPP00](./Rank04/CPP_Modules/CPP00)  | ✅     |
+| [CPP01](./Rank04/CPP_Modules/CPP01)  | ✅     |
+| [CPP02](./Rank04/CPP_Modules/CPP02)  | ✅     |
+| [CPP03](./Rank04/CPP_Modules/CPP03)  | ✅     |
+| [CPP04](./Rank04/CPP_Modules/CPP04)  | ❌     |
+| [CPP05](./Rank04/CPP_Modules/CPP05)  | ❌     |
+| [CPP06](./Rank04/CPP_Modules/CPP06)  | ✅     |
+| [CPP07](./Rank04/CPP_Modules/CPP07)  | ✅     |
+| [CPP08](./Rank04/CPP_Modules/CPP08)  | ❌     |
+| [CPP09](./Rank04/CPP_Modules/CPP09)  | ✅     |
 
 </div>
 
