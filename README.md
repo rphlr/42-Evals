@@ -26,7 +26,7 @@ The following table shows the status of each evaluation form.
 | -------------------------------------------- | --------------------------------- |
 | [Libft](./Rank00/Libft)                      | ✅                                |
 | [ft_printf](./Rank01/ft_printf)              | ✅                                |
-| [Get_next_line](./Rank01/get_next_line)      | ❌                                |
+| [Get_next_line](./Rank01/get_next_line)      | ✅                                |
 | [Born2beroot](./Rank01/Born2beroot)          | ✅                                |
 | [push_swap](./Rank02/push_swap)              | ✅                                |
 | [so_long](./Rank02/42-so_long)               | ✅                                |
