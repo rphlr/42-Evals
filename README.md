@@ -1,22 +1,6 @@
 # Evaluation Forms for 42 Project Cursus
 This repository contains the evaluation forms for all 42 projects in the cursus. The forms are designed to assess the performance of students on each project and provide feedback for improvement. The forms are organized by project name and rank. Currently, the forms are available in French only, but English versions will be added as soon as possible.
 
-# Contributing
-I welcome contributions to this repository. If you'd like to add an evaluation form for a project or improve an existing form, please follow these steps:
-
-1. Fork the repository
-2. Clone your fork to your local machine
-3. Update a correction or add one
-4. Commit the changes with a descriptive message
-5. Push the changes to your fork
-6. Submit a pull request
-
-# Using the Forms
-The forms can be used by students to assess the performance of each of their project. They provide a standardized way of evaluating the projects and provide a basis for constructive feedback. To use the forms, simply fill in the sections for comments and grading.
-
-# Language
-The forms are in french for now but I will post english version as soon as possible.
-
 ### Evaluation Status
 The following table shows the status of each evaluation form.
 
@@ -41,8 +25,7 @@ The following table shows the status of each evaluation form.
 | [cub3d](./Rank04/cub3d)                      | ✅                                |
 | [miniRT](./Rank04/miniRT)                    | ❌                                |
 | [Inception](./Rank05/Inception)              | ❌                                |
-| [ft_containers](./Rank05/ft_containers)      | ❌                                |
-| [webserv](./Rank05/webserv)                  | ✅                                |
+| [webserv](./Rank05/webserv)                  | ❌                                |
 | [ft_irc](./Rank05/ft_irc)                    | ❌                                |
 | [ft_transcendence](./Rank06/ft_transcendence)| ❌                                |
 
@@ -66,6 +49,22 @@ The following table shows the status of each evaluation form.
 | [CPP09](./Rank04/CPP_Modules/CPP09)  | ✅     |
 
 </div>
+
+# Contributing
+I welcome contributions to this repository. If you'd like to add an evaluation form for a project or improve an existing form, please follow these steps:
+
+1. Fork the repository
+2. Clone your fork to your local machine
+3. Update a correction or add one
+4. Commit the changes with a descriptive message
+5. Push the changes to your fork
+6. Submit a pull request
+
+# Using the Forms
+The forms can be used by students to assess the performance of each of their project. They provide a standardized way of evaluating the projects and provide a basis for constructive feedback. To use the forms, simply fill in the sections for comments and grading.
+
+# Language
+The forms are in french for now but I will post english version as soon as possible.
 
 # Feedback
 If you have any feedback or suggestions for improvement, please open an issue or submit a pull request. I'd love to hear from you!
