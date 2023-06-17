@@ -42,7 +42,7 @@ The following table shows the status of each evaluation form.
 | [miniRT](./Rank04/miniRT)                    | ❌                                |
 | [Inception](./Rank05/Inception)              | ❌                                |
 | [ft_containers](./Rank05/ft_containers)      | ❌                                |
-| [webserv](./Rank05/webserv)                  | ❌                                |
+| [webserv](./Rank05/webserv)                  | ✅                                |
 | [ft_irc](./Rank05/ft_irc)                    | ❌                                |
 | [ft_transcendence](./Rank06/ft_transcendence)| ❌                                |
 
