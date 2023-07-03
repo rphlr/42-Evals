@@ -68297,15 +68297,16 @@ input[type=radio]:not(:checked) + label .icon-times {
 	position: fixed;
 	top: 20px;
 	right: 20px;
+	padding: 10px;
 	background-color: #4CAF50;
 	border: none;
 	color: white;
-	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
 	margin: 4px 2px;
 	cursor: pointer;
+	border-radius: 12px;
 	z-index: 9999;
 }
