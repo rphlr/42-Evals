@@ -8591,7 +8591,13 @@
 }
 
 .iconf-bubble-attention-4:before {
-	content: "\e054"
+	content: "";
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	background-image: url('imgs/Can\'t\ explain.png');
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .iconf-bubble-attention-6:before {
@@ -10255,7 +10261,7 @@
 }
 
 .iconf-file-1:before {
-	content: "\e1f4"
+	/* content: "\e1f4" */
 }
 
 .iconf-file-2:before {
