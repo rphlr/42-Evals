@@ -1792,13 +1792,7 @@
 }
 
 .icon-star-1:before {
-	content: "";
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    background-image: url('imgs/Outstanding.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+	content: "\e09d"
 }
 
 .icon-star-2:before {
@@ -4257,13 +4251,7 @@
 }
 
 .icon-check-4:before {
-	content: "";
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    background-image: url('imgs/Ok.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+	content: "\e302"
 }
 
 .icon-check-bubble:before {
@@ -7873,7 +7861,13 @@
 }
 
 .iconf-bomb:before {
-	content: "d"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Crash.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-clip-1:before {
@@ -7905,7 +7899,13 @@
 }
 
 .iconf-delete-2:before {
-	content: "l"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Forbidden\ function.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-edit-1:before {
@@ -8053,7 +8053,13 @@
 }
 
 .iconf-skull-2:before {
-	content: "W"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Invalid\ compilation.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-type-1:before {
@@ -8245,7 +8251,13 @@
 }
 
 .iconf-layers:before {
-	content: "\e002"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Cheat.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-magic-wand-1:before {
@@ -8489,7 +8501,13 @@
 }
 
 .iconf-star-1:before {
-	content: "\e03f"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Outstanding.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-star-2:before {
@@ -10249,7 +10267,13 @@
 }
 
 .iconf-file-attention:before {
-	content: "\e1f7"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Incomplete\ work.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-file-block:before {
@@ -10942,7 +10966,13 @@
 }
 
 .iconf-check-4:before {
-	content: "\e2a4"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Ok.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-check-bubble:before {
@@ -11138,7 +11168,13 @@
 }
 
 .iconf-alert-2:before {
-	content: "\e2d5"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Concerning\ situation.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-alert-3:before {
@@ -13390,7 +13426,13 @@
 }
 
 .iconf-blood:before {
-	content: "\e508"
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Leaks.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .iconf-drug:before {
@@ -68229,22 +68271,4 @@ body>.container {
 #calendar {
 	max-width: 900px;
 	margin: 0 auto
-}
-
-#backToProject {
-	position: fixed;
-	top: 10px;
-	right: 10px;
-	padding: 10px;
-	background-color: #4CAF50;
-	border: none;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-	border-radius: 12px;
-	z-index: 9999;
 }
