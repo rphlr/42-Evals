@@ -68273,7 +68273,7 @@ body>.container {
 	margin: 0 auto
 }
 
-input[type=radio]:checked + label .icon-check {
+input[type=radio]:checked+label .icon-check {
 	content: "";
 	display: inline-block;
 	height: 15px;
@@ -68283,7 +68283,7 @@ input[type=radio]:checked + label .icon-check {
 	background-repeat: no-repeat;
 }
 
-input[type=radio]:not(:checked) + label .icon-times {
+input[type=radio]:not(:checked)+label .icon-times {
 	content: "";
 	display: inline-block;
 	height: 15px;
