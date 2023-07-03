@@ -68230,3 +68230,21 @@ body>.container {
 	max-width: 900px;
 	margin: 0 auto
 }
+
+#backToProject {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	padding: 10px;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12px;
+	z-index: 9999;
+}
