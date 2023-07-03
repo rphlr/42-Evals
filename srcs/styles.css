@@ -68293,7 +68293,7 @@ input[type=radio]:not(:checked) + label .icon-times {
 	background-repeat: no-repeat;
 }
 
-.floating-button {
+#backToProject {
 	position: fixed;
 	top: 20px;
 	right: 20px;
