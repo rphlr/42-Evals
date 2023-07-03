@@ -68272,3 +68272,23 @@ body>.container {
 	max-width: 900px;
 	margin: 0 auto
 }
+
+input[type=radio]:checked + label .icon-check {
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/Yes-selected.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+input[type=radio]:not(:checked) + label .icon-times {
+	content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-image: url('imgs/No-selected.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
