@@ -1,2 +1,1 @@
-<!-- ![Image](img/all.jpg) -->
 [Open the correction file](https://rphlr.github.io/42-Evals/Rank04/CPP_Modules/CPP04/html/index.html)
