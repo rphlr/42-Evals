@@ -24,8 +24,8 @@ The following table shows the status of each evaluation form.
 | [CPP](./Rank04/CPP_Modules/)                 | ❌ ([👉🏼 Details 👈🏼](#cpp-details)) |
 | [cub3d](./Rank04/cub3d)                      | ✅                                |
 | [miniRT](./Rank04/miniRT)                    | ❌                                |
-| [Inception](./Rank05/Inception)              | ❌                                |
-| [webserv](./Rank05/webserv)                  | ❌                                |
+| [Inception](./Rank05/Inception)              | ✅                                |
+| [webserv](./Rank05/webserv)                  | ✅                                |
 | [ft_irc](./Rank05/ft_irc)                    | ❌                                |
 | [ft_transcendence](./Rank06/ft_transcendence)| ❌                                |
 
@@ -41,7 +41,7 @@ The following table shows the status of each evaluation form.
 | [CPP01](./Rank04/CPP_Modules/CPP01)  | ✅     |
 | [CPP02](./Rank04/CPP_Modules/CPP02)  | ✅     |
 | [CPP03](./Rank04/CPP_Modules/CPP03)  | ✅     |
-| [CPP04](./Rank04/CPP_Modules/CPP04)  | ❌     |
+| [CPP04](./Rank04/CPP_Modules/CPP04)  | ✅     |
 | [CPP05](./Rank04/CPP_Modules/CPP05)  | ❌     |
 | [CPP06](./Rank04/CPP_Modules/CPP06)  | ✅     |
 | [CPP07](./Rank04/CPP_Modules/CPP07)  | ✅     |
