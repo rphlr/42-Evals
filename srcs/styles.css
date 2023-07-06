@@ -66915,24 +66915,6 @@ input[type=radio]:not(:checked)+label .icon-times {
 	background-repeat: no-repeat;
 }
 
-#backToProject {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	padding: 10px;
-	background-color: #4CAF50;
-	border: none;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-	border-radius: 12px;
-	z-index: 9999;
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -66991,6 +66973,7 @@ input[type=radio]:not(:checked)+label .icon-times {
     text-decoration: none;
     font-size: 15px;
     transition: background 0.3s ease;
+    z-index: 100;
   }
 
   .floating-btn:hover {
@@ -67000,6 +66983,24 @@ input[type=radio]:not(:checked)+label .icon-times {
 
   .floating-btn:visited {
     color: aliceblue;
+  }
+
+  #backToProject {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      padding: 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      z-index: 9999;
   }
 
   .hover-text {
@@ -67012,4 +67013,16 @@ input[type=radio]:not(:checked)+label .icon-times {
     padding: 5px;
     border-radius: 5px;
     white-space: nowrap;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 60px 0;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 9999;
   }
