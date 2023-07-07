@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 	<meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible">
 	<meta
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
@@ -22,12 +22,11 @@
 		rel="shortcut icon" type="image/png">
 	<link href="https://projects.intra.42.fr/opensearch.xml" rel="search" title="project"
 		type="application/opensearchdescription+xml">
-	<title>CPP Module 04 correction</title>
+	<title>CPP Module 08 correction</title>
 	<meta name="csrf-param" content="authenticity_token">
 	<meta name="csrf-token"
-		content="klQZt1C6LxsivitAy+RL40k0fIWMPnQoNljV8uvdAaPe+D1vvXxlVlftk54fEbw/P2CmFGJCVK6OJODG8uUbAA==">
+		content="ZkyeHJiPBawYYypB3ZeNyewnhCm+8MjQ+Dd60WIU6Y6msl5IKl/IaXrRWUDaTXYEV43NGlXmrIarxQldqGOeoQ==">
 	<link rel="stylesheet" media="all" href="../../../../srcs/styles.css">
-
 </head>
 
 <body class=" ">
@@ -41,7 +40,7 @@
 				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">
 					<br><br>Scale for project
 
-					<a href="https://projects.intra.42.fr/projects/cpp-module-04">CPP Module 04</a>
+					<a href="https://projects.intra.42.fr/projects/cpp-module-08">CPP Module 08</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 1 student in this team</h5>
 
@@ -94,7 +93,7 @@
 							<h4 class="attachment-name">
 								<span class="icon-file"></span>
 								<a target="_blank"
-									href="https://github.com/rphlr/42-Subjects/blob/main/Rank04/CPP_Modules/CPP04/">subject.pdf</a>
+									href="https://github.com/rphlr/42-Subjects/blob/main/Rank04/CPP_Modules/CPP08/">subject.pdf</a>
 							</h4>
 						</div>
 					</div>
@@ -177,18 +176,21 @@
 					<section class="scale-section-item dancer from-down" id="section-61074">
 						<div class="section-header">
 							<hr>
-							<h3 class="font-weight-bold mb-1">Exercise 00: Polymorphism</h3>
-							<p class="font-italic">As usual, there has to be enough tests to prove the program works as
-								expected. If there isn't, do not grade this exercise. If any non-interface
-								class is not in orthodox canonical class form, do not grade this exercise.
+							<h3 class="font-weight-bold mb-1">Ex00: Easy find</h3>
+							<p class="font-italic">As usual, there has to be the main function that contains enough tests to prove the program works as expected. If
+								there isn't, do not grade this exercise. If any non-interface class is not in orthodox canonical class form, do not grade
+								this exercise.
 							</p>
 						</div>
-						<h4 class="scale-question-name">First check</h4>
+						<h4 class="scale-question-name">Template function</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>There is an Animal class that has one attribute:<br>
-							One string called type.<br>
-							You must be able to instantiate and use this class.</p>
+						<p>There is a templated function easyFind(T, int) that does what the<br>
+							subject requires.<br>
+							It HAS to use STL algorithms.<br>
+							If it does not (like manual search using iterators for example), count<br>
+							it as wrong.<br>
+						</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -222,327 +224,24 @@
 								</label>
 							</div>
 						</div>
-						<h4 class="scale-question-name">Inheritance</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>They are at least two classes that inherit from Animal: Cat and Dog.<br>
-							The constructor and destructor outputs must be clear.<br>
-							Ask the student about constructor and destructor orders.</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][2][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207718"
-										name="[scale_team][answers_attributes][2][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][2][value]"
-									id="radio_[scale_team][answers_attributes][2]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][2]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][2][value]"
-									id="radio_[scale_team][answers_attributes][2]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][2]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-						<h4 class="scale-question-name">Easy derived class</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>The attribute type is set to the appropriate value at creation for <br>
-							every animal. Cat must have "Cat" and Dog must have "Dog".</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][3][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207719"
-										name="[scale_team][answers_attributes][3][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][3][value]"
-									id="radio_[scale_team][answers_attributes][3]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][3]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][3][value]"
-									id="radio_[scale_team][answers_attributes][3]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][3]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-						<h4 class="scale-question-name">Animal</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>Using makeSound() function always called the appropriate makeSound() <br>
-							function. makeSound() should be virtual! Verify it in the code.<br>
-							virtual void makeSound() const;<br>
-							The return value is not important but virtual keyword is mandatory.</p>
-
-						<p>There should be an example with a WrongAnimal and WrongCat that don't <br>
-							use the virtual keyword (see subject).<br>
-							The WrongCat must output the WrongCat makeSound() only when used as a <br>
-							wrongCat.</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][4][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207720"
-										name="[scale_team][answers_attributes][4][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][4][value]"
-									id="radio_[scale_team][answers_attributes][4]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][4]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][4][value]"
-									id="radio_[scale_team][answers_attributes][4]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][4]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-					</section>
-					<section class="scale-section-item dancer from-down" id="section-61075">
-						<div class="section-header">
-							<hr>
-							<h3 class="font-weight-bold mb-1">Exercise 01: I do not want to set the world on fire</h3>
-							<p class="font-italic">As usual, there has to be enough tests to prove the program works as
-								expected. If there isn't, do not grade this exercise. If any non-interface
-								class is not in orthodox canonical class form, do not grade this exercise.
-							</p>
-						</div>
-						<h4 class="scale-question-name">Concrete Animal</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>There is a new class called Brain.<br>
-							Cat and Dog have the required private Brain attribute.<br>
-							The Brain attribute should not be inside the Animal class.<br>
-							The Brain class has specific outputs upon creation and deletion.</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][5][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207721"
-										name="[scale_team][answers_attributes][5][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][5][value]"
-									id="radio_[scale_team][answers_attributes][5]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][5]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][5][value]"
-									id="radio_[scale_team][answers_attributes][5]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][5]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-						<h4 class="scale-question-name">Concrete Brain</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>The copy a Cat or a Dog should be a deep copy.<br>
-							Test something like: <br>
-							Dog basic;<br>
-							{<br>
-							Dog tmp = basic;<br>
-							}<br>
-							If the copy is shallow, tmp and basic will use the same Brain and <br>
-							the Brain will get deleted with tmp at the end of the scope.<br>
-							The copy constructor should do a deep copy too. <br>
-							That's why a clean implementation in orthodox canonical form will <br>
-							save you from hours of pain.</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][6][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207722"
-										name="[scale_team][answers_attributes][6][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][6][value]"
-									id="radio_[scale_team][answers_attributes][6]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][6]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][6][value]"
-									id="radio_[scale_team][answers_attributes][6]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][6]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-						<h4 class="scale-question-name">Destruction chaining</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>The destructors in Animal must be virtual. <br>
-							Ask an explanation of what will happen without the virtual keyword over Animal destructor.
-							<br>
-							Test it.
-						</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][7][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207723"
-										name="[scale_team][answers_attributes][7][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][7][value]"
-									id="radio_[scale_team][answers_attributes][7]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][7]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][7][value]"
-									id="radio_[scale_team][answers_attributes][7]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][7]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-						<h4 class="scale-question-name">Assignment and copy</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>The copy and assignment behaviors of the Cat and Dog are like the <br>
-							subject requires. <br>
-							Deep copy means you need to create a new Brain for the Cat or Dog. <br>
-							Check that the canonical form is really implemented (i.e. no empty <br>
-							copy assignment operators and so forth). Nothing should be public for no <br>
-							reason. Moreover, this code is very simple so it needs to be clean!</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][8][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207724"
-										name="[scale_team][answers_attributes][8][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][8][value]"
-									id="radio_[scale_team][answers_attributes][8]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][8]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][8][value]"
-									id="radio_[scale_team][answers_attributes][8]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][8]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
 					</section>
 					<section class="scale-section-item dancer from-down" id="section-61076">
 						<div class="section-header">
 							<hr>
-							<h3 class="font-weight-bold mb-1">Exercise 02: Abstract class</h3>
-							<p class="font-italic">As usual, there has to be enough tests to prove the program works as
-								expected. If there isn't, do not grade this exercise. If any non-interface
-								class is not in orthodox canonical class form, do not grade this exercise.
+							<h3 class="font-weight-bold mb-1">Ex01: Span</h3>
+							<p class="font-italic">As usual, there has to be the main function that contains enough tests to prove the program works as expected. If
+								there isn't, do not grade this exercise. If any non-interface class is not in orthodox canonical class form, do not grade
+								this exercise.
 							</p>
 						</div>
-						<h4 class="scale-question-name">Abstract class</h4>
+						<h4 class="scale-question-name">Class and member functions</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>There is an Animal class exactly like the one in the subject. <br>
-							The Animal::makeSound is a pure virtual function.<br>
-							It should look like : virtual void makeSound() const = 0;<br>
-							The "= 0" part is mandatory.<br>
-							You should not be able to instantiate an Animal.<br>
-							Animal test; //should give you a compile error about the class being abstract</p>
+						<p>There is a class that complies with the constraints of the subject.<br>
+							Its member functions use STL algorithms to find their result as much as<br>
+							possible. Finding the shortest span can't be done only by subtracting<br>
+							the two lowest numbers (take a closer look at the subject example).<br>
+						</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -576,58 +275,64 @@
 								</label>
 							</div>
 						</div>
-						<h4 class="scale-question-name">Concrete Animal</h4>
+
+						<h4 class="scale-question-name">Improved addNumber function</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>Class Cat and Dog are still present and work exactly like in ex01.</p>
+						<p>There's a way to add numbers that's more practical than calling the<br>
+							addNumber() function repeatedly.</p>
 
 						<p></p>
 						<div class="scale-question-answers">
 							<div class="form-group hidden scale_team_answer_id">
 								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][10][id]" type="hidden"
+										name="[scale_team][answers_attributes][3][id]" type="hidden"
 										id="scale_team_answer_id"></div>
 							</div>
 							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207726"
-										name="[scale_team][answers_attributes][10][question_id]" type="hidden"
+								<div class="col-sm-10"><input class="form-control hidden" value="207719"
+										name="[scale_team][answers_attributes][3][question_id]" type="hidden"
 										id="scale_team_answer_question_id"></div>
 							</div>
 							<div class="btn-group block">
 								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][10][value]"
-									id="radio_[scale_team][answers_attributes][10]_true" type="radio" value="1">
+									name="[scale_team][answers_attributes][3][value]"
+									id="radio_[scale_team][answers_attributes][3]_true" type="radio" value="1">
 								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][10]_true">
+									for="radio_[scale_team][answers_attributes][3]_true">
 									<span class="icon-check"></span>
 									Yes
 								</label>
 								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][10][value]"
-									id="radio_[scale_team][answers_attributes][10]_false" type="radio" value="0"
+									name="[scale_team][answers_attributes][3][value]"
+									id="radio_[scale_team][answers_attributes][3]_false" type="radio" value="0"
 									checked="checked">
 								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][10]_false">
+									for="radio_[scale_team][answers_attributes][3]_false">
 									<span class="icon-times"></span>
 									No
 								</label>
 							</div>
 						</div>
+						
 					</section>
 					<section class="scale-section-item dancer from-down" id="section-61077">
 						<div class="section-header">
 							<hr>
-							<h3 class="font-weight-bold mb-1">Exercise 03: Interface and recap</h3>
-							<p class="font-italic">As usual, there has to be enough tests to prove the program works as
-								expected. If there isn't, do not grade this exercise. If any non-interface
-								class is not in orthodox canonical class form, do not grade this exercise.
+							<h3 class="font-weight-bold mb-1">Ex02: Mutated abomination</h3>
+							<p class="font-italic">As usual, there has to be the main function that contains enough tests to prove the program works as expected. If
+								there isn't, do not grade this exercise. If any non-interface class is not in orthodox canonical class form, do not grade
+								this exercise.
 							</p>
 						</div>
-						<h4 class="scale-question-name">Interfaces</h4>
+						<h4 class="scale-question-name">MutantStack class</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>There are ICharacter and IMateriaSource interfaces that are exactly like <br>
-							required in the subject.</p>
+						<p>There is a MutantStack class that inherits from std::stack and offers<br>
+							all of its member functions.<br>
+							It has an iterator. Also, it is possible to do at least the operations<br>
+							shown in the subject's examples using iterators.<br>
+						</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -661,11 +366,12 @@
 								</label>
 							</div>
 						</div>
-						<h4 class="scale-question-name">MateriaSource</h4>
+						<h4 class="scale-question-name">Better tests</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>The MateriaSource class is present and implements IMateriaSource. The<br>
-							member functions work as intended.</p>
+						<p>There is a at least a main() function that has more tests than the ones<br>
+							from the subject.<br>
+						</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -694,88 +400,6 @@
 									checked="checked">
 								<label class="btn btn-danger checkbox-label light-bg"
 									for="radio_[scale_team][answers_attributes][12]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-						<h4 class="scale-question-name">Concrete Materia</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>There are concrete Ice and Cure classes that inherit from AMateria. Their<br>
-							clone() method is correctly implemented. Their outputs are correct.<br>
-							The AMateria class is still abstract (clone() is a pure function).<br>
-							virtual ~AMateria() is present.<br>
-							AMateria contains a protected string attribute to store the type.</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][13][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207729"
-										name="[scale_team][answers_attributes][13][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][13][value]"
-									id="radio_[scale_team][answers_attributes][13]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][13]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][13][value]"
-									id="radio_[scale_team][answers_attributes][13]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][13]_false">
-									<span class="icon-times"></span>
-									No
-								</label>
-							</div>
-						</div>
-						<h4 class="scale-question-name">Character</h4>
-						<p class="scale-section-guidelines">
-						</p>
-						<p>The Character class is present and implements ICharacter. It has<br>
-							an inventory of 4 Materias maximum. <br>
-							The member functions are implemented as the subject requires.<br>
-							The copy and assignment of a Character are implemented as required <br>
-							(deep copy).</p>
-
-						<p></p>
-						<div class="scale-question-answers">
-							<div class="form-group hidden scale_team_answer_id">
-								<div class="col-sm-10"><input class="form-control hidden"
-										name="[scale_team][answers_attributes][14][id]" type="hidden"
-										id="scale_team_answer_id"></div>
-							</div>
-							<div class="form-group hidden scale_team_answer_question_id">
-								<div class="col-sm-10"><input class="form-control hidden" value="207730"
-										name="[scale_team][answers_attributes][14][question_id]" type="hidden"
-										id="scale_team_answer_question_id"></div>
-							</div>
-							<div class="btn-group block">
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][14][value]"
-									id="radio_[scale_team][answers_attributes][14]_true" type="radio" value="1">
-								<label class="btn btn-success checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][14]_true">
-									<span class="icon-check"></span>
-									Yes
-								</label>
-								<input autocomplete="off" class="checkbox-input"
-									name="[scale_team][answers_attributes][14][value]"
-									id="radio_[scale_team][answers_attributes][14]_false" type="radio" value="0"
-									checked="checked">
-								<label class="btn btn-danger checkbox-label light-bg"
-									for="radio_[scale_team][answers_attributes][14]_false">
 									<span class="icon-times"></span>
 									No
 								</label>
