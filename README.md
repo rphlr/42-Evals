@@ -4,6 +4,8 @@ This repository contains the evaluation forms for all 42 projects in the cursus.
 
 For easier access and corrections, you can now visit [rphlr.github.io/42-Evals/](https://rphlr.github.io/42-Evals/). The HTML versions of the corrections will be updated progressively. If you wish to add an HTML file, please fork the repository, place the HTML file in the appropriate folder, and submit a pull request.
 
+![Site capture](URL_of_the_image)
+
 ## Contributing
 
 Contributions to this repository are welcome. If you'd like to add an evaluation form for a project or improve an existing form, please follow these steps:

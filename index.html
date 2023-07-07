@@ -8,13 +8,39 @@
   <title>Evaluation Forms for 42 Project Cursus</title>
   <link rel="stylesheet" media="all" href="./stylesheet/styles.css">
 </head>
+<style>
+
+.floating-btn-home {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #24292E;
+  color: white;
+  padding: 20px 20px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background 0.3s ease;
+  z-index: 100;
+}
+
+.floating-btn-home:hover {
+  background: #404448;
+  color: aliceblue;
+}
+
+.floating-btn-home:visited {
+  color: aliceblue;
+}
+</style>
 
 <body>
-  <a href="https://github.com/rphlr/42-Evals" target="_blank" class="floating-btn">Give this repository a star. ⭐</a>
+  <a href="https://github.com/rphlr/42-Evals" target="_blank" class="floating-btn-home">Give this repository a star. ⭐</a>
   <div class="container-item scale-team-container">
     <div class="row mt-4">
       <div class="scale-section-infos col-sm-12 scale-div">
-        <h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">
+        <h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4"><br>
           Evaluation Forms for 42 Project Cursus
         </h3>
         <h5 class="text-muted text-center">This repository houses evaluation forms for all 42 projects in the curriculum. These forms are designed to gauge student performance on each project and offer feedback for improvement. The forms are sorted by project name and rank.</h5>
@@ -36,7 +62,7 @@
             </tr>
             <tr>
                 <td><a href="https://github.com/rphlr/42-Evals/tree/main/Rank01/ft_printf" title="Go to ft_printf ➡️">ft_printf</a></td>
-                <td>🌐</td>
+                <td>🖼</td>
             </tr>
             <tr>
                 <td><a href="https://github.com/rphlr/42-Evals/tree/main/Rank01/get_next_line" title="Go to get_next_line ➡️">get_next_line</a></td>
@@ -51,7 +77,7 @@
                 <td>🖼</td>
             </tr>
             <tr>
-                <td><a href="https://github.com/rphlr/42-Evals/tree/main/Rank02/42-so_long" title="Go to so_long ➡️">so_long</a></td>
+                <td><a href="https://github.com/rphlr/42-Evals/tree/main/Rank02/so_long" title="Go to so_long ➡️">so_long</a></td>
                 <td>🖼</td>
             </tr>
             <tr>
@@ -83,7 +109,7 @@
                 <td>🖼</td>
             </tr>
             <tr>
-                <td><a href="#" onclick="showCPPModal(event)" title="Open details 👀">Open CPP details 👀</a></td>
+                <td>↓ <a href="#" onclick="showCPPModal(event)" title="Open details 👀">Open CPP details 👀</a></td>
                 <td>🌐🖼</td>
             </tr>
             <tr>
