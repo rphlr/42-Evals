@@ -1,5 +1,11 @@
 ## 42 Project Evaluation Forms
 
+<p align="center">
+	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/rphlr/42-Evals?color=green&logo=Codecademy&logoColor=green&style=flat-square">
+	<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/rphlr/42-Evals?color=green&logo=github&logoColor=green&style=flat-square">
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rphlr/42-Evals?color=green&logo=github&logoColor=green&style=flat-square">
+</p>
+
 This repository contains the evaluation forms for all 42 projects in the cursus. These forms are designed to assess the performance of students on each project and provide feedback for improvement. The forms are organized by project name and rank. Currently, the forms are available in French only, but English versions will be added as soon as possible.
 
 For easier access and corrections, you can now visit [rphlr.github.io/42-Evals/](https://rphlr.github.io/42-Evals/). The HTML versions of the corrections will be updated progressively. If you wish to add an HTML file, please fork the repository, place the HTML file in the appropriate folder, and submit a pull request.
