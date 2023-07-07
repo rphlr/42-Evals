@@ -66963,7 +66963,7 @@ input[type=radio]:not(:checked)+label .icon-times {
 
   .floating-btn {
     position: fixed;
-    top: 30px;
+    bottom: 30px;
     right: 30px;
     background: #24292E;
     color: white;
@@ -67013,16 +67013,4 @@ input[type=radio]:not(:checked)+label .icon-times {
     padding: 5px;
     border-radius: 5px;
     white-space: nowrap;
-  }
-
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 60px 0;
-    display: flex;
-    justify-content: flex-end;
-    z-index: 9999;
   }
