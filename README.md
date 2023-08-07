@@ -3,7 +3,6 @@
 ## Contents
 
 <p align="center">
-  <a href="#42-project-evaluation-sheets-">42 Project Evaluation Sheets</a> •
   <a href="#how-to-contribute-">How to Contribute</a> •
   <a href="#usage-of-sheets-">Usage of Sheets</a> •
   <a href="#related-repository-">Related Repository</a> •
