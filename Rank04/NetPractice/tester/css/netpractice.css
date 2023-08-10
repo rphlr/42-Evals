@@ -1,0 +1,111 @@
+
+/* net Practice CSS */
+/* Warning : some parameters are set / modified by script */
+
+
+body {
+    font-family: sans-serif;
+    padding:0px;
+    margin:0px;
+    background-image:url("../img/site42-bg.gif");
+}
+
+
+div {
+    box-sizing: border-box;
+}
+
+
+
+/* message box in index.html */
+
+.intro_div {
+    background-color: #00AAAA;
+    border: 5px solid #00AAAA;
+    border-radius: 5px;
+    padding:10px;
+    width:50%;
+    margin:auto;
+    margin-top: 25%;
+    text-align: center;
+}
+
+
+/* goals div */
+.goals_div {
+    background-color: #00AAAA;
+    width:100%;
+    border:5px solid #00AAAA;
+    border-radius:5px;
+    padding: 5px;
+}
+
+.goals_div h2 {
+    margin:5px;
+    font-style:italic;
+}
+
+
+/* SVG layer */
+.svg_layer {
+    z-index:-4;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+
+/* logs window */
+.logs_div {
+    background-color: #FFAAAA;
+    border:3px solid #FFAAAA;
+    border-radius:3px;
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    width:250px;
+    height:200px;
+    font-size:70%;
+    overflow-y: scroll;
+}
+
+
+/* host div (image) */
+.host_div {
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* will be updated by script : position, top, left, width, height, background-image */
+}
+
+
+/* host info (name, route) div */
+.host_info_div {
+    min-width: 170px;
+    min-height: 50px;
+    background-color:rgba(150, 150, 255, 0.9);
+    border: 3px solid rgba(150, 150, 255, 0.9);
+    border-radius: 3px;
+    /* will be updated by script : position, top, left */
+}
+
+.host_info_div table {
+    text-align:center;
+}
+
+
+/* interface div */
+.itf_div {
+    min-width: 176px;
+    height: 70px;
+    background-color: rgba(150, 150, 150, 0.9);
+    border: 3px solid rgba(150, 150, 150, 0.9);
+    border-radius: 3px;
+    /* will be updated by script : position, top, left */
+}
+
+/* intro footnote */
+.footnote {
+    font-size:70%;
+    font-style:italic;
+}
