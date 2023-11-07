@@ -1,44 +1,34 @@
-# 42 Project Evaluation Sheets 📝
+# 42 Project Evaluation Sheets Hub 🎯
 
-## Contents
+Welcome to the heart of self-evaluation for 42 School projects! 📝 Whether you're gearing up for a peer-evaluation or refining your code masterpiece, these sheets offer a sneak peek into the evaluation process, setting you up for success. 🌟
 
-<p align="center">
-  <a href="#how-to-contribute-">How to Contribute</a> •
-  <a href="#usage-of-sheets-">Usage of Sheets</a> •
-  <a href="#related-repository-">Related Repository</a> •
-  <a href="#feedback-">Feedback</a>
-</p>
+Dive into our meticulously curated evaluation sheets, sourced directly from the official 42 School, and fine-tune your projects to ace that evaluation. For the most immersive experience, check out the [42-Evals Web Page](https://rphlr.github.io/42-Evals) - your digital companion for project assessments, updated regularly for seamless access. 🖥️✨
 
-<p align="center">
-	<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/rphlr/42-Evals?color=green&logo=github&logoColor=green&style=flat-square">
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/rphlr/42-Evals?color=green&logo=github&logoColor=green&style=flat-square">
-</p>
+![42-Evals Web Capture](./stylesheet/site_preview.png)
 
-Welcome to the repository for all evaluation sheets related to the 42 school curriculum projects 🎓. These sheets, sourced from the official 42 site, are designed to help students self-evaluate before the real evaluation. They mirror the evaluation that students will receive during the actual project correction, providing a valuable resource for students to succeed on their first attempt 🎯.
+## Contributing to Excellence 🤝
 
-For easy access and updates, visit [rphlr.github.io/42-Evals](https://rphlr.github.io/42-Evals/). The HTML versions of the evaluations will be updated progressively. If you wish to contribute an HTML file, kindly fork the repository, place the HTML file in the appropriate folder, and submit a pull request.
+Your insight and expertise can help countless peers! If you've got an evaluation sheet that could illuminate the path to project perfection, here's how to share that beacon of knowledge:
 
-![Site capture](./stylesheet/site_preview.png)
+1. Fork the repository.
+2. Clone your fork and embark on your contribution journey.
+3. Add new enlightenment or polish existing treasures.
+4. Commit your wisdom with a meaningful message.
+5. Push your contributions upstream.
+6. Open a pull request to merge your light into the main beacon.
 
-## How to Contribute 🤝
+## Navigating the Sheets 🗺️
 
-Your contributions to this repository are highly appreciated. If you wish to add an evaluation sheet for a project or enhance an existing one, please follow these steps:
+Each sheet is a roadmap to understanding the intricate expectations of each project. Use them to self-evaluate, discover areas for improvement, and prepare for the peer-evaluation journey that awaits. Review, reflect, and resonate with the criteria that define project success.
 
-1. Fork the repository
-2. Clone your fork to your local machine
-3. Update an evaluation or add a new one.
-4. Commit the changes with a descriptive message
-5. Push the changes to your fork
-6. Submit a pull request
+## Complementary Resources 🌐
 
-## Usage of Sheets 📚
+For a holistic learning journey, don't forget to explore the [42-Subjects](https://github.com/rphlr/42-Subjects/) repository. It's an expansive archive of official project PDFs, in both English and French, aligning perfectly with these evaluation sheets.
 
-The evaluation sheets are designed to assist students in self-assessing their performance on each project. They offer a standardized method for project evaluation and serve as a foundation for constructive feedback. To utilize the sheets, simply review the sections designated for grading.
+## Your Voice Matters 📢
 
-## Related Repository 📂
+I'm in a constant state of learning and improvement, much like the code I write. If you've got ideas, feedback, or enhancements, I'm all ears. Open an issue, submit a pull request, or simply share your thoughts. Together, we grow.
 
-Check out the [42-Subjects](https://github.com/rphlr/42-Subjects/) repository for a comprehensive collection of official PDF subjects for the 42 school projects, available in both English and French.
+---
 
-## Feedback 📣
-
-Your feedback and suggestions for improvement are always welcome. Feel free to open an issue or submit a pull request. We look forward to hearing from you!
+Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies our reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
