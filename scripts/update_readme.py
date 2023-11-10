@@ -9,10 +9,12 @@ REPO_NAME = "rphlr/42-Evals"
 def get_latest_stargazer_info(repo_name):
     g = Github(PERSONAL_ACCESS_TOKEN)
     repo = g.get_repo(repo_name)
-    stargazers = repo.get_stargazers_with_dates()
-    for star in stargazers:
-        return star.user.login, star.user.avatar_url, star.user.html_url
+    stargazers = list(repo.get_stargazers())
+    if stargazers:
+        last_stargazer = stargazers[-1]
+        return last_stargazer.login, last_stargazer.avatar_url, last_stargazer.html_url
     return None, None, None
+
 
 def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargazer_url):
     g = Github(PERSONAL_ACCESS_TOKEN)
