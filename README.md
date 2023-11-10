@@ -36,14 +36,14 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/81936759?v=4&s=250)](https://github.com/rphlr)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/81154606?v=4&s=250)](https://github.com/manemusayelyan)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[rphlr](https://github.com/rphlr)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[manemusayelyan](https://github.com/manemusayelyan)<!--name_end--> for starring the repository! 🎉
 
   **Last update date:**
   
-  <!--date_start-->2023-11-10 13:56:23<!--date_end-->
+  <!--date_start-->2023-11-10 13:59:48<!--date_end-->
 
   <br />
 
