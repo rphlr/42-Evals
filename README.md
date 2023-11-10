@@ -34,14 +34,14 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/81154606?v=4&s=250)](https://github.com/manemusayelyan)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/113806676?v=4&s=250)](https://github.com/RachidPy3)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[manemusayelyan](https://github.com/manemusayelyan)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[RachidPy3](https://github.com/RachidPy3)<!--name_end--> for starring the repository! 🎉
 
   **Last update date:**
   
-  <!--date_start-->2023-11-10 22:45:13<!--date_end-->
+  <!--date_start-->2023-11-10 22:45:40<!--date_end-->
 
   <br />
 
