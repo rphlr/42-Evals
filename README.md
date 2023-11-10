@@ -33,6 +33,6 @@ I'm in a constant state of learning and improvement, much like the code I write.
 
 Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies our reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
 
-Last stargazer: ![Dernier Stargazer](<!--last_stargazer_image-->none) - <!--last_stargazer-->none yet.
+Last stargazer: ![Dernier Stargazer](https://avatars.githubusercontent.com/u/71927888?v=4) - ionorb
 
-Last update: <!--last_update-->not updated yet.
+Last update: 2023-11-10 13:05:47
