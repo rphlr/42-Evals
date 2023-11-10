@@ -26,14 +26,17 @@ def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargaz
 
     # Utilisez les expressions régulières pour remplacer les valeurs dans les marqueurs
     readme_text = re.sub(r'<!--last_stargazer_start-->.*?<!--last_stargazer_end-->', 
-                     f'<!--last_stargazer_start-->\n[![Last Stargazer]({last_stargazer_avatar}&s=250)]({last_stargazer_url})\n<!--last_stargazer_end-->', 
-                     readme_text)
+                        f'<!--last_stargazer_start-->\n[![Last Stargazer]({last_stargazer_avatar}&s=250)]({last_stargazer_url})\n<!--last_stargazer_end-->', 
+                        readme_text, flags=re.DOTALL)
+
     readme_text = re.sub(r'<!--name_start-->.*?<!--name_end-->', 
                         f'<!--name_start-->[{last_stargazer}]({last_stargazer_url})<!--name_end-->', 
-                        readme_text)
+                        readme_text, flags=re.DOTALL)
+
     readme_text = re.sub(r'<!--date_start-->.*?<!--date_end-->', 
                         f'<!--date_start-->{now}<!--date_end-->', 
-                        readme_text)
+                        readme_text, flags=re.DOTALL)
+
 
     repo.update_file(contents.path, "Automated README update with stargazer info and timestamp", readme_text, contents.sha)
 
