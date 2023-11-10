@@ -32,3 +32,7 @@ I'm in a constant state of learning and improvement, much like the code I write.
 ---
 
 Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies our reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=42-Evals/42-Evals&type=Date)](https://star-history.com/#42-Evals/42-Evals&Date)
