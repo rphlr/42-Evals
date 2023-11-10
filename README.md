@@ -35,7 +35,9 @@ I'm in a constant state of learning and improvement, much like the code I write.
 
   **Last stargazer:**
 
-  <!--last_stargazer_start-->[![Dernier Stargazer](https://avatars.githubusercontent.com/u/71927888?v=4&s=250)](https://github.com/ionorb)<!--last_stargazer_end-->
+  <!--last_stargazer_start-->
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/71927888?v=4&s=250)](https://github.com/ionorb)
+  <!--last_stargazer_end-->
   
   Thanks to <!--name_start-->[ionorb](https://github.com/ionorb)<!--name_end--> for starring the repository! 🎉
 
