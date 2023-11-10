@@ -29,23 +29,26 @@ For a holistic learning journey, don't forget to explore the [42-Subjects](https
 
 I'm in a constant state of learning and improvement, much like the code I write. If you've got ideas, feedback, or enhancements, I'm all ears. Open an issue, submit a pull request, or simply share your thoughts. Together, we grow.
 
----
-
-Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies our reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
-
 <details>
   <summary><b>Funny Stats 📊</b></summary>
-  <br/>
+  <br />
 
   **Last stargazer:**
 
-  [![Last Stargazer](<!--last_stargazer_image-->https://avatars.githubusercontent.com/u/71927888?v=4&s=250)](<!--last_stargazer_url-->https://github.com/ionorb)
+  <!--last_stargazer_start-->[![Dernier Stargazer](https://avatars.githubusercontent.com/u/71927888?v=4&s=250)](https://github.com/ionorb)<!--last_stargazer_end-->
   
-  Thanks to [<!--last_stargazer_name-->ionorb](<!--last_stargazer_url_2-->https://github.com/ionorb) for starring the repository! 🎉
+  Thanks to <!--name_start-->[ionorb](https://github.com/ionorb)<!--name_end--> for starring the repository! 🎉
 
   **Last update date:**
   
-  <!--last_update-->2023-11-10 13:05:47
-  
+  <!--date_start-->2023-11-10 13:05:47<!--date_end-->
+
+  <br />
+
   More stats are coming soon! 🤖
 </details>
+
+
+---
+
+Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies our reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
