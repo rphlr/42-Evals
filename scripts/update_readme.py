@@ -2,6 +2,7 @@ from github import Github
 import os
 from datetime import datetime
 import re
+import pytz
 
 PERSONAL_ACCESS_TOKEN = os.getenv('PERSONAL_ACCESS_TOKEN')
 REPO_NAME = "rphlr/42-Evals"
@@ -22,7 +23,8 @@ def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargaz
     contents = repo.get_contents("README.md")
     readme_text = contents.decoded_content.decode()
 
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    timezone = pytz.timezone("Europe/Paris")
+    now = datetime.now(timezone).strftime("%Y-%m-%d %H:%M:%S")
 
     # Utilisez les expressions régulières pour remplacer les valeurs dans les marqueurs
     readme_text = re.sub(r'<!--last_stargazer_start-->.*?<!--last_stargazer_end-->', 

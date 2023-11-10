@@ -29,9 +29,7 @@ For a holistic learning journey, don't forget to explore the [42-Subjects](https
 
 I'm in a constant state of learning and improvement, much like the code I write. If you've got ideas, feedback, or enhancements, I'm all ears. Open an issue, submit a pull request, or simply share your thoughts. Together, we grow.
 
-<details>
-  <summary><b>Funny Stats 📊</b></summary>
-  <br />
+<b>Funny Stats 📊</b>
 
   **Last stargazer:**
 
@@ -48,7 +46,6 @@ I'm in a constant state of learning and improvement, much like the code I write.
   <br />
 
   More stats are coming soon! 🤖
-</details>
 
 
 ---
