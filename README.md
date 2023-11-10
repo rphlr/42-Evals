@@ -33,6 +33,19 @@ I'm in a constant state of learning and improvement, much like the code I write.
 
 Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies our reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
 
-Last stargazer: ![Dernier Stargazer](<!--last_stargazer_image-->none) - <!--last_stargazer-->none yet.
+<details>
+  <summary><b>Funny Stats 📊</b></summary>
+  <br/>
 
-Last update: <!--last_update-->not updated yet.
+  **Last stargazer:**
+
+  [![Last Stargazer](<!--last_stargazer_image-->https://avatars.githubusercontent.com/u/71927888?v=4&s=250)](<!--last_stargazer_url-->https://github.com/ionorb)
+  
+  Thanks to [<!--last_stargazer_name-->ionorb](<!--last_stargazer_url_2-->https://github.com/ionorb) for starring the repository! 🎉
+
+  **Last update date:**
+  
+  <!--last_update-->2023-11-10 13:05:47
+  
+  More stats are coming soon! 🤖
+</details>
