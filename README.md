@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/113806676?v=4&s=250)](https://github.com/RachidPy3)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/135816101?v=4&s=250)](https://github.com/ELREKO)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[RachidPy3](https://github.com/RachidPy3)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[ELREKO](https://github.com/ELREKO)<!--name_end--> for starring the repository! 🎉
 
-  **Last update date:** <!--date_start-->11.11.2023, 14:07:00<!--date_end--> (CET)
+  **Last update date:** <!--date_start-->11.11.2023, 15:05:37<!--date_end--> (CET)
 
   More stats are coming soon! 🤖
 
