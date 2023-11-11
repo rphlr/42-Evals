@@ -1,6 +1,6 @@
 from github import Github
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
 
 PERSONAL_ACCESS_TOKEN = os.getenv('PERSONAL_ACCESS_TOKEN')
@@ -22,7 +22,7 @@ def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargaz
     contents = repo.get_contents("README.md")
     readme_text = contents.decoded_content.decode()
 
-    now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+    now = datetime.now() + timedelta(hours=1).strftime("%Y-%m-%d %H:%M:%S")
 
     # Utilisez les expressions régulières pour remplacer les valeurs dans les marqueurs
     readme_text = re.sub(r'<!--last_stargazer_start-->.*?<!--last_stargazer_end-->', 
