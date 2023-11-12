@@ -24,7 +24,6 @@ def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargaz
 
     now = (datetime.now() + timedelta(hours=1)).strftime("%d.%m.%Y, %H:%M:%S")
 
-    # Utilisez les expressions régulières pour remplacer les valeurs dans les marqueurs
     readme_text = re.sub(r'<!--last_stargazer_start-->.*?<!--last_stargazer_end-->', 
                         f'<!--last_stargazer_start-->\n[![Last Stargazer]({last_stargazer_avatar}&s=250)]({last_stargazer_url})\n<!--last_stargazer_end-->', 
                         readme_text, flags=re.DOTALL)
