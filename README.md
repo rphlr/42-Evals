@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/124029201?v=4&s=250)](https://github.com/Binder99)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/115744195?v=4&s=250)](https://github.com/yasserare)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[Binder99](https://github.com/Binder99)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[yasserare](https://github.com/yasserare)<!--name_end--> for starring the repository! 🎉
 
-  **Last update date:** <!--date_start-->12.11.2023, 21:07:00<!--date_end--> (CET)
+  **Last update date:** <!--date_start-->12.11.2023, 22:05:22<!--date_end--> (CET)
 
   More stats are coming soon! 🤖
 
