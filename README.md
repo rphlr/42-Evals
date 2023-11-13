@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/35407363?v=4&s=250)](https://github.com/EniumRaphael)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/81936759?v=4&s=250)](https://github.com/rphlr)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[EniumRaphael](https://github.com/EniumRaphael)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[rphlr](https://github.com/rphlr)<!--name_end--> for starring the repository! 🎉
 
-  **Last update date:** <!--date_start-->13.11.2023, 12:06:27<!--date_end--> (CET)
+  **Last update date:** <!--date_start-->13.11.2023, 12:37:57<!--date_end--> (CET)
 
   More stats are coming soon! 🤖
 
