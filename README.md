@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/86334233?v=4&s=250)](https://github.com/RPDJF)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/102967945?v=4&s=250)](https://github.com/FizzYxWizzY)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[RPDJF](https://github.com/RPDJF)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[FizzYxWizzY](https://github.com/FizzYxWizzY)<!--name_end--> for starring the repository! 🎉
 
-  **Last update date:** <!--date_start-->13.11.2023, 15:07:18<!--date_end--> (CET)
+  **Last update date:** <!--date_start-->13.11.2023, 15:23:04<!--date_end--> (CET)
 
   More stats are coming soon! 🤖
 
