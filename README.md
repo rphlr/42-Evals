@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/118683350?v=4&s=250)](https://github.com/belkarto)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/67078404?v=4&s=250)](https://github.com/bdemada)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[belkarto](https://github.com/belkarto)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[bdemada](https://github.com/bdemada)<!--name_end--> for starring the repository! 🎉
 
-  **Last update date:** <!--date_start-->16.11.2023, 10:07:26<!--date_end--> (CET)
+  **Last update date:** <!--date_start-->16.11.2023, 10:54:06<!--date_end--> (CET)
 
   More stats are coming soon! 🤖
 
