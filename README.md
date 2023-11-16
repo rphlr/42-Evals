@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/112328616?v=4&s=250)](https://github.com/Selenophile18)
+[![Last Stargazer](https://avatars.githubusercontent.com/u/118683350?v=4&s=250)](https://github.com/belkarto)
 <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[Selenophile18](https://github.com/Selenophile18)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[belkarto](https://github.com/belkarto)<!--name_end--> for starring the repository! 🎉
 
-  **Last update date:** <!--date_start-->16.11.2023, 08:07:14<!--date_end--> (CET)
+  **Last update date:** <!--date_start-->16.11.2023, 09:09:55<!--date_end--> (CET)
 
   More stats are coming soon! 🤖
 
