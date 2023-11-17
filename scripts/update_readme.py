@@ -67,3 +67,4 @@ if __name__ == "__main__":
     last_stargazer, last_stargazer_avatar, last_stargazer_url = get_latest_stargazer_info(REPO_NAME)
     if last_stargazer and last_stargazer_avatar and last_stargazer_url:
         update_readme(REPO_NAME, last_stargazer, last_stargazer_avatar, last_stargazer_url)
+        update_index(REPO_NAME, last_stargazer, last_stargazer_avatar, last_stargazer_url)
