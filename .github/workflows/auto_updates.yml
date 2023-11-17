@@ -1,4 +1,4 @@
-name: Update README
+name: Auto Updates
 
 on:
   workflow_dispatch:
@@ -30,4 +30,4 @@ jobs:
     - name: Update README
       env:
         PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      run: python scripts/update_readme.py
+      run: python scripts/auto_updates.py

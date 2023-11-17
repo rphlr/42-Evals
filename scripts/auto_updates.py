@@ -48,7 +48,7 @@ def update_index(repo_name, last_stargazer, last_stargazer_avatar, last_stargaze
     now = (datetime.now() + timedelta(hours=1)).strftime("%d.%m.%Y, %H:%M:%S")
 
     index_text = re.sub(r'<!--last_stargazer_start_HTML-->.*?<!--last_stargazer_end_HTML-->', 
-                        f'<!--last_stargazer_start_HTML--><a href="{last_stargazer_url}"><img\n                  src="{last_stargazer_avatar}&s=250"></a><!--last_stargazer_end_HTML-->', 
+                        f'<!--last_stargazer_start_HTML--><a href="{last_stargazer_url}"><img\n                  src="{last_stargazer_avatar}&s=250"\n                  target="_blank"></a><!--last_stargazer_end_HTML-->', 
                         index_text, flags=re.DOTALL)
 
     index_text = re.sub(r'<!--name_start_HTML-->.*?<!--name_end_HTML-->', 
