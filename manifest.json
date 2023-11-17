@@ -1,0 +1,22 @@
+{
+	"short_name": "42Evals",
+	"name": "42 Evaluation sheets hub for students",
+	"icons": [
+	  {
+		"src": "./stylesheet/imgs/favicon.png",
+		"sizes": "64x64",
+		"type": "image/x-icon"
+	  },
+	  {
+		"src": "./stylesheet/imgs/favicon.png",
+		"sizes": "64x64",
+		"type": "image/x-icon"
+	  }
+	],
+	"start_url": "./index.html",
+	"background_color": "#FFFFFF",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#000000"
+  }
+  
