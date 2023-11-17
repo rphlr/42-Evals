@@ -25,7 +25,7 @@ def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargaz
     now = (datetime.now() + timedelta(hours=1)).strftime("%d.%m.%Y, %H:%M:%S")
 
     readme_text = re.sub(r'<!--last_stargazer_start-->.*?<!--last_stargazer_end-->', 
-                        f'<!--last_stargazer_start-->\n[![Last Stargazer]({last_stargazer_avatar}&s=250)]({last_stargazer_url})\n<!--last_stargazer_end-->', 
+                        f'<!--last_stargazer_start-->\n  [![Last Stargazer]({last_stargazer_avatar}&s=250)]({last_stargazer_url})\n  <!--last_stargazer_end-->', 
                         readme_text, flags=re.DOTALL)
 
     readme_text = re.sub(r'<!--name_start-->.*?<!--name_end-->', 
@@ -38,6 +38,30 @@ def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargaz
 
 
     repo.update_file(contents.path, "Automated README update with stargazer info and timestamp", readme_text, contents.sha)
+
+def update_index(repo_name, last_stargazer, last_stargazer_avatar, last_stargazer_url):
+    g = Github(PERSONAL_ACCESS_TOKEN)
+    repo = g.get_repo(repo_name)
+    contents = repo.get_contents("index.html")
+    index_text = contents.decoded_content.decode()
+
+    now = (datetime.now() + timedelta(hours=1)).strftime("%d.%m.%Y, %H:%M:%S")
+
+    index_text = re.sub(r'<!--last_stargazer_start_HTML-->.*?<!--last_stargazer_end_HTML-->', 
+                        f'<!--last_stargazer_start_HTML--><a href="{last_stargazer_url}"><img
+                  src="{last_stargazer_avatar}&s=250"></a><!--last_stargazer_end_HTML-->', 
+                        index_text, flags=re.DOTALL)
+
+    index_text = re.sub(r'<!--name_start_HTML-->.*?<!--name_end_HTML-->', 
+                        f'<!--name_start_HTML--><a href="{last_stargazer_url}">{last_stargazer}</a><!--name_end_HTML-->', 
+                        index_text, flags=re.DOTALL)
+
+    index_text = re.sub(r'<!--date_start_HTML-->.*?<!--date_end_HTML-->', 
+                        f'<!--date_start_HTML-->{now}<!--date_end_HTML-->', 
+                        index_text, flags=re.DOTALL)
+
+
+    repo.update_file(contents.path, "Automated index update with stargazer info and timestamp", index_text, contents.sha)
 
 
 if __name__ == "__main__":

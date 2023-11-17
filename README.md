@@ -34,8 +34,8 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-[![Last Stargazer](https://avatars.githubusercontent.com/u/49552668?v=4&s=250)](https://github.com/Tiagochicoo)
-<!--last_stargazer_end-->
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/49552668?v=4&s=250)](https://github.com/Tiagochicoo)
+  <!--last_stargazer_end-->
   
   Thanks to <!--name_start-->[Tiagochicoo](https://github.com/Tiagochicoo)<!--name_end--> for starring the repository! 🎉
 
