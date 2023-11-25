@@ -3161,7 +3161,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/File.png');
+	background-image: url('../assets/images/File.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -3436,7 +3436,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/No.png');
+	background-image: url('../assets/images/No.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -4030,7 +4030,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Yes.png');
+	background-image: url('../assets/images/Yes.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -5168,7 +5168,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/File.png');
+	background-image: url('../assets/images/File.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -7226,7 +7226,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Yes.png');
+	background-image: url('../assets/images/Yes.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -7316,7 +7316,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Crash.png');
+	background-image: url('../assets/images/Crash.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -7694,7 +7694,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Cheat.png');
+	background-image: url('../assets/images/Cheat.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -7944,7 +7944,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Outstanding.png');
+	background-image: url('../assets/images/Outstanding.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -8034,7 +8034,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Can\'t\ explain.png');
+	background-image: url('../assets/images/Can\'t\ explain.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -9716,7 +9716,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Incomplete\ work.png');
+	background-image: url('../assets/images/Incomplete\ work.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -10415,7 +10415,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Ok.png');
+	background-image: url('../assets/images/Ok.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -10617,7 +10617,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Concerning\ situation.png');
+	background-image: url('../assets/images/Concerning\ situation.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -65076,7 +65076,7 @@ input[type=radio]:checked+label .icon-check {
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/Yes-selected.png');
+	background-image: url('../assets/images/Yes-selected.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -65086,7 +65086,7 @@ input[type=radio]:not(:checked)+label .icon-times {
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background-image: url('imgs/No-selected.png');
+	background-image: url('../assets/images/No-selected.png');
 	background-size: contain;
 	background-repeat: no-repeat;
 }

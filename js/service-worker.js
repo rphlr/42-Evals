@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/index.html',
-        '/stylesheet/styles.css',
+        '/css/styles.css',
         '/scripts/script.js',
         // Autres ressources nécessaires
       ]);
