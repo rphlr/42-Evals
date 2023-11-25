@@ -6,9 +6,21 @@
 	<title>CPP Module 04 correction</title>
 	<link rel="shortcut icon" href="../../assets/favicons/favicon_no-bg.ico" type="image/x-icon">
 	<link href="../../css/styles.css" media="all" rel="stylesheet" />
+	<link rel="manifest" href="../../manifest.json">
 </head>
 
-<body class=" ">
+<body>
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('../../js/service-worker.js')
+				.then(function (registration) {
+					console.log('Service Worker registered successfully:', registration);
+				})
+				.catch(function (error) {
+					console.log('Service Worker registration failed:', error);
+				});
+		}
+	</script>
 	<span class="menu">
 		<a href="https://github.com/rphlr/42-Evals" target="_blank" class="floating-btn">Give this repository a star.
 			⭐</a>
