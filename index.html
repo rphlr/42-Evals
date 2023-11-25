@@ -10,18 +10,7 @@
   <title>Evaluation Sheets Hub 🎯</title>
   <link rel="shortcut icon" href="./stylesheet/imgs/favicon.png" type="image/x-icon">
   <link rel="stylesheet" media="all" href="./stylesheet/styles.css">
-  <!-- <link rel="manifest" href="/manifest.json">
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-  </script> -->
+  <link rel="manifest" href="/manifest.json">
 </head>
 <style>
   .floating-btn-home {
@@ -50,6 +39,17 @@
 </style>
 
 <body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('Service Worker enregistré avec succès', registration);
+      })
+      .catch(function(error) {
+        console.log('L\'enregistrement du Service Worker a échoué', error);
+      });
+    }
+  </script>
   <a href="https://github.com/rphlr/42-Evals" target="_blank" class="floating-btn-home">Give this repository a star.
     ⭐</a>
   <div class="container-item scale-team-container">
