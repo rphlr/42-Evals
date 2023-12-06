@@ -44,6 +44,7 @@ def update_index(repo_name, last_stargazer, last_stargazer_avatar, last_stargaze
     repo = g.get_repo(repo_name)
     contents = repo.get_contents("index.html")
     index_text = contents.decoded_content.decode()
+    stars_count = repo.stargazers_count
 
     now = (datetime.now() + timedelta(hours=1)).strftime("%d.%m.%Y, %H:%M:%S")
 
@@ -57,6 +58,10 @@ def update_index(repo_name, last_stargazer, last_stargazer_avatar, last_stargaze
 
     index_text = re.sub(r'<!--date_start_HTML-->.*?<!--date_end_HTML-->', 
                         f'<!--date_start_HTML-->{now}<!--date_end_HTML-->', 
+                        index_text, flags=re.DOTALL)
+
+    index_text = re.sub(r'<!--stars_start-->.*?<!--stars_end-->', 
+                        f'<!--stars_start-->Star Count: {stars_count}<!--stars_end-->', 
                         index_text, flags=re.DOTALL)
 
 
