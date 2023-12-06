@@ -61,7 +61,7 @@ def update_index(repo_name, last_stargazer, last_stargazer_avatar, last_stargaze
                         index_text, flags=re.DOTALL)
 
     index_text = re.sub(r'<!--stars_start-->.*?<!--stars_end-->', 
-                        f'<!--stars_start-->Star Count: {stars_count}<!--stars_end-->', 
+                        f'<!--stars_start-->{stars_count}<!--stars_end-->', 
                         index_text, flags=re.DOTALL)
 
 
