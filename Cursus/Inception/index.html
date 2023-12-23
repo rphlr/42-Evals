@@ -11,9 +11,15 @@
   <link rel="shortcut icon" href="../../assets/favicons/favicon_no-bg.ico" type="image/x-icon">
   <link href="../../css/styles.css" media="all" rel="stylesheet" />
   <link rel="manifest" href="../../manifest.json">
+  <script src="../../js/script.js"></script>
 </head>
 
 <body>
+	<div class="overlay" id="overlay"></div>
+	<div class="popup" id="popup">
+		<p><b>Attention:</b> This site will be removed from January 5th at the request of School 42. To continue accessing it, contact me at <a href="mailto:42-evals@gmx.ch">42-evals@gmx.ch</a></p>
+		<button onclick="closePopup()">Close this windows</button>
+	</div>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('../../js/service-worker.js')
