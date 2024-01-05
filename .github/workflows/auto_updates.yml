@@ -8,7 +8,8 @@ on:
     branches: ["main"]
     paths-ignore:
       - 'README.md'
-      - 'index.html'
+      - 'website/index.php'
+      - 'website/.well-known/assetlinks.json'
 
 
 jobs:
