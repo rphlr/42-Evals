@@ -35,5 +35,5 @@ jobs:
           server: ${{ secrets.FTP_SERVEUR }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./website"
+          local-dir: "./website/"
           server-dir: "./v2/"
