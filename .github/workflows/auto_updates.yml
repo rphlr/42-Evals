@@ -9,8 +9,6 @@ on:
     paths-ignore:
       - 'README.md'
       - 'website/index.php'
-      - 'website/.well-known/assetlinks.json'
-
 
 jobs:
   update-readme:

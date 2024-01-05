@@ -9,7 +9,6 @@ on:
     paths-ignore:
       - "README.md"
       - "website/index.php"
-      - "website/.well-known/assetlinks.json"
 
 permissions:
   contents: read
@@ -25,10 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Replace SHA256 fingerprint in JSON
-        run: |
-          sed -i 's/{{SHA256_CERT_FINGERPRINT}}/${{ secrets.SHA256_CERT_FINGERPRINT }}/g' website/.well-known/assetlinks.json
-
       - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
@@ -36,4 +31,3 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "./website/"
-          server-dir: "./v2/"
