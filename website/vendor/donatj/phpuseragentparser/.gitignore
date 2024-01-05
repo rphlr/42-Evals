@@ -1,9 +1,0 @@
-.idea
-vendor/
-composer.lock
-coverage.xml
-phpunit.xml
-
-tests/user_agents.json
-
-*.cache
