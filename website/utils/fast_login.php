@@ -1,13 +1,8 @@
 <?php
-require_once __DIR__ . '../vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-$dbservername = getenv('DB_SERVER');
-$dbname = getenv('DB_FLOGIN_NAME');
-$username = getenv('DB_FLONIN_USERNAME');
-$dbpass = getenv('DB_FLOGIN_PASSWORD');
+$dbservername = $_SERVER['REDIRECT_DB_SERVER'];
+$dbname = $_SERVER['REDIRECT_DB_FLOGIN_USERNAME'];
+$username = $_SERVER['REDIRECT_DB_FLOGIN_PASSWORD'];
+$dbpass = $_SERVER['REDIRECT_DB_FLOGIN_NAME'];
 
 // Connexion à la base de données
 $conn = new mysqli($dbservername, $username, $dbpass, $dbname);
