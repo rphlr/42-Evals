@@ -1,0 +1,141 @@
+{
+	"short_name": "42Evals",
+	"name": "42 Evaluation sheets hub for students",
+	"description": "42Evals is a web application that allows students to access their evaluation sheets from anywhere, anytime.",
+	"icons": [
+		{
+			"src": "./assets/favicons/favicon_16x16_no-bg.png",
+			"sizes": "16x16",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_32x32_no-bg.png",
+			"sizes": "32x32",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_48x48_no-bg.png",
+			"sizes": "48x48",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_72x72_no-bg.png",
+			"sizes": "72x72",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_64x64_no-bg.png",
+			"sizes": "64x64",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_96x96_no-bg.png",
+			"sizes": "96x96",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_128x128_no-bg.png",
+			"sizes": "128x128",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_144x144_no-bg.png",
+			"sizes": "144x144",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_152x152_no-bg.png",
+			"sizes": "152x152",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_192x192_no-bg.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_384x384_no-bg.png",
+			"sizes": "384x384",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/favicons/favicon_512x512_no-bg.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		}
+	],
+	"start_url": "./",
+	"background_color": "#FFFFFF",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#000000",
+	"id": "com.mediasmart.42evals",
+	"launch_handler": {
+		"route_to": "auto",
+		"navigate_existing_client": "always",
+		"allowed_origin": [
+			"https://42evals.com"
+		]
+	},
+	"orientation": "portrait",
+	"screenshots": [
+		{
+			"src": "./assets/images/app/screenshot1.jpg",
+			"sizes": "1080x2400",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/images/app/screenshot2.jpg",
+			"sizes": "1080x2400",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/images/app/screenshot3.jpg",
+			"sizes": "1080x2400",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/images/app/screenshot4.jpg",
+			"sizes": "1080x2400",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/images/app/screenshot5.jpg",
+			"sizes": "1080x2400",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/images/app/screenshot6.jpg",
+			"sizes": "1080x2400",
+			"type": "image/png"
+		}
+	],
+	"categories": [
+		"education",
+		"productivity"
+	],
+	"dir": "ltr",
+	"iarc_rating_id": "10",
+	"lang": "en",
+	"prefer_related_applications": false,
+	"related_applications": [
+		{
+			"platform": "play",
+			"url": "https://play.google.com/store/apps/details?id=com.mediasmart.evals",
+			"id": "com.mediasmart.evals"
+		}
+	],
+	"scope_extensions": []
+}

@@ -1,0 +1,499 @@
+@font-face {
+	font-family: "FuturaPT";
+	font-style: normal;
+	font-weight: normal;
+	src: url("../fonts/ParaType-FuturaPTBook.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "FuturaPT";
+	font-style: italic;
+	font-weight: normal;
+	src: url("../fonts/ParaType-FuturaPTBookOblique.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "FuturaPT";
+	font-style: normal;
+	font-weight: bold;
+	src: url("../fonts/ParaType-FuturaPTHeavy.otf") format("opentype");
+}
+
+:root {
+	--main-text-color: #c7c7c7;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url('../assets/images/login-bg.png') no-repeat center fixed;
+	background-size: cover;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #00babc;
+	border-color: #00babc;
+	font-size: 16px;
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	line-height: 1.428571429;
+	border-radius: 1px;
+	-ms-user-select: none;
+	user-select: none;
+	font-family: FuturaPT;
+}
+
+*,
+a {
+	color: var(--main-text-color);
+	text-decoration: none;
+	font-family: FuturaPT;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input[type=text],
+input[type=password],
+input[type=submit] {
+	height: 25px;
+}
+
+input::placeholder,
+input::-webkit-input-placeholder,
+input::-moz-placeholder,
+input::-webkit-input-placeholder,
+input::-moz-placeholder {
+	font-style: italic;
+}
+
+#kc-content {
+	text-align: center;
+	margin: 100px auto;
+	width: 400px;
+}
+
+.alert-warning {
+	text-align: left;
+}
+
+#kc-totp-settings {
+	text-align: left
+}
+
+#kc-username {
+	display: none;
+}
+
+#attempted-username {
+	font-size: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+#kc-totp-secret-qr-code {
+	max-width: 150px;
+	max-height: 150px;
+}
+
+#logo {
+	width: 100px;
+	margin-top: 10px;
+	margin-bottom: 75px;
+}
+
+#kc-header,
+#kc-page-title {
+	display: none;
+}
+
+#totp,
+#totpSecret,
+#userLabel,
+#otp {
+	background-color: rgba(30, 30, 30, 0.5);
+	border: 1px solid #00babc;
+	margin-bottom: 15px;
+	width: 99%
+}
+
+#mode-barcode,
+#mode-manual {
+	color: #00babc
+}
+
+.required {
+	color: #00babc;
+}
+
+#kc-totp-settings-form,
+#kc-otp-login-form {
+	text-align: left;
+}
+
+#kc-totp-settings-form input[type="submit"] {
+	width: 101%;
+	border: none;
+	font-size: 16px;
+	font-weight: bold;
+	height: 35px;
+	cursor: pointer;
+	background-color: #00babc;
+	color: #fff;
+}
+
+#username,
+#password,
+#password-new,
+#password-confirm,
+#otp {
+	width: calc(100% - 50px);
+	height: 25px;
+	margin-bottom: 25px;
+	background-color: rgba(30, 30, 30, 0.5);
+	border: 1px solid #00babc;
+	font-size: 1.3em;
+	padding: 8px 20px 5px 30px;
+}
+
+#kc-form-buttons {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+#kc-form-buttons input[type="submit"],
+#kc-form-buttons a {
+	width: 100%;
+	margin-top: 5px;
+	border: none;
+	font-size: 16px;
+	font-weight: bold;
+	height: 35px;
+	cursor: pointer;
+}
+
+#kc-form-buttons a {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+}
+
+#kc-form-buttons input[type="submit"] {
+	background-color: #00babc;
+	color: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#kc-form-login input[type="submit"] {
+	font-size: 1.8em;
+	text-transform: uppercase;
+	height: 53.15px;
+}
+
+#kc-form-buttons a {
+	background-color: #fff;
+	color: #00babc;
+}
+
+#kc-form-buttons a:hover {
+	text-decoration: none;
+}
+
+@keyframes disapear {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+#input-error {
+	position: absolute;
+	width: calc(100% - 30px);
+	height: 30px;
+	padding: 15px;
+	color: #a94442;
+	background-color: #BF7877;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: flex-start;
+	top: 0;
+	right: 0;
+	animation-name: disapear;
+	animation-delay: 5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+#remember-me {
+	text-align: left;
+	padding: 0 !important;
+	margin-bottom: 20px
+}
+
+#remember-me input[type="checkbox"] {
+	width: 1.2em;
+	height: 1.2em;
+	margin-right: 0.5em;
+}
+
+#remember-me label {
+	cursor: pointer;
+	font-size: 1.4em;
+}
+
+#remember-me,
+#reset-password,
+#legal,
+#change-realm {
+	user-select: none;
+	display: block;
+}
+
+#reset-password {
+	margin-top: 20px;
+}
+
+#change-realm,
+#legal {
+	margin-top: 5px;
+}
+
+#kc-reset-password-info {
+	margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+
+	#kc-content {
+		margin-top: 60px;
+		width: 19em;
+	}
+
+	#logo {
+		margin: 10px auto;
+		margin-bottom: 50px;
+	}
+
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(5px);
+	z-index: 4500;
+	transition: opacity .3s, visibility 0s .3s;
+}
+
+.popup {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	padding: 50px;
+	padding-bottom: calc(70px + 10px);
+	background: white;
+	border: 2px solid #000;
+	z-index: 5000;
+	text-align: center;
+	display: block;
+}
+
+.popup button {
+	margin-top: 30px;
+	padding: 5px 10px;
+	background: #24292E;
+	color: white;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+	font-size: 14px;
+}
+
+h2 {
+	color: #000;
+	font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+	font-weight: 500;
+	line-height: 1.1;
+	font-size: 2em;
+	margin-bottom: 20px;
+}
+
+p {
+	color: #2c2c34;
+	font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+	font-size: 14px;
+}
+
+b, strong {
+	color: #2c2c34;
+	font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+	font-size: 14px;
+	font-weight: bold;
+}
+
+a {
+	color: #00babc;
+	text-decoration: none;
+	font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+	font-size: 14px;
+}
+
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit
+}
+
+h1 small,
+h1 .small,
+h2 small,
+h2 .small,
+h3 small,
+h3 .small,
+h4 small,
+h4 .small,
+h5 small,
+h5 .small,
+h6 small,
+h6 .small,
+.h1 small,
+.h1 .small,
+.h2 small,
+.h2 .small,
+.h3 small,
+.h3 .small,
+.h4 small,
+.h4 .small,
+.h5 small,
+.h5 .small,
+.h6 small,
+.h6 .small {
+	font-weight: normal;
+	line-height: 1;
+	color: #777777
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+	margin-top: 22px;
+	margin-bottom: 11px
+}
+
+h1 small,
+h1 .small,
+.h1 small,
+.h1 .small,
+h2 small,
+h2 .small,
+.h2 small,
+.h2 .small,
+h3 small,
+h3 .small,
+.h3 small,
+.h3 .small {
+	font-size: 65%
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	margin-top: 11px;
+	margin-bottom: 11px
+}
+
+h4 small,
+h4 .small,
+.h4 small,
+.h4 .small,
+h5 small,
+h5 .small,
+.h5 small,
+.h5 .small,
+h6 small,
+h6 .small,
+.h6 small,
+.h6 .small {
+	font-size: 75%
+}
+
+h1,
+.h1 {
+	font-size: 41px
+}
+
+h2,
+.h2 {
+	font-size: 34px
+}
+
+h3,
+.h3 {
+	font-size: 28px
+}
+
+h4,
+.h4 {
+	font-size: 20px
+}
+
+h5,
+.h5 {
+	font-size: 16px
+}
+
+h6,
+.h6 {
+	font-size: 14px
+}
+
+p {
+	margin: 0 0 11px
+} */

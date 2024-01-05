@@ -1,0 +1,14 @@
+[
+	{
+		"relation": [
+			"delegate_permission/common.handle_all_urls"
+		],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.mediasmart.evals",
+			"sha256_cert_fingerprints": [
+				"6F:AD:6F:85:3A:95:F8:BD:9A:FC:13:9C:4A:86:AF:AD:F8:63:C4:85:60:9B:0A:AD:B5:28:45:8C:87:9F:6E:F1"
+			]
+		}
+	}
+]

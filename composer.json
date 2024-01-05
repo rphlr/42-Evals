@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "donatj/phpuseragentparser": "^1.0"
+    }
+}
