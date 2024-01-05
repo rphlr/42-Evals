@@ -4,7 +4,7 @@ Welcome to the heart of self-evaluation for 42 School projects! 📝 Whether you
 
 Dive into my meticulously curated evaluation sheets, sourced directly from the official 42 School, and fine-tune your projects to ace that evaluation. For the most immersive experience, check out the [42-Evals Web Page](https://rphlr.github.io/42-Evals) - your digital companion for project assessments, updated regularly for seamless access. 🖥️✨
 
-![42-Evals Web Capture](.website/assets/images/site_preview.png)
+![42-Evals Web Capture](website/assets/images/site_preview.png)
 
 ## Contributing to Excellence 🤝
 
@@ -39,7 +39,7 @@ I'm in a constant state of learning and improvement, much like the code I write.
   
   Thanks to <!--name_start-->[samney](https://github.com/samney)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->06.01.2024, 00:02:27<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->05.01.2024, 23:54:49<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
