@@ -41,7 +41,24 @@ require("utils/menu.php");
 				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">Sorry this page is not available yet.</h3>
 				<div class="p-0 scale-introduction dancer from-down" id="introduction">
 					<p>Sorry this page is not available yet.</p>
-					<p>Check back later or help me by adding it on the <a href="https://github.com/rphlr/42-Evals">github repository</a> by making a pull request.</p>
+					<p>Check back later or help me by adding it below.</p>
+				</div>
+				<div class="container">
+					<form action="utils/add_form.php" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="login42">42 Login (optional):</label>
+							<input type="text" class="form-control" id="login42" name="login42">
+						</div>
+						<div class="form-group">
+							<label for="customMessage">Custom Message (optional):</label>
+							<textarea class="form-control" id="customMessage" name="customMessage"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="fileUpload">File (required):</label>
+							<input type="file" class="form-control-file" id="fileUpload" name="fileUpload" accept=".html,.php,.txt" required>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
 				</div>
 			</div>
 		</div>
