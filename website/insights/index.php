@@ -43,7 +43,7 @@ require("../utils/menu.php");
 </head>
 
 <body>
-	<?php require("../utils/menu_div.php"); ?>
+	<?php require("../utils/header.php"); ?>
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">Login Attempt Statistics</h3>

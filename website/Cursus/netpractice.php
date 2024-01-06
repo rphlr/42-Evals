@@ -33,7 +33,7 @@ require("../utils/menu.php");
 				});
 		}
 	</script>
-	<?php require("../utils/menu_div.php"); ?>
+	<?php require("../utils/header.php"); ?>
 	<div class="container-item scale-team-container">
 		<button class="btn btn-primary" onclick="window.location.href='NetPractice/'">Drill</button>
 		<div class="row mt-4">

@@ -13,7 +13,7 @@ require("utils/menu.php");
 	<meta
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
-	<title>Evaluation Sheets Hub 🎯</title>
+	<title>42 Evals - Adding an update</title>
 	<link rel="shortcut icon" href="assets/favicons/favicon_no-bg.ico" type="image/x-icon">
 	<link rel="stylesheet" media="all" href="css/styles.css">
 	<link rel="manifest" href="./manifest.json">
@@ -23,8 +23,8 @@ require("utils/menu.php");
 </head>
 
 <body>
-	<?php require("utils/menu_div.php"); ?>
-	<p>Page under construction.</p>
+	<?php require("utils/header.php"); ?>
+	<p>Page under construction...</p>
 </body>
 
 </html>
