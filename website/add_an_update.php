@@ -1,7 +1,7 @@
 <?php
-require("../utils/check_session.php");
-require("../utils/show_popup.php");
-require("../utils/menu.php");
+require("utils/check_session.php");
+require("utils/show_popup.php");
+require("utils/menu.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require("../utils/menu.php");
 	<meta
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
-	<title>42 Evals - 404</title>
+	<title>42 Evals - Adding an update</title>
 	<link rel="shortcut icon" href="assets/favicons/favicon_no-bg.ico" type="image/x-icon">
 	<link rel="stylesheet" media="all" href="css/styles.css">
 	<link rel="manifest" href="./manifest.json">
