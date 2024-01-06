@@ -38,12 +38,10 @@ require("utils/menu.php");
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<div class="scale-section-infos col-sm-12 scale-div">
-				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">Sorry this page is not available yet.
+				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">404 - Page not found
 				</h3>
 				<div class="p-0 scale-introduction dancer from-down" id="introduction">
-					<p>Sorry this page is not available yet.</p>
-					<p>Check back later or help me by adding it below.</p>
-					<br />
+					<p>Hmm... I can't find the page you're looking for.</p>
 				</div>
 			</div>
 		</div>
