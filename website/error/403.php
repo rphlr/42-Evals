@@ -13,7 +13,7 @@ require("../utils/menu.php");
 	<meta
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
-	<title>42 Evals - Page not found</title>
+	<title>42 Evals - Access forbidden</title>
 	<link rel="shortcut icon" href="../assets/favicons/favicon_no-bg.ico" type="image/x-icon">
 	<link rel="stylesheet" media="all" href="../css/styles.css">
 	<link rel="manifest" href="../manifest.json">
@@ -38,10 +38,10 @@ require("../utils/menu.php");
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<div class="scale-section-infos col-sm-12 scale-div">
-				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">404 - Page not found
+				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">403 - Access forbidden
 				</h3>
 				<div class="p-0 scale-introduction dancer from-down" id="introduction">
-					<p>Hmm... I can't find the page you're looking for. ☹️</p>
+					<p>Hmm... I can't let you access this page, but well done for trying. 😉</p>
 					<p>Go back to the <a href="../">home page</a>.</p>
 				</div>
 			</div>
