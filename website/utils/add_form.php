@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Adjust this path if needed
+require '../vendor/autoload.php'; // Adjust this path if needed
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login42 = $_POST['login42'] ?? 'Not provided';
@@ -15,14 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host = 'mail.infomaniak.com';
         $mail->SMTPAuth = true;
-        $mail->Username = $_SERVER[REDIRECT_FORM_EMAIL];
-        $mail->Password = $_SERVER[REDIRECT_EMAIL_PASSWORD];
+        $mail->Username = $_SERVER['REDIRECT_FORM_EMAIL'];
+        $mail->Password = $_SERVER['REDIRECT_EMAIL_PASSWORD'];
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom($_SERVER[REDIRECT_FORM_EMAIL], 'Mailer');
-        $mail->addAddress($_SERVER[REDIRECT_PERSONAL_EMAIL], '42 Evals');
+        $mail->setFrom($_SERVER['REDIRECT_FORM_EMAIL'], 'Mailer');
+        $mail->addAddress($_SERVER['REDIRECT_PERSONAL_EMAIL'], '42 Evals');
 
         // Attachments
         if (isset($_FILES['fileUpload']) && $_FILES['fileUpload']['error'] == 0) {

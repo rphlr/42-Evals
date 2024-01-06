@@ -42,6 +42,7 @@ require("utils/menu.php");
 				<div class="p-0 scale-introduction dancer from-down" id="introduction">
 					<p>Sorry this page is not available yet.</p>
 					<p>Check back later or help me by adding it below.</p>
+					<p>In construction, please do not use this form yet...</p>
 				</div>
 				<div class="container">
 					<form action="utils/add_form.php" method="post" enctype="multipart/form-data">
