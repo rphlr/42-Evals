@@ -42,13 +42,14 @@ function displayTable($result, $headers, $tableId)
 		echo "</tr>";
 		while ($row = $result->fetch_assoc()) {
 			echo "<tr>";
-			// Adding the first column based on data type (username, ip_address, os, browser)
 			$firstColumnValue = $row[array_keys($row)[0]];
-			if (array_keys($row)[0] == 'ip_address') { // Vérifiez si la première colonne est l'adresse IP
-				echo "<td>" . htmlspecialchars(maskIp($firstColumnValue), ENT_QUOTES, 'UTF-8') . "</td>";
-			} else {
+			if (array_keys($row)[0] == 'ip_address') {
+				if (strlen($firstColumnValue) > 15) {
+					echo "<td>" . htmlspecialchars(maskIp($firstColumnValue), ENT_QUOTES, 'UTF-8') . "</td>";
+				} else
+					echo "<td>". htmlspecialchars($firstColumnValue), ENT_QUOTES,"UTF-8" . "</td>";
+			} else
 				echo "<td>" . htmlspecialchars($firstColumnValue ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";
-			}
 			echo "<td>" . htmlspecialchars($row["total_attempts"] ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";
 			echo "<td>" . htmlspecialchars($row["failed"] ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";
 			echo "<td>" . htmlspecialchars($row["successful"] ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";

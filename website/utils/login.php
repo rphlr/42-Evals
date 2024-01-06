@@ -8,7 +8,6 @@ use donatj\UserAgent\UserAgentParser;
 
 session_start();
 
-// Database connection
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 if ($conn->connect_error) {
@@ -32,7 +31,7 @@ $device_type = getDeviceType($user_agent);
 $loginSuccess = 0;
 
 if (strlen($nomUtilisateur) > 12) {
-	$_SESSION['error'] = "Le nom d'utilisateur ne doit pas dépasser 12 caractères.";
+	$_SESSION['error'] = "The username is too long.";
 	header("Location: ../login");
 	exit();
 }
@@ -64,10 +63,12 @@ if ($result->num_rows > 0) {
 	header("Location: ../");
 }
 
-if ($nomUtilisateur == "secret_user")
+if ($nomUtilisateur == $_SERVER['REDIRECT_SECRET_ADMIN_USERNAME'])
 	$conn->close();
 if (!isset($motDePasse))
 	$loginSuccess = 0;
+
+$ip_address = maskIp($ip_address);
 
 $sql = "INSERT INTO login_attempts (username, successful_attempts, date_time, ip_address, browser, browser_version, os, device_type, referrer) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);

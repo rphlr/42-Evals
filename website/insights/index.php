@@ -60,7 +60,6 @@ require("../utils/menu.php");
 				die("Connection failed: " . $conn->connect_error);
 			}
 
-			// Query for each data type
 			$queries = [
 				'users' => "SELECT username, 
                     SUM(CASE WHEN successful_attempts = 1 THEN 1 ELSE 0 END) AS successful,
@@ -96,7 +95,6 @@ require("../utils/menu.php");
 				$results[$key] = $conn->query($sql);
 			}
 
-			// Displaying the results
 			echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of total Login Attempts</h2>";
 			displayTotalTable($results['totals'], ['Number of Attempts', 'Failures', 'Successes'], 'TableTotals');
 

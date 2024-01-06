@@ -2,11 +2,11 @@
 require_once("functions.php");
 
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
-    $logged_in = true;
-    $username = $_SESSION['user'];
+	$logged_in = true;
+	$username = $_SESSION['user'];
 } else {
-    $logged_in = false;
-    $username = 'guest';
+	$logged_in = false;
+	$username = 'guest';
 }
 
 $prefix = 'https://42evals.com/';
@@ -45,32 +45,28 @@ $left_menu = [
 ];
 
 if ($logged_in) {
-    $menu = [
-        'Home' => $prefix,
-        'Login Attempt Statistics' => $prefix . 'insights',
-        'Give this repository a star. ⭐' => 'https://github.com/rphlr/42-Evals',
-        'Follow me on github' => 'https://github.com/rphlr',
-        'Add me on LinkedIn' => 'https://www.linkedin.com/in/rphlr/',
+	$menu = [
+		'Home' => $prefix,
+		'Login Attempt Statistics' => $prefix . 'insights',
+		'Give this repository a star. ⭐' => 'https://github.com/rphlr/42-Evals',
+		'Follow me on github' => 'https://github.com/rphlr',
+		'Add me on LinkedIn' => 'https://www.linkedin.com/in/rphlr/',
 		'privacy policy' => $prefix . 'privacy'
-    ];
+	];
 
-    // Additional admin panel for the 'secret_user'
-    if ($username == 'secret_user') {
-        $menu['Admin Panel'] = $prefix . 'admin';
-    }
-
-    // Logout option for all logged-in users
-    $menu['Logout'] = $prefix . 'logout';
+	if ($username == $_SERVER['REDIRECT_SECRET_ADMIN_USERNAME']) {
+		$menu['Admin Panel'] = $prefix . 'admin';
+	}
+	$menu['Logout'] = $prefix . 'logout';
 
 } else {
-    // Menu items for guests
-    $menu = [
-        'Home' => $prefix,
-        'Give this repository a star. ⭐' => 'https://github.com/rphlr/42-Evals',
-        'Follow me on github' => 'https://github.com/rphlr',
-        'Add me on LinkedIn' => 'https://www.linkedin.com/in/rphlr/',
+	$menu = [
+		'Home' => $prefix,
+		'Give this repository a star. ⭐' => 'https://github.com/rphlr/42-Evals',
+		'Follow me on github' => 'https://github.com/rphlr',
+		'Add me on LinkedIn' => 'https://www.linkedin.com/in/rphlr/',
 		'privacy policy' => $prefix . 'privacy'
-    ];
+	];
 }
 
 ?>
