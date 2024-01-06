@@ -23,8 +23,29 @@ require("utils/menu.php");
 </head>
 
 <body>
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('js/service-worker.js')
+				.then(function (registration) {
+					console.log('Service Worker registered successfully:', registration);
+				})
+				.catch(function (error) {
+					console.log('Service Worker registration failed:', error);
+				});
+		}
+	</script>
 	<?php require("utils/header.php"); ?>
-	<p>Page under construction...</p>
+	<div class="container-item scale-team-container">
+		<div class="row mt-4">
+			<div class="scale-section-infos col-sm-12 scale-div">
+				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">Sorry this page is not available yet.</h3>
+				<div class="p-0 scale-introduction dancer from-down" id="introduction">
+					<p>Sorry this page is not available yet.</p>
+					<p>Check back later or help me by adding it on the <a href="https://github.com/rphlr/42-Evals">github repository</a> by making a pull request.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
