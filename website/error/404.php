@@ -14,18 +14,18 @@ require("../utils/menu.php");
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
 	<title>42 Evals - 404</title>
-	<link rel="shortcut icon" href="assets/favicons/favicon_no-bg.ico" type="image/x-icon">
-	<link rel="stylesheet" media="all" href="css/styles.css">
-	<link rel="manifest" href="./manifest.json">
-	<script src="js/js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/script.js"></script>
+	<link rel="shortcut icon" href="../assets/favicons/favicon_no-bg.ico" type="image/x-icon">
+	<link rel="stylesheet" media="all" href="../css/styles.css">
+	<link rel="manifest" href="../manifest.json">
+	<script src="../js/js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/script.js"></script>
 </head>
 
 <body>
 	<script>
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('js/service-worker.js')
+			navigator.serviceWorker.register('../js/service-worker.js')
 				.then(function (registration) {
 					console.log('Service Worker registered successfully:', registration);
 				})
