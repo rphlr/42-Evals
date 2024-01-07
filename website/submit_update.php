@@ -74,6 +74,20 @@ require("utils/menu.php");
 				</div>
 			</div>
 		</div>
+	</div>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var urlParams = new URLSearchParams(window.location.search);
+			var status = urlParams.get('status');
+			var form = document.querySelector('form'); // Assurez-vous que cela cible le bon formulaire
+
+			if (status === 'success') {
+				form.classList.add('shrink-animation');
+			} else if (status === 'error') {
+				form.classList.add('shake-animation');
+			}
+		});
+	</script>
 </body>
 
 </html>
