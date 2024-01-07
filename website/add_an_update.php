@@ -38,14 +38,15 @@ require("utils/menu.php");
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<div class="scale-section-infos col-sm-12 scale-div">
-				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">Sorry this page is not available yet.</h3>
+				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">Sorry this page is not available yet.
+				</h3>
 				<div class="p-0 scale-introduction dancer from-down" id="introduction">
 					<p>Sorry this page is not available yet.</p>
 					<p>Check back later or help me by adding it below.</p>
 					<p>In construction, please do not use this form yet...</p>
 				</div>
 				<div class="container">
-					<form action="utils/add_form.php" method="post" enctype="multipart/form-data">
+					<form action="utils/form.php" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="login42">42 Login (optional):</label>
 							<input type="text" class="form-control" id="login42" name="login42">
@@ -56,9 +57,19 @@ require("utils/menu.php");
 						</div>
 						<div class="form-group">
 							<label for="fileUpload">File (required):</label>
-							<input type="file" class="form-control-file" id="fileUpload" name="fileUpload" accept=".html,.php,.txt" required>
+							<input type="file" class="form-control-file" id="fileUpload" name="fileUpload"
+								accept=".html,.php,.txt" required>
 						</div>
 						<button type="submit" class="btn btn-primary">Submit</button>
+						<?php
+						if (isset($_GET['status'])) {
+							if ($_GET['status'] == 'success') {
+								echo '<p style="color: green;">Message has been sent successfully.</p>';
+							} else if ($_GET['status'] == 'error') {
+								echo '<p style="color: red;">Message could not be sent. Please try again.</p>';
+							}
+						}
+						?>
 					</form>
 				</div>
 			</div>
