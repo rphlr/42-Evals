@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$mail->Body    = "42 Login: " . htmlspecialchars($login42) . "<br>Custom Message: " . htmlspecialchars($customMessage);
 
 		$mail->send();
-		header('Location: update_a_file.php?status=success');
+		header('Location: submit_update?status=success');
 	} catch (Exception $e) {
-		header('Location: update_a_file.php?status=error');
+		header('Location: submit_update?status=error');
 	}
 }
 ?>
