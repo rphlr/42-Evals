@@ -101,14 +101,14 @@ require("../utils/menu.php");
 			echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Login Attempts by User</h2>";
 			displayTable($results['users'], ['Username', 'Number of Attempts', 'Failures', 'Successes'], 'tableUsers');
 
-			echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Login Attempts by IP Address</h2>";
-			displayTable($results['ip'], ['IP Address', 'Number of Attempts', 'Failures', 'Successes'], 'tableIP');
-
 			echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Login Attempts by OS</h2>";
 			displayTable($results['os'], ['OS', 'Number of Attempts', 'Failures', 'Successes'], 'tableOS');
 
 			echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Login Attempts by Browser</h2>";
 			displayTable($results['browser'], ['Browser', 'Number of Attempts', 'Failures', 'Successes'], 'tableBrowser');
+
+			echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Login Attempts by IP Address</h2>";
+			displayTable($results['ip'], ['IP Address', 'Number of Attempts', 'Failures', 'Successes'], 'tableIP');
 
 			$conn->close();
 			?>
