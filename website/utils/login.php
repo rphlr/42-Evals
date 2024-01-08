@@ -1,5 +1,5 @@
 <?php
-define('42Evals', true);
+define($_SERVER['REMOTE_SECURE_KEY'], true);
 require_once "db_config.php";
 require_once "../vendor/autoload.php";
 require_once "functions.php";
@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
 		setcookie("first_login", "1", time() + 3600, "/");
 		$loginSuccess = 1;
 		if (isset($_SESSION['redirect_url'])) {
-			$redirect_url = htmlspecialchars($_SESSION['redirect_url'], ENT_QUOTES, 'UTF-8');
+			$redirect_url = $_SESSION['redirect_url'];
 			unset($_SESSION['redirect_url']);
 			header("Location: $redirect_url");
 		} else {

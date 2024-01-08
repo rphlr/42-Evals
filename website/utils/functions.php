@@ -47,7 +47,7 @@ function displayTable($result, $headers, $tableId)
 				if (strlen($firstColumnValue) > 15) {
 					echo "<td>" . htmlspecialchars(maskIp($firstColumnValue), ENT_QUOTES, 'UTF-8') . "</td>";
 				} else
-					echo "<td>". htmlspecialchars($firstColumnValue), ENT_QUOTES,"UTF-8" . "</td>";
+					echo "<td>". htmlspecialchars($firstColumnValue, ENT_QUOTES,"UTF-8") . "</td>";
 			} else
 				echo "<td>" . htmlspecialchars($firstColumnValue ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";
 			echo "<td>" . htmlspecialchars($row["total_attempts"] ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";

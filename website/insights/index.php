@@ -52,7 +52,7 @@ require("../utils/menu.php");
 				<p>Click on a column header to sort the table by that column.</p>
 			</div>
 			<?php
-			define('42Evals', true);
+			define($_SERVER['REMOTE_SECURE_KEY'], true);
 			require_once "../utils/db_config.php";
 
 			$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
