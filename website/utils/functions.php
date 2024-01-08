@@ -44,10 +44,7 @@ function displayTable($result, $headers, $tableId)
 			echo "<tr>";
 			$firstColumnValue = $row[array_keys($row)[0]];
 			if (array_keys($row)[0] == 'ip_address') {
-				if (strlen($firstColumnValue) > 13) {
-					echo "<td>" . htmlspecialchars(maskIp($firstColumnValue), ENT_QUOTES, 'UTF-8') . "</td>";
-				} else
-					echo "<td>". htmlspecialchars($firstColumnValue, ENT_QUOTES,"UTF-8") . "</td>";
+				echo "<td>" . htmlspecialchars(maskIp($firstColumnValue), ENT_QUOTES, 'UTF-8') . "</td>";
 			} else
 				echo "<td>" . htmlspecialchars($firstColumnValue ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";
 			echo "<td>" . htmlspecialchars($row["total_attempts"] ?? 'Data not collected', ENT_QUOTES, 'UTF-8') . "</td>";
