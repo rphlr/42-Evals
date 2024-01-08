@@ -1,5 +1,5 @@
 <?php
-define($_SERVER['REMOTE_SECURE_KEY'], true);
+define($_SERVER['REDIRECT_SECURE_KEY'], true);
 require_once "db_config.php";
 require_once "../vendor/autoload.php";
 require_once "functions.php";
