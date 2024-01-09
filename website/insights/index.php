@@ -111,6 +111,37 @@ require("../utils/menu.php");
 			displayTable($results['ip'], ['IP Address', 'Number of Attempts', 'Failures', 'Successes'], 'tableIP');
 
 			$conn->close();
+
+			// display table for when someone clicked on the "fast_login" button
+			// Connection to database
+			$dbservername = $_SERVER['REDIRECT_DB_SERVER'];
+			$dbname = $_SERVER['REDIRECT_DB_FLOGIN_NAME'];
+			$username = $_SERVER['REDIRECT_DB_FLOGIN_USERNAME'];
+			$dbpass = $_SERVER['REDIRECT_DB_FLOGIN_PASSWORD'];
+
+			$conn = new mysqli($servername, $username, $dbpass, $dbname);
+
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			$sql = "SELECT COUNT(*) AS total FROM UserActivity";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$row = $result->fetch_assoc();
+				echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Fast Login Attempts</h2>";
+				echo "<table id=\"tableFastLogin\" class=\"table table-striped table-bordered table-hover table-sm\">";
+				echo "<tr>";
+				echo "<th onclick=\"sortTable(0, 'tableFastLogin')\">Number of Attempts</th>";
+				echo "</tr>";
+				echo "<tr>";
+				echo "<td>" . $row['total'] . "</td>";
+				echo "</tr>";
+				echo "</table>";
+			} else {
+				echo "0 results";
+			}
+
+			$conn->close();
 			?>
 		</div>
 	</div>

@@ -70,91 +70,91 @@ require("utils/menu.php");
 						</tr>
 						<tr>
 							<td><a href="Cursus/libft" title="Go to Libft ➡️">Libft</a></td>
-							<td>🌐</td>
+							<td>26 December 2023</td>
 						</tr>
 						<tr>
 							<td><a href="https://github.com/rphlr/42-Evals/tree/main/Cursus/ft_printf"
 									title="Go to ft_printf ➡️">ft_printf</a></td>
-							<td>🖼</td>
+							<td>❌</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/get_next_line" title="Go to get_next_line ➡️">get_next_line</a></td>
-							<td>🌐</td>
+							<td>18 December 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/born2beroot" title="Go to Born2beroot ➡️">Born2beroot</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/push_swap" title="Go to push_swap ➡️">push_swap</a></td>
-							<td>🌐</td>
+							<td>8 January 2024</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/so_long" title="Go to so_long ➡️">so_long</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/fract-ol" title="Go to fract-ol ➡️">fract-ol</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/fdf" title="Go to FdF ➡️">FdF</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="https://github.com/rphlr/42-Evals/tree/main/Cursus/Pipex"
+							<td><a href="Cursus/Pipex"
 									title="Go to pipex ➡️">pipex</a>
 							</td>
-							<td>🖼</td>
+							<td>8 January 2024</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/minitalk" title="Go to minitalk ➡️">minitalk</a>
 							</td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/minishell" title="Go to minishell ➡️">minishell</a>
 							</td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/philosophers" title="Go to Philosophers ➡️">Philosophers</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/netpractice" title="Go to NetPractice ➡️">netpractice</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td>↓ <a href="#" onclick="showCPPModal(event)" title="Open details 👀">Open CPP details
 									👀</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/cub3d" title="Go to cub3d ➡️">cub3d</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/minirt" title="Go to miniRT ➡️">miniRT</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/inception" title="Go to Inception ➡️">Inception</a>
 							</td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/webserv" title="Go to webserv ➡️">webserv</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/ft_irc" title="Go to ft_irc ➡️">ft_irc</a></td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/ft_transcendence" title="Go to ft_transcendence ➡️">ft_transcendence</a>
 							</td>
-							<td>🌐</td>
+							<td>August 2023</td>
 						</tr>
 					</table>
 				</div>
@@ -170,44 +170,44 @@ require("utils/menu.php");
 							<tr>
 								<td><a href="Cursus/cpp00" title="Go to CPP00 ➡️">CPP00</a>
 								</td>
-								<td>🌐</td>
+								<td>28 December 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp01" title="Go to CPP01 ➡️">CPP01</a></td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp02" title="Go to CPP02 ➡️">CPP02</a></td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp03" title="Go to CPP03 ➡️">CPP03</a>
 								</td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp04" title="Go to CPP04 ➡️">CPP04</a></td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp05" title="Go to CPP05 ➡️">CPP05</a></td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp06" title="Go to CPP06 ➡️">CPP06</a></td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp07" title="Go to CPP07 ➡️">CPP07</a></td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp08" title="Go to CPP08 ➡️">CPP08</a></td>
-								<td>🌐</td>
+								<td>August 2023</td>
 							</tr>
 							<tr>
 								<td><a href="Cursus/cpp09" title="Go to CPP09 ➡️">CPP09</a></td>
-								<td>🌐</td>
+								<td>28 December 2023</td>
 							</tr>
 						</table>
 					</div>
