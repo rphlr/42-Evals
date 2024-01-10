@@ -7,6 +7,7 @@ require(PATH . "/utils/menu.php");
 
 <!DOCTYPE html>
 <html lang="en">
+<script src="chrome-extension://hmflgigeigiejaogcgamkecmlibcpdgo/generic/inject.js"></script>
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -14,7 +15,8 @@ require(PATH . "/utils/menu.php");
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
 	<title>CPP Module 00 correction</title>
-	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico"
+		type="image/x-icon">
 	<link href="<?php echo htmlspecialchars($prefix); ?>css/styles.css" media="all" rel="stylesheet" />
 	<link rel="manifest" href="<?php echo htmlspecialchars($prefix); ?>manifest.json">
 	<script src="<?php echo htmlspecialchars($prefix); ?>js/script.js"></script>
@@ -44,51 +46,48 @@ require(PATH . "/utils/menu.php");
 					<a href="https://projects.intra.42.fr/projects/cpp-module-00">CPP Module 00</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 1 student in this team</h5>
-
-				<hr>
-
-				<div class="p-0 scale-introduction dancer from-down" id="introduction-24654">
+				<hr />
+				<div class="p-0 scale-introduction dancer from-down" id="introduction-24830">
 					<h3 class="font-weight-bold mb-1">Introduction</h3>
 					<p>
-						Please respect the following rules:<br><br>- Stay polite, courteous, respectful, and
-						constructive
-						during the evaluation process. The well-being of the community depends on it.<br><br>-
-						Identify with the evaluated person or group any malfunctions in their work. Take the time to
-						discuss and
-						debate the
-						identified problems.<br><br>-
-						Keep in mind that there may be slight differences in interpretation between the project
-						instructions, its
-						scope, and functionalities.
-						Keep an open mind and rate as honestly as possible. Pedagogy is only valid if peer evaluation is
-						taken
-						seriously.<br>
+						Merci de respecter les règles suivantes:<br><br>- Restez polis, courtois, respectueux et
+						constructifs pendant le processus<br> d'évaluation. Le bien-être de la communauté repose
+						là-dessus.<br><br>- Identifiez avec la personne évaluée ou le groupe évalué les éventuels <br>
+						dysfonctionnements de son travail. Prenez le temps d'en discuter et <br> débattez des problèmes
+						identifiés.<br><br>- Vous devez prendre en compte qu'il peut y avoir de légères différences<br>
+						d'interprétation entre les instructions du projet, son scope et ses <br> fonctionnalités. Gardez
+						un esprit ouvert et notez de la manière la plus<br> honnête possible. La pédagogie n'est valide
+						que si la peer-évaluation<br> est faite sérieusement.<br>
+					</p>
+				</div>
+				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-29673">
+					<h3 class="font-weight-bold mb-1">Guidelines</h3>
+					<p>
+						- Ne notez que ce qui est contenu dans le dépôt Git cloné de l'étudiant(e)<br> ou du
+						groupe.<br><br>- Vérifiez que le dépôt Git appartient bien à l'étudiant(e) ou au groupe,<br> que
+						le projet est bien celui attendu, et que "git clone" est utilisé <br> dans un dossier
+						vide.<br><br>- Vérifiez scrupuleusement qu'aucun alias n'a été utilisé pour vous tromper <br> et
+						assurez-vous que vous évaluez bien le rendu officiel.<br><br>- Afin d'éviter toute surprise,
+						vérifiez avec l'étudiant(e) ou le groupe les <br> potentiels scripts utilisés pour faciliter
+						l'évaluation (par exemple, des <br> scripts de tests ou d'automatisation).<br><br>- Si vous
+						n'avez pas fait le projet que vous allez évaluer, vous devez lire <br> le sujet en entier avant
+						de commencer l'évaluation.<br><br>- Utilisez les flags disponibles pour signaler un rendu vide,
+						un programme <br> ne fonctionnant pas, une erreur de Norme, de la triche... Dans ces <br>
+						situations, l'évaluation est terminée et la note est 0, ou -42 en cas de <br> triche. Cependant,
+						à l'exception des cas de triche, vous êtes encouragé(e)s <br> à continuer la discussion sur le
+						travail rendu, même si ce dernier est <br> incomplet. Ceci afin d'identifier les erreurs à ne
+						pas reproduire dans le <br> futur.<br><br>- Si le sujet requiert un fichier de configuration,
+						vous ne devriez jamais <br> avoir à le modifier. Si vous souhaitez éditer un fichier, prenez le
+						temps <br> d'expliquer pourquoi à la personne évaluée et de vous assurer que vous avez <br> son
+						accord.<br><br>- Vous devez aussi vérifier l'absence de fuites mémoire. Toute mémoire <br>
+						allouée sur le tas doit être libérée proprement avant la fin de l'exécution <br> du programme.
+						<br> Vous avez le droit d'utiliser tout outil disponible sur la machine tel que <br> leaks,
+						valgrind ou e_fence. En cas de fuites mémoire, cochez le flag <br> approprié.<br>
 					</p>
 				</div>
 
-				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-24654">
-					<h3 class="font-weight-bold mb-1">Guidelines</h3>
-					<p>
-						- Only rate what is contained in the cloned Git repository of the student or group.<br><br>
-						- Verify that the Git repository belongs to the student or group, that the project is the
-						expected one, and
-						that "git clone" is used in an empty folder.<br><br>
-						- Thoroughly check that no alias has been used to deceive you and ensure that you are evaluating
-						the
-						official submission.<br><br>
-						- To avoid any surprises, check with the student or group any potential scripts used to
-						facilitate
-						evaluation (e.g., test or automation scripts).<br><br>
-						- If you have not done the project you are evaluating, you must read the subject entirely before
-						starting
-						the evaluation.<br><br>
-						- Use the available flags to report an empty submission, a non-functioning program, a Norm
-						error, cheating,
-						etc.<br>
-					</p>
-				</div>
 				<hr>
-				<div class="dancer from-down" id="attachments-24654">
+				<div class="dancer from-down" id="attachments-29673">
 					<h3 class="font-weight-bold mb-1">Attachments</h3>
 					<div class="project-attachments-list">
 					</div>
@@ -98,12 +97,27 @@ require(PATH . "/utils/menu.php");
 							<h4 class="attachment-name">
 								<span class="icon-file"></span>
 								<a target="_blank" href="https://github.com/rphlr/42-Subjects/">subject.pdf</a>
+							</h4>
+						</div>
+						<div class="project-attachment-item">
+							<h4 class="attachment-name">
 								<span class="icon-file"></span>
-								<a target="_blank" href="https://github.com/rphlr/42-Subjects/">Account.hpp</a>
+								<a target="_blank"
+									href="https://cdn.intra.42.fr/document/document/22388/Account.hpp">Account.hpp</a>
+							</h4>
+						</div>
+						<div class="project-attachment-item">
+							<h4 class="attachment-name">
 								<span class="icon-file"></span>
-								<a target="_blank" href="https://github.com/rphlr/42-Subjects/">19920104_091532.log</a>
+								<a target="_blank"
+									href="https://cdn.intra.42.fr/document/document/22389/19920104_091532.log">19920104_091532.log</a>
+							</h4>
+						</div>
+						<div class="project-attachment-item">
+							<h4 class="attachment-name">
 								<span class="icon-file"></span>
-								<a target="_blank" href="https://github.com/rphlr/42-Subjects/">tests.cpp</a>
+								<a target="_blank"
+									href="https://cdn.intra.42.fr/document/document/22390/tests.cpp">tests.cpp</a>
 							</h4>
 						</div>
 					</div>
@@ -111,43 +125,43 @@ require(PATH . "/utils/menu.php");
 				</div>
 
 			</div>
-			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_5545693"
-				action="https://projects.intra.42.fr/projects/cpp-module-01/project_sessions/3325/evaluations/1602/scales/24654/scale_teams/5545693"
+			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_6213840"
+				action="https://projects.intra.42.fr/projects/cpp-module-00/project_sessions/3324/evaluations/1601/scales/29673/scale_teams/6213840"
 				accept-charset="UTF-8" method="post">
 				<div class="scale-section-answers col-sm-12 scale-div">
-					<section class="scale-section-item dancer from-down" id="section-69375">
+					<section class="scale-section-item dancer from-down" id="section-81811">
 						<div class="section-header">
-							<h3 class="font-weight-bold mb-1">Preliminary tests</h3>
-							<p class="font-italic">If cheating is suspected, the evaluation stops here. Use the "Cheat"
-								flag to
-								report it. Take this decision calmly, wisely, and please, use this button with caution.
-							</p>
+							<h3 class="font-weight-bold mb-1">Tests préliminaires</h3>
+							<p class="font-italic">Si un cas de triche est suspecté, la notation et l'évaluation
+								prennent fin immédiatement. Pour le signaler, sélectionnez le flag "Cheat". Faites
+								attention à l'utiliser avec calme, précaution et discernement.</p>
 						</div>
-						<h4 class="scale-question-name">Prerequisites</h4>
+						<h4 class="scale-question-name">Prérequis</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>The code must compile with c++ and the flags -Wall -Wextra -Werror<br>
-							Don't forget this project has to follow the C++98 standard. Thus, <br>
-							C++11 (and later) functions or containers are NOT expected.</p>
+						<p>Le code doit compiler avec c++ et les flags -Wall -Wextra -Werror<br>
+							Pour rappel, ce projet doit suivre le standard C++98. Par conséquent, <br>
+							des fonctions C++11 (ou autre standard) et les containers ne sont PAS <br>
+							attendus.</p>
 
-						<p>Any of these means you must not grade the exercise in question:</p>
+						<p>Ne notez pas l'exercice si vous trouvez :</p>
 
 						<ul>
-							<li>A function is implemented in a header file (except for template
-								functions).</li>
-							<li>A Makefile compiles without the required flags and/or another
-								compiler than c++.</li>
+							<li>Une fonction implémentée dans un fichier d'en-tête (sauf pour
+								les fonctions templates).</li>
+							<li>Un Makefile compilant sans les flags demandés et/ou avec autre
+								chose que c++.</li>
 						</ul>
 
-						<p>Any of these means that you must flag the project with "Forbidden <br>
-							Function":</p>
+						<p>Sélectionnez le flag "Fonction interdite" (Forbidden function) si <br>
+							vous rencontrez :</p>
 
 						<ul>
-							<li>Use of a "C" function (*alloc, *printf, free).</li>
-							<li>Use of a function not allowed in the exercise guidelines.</li>
-							<li>Use of "using namespace &lt;ns_name&gt;" or the "friend" keyword.</li>
-							<li>Use of an external library, or features from versions other than
-								C++98.</li>
+							<li>L'utilisation d'une fonction "C" (*alloc, *printf, free).</li>
+							<li>L'utilisation d'une fonction interdite dans le projet.</li>
+							<li>L'utilisation de "using namespace &lt;ns_name&gt;" ou du mot-clé "friend".</li>
+							<li>L'utilisation d'une bibliothèque externe, ou de fonctionnalités
+								propres aux versions postérieures à C++98.</li>
 						</ul>
 
 						<p></p>
@@ -179,19 +193,20 @@ require(PATH . "/utils/menu.php");
 							</div>
 						</div>
 					</section>
-
-					<section class="scale-section-item dancer from-down" id="section-69376">
+					<section class="scale-section-item dancer from-down" id="section-81812">
 						<div class="section-header">
 							<hr>
-							<h3 class="font-weight-bold mb-1">Exercise 00 : Megaphone</h3>
-							<p class="font-italic">This exercise is a warm-up to discover I/O in C++.</p>
+							<h3 class="font-weight-bold mb-1">Exercice 00 : Megaphone</h3>
+							<p class="font-italic">Cet exercice est un échauffement pour découvrir les I/O en C++.</p>
 						</div>
-						<h4 class="scale-question-name">Operation</h4>
-						<p>The goal is to develop a to_upper with specific behavior if launched without parameters. It
-							must be
-							solved
-							with a C++ approach (string/upper).</p>
+						<h4 class="scale-question-name">Fonctionnement</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Le but de cet exercice est de développer un to_upper ayant un comportement <br>
+							spécifique si lancé sans paramètre.<br>
+							Il doit être résolu avec une approche C++ (string/upper).</p>
 
+						<p></p>
 						<div class="scale-question-answers">
 							<div class="form-group hidden scale_team_answer_id">
 								<div class="col-sm-10"></div>
@@ -219,244 +234,254 @@ require(PATH . "/utils/menu.php");
 								</label>
 							</div>
 						</div>
-						<section class="scale-section-item dancer from-down" id="section-69376">
-							<div class="section-header">
-								<hr>
-								<h3 class="font-weight-bold mb-1">Exercise 01 : My Awesome Phonebook</h3>
-								<p class="font-italic">This exercise is a first approach to writing a simple class and
-									using it in an
-									interactive program. If the exercise does not work perfectly, rate what can be
-									graded.</p>
-							</div>
-							<h4 class="scale-question-name">Error management</h4>
-							<p>There is some error management to do in this program but the behaviors are not
-								specified in the subject. Exiting the program properly or managing errors is ok. A
-								segfault is not! :D
+					</section>
+					<section class="scale-section-item dancer from-down" id="section-81813">
+						<div class="section-header">
+							<hr>
+							<h3 class="font-weight-bold mb-1">Exercice 01 : My Awesome Phonebook</h3>
+							<p class="font-italic">Cet exercice est une première approche pour écrire une classe simple
+								et
+								l'utiliser dans un programme interactif.
+								Si l'exercice ne fonctionne pas parfaitement, notez ce qui peut l'être.
 							</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"><input class="form-control hidden"
-											name="[scale_team][answers_attributes][0][id]" type="hidden"
-											id="scale_team_answer_id"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"><input class="form-control hidden" value="234698"
-											name="[scale_team][answers_attributes][0][question_id]" type="hidden"
-											id="scale_team_answer_question_id"></div>
-								</div>
-								<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)
-								</div>
-								<input autocomplete="off" class="star-range" data-star-range="" max="5"
-									name="[scale_team][answers_attributes][0][value]" step="1" type="range" value="0"
-									style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
-								<hr>
-							</div>
-							<h4 class="scale-question-name">The EXIT command</h4>
-							<p>Write down the EXIT command based on what is in the subject line.
-							</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="btn-group block">
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][2][value]"
-										id="radio_[scale_team][answers_attributes][2]_true" type="radio" value="1">
-									<label class="btn btn-success checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][2]_true">
-										<span class="icon-check"></span>
-										Yes
-									</label>
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][2][value]"
-										id="radio_[scale_team][answers_attributes][2]_false" type="radio" value="0"
-										checked="checked">
-									<label class="btn btn-danger checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][2]_false">
-										<span class="icon-times"></span>
-										No
-									</label>
-								</div>
-							</div>
-							<h4 class="scale-question-name">Visibility</h4>
-							<p>Contact class attributes must be private. The class must expose the corresponding
-								accessors. Also check
-								that anything used only in one class (and not just the Contact class) is private and the
-								rest public.
-								Beginners tend to to make everything public. That's what you need to check here.</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"><input class="form-control hidden"
-											name="[scale_team][answers_attributes][1][id]" type="hidden"
-											id="scale_team_answer_id"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"><input class="form-control hidden" value="234698"
-											name="[scale_team][answers_attributes][1][question_id]" type="hidden"
-											id="scale_team_answer_question_id"></div>
-								</div>
-								<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)
-								</div>
-								<input autocomplete="off" class="star-range" data-star-range="" max="5"
-									name="[scale_team][answers_attributes][1][value]" step="1" type="range" value="0"
-									style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
-								<hr>
-							</div>
-							<h4 class="scale-question-name">Contact and Phonebook Classes</h4>
-							<p>The code must include a Contact class (or other name). The class must contain the
-								requested attributes.
-								The code must contain a Phonebook class with an array of Contacts inside.</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="btn-group block">
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][3][value]"
-										id="radio_[scale_team][answers_attributes][3]_true" type="radio" value="1">
-									<label class="btn btn-success checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][3]_true">
-										<span class="icon-check"></span>
-										Yes
-									</label>
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][3][value]"
-										id="radio_[scale_team][answers_attributes][3]_false" type="radio" value="0"
-										checked="checked">
-									<label class="btn btn-danger checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][3]_false">
-										<span class="icon-times"></span>
-										No
-									</label>
-								</div>
-							</div>
-							<h4 class="scale-question-name">Read/Eval Loop</h4>
-							<p>The program should offer a sort of read/eval loop: Read then process input, then wait for
-								new input
-								until receiving an EXIT command. The loop should be done in a C++ way (std::cin).</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="btn-group block">
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][4][value]"
-										id="radio_[scale_team][answers_attributes][4]_true" type="radio" value="1">
-									<label class="btn btn-success checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][4]_true">
-										<span class="icon-check"></span>
-										Yes
-									</label>
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][4][value]"
-										id="radio_[scale_team][answers_attributes][4]_false" type="radio" value="0"
-										checked="checked">
-									<label class="btn btn-danger checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][4]_false">
-										<span class="icon-times"></span>
-										No
-									</label>
-								</div>
-							</div>
-							<h4 class="scale-question-name">The ADD command</h4>
-							<p>Make a note of the ADD command based on what is in the subject line.</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"><input class="form-control hidden"
-											name="[scale_team][answers_attributes][2][id]" type="hidden"
-											id="scale_team_answer_id"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"><input class="form-control hidden" value="234698"
-											name="[scale_team][answers_attributes][2][question_id]" type="hidden"
-											id="scale_team_answer_question_id"></div>
-								</div>
-								<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)
-								</div>
-								<input autocomplete="off" class="star-range" data-star-range="" max="5"
-									name="[scale_team][answers_attributes][2][value]" step="1" type="range" value="0"
-									style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
-								<hr>
-							</div>
+						</div>
+						<h4 class="scale-question-name">Gestion d'erreur</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Il y a un peu de gestion d'erreur à faire dans ce programme mais les comportements ne sont
+							pas précisés dans le sujet. Quitter le programme proprement ou gérer les erreurs est ok. Un
+							segfault ne l'est pas ! :D</p>
 
-							<h4 class="scale-question-name">The SEARCH command</h4>
-							<p>Write down the SEARCH command based on what is
-								requested in the subject line. A slight deviation from the expected format is not
-								important. This part
-								is about using "iomanips" in C++ and that's what you need to focus on.</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"><input class="form-control hidden"
-											name="[scale_team][answers_attributes][3][id]" type="hidden"
-											id="scale_team_answer_id"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"><input class="form-control hidden" value="234698"
-											name="[scale_team][answers_attributes][3][question_id]" type="hidden"
-											id="scale_team_answer_question_id"></div>
-								</div>
-								<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)
-								</div>
-								<input autocomplete="off" class="star-range" data-star-range="" max="5"
-									name="[scale_team][answers_attributes][3][value]" step="1" type="range" value="0"
-									style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
-								<hr>
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
 							</div>
-						</section>
-						<section class="scale-section-item dancer from-down" id="section-69376">
-							<div class="section-header">
-								<hr>
-								<h3 class="font-weight-bold mb-1">Exercise 02 : The Job of Your Dreams</h3>
-								<p class="font-italic">The aim of this exercise is to recover information hidden amidst
-									the noise and
-									insert code into an existing context.</p>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
 							</div>
-							<h4 class="scale-question-name">Did you save the world?</h4>
-							<p>This exercise is pretty straightforward. Either Account.cpp works, or it doesn't or it
-								doesn't. Compare
-								the program's output with the log file provided. Any difference (except for timestamps
-								or destructor
-								order) means that the exercise is incorrect.</p>
-							<div class="scale-question-answers">
-								<div class="form-group hidden scale_team_answer_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="form-group hidden scale_team_answer_question_id">
-									<div class="col-sm-10"></div>
-								</div>
-								<div class="btn-group block">
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][5][value]"
-										id="radio_[scale_team][answers_attributes][5]_true" type="radio" value="1">
-									<label class="btn btn-success checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][5]_true">
-										<span class="icon-check"></span>
-										Yes
-									</label>
-									<input autocomplete="off" class="checkbox-input"
-										name="[scale_team][answers_attributes][5][value]"
-										id="radio_[scale_team][answers_attributes][5]_false" type="radio" value="0"
-										checked="checked">
-									<label class="btn btn-danger checkbox-label light-bg"
-										for="radio_[scale_team][answers_attributes][5]_false">
-										<span class="icon-times"></span>
-										No
-									</label>
-								</div>
+							<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
+							<input autocomplete="off" class="star-range" data-star-range="" max="5"
+								name="[scale_team][answers_attributes][3][value]" step="1" type="range" value="0"
+								style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+							<hr>
+						</div>
+						<h4 class="scale-question-name">La commande EXIT</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Notez la commande EXIT en vous basant sur ce qui est demandé dans le sujet.</p>
+
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
 							</div>
-						</section>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="btn-group block">
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][3][value]"
+									id="radio_[scale_team][answers_attributes][3]_true" type="radio" value="1">
+								<label class="btn btn-success checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][3]_true">
+									<span class="icon-check"></span>
+									Yes
+								</label>
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][3][value]"
+									id="radio_[scale_team][answers_attributes][3]_false" type="radio" value="0"
+									checked="checked">
+								<label class="btn btn-danger checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][3]_false">
+									<span class="icon-times"></span>
+									No
+								</label>
+							</div>
+						</div>
+						<h4 class="scale-question-name">Visibilité</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Les attributs de la classe Contact doivent être privés. La classe doit <br>
+							exposer les accesseurs correspondants. Vérifiez également que tout ce <br>
+							qui n'est utilisé que dans une classe (et pas seulement la classe Contact) <br>
+							est privé et le reste public. Les débutants ont tendance à tout mettre en <br>
+							public. C'est ce que vous devez vérifier ici.</p>
+
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
+							<input autocomplete="off" class="star-range" data-star-range="" max="5"
+								name="[scale_team][answers_attributes][4][value]" step="1" type="range" value="0"
+								style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+							<hr>
+						</div>
+						<h4 class="scale-question-name">La classe Contact et la classe Phonebook</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Le code doit inclure une classe Contact (ou autre nom).<br>
+							La classe doit contenir les attributs demandés.<br>
+							Le code doit contenir une classe Phonebook avec un tableau de Contacts à <br>
+							l'intérieur.</p>
+
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="btn-group block">
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][5][value]"
+									id="radio_[scale_team][answers_attributes][5]_true" type="radio" value="1">
+								<label class="btn btn-success checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][5]_true">
+									<span class="icon-check"></span>
+									Yes
+								</label>
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][5][value]"
+									id="radio_[scale_team][answers_attributes][5]_false" type="radio" value="0"
+									checked="checked">
+								<label class="btn btn-danger checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][5]_false">
+									<span class="icon-times"></span>
+									No
+								</label>
+							</div>
+						</div>
+						<h4 class="scale-question-name">Boucle de Read/Eval</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Le programme doit proposer une sorte de boucle read/eval : <br>
+							Lecture puis traitement d'entrée, ensuite attente de nouvelle entrée jusqu'à <br>
+							recevoir une commande EXIT.<br>
+							La boucle devrait être faite de manière C++ (std::cin) !</p>
+
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="btn-group block">
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][6][value]"
+									id="radio_[scale_team][answers_attributes][6]_true" type="radio" value="1">
+								<label class="btn btn-success checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][6]_true">
+									<span class="icon-check"></span>
+									Yes
+								</label>
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][6][value]"
+									id="radio_[scale_team][answers_attributes][6]_false" type="radio" value="0"
+									checked="checked">
+								<label class="btn btn-danger checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][6]_false">
+									<span class="icon-times"></span>
+									No
+								</label>
+							</div>
+						</div>
+						<h4 class="scale-question-name">La commande ADD</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Notez la commande ADD en vous basant sur ce qui est demandé dans le sujet.</p>
+
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
+							<input autocomplete="off" class="star-range" data-star-range="" max="5"
+								name="[scale_team][answers_attributes][7][value]" step="1" type="range" value="0"
+								style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+							<hr>
+						</div>
+						<h4 class="scale-question-name">La commande SEARCH</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Notez la commande SEARCH en vous basant sur ce qui est demandé dans le sujet. Une légère
+							divergence dans le format attendu n'est pas importante. Cette partie vise à utiliser les
+							"iomanips" en C++ et c'est ce sur quoi vous devez vous concentrer.</p>
+
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
+							<input autocomplete="off" class="star-range" data-star-range="" max="5"
+								name="[scale_team][answers_attributes][8][value]" step="1" type="range" value="0"
+								style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+							<hr>
+						</div>
+					</section>
+					<section class="scale-section-item dancer from-down" id="section-81814">
+						<div class="section-header">
+							<hr>
+							<h3 class="font-weight-bold mb-1">Exercice 02 : Le boulot de vos rêves</h3>
+							<p class="font-italic">Le but de cet exercice est de récupérer les informations cachées au
+								milieu du bruit et d'insérer du code dans un contexte existant.</p>
+						</div>
+						<h4 class="scale-question-name">Avez-vous sauvé le monde ?</h4>
+						<p class="scale-section-guidelines">
+						</p>
+						<p>Cet exercice est plutôt simple. Soit Account.cpp marche, soit il ne marche <br>
+							pas. Comparez la sortie du programme avec le fichier de logs fourni. <br>
+							Toute différence (à l'exception des horodatages ou de l'ordre des destructors) signifie que
+							l'exercice est incorrect.</p>
+
+						<p></p>
+						<div class="scale-question-answers">
+							<div class="form-group hidden scale_team_answer_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="form-group hidden scale_team_answer_question_id">
+								<div class="col-sm-10"></div>
+							</div>
+							<div class="btn-group block">
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][9][value]"
+									id="radio_[scale_team][answers_attributes][9]_true" type="radio" value="1">
+								<label class="btn btn-success checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][9]_true">
+									<span class="icon-check"></span>
+									Yes
+								</label>
+								<input autocomplete="off" class="checkbox-input"
+									name="[scale_team][answers_attributes][9][value]"
+									id="radio_[scale_team][answers_attributes][9]_false" type="radio" value="0"
+									checked="checked">
+								<label class="btn btn-danger checkbox-label light-bg"
+									for="radio_[scale_team][answers_attributes][9]_false">
+									<span class="icon-times"></span>
+									No
+								</label>
+							</div>
+						</div>
+					</section>
 				</div>
 				<div class="col-sm-12 scale-div pb-4">
-					<div class="dancer from-down" id="ratings-24654">
+					<div class="dancer from-down" id="ratings-29673">
 						<h3 class="font-weight-bold mb-1">Ratings</h3>
 						<p class="marked-title">Don’t forget to check the flag corresponding to the defense</p>
 						<div class="btn-group block flags-buttons" data-radio-item="flag-small">
@@ -522,13 +547,67 @@ require(PATH . "/utils/menu.php");
 					</div>
 
 				</div>
+				<div class="col-sm-12 scale-div">
+					<h3 class="font-weight-bold mb-1">Conclusion</h3>
+					<div class="scale-final-evaluation hidden">
+						<div class="form-group radio_buttons optional scale_team_flag"><label
+								class="col-sm-2 control-label radio_buttons optional">Flag</label>
+							<div class="col-sm-10"><span class="radio"><label for="scale_team_flag_id_1"><input
+											class="radio_buttons optional" type="radio" value="1" checked="checked"
+											name="scale_team[flag_id]" id="scale_team_flag_id_1">Ok</label></span><span
+									class="radio"><label for="scale_team_flag_id_3"><input
+											class="radio_buttons optional" type="radio" value="3"
+											name="scale_team[flag_id]" id="scale_team_flag_id_3">Incomplete
+										work</label></span><span class="radio"><label for="scale_team_flag_id_5"><input
+											class="radio_buttons optional" type="radio" value="5"
+											name="scale_team[flag_id]" id="scale_team_flag_id_5">Invalid
+										compilation</label></span><span class="radio"><label
+										for="scale_team_flag_id_7"><input class="radio_buttons optional" type="radio"
+											value="7" name="scale_team[flag_id]"
+											id="scale_team_flag_id_7">Cheat</label></span><span class="radio"><label
+										for="scale_team_flag_id_8"><input class="radio_buttons optional" type="radio"
+											value="8" name="scale_team[flag_id]"
+											id="scale_team_flag_id_8">Crash</label></span><span class="radio"><label
+										for="scale_team_flag_id_9"><input class="radio_buttons optional" type="radio"
+											value="9" name="scale_team[flag_id]" id="scale_team_flag_id_9">Outstanding
+										project</label></span><span class="radio"><label
+										for="scale_team_flag_id_11"><input class="radio_buttons optional" type="radio"
+											value="11" name="scale_team[flag_id]" id="scale_team_flag_id_11">Concerning
+										situation</label></span><span class="radio"><label
+										for="scale_team_flag_id_12"><input class="radio_buttons optional" type="radio"
+											value="12" name="scale_team[flag_id]"
+											id="scale_team_flag_id_12">Leaks</label></span><span class="radio"><label
+										for="scale_team_flag_id_13"><input class="radio_buttons optional" type="radio"
+											value="13" name="scale_team[flag_id]" id="scale_team_flag_id_13">Forbidden
+										Function</label></span><span class="radio"><label
+										for="scale_team_flag_id_14"><input class="radio_buttons optional" type="radio"
+											value="14" name="scale_team[flag_id]" id="scale_team_flag_id_14">Can’t
+										support / explain code</label></span><span class="radio"><label
+										for="scale_team_flag_id_2"><input class="radio_buttons optional" type="radio"
+											value="2" name="scale_team[flag_id]" id="scale_team_flag_id_2">Empty
+										work</label></span></div>
+						</div>
+					</div>
+					<div class="scale-final-comments" id="comments-29673">
+						<p class="marked-title">Leave a comment on this evaluation</p>
+						<textarea required="required" label="false" class="text required col-sm-12 mb-4"
+							aria-required="true" name="scale_team[comment]" id="scale_team_comment"></textarea>
+
+					</div>
+
+				</div>
+				<div class="scale-final-submit">
+					<input class="btn btn-primary btn-block font-weight-bold"
+						data-disable-with="Finishing evaluation..." name="commit" type="submit"
+						value="Finish evaluation">
+				</div>
 				<div class="scale-final-submit"><a href="https://github.com/rphlr/42-Evals">
 						<input class="btn btn-primary btn-block font-weight-bold" type="button"
 							value="Give this repository a star. ⭐" /></a>
 				</div>
 			</form>
-
-
+		</div>
+	</div>
 </body>
 
 </html>

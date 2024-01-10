@@ -15,7 +15,8 @@ require(PATH . "/utils/menu.php");
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
 	<title>Born2beroot correction</title>
-	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico"
+		type="image/x-icon">
 	<link href="<?php echo htmlspecialchars($prefix); ?>css/styles.css" media="all" rel="stylesheet" />
 	<link rel="manifest" href="<?php echo htmlspecialchars($prefix); ?>manifest.json">
 	<script src="<?php echo htmlspecialchars($prefix); ?>js/script.js"></script>

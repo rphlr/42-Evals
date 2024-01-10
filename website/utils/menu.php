@@ -51,7 +51,7 @@ if ($logged_in) {
 		'Give this repository a star. ⭐' => 'https://github.com/rphlr/42-Evals',
 		'Follow me on github' => 'https://github.com/rphlr',
 		'Add me on LinkedIn' => 'https://www.linkedin.com/in/rphlr/',
-		'privacy policy' => $prefix . 'privacy'
+		'privacy policy' => $prefix . 'privacy_policy'
 	];
 
 	if ($username == $_ENV['SECRET_ADMIN_USERNAME']) {

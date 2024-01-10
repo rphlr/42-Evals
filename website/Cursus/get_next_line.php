@@ -7,6 +7,7 @@ require(PATH . "/utils/menu.php");
 
 <!DOCTYPE html>
 <html lang="en">
+<script src="chrome-extension://hmflgigeigiejaogcgamkecmlibcpdgo/generic/inject.js"></script>
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -14,7 +15,8 @@ require(PATH . "/utils/menu.php");
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
 	<title>get_next_line correction</title>
-	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico"
+		type="image/x-icon">
 	<link href="<?php echo htmlspecialchars($prefix); ?>css/styles.css" media="all" rel="stylesheet" />
 	<link rel="manifest" href="<?php echo htmlspecialchars($prefix); ?>manifest.json">
 	<script src="<?php echo htmlspecialchars($prefix); ?>js/script.js"></script>
@@ -44,71 +46,51 @@ require(PATH . "/utils/menu.php");
 					<a href="https://projects.intra.42.fr/projects/42cursus-get_next_line">get_next_line</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 1 student in this team</h5>
-
-				<hr>
-				<div class="p-0 scale-introduction dancer from-down" id="introduction-24637">
+				<hr />
+				<div class="p-0 scale-introduction dancer from-down" id="introduction-24830">
 					<h3 class="font-weight-bold mb-1">Introduction</h3>
 					<p>
-						Please comply with the following rules:<br><br>- Remain polite, courteous, respectful and
-						constructive
-						throughout the <br> evaluation process. The well-being of the community depends on it.<br><br>-
-						Identify with the student or group whose work is evaluated the possible <br> dysfunctions in
-						their
-						project. Take the time to discuss and debate the <br> problems that may have been
-						identified.<br><br>-
-						You must consider that there might be some differences in how your peers <br> might have
-						understood
-						the project's instructions and the scope of its <br> functionalities. Always keep an open mind
-						and
-						grade them as honestly as <br> possible. The pedagogy is useful only and only if the
-						peer-evaluation
-						is <br> done seriously.<br>
+						Merci de respecter les règles suivantes:<br><br>- Restez polis, courtois, respectueux et
+						constructifs pendant le processus<br> d'évaluation. Le bien-être de la communauté repose
+						là-dessus.<br><br>- Identifiez avec la personne évaluée ou le groupe évalué les éventuels<br>
+						dysfonctionnements de son travail. Prenez le temps d'en discuter et<br> débattez des problèmes
+						identifiés.<br><br>- Vous devez prendre en compte qu'il peut y avoir de légères différences<br>
+						d'interprétation entre les instructions du projet, son scope et ses<br> fonctionnalités. Gardez
+						un esprit ouvert et notez de la manière la plus<br> honnête possible. La pédagogie n'est valide
+						que si la peer-évaluation<br> est faite sérieusement.<br>
 					</p>
 				</div>
-				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-24637">
+				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-30631">
 					<h3 class="font-weight-bold mb-1">Guidelines</h3>
 					<p>
-						- Only grade the work that was turned in the Git repository of the evaluated <br> student or
-						group.<br><br>- Double-check that the Git repository belongs to the student(s). Ensure that <br>
-						the
-						project is the one expected. Also, check that 'git clone' is used in an <br> empty
-						folder.<br><br>-
-						Check carefully that no malicious aliases was used to fool you and make you <br> evaluate
-						something
-						that is not the content of the official repository.<br><br>- To avoid any surprises and if
-						applicable,
-						review together any scripts used <br> to facilitate the grading (scripts for testing or
-						automation).<br><br>- If you have not completed the assignment you are going to evaluate, you
-						have
-						<br> to read the entire subject prior to starting the evaluation process.<br><br>- Use the
-						available
-						flags to report an empty repository, a non-functioning <br> program, a Norm error, cheating, and
-						so
-						forth. <br> In these cases, the evaluation process ends and the final grade is 0, <br> or -42 in
-						case
-						of cheating. However, except for cheating, student are <br> strongly encouraged to review
-						together the
-						work that was turned in, in order <br> to identify any mistakes that shouldn't be repeated in
-						the
-						future.<br><br>- Remember that for the duration of the defence, no segfault, no other <br>
-						unexpected,
-						premature, uncontrolled or unexpected termination of the <br> program, else the final grade is
-						0. Use
-						the appropriate flag. <br> You should never have to edit any file except the configuration file
-						if it
-						<br> exists. If you want to edit a file, take the time to explicit the reasons <br> with the
-						evaluated
-						student and make sure both of you are okay with this.<br><br>- You must also verify the absence
-						of
-						memory leaks. Any memory allocated on <br> the heap must be properly freed before the end of
-						execution. <br> You are allowed to use any of the different tools available on the computer,
-						<br> such
-						as leaks, valgrind, or e_fence. In case of memory leaks, tick the <br> appropriate flag.<br>
+						- Ne notez que ce qui est contenu dans le dépôt Git cloné de l'étudiant(e)<br> ou du
+						groupe.<br><br>- Vérifiez que le dépôt Git appartient bien à l'étudiant(e) ou au groupe,<br> que
+						le projet est bien celui attendu, et que "git clone" est utilisé<br> dans un dossier
+						vide.<br><br>- Vérifiez scrupuleusement qu'aucun alias n'a été utilisé pour vous tromper<br> et
+						assurez-vous que vous évaluez bien le rendu officiel.<br><br>- Afin d'éviter toute surprise,
+						vérifiez avec l'étudiant(e) ou le groupe les<br> potentiels scripts utilisés pour faciliter
+						l'évaluation (par exemple, des<br> scripts de tests ou d'automatisation).<br><br>- Si vous
+						n'avez pas fait le projet que vous allez évaluer, vous devez lire<br> le sujet en entier avant
+						de commencer l'évaluation.<br><br>- Utilisez les flags disponibles pour signaler un rendu vide,
+						un programme<br> ne fonctionnant pas, une erreur de Norme, de la triche... Dans ces<br>
+						situations, l'évaluation est terminée et la note est 0, ou -42 en cas de<br> triche. Cependant,
+						à l'exception des cas de triche, vous êtes encouragé(e)s<br> à continuer la discussion sur le
+						travail rendu, même si ce dernier est<br> incomplet. Ceci afin d'identifier les erreurs à ne pas
+						reproduire dans le<br> futur.<br><br>- Pendant toute la durée de l'évaluation, aucun segfault ou
+						autre arrêt<br> inattendu, prémature ou incontrôlé ne sera toléré. Auquel cas, la note<br>
+						finale sera de 0. Utilisez le flag approprié.<br> Vous ne devriez jamais avoir à éditer un
+						fichier hormis un fichier de<br> configuration si existant. Dans le cas ou vous souhaitez
+						modifier un fichier,<br> vous devez expliciter clairement les raisons de l'édition et être en
+						accord<br> avec l'étudiant(e) évalué(e) avant de faire quoi que ce soit.<br><br>- Vous devez
+						aussi vérifier l'absence de fuites mémoire. Toute mémoire<br> allouée sur le tas doit être
+						libérée proprement avant la fin de l'exécution<br> du programme.<br> Vous avez le droit
+						d'utiliser tout outil disponible sur la machine tel que<br> leaks, valgrind ou e_fence. En cas
+						de fuites mémoire, cochez le flag<br> approprié.<br>
 					</p>
 				</div>
 
 				<hr>
-				<div class="dancer from-down" id="attachments-24637">
+				<div class="dancer from-down" id="attachments-30631">
 					<h3 class="font-weight-bold mb-1">Attachments</h3>
 					<div class="project-attachments-list">
 					</div>
@@ -125,21 +107,21 @@ require(PATH . "/utils/menu.php");
 				</div>
 
 			</div>
-			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_5575551"
-				action="https://projects.intra.42.fr/projects/42cursus-get_next_line/project_sessions/3313/evaluations/1590/scales/24637/scale_teams/5575551"
+			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_6195387"
+				action="https://projects.intra.42.fr/projects/42cursus-get_next_line/project_sessions/3313/evaluations/1590/scales/30631/scale_teams/6195387"
 				accept-charset="UTF-8" method="post">
 				<div class="scale-section-answers col-sm-12 scale-div">
-					<section class="scale-section-item dancer from-down" id="section-69328">
+					<section class="scale-section-item dancer from-down" id="section-84707">
 						<div class="section-header">
-							<h3 class="font-weight-bold mb-1">Mandatory Part</h3>
+							<h3 class="font-weight-bold mb-1">Partie obligatoire</h3>
 							<p class="font-italic"></p>
 						</div>
 						<h4 class="scale-question-name">Norminette</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>Run the Norminette. If there is an error, the evaluation stops here. <br>
-							You can keep going and discuss the implementation of the code, but the <br>
-							assignment will not be graded.</p>
+						<p>Exécutez la Norminette. En cas d'erreur, l'évaluation s'arrête ici.<br>
+							Vous pouvez continuer et discuter de l'implémentation du code, mais cela<br>
+							ne sera pas noté.</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -172,11 +154,11 @@ require(PATH . "/utils/menu.php");
 						<h4 class="scale-question-name">Compilation</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>It should be possible to compile the project with the usual flags and -D BUFFER_SIZE. <br>
-							It must be possible to compile this project with and without this flag in addition to <br>
-							the flags: -Wall -Wextra -Werror. If there is an error, the evaluation stops here. <br>
-							You can keep going and discuss the implementation of the code, but the <br>
-							assignment will not be graded.</p>
+						<p>Il devrait être possible de compiler le projet avec les flags habituels<br>
+							et le flag -D BUFFER_SIZE. Il doit être possible de compiler ce projet avec et sans<br>
+							ce dernier en plus des flags : -Wall -Wextra -Werror. S'il y a une erreur,<br>
+							l'évaluation s'arrête ici. Vous pouvez continuer et discuter de la mise en<br>
+							œuvre du code, mais la soutenance ne sera pas noté.</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -206,20 +188,20 @@ require(PATH . "/utils/menu.php");
 								</label>
 							</div>
 						</div>
-						<h4 class="scale-question-name">Error management</h4>
+						<h4 class="scale-question-name">Gestion d'erreur</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>Carry out AT LEAST the following tests to try to stress the error <br>
-							management.</p>
+						<p>Effectuez au minimum les tests d'erreur suivants afin de vérifier la<br>
+							gestion d'erreur du programmme.</p>
 
 						<ul>
-							<li>Pass an arbitrary file descriptor to the get_next_line function on
-								which it is not possible to read, for example 42. The function must
-								return NULL.</li>
-							<li>Check the error returns for read and malloc.
-								If there is an error, the evaluation stops here.
-								You can keep going and discuss the implementation of the code,
-								but the assignment will not be graded.</li>
+							<li>Passez un fd arbitraire a la fonction get_next_line, sur lequel il
+								n'est pas possible de lire (par ex. 42) La fonction doit renvoyer NULL.</li>
+							<li>Vérifiez les retours d'erreur de malloc, read et open.
+								Si la partie "gestion d'erreur" est fausse, merci de ne pas noter la
+								partie suivante, la correction s'arrête ici.
+								Vous pouvez continuer et discuter de l'implémentation du code, mais cela
+								ne sera pas noté.</li>
 						</ul>
 
 						<p></p>
@@ -250,48 +232,44 @@ require(PATH . "/utils/menu.php");
 								</label>
 							</div>
 						</div>
-						<h4 class="scale-question-name">Testing</h4>
+						<h4 class="scale-question-name">Tests</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>As the evaluator, you are expected to provide a main which will always check:</p>
+						<p>En temps qu'évaluateur(ice), vous devez écrire ou apporter un main qui vérifie :</p>
 
 						<ul>
-							<li>The return value of the get_next_line is NULL in case of error.</li>
-							<li>Otherwise, the function returns the line read, always with a <code>\n</code> at the end
-								except
-								if
-								the end of file was reached and does not end with a <code>\n</code> character.</li>
+							<li>La valeur de retour de la fonction get_next_line est NULL en cas d'erreur.</li>
+							<li>Sinon, la fonction renvoie la ligne lue, toujours avec un \n à la fin.</li>
 						</ul>
 
-						<p>Test all the possible combinations of the following rules:</p>
+						<p>Testez toutes les combinaisons des règles suivantes :</p>
 
 						<ul>
-							<li>Large BUFFER_SIZE (&gt;1024)</li>
-							<li>Small BUFFER_SIZE (&lt; 8, and 1)</li>
-							<li>BUFFER_SIZE exactly the length of the line to read</li>
+							<li>Gros BUFFER_SIZE (&gt; 1024)</li>
+							<li>Petit BUFFER_SIZE (&lt; 8, et 1)</li>
+							<li>BUFFER_SIZE de la taille de la ligne à lire</li>
 							<li>
-								<p>1 byte variant (+/-) between the line and the BUFFER_SIZE</p>
+								<p>1 de décalage (+/-) entre le BUFFER_SIZE et la ligne</p>
 							</li>
 							<li>
-								<p>Read on stdin</p>
+								<p>Lecture depuis stdin</p>
 							</li>
 							<li>
-								<p>Read from a file</p>
+								<p>Lecture depuis un fichier</p>
 							</li>
 							<li>
-								<p>(Multiple/Single) Long line (2k+ characters)</p>
+								<p>(Multiple/Simple) ligne longue (2k+ caractères)</p>
 							</li>
 							<li>
-								<p>(Multiple/Single) Short line (&lt; 4 characters, even 1)</p>
+								<p>(Multiple/Simple) ligne courte (&lt;4 caractères, et 1)</p>
 							</li>
 							<li>
-								<p>(Multiple/Single) Empty line</p>
+								<p>(Multiple/Simple) Ligne vide</p>
 							</li>
 						</ul>
 
-						<p>These tests should enable you to verify the strength of the student's <br>
-							get_next_line.<br>
-							If there is an error, the evaluation stops here.</p>
+						<p>Ces tests devraient vous permettre de vérifier la validité du projet de<br>
+							l'étudiant(e). En cas d'erreur, l'évaluation s'arrête ici.</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -322,23 +300,27 @@ require(PATH . "/utils/menu.php");
 							</div>
 						</div>
 					</section>
-					<section class="scale-section-item dancer from-down" id="section-69329">
+					<section class="scale-section-item dancer from-down" id="section-84708">
 						<div class="section-header">
 							<hr>
-							<h3 class="font-weight-bold mb-1">Bonus part</h3>
-							<p class="font-italic">Evaluate the bonus part if, and only if, the mandatory part has been
-								entirely and perfectly done, and the error management handles unexpected
-								or bad usage. In case all the mandatory points were not passed during the
-								defense, bonus points must be totally ignored.
+							<h3 class="font-weight-bold mb-1">Partie bonus</h3>
+							<p class="font-italic">Les bonus ne seront examinés que si la partie obligatoire est
+								excellente.
+								Cela signifie que la partie obligatoire doit avoir été réalisée du début à
+								la fin, avec une gestion d'erreur parfaite même en cas d'usage inattendu.
+								Si tous les points obligatoires n'ont pas été attribués pendant cette
+								soutenance, aucun point bonus ne sera comptabilisé.
 							</p>
 						</div>
-						<h4 class="scale-question-name">Multiple fd reading</h4>
+						<h4 class="scale-question-name">Lecture sur multiples fd</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>Perform the same tests as you did before, this time launch multiple <br>
-							instances of get_next_line with a different file descriptor on each. Make <br>
-							sure that each get_next_line is returning the correct line. Combine with <br>
-							a non-existing fd to check for errors.</p>
+						<p>Répétez les tests effectués précédemment mais, cette fois, en lançant<br>
+							plusieurs instances de get_next_line, chacune utilisant un descripteur<br>
+							de fichier différent.<br>
+							Assurez-vous que chaque get_next_line renvoie la bonne ligne.<br>
+							Ajoutez un descripteur de fichier invalide pour tester la gestion<br>
+							d'erreurs.</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -368,11 +350,11 @@ require(PATH . "/utils/menu.php");
 								</label>
 							</div>
 						</div>
-						<h4 class="scale-question-name">Single static variable</h4>
+						<h4 class="scale-question-name">Une seule variable statique</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>Check the code and verify if there is indeed only one static variable.<br>
-							Give the points if that's the case.</p>
+						<p>Lisez le code et vérifiez qu'il n'y a bien qu'une seule variable statique.<br>
+							Attribuez les points bonus si c'est le cas.</p>
 
 						<p></p>
 						<div class="scale-question-answers">
@@ -405,7 +387,7 @@ require(PATH . "/utils/menu.php");
 					</section>
 				</div>
 				<div class="col-sm-12 scale-div pb-4">
-					<div class="dancer from-down" id="ratings-24637">
+					<div class="dancer from-down" id="ratings-30631">
 						<h3 class="font-weight-bold mb-1">Ratings</h3>
 						<p class="marked-title">Don’t forget to check the flag corresponding to the defense</p>
 						<div class="btn-group block flags-buttons" data-radio-item="flag-small">
@@ -471,11 +453,67 @@ require(PATH . "/utils/menu.php");
 					</div>
 
 				</div>
+				<div class="col-sm-12 scale-div">
+					<h3 class="font-weight-bold mb-1">Conclusion</h3>
+					<div class="scale-final-evaluation hidden">
+						<div class="form-group radio_buttons optional scale_team_flag"><label
+								class="col-sm-2 control-label radio_buttons optional">Flag</label>
+							<div class="col-sm-10"><span class="radio"><label for="scale_team_flag_id_1"><input
+											class="radio_buttons optional" type="radio" value="1" checked="checked"
+											name="scale_team[flag_id]" id="scale_team_flag_id_1">Ok</label></span><span
+									class="radio"><label for="scale_team_flag_id_3"><input
+											class="radio_buttons optional" type="radio" value="3"
+											name="scale_team[flag_id]" id="scale_team_flag_id_3">Incomplete
+										work</label></span><span class="radio"><label for="scale_team_flag_id_6"><input
+											class="radio_buttons optional" type="radio" value="6"
+											name="scale_team[flag_id]"
+											id="scale_team_flag_id_6">Norme</label></span><span class="radio"><label
+										for="scale_team_flag_id_7"><input class="radio_buttons optional" type="radio"
+											value="7" name="scale_team[flag_id]"
+											id="scale_team_flag_id_7">Cheat</label></span><span class="radio"><label
+										for="scale_team_flag_id_8"><input class="radio_buttons optional" type="radio"
+											value="8" name="scale_team[flag_id]"
+											id="scale_team_flag_id_8">Crash</label></span><span class="radio"><label
+										for="scale_team_flag_id_9"><input class="radio_buttons optional" type="radio"
+											value="9" name="scale_team[flag_id]" id="scale_team_flag_id_9">Outstanding
+										project</label></span><span class="radio"><label
+										for="scale_team_flag_id_11"><input class="radio_buttons optional" type="radio"
+											value="11" name="scale_team[flag_id]" id="scale_team_flag_id_11">Concerning
+										situation</label></span><span class="radio"><label
+										for="scale_team_flag_id_12"><input class="radio_buttons optional" type="radio"
+											value="12" name="scale_team[flag_id]"
+											id="scale_team_flag_id_12">Leaks</label></span><span class="radio"><label
+										for="scale_team_flag_id_13"><input class="radio_buttons optional" type="radio"
+											value="13" name="scale_team[flag_id]" id="scale_team_flag_id_13">Forbidden
+										Function</label></span><span class="radio"><label
+										for="scale_team_flag_id_14"><input class="radio_buttons optional" type="radio"
+											value="14" name="scale_team[flag_id]" id="scale_team_flag_id_14">Can’t
+										support / explain code</label></span><span class="radio"><label
+										for="scale_team_flag_id_2"><input class="radio_buttons optional" type="radio"
+											value="2" name="scale_team[flag_id]" id="scale_team_flag_id_2">Empty
+										work</label></span></div>
+						</div>
+					</div>
+					<div class="scale-final-comments" id="comments-30631">
+						<p class="marked-title">Leave a comment on this evaluation</p>
+						<textarea required="required" label="false" class="text required col-sm-12 mb-4"
+							aria-required="true" name="scale_team[comment]" id="scale_team_comment"></textarea>
+
+					</div>
+
+				</div>
+				<div class="scale-final-submit">
+					<input class="btn btn-primary btn-block font-weight-bold"
+						data-disable-with="Finishing evaluation..." name="commit" type="submit"
+						value="Finish evaluation">
+				</div>
 				<div class="scale-final-submit"><a href="https://github.com/rphlr/42-Evals">
 						<input class="btn btn-primary btn-block font-weight-bold" type="button"
 							value="Give this repository a star. ⭐" /></a>
 				</div>
 			</form>
+		</div>
+	</div>
 </body>
 
 </html>

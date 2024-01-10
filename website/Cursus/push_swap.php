@@ -6,8 +6,8 @@ require(PATH . "/utils/menu.php");
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
+<script src="chrome-extension://hmflgigeigiejaogcgamkecmlibcpdgo/generic/inject.js"></script>
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -15,7 +15,8 @@ require(PATH . "/utils/menu.php");
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
 	<title>push_swap correction</title>
-	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico"
+		type="image/x-icon">
 	<link href="<?php echo htmlspecialchars($prefix); ?>css/styles.css" media="all" rel="stylesheet" />
 	<link rel="manifest" href="<?php echo htmlspecialchars($prefix); ?>manifest.json">
 	<script src="<?php echo htmlspecialchars($prefix); ?>js/script.js"></script>
@@ -40,67 +41,50 @@ require(PATH . "/utils/menu.php");
 		<div class="row mt-4">
 			<div class="scale-section-infos col-sm-12 scale-div">
 				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">
-					<br />Scale for project
+					Scale for project
 
 					<a href="https://projects.intra.42.fr/projects/42cursus-push_swap">push_swap</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 1 student in this team</h5>
-				<hr>
-				<div class="p-0 scale-introduction dancer from-down" id="introduction-27808">
+				<hr />
+				<div class="p-0 scale-introduction dancer from-down" id="introduction-24830">
 					<h3 class="font-weight-bold mb-1">Introduction</h3>
 					<p>
 						Please comply with the following rules:<br><br>- Remain polite, courteous, respectful and
-						constructive
-						throughout the <br> evaluation process. The well-being of the community depends on it.<br><br>-
-						Identify with the student or group whose work is evaluated the possible <br> dysfunctions in
-						their
-						project. Take the time to discuss and debate the <br> problems that may have been
-						identified.<br><br>-
-						You must consider that there might be some differences in how your peers <br> might have
-						understood
-						the project's instructions and the scope of its <br> functionalities. Always keep an open mind
-						and
-						grade them as honestly as <br> possible. The pedagogy is useful only and only if the
-						peer-evaluation
-						is <br> done seriously.<br>
+						constructive throughout the <br> evaluation process. The well-being of the community depends on
+						it.<br><br>- Identify with the student or group whose work is evaluated the possible <br>
+						dysfunctions in their project. Take the time to discuss and debate the <br> problems that may
+						have been identified.<br><br>- You must consider that there might be some differences in how
+						your peers <br> might have understood the project's instructions and the scope of its <br>
+						functionalities. Always keep an open mind and grade them as honestly as <br> possible. The
+						pedagogy is useful only and only if the peer-evaluation is <br> done seriously.<br>
 					</p>
 				</div>
-				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-27808">
+				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-30826">
 					<h3 class="font-weight-bold mb-1">Guidelines</h3>
 					<p>
 						- Only grade the work that was turned in the Git repository of the evaluated <br> student or
 						group.<br><br>- Double-check that the Git repository belongs to the student(s). Ensure that <br>
-						the
-						project is the one expected. Also, check that 'git clone' is used in an <br> empty
-						folder.<br><br>-
-						Check carefully that no malicious aliases was used to fool you and make you <br> evaluate
-						something
-						that is not the content of the official repository.<br><br>- To avoid any surprises and if
-						applicable,
-						review together any scripts used <br> to facilitate the grading (scripts for testing or
-						automation).<br><br>- If you have not completed the assignment you are going to evaluate, you
-						have
-						<br> to read the entire subject prior to starting the evaluation process.<br><br>- Use the
-						available
-						flags to report an empty repository, a non-functioning <br> program, a Norm error, cheating, and
-						so
-						forth. <br> In these cases, the evaluation process ends and the final grade is 0, <br> or -42 in
-						case
-						of cheating. However, except for cheating, student are <br> strongly encouraged to review
-						together the
-						work that was turned in, in order <br> to identify any mistakes that shouldn't be repeated in
-						the
-						future.<br><br>- You must also verify the absence of memory leaks. Any memory allocated on <br>
-						the
-						heap must be properly freed before the end of execution. <br> You are allowed to use any of the
-						different tools available on the computer, <br> such as leaks, valgrind, or e_fence. In case of
-						memory
-						leaks, tick the <br> appropriate flag.<br>
+						the project is the one expected. Also, check that 'git clone' is used in an <br> empty
+						folder.<br><br>- Check carefully that no malicious aliases was used to fool you and make you
+						<br> evaluate something that is not the content of the official repository.<br><br>- To avoid
+						any surprises and if applicable, review together any scripts used <br> to facilitate the grading
+						(scripts for testing or automation).<br><br>- If you have not completed the assignment you are
+						going to evaluate, you have <br> to read the entire subject prior to starting the evaluation
+						process.<br><br>- Use the available flags to report an empty repository, a non-functioning <br>
+						program, a Norm error, cheating, and so forth. <br> In these cases, the evaluation process ends
+						and the final grade is 0, <br> or -42 in case of cheating. However, except for cheating, student
+						are <br> strongly encouraged to review together the work that was turned in, in order <br> to
+						identify any mistakes that shouldn't be repeated in the future.<br><br>- You must also verify
+						the absence of memory leaks. Any memory allocated on <br> the heap must be properly freed before
+						the end of execution. <br> You are allowed to use any of the different tools available on the
+						computer, <br> such as leaks, valgrind, or e_fence. In case of memory leaks, tick the <br>
+						appropriate flag.<br>
 					</p>
 				</div>
 
 				<hr>
-				<div class="dancer from-down" id="attachments-27808">
+				<div class="dancer from-down" id="attachments-30826">
 					<h3 class="font-weight-bold mb-1">Attachments</h3>
 					<div class="project-attachments-list">
 					</div>
@@ -116,14 +100,14 @@ require(PATH . "/utils/menu.php");
 							<h4 class="attachment-name">
 								<span class="icon-file"></span>
 								<a target="_blank"
-									href="https://cdn.intra.42.fr/document/document/20813/checker_Mac">checker_Mac</a>
+									href="https://cdn.intra.42.fr/document/document/23302/checker_Mac">checker_Mac</a>
 							</h4>
 						</div>
 						<div class="project-attachment-item">
 							<h4 class="attachment-name">
 								<span class="icon-file"></span>
 								<a target="_blank"
-									href="https://cdn.intra.42.fr/document/document/20814/checker_linux">checker_linux</a>
+									href="https://cdn.intra.42.fr/document/document/23303/checker_linux">checker_linux</a>
 							</h4>
 						</div>
 					</div>
@@ -131,11 +115,11 @@ require(PATH . "/utils/menu.php");
 				</div>
 
 			</div>
-			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_6115761"
-				action="https://projects.intra.42.fr/projects/42cursus-push_swap/project_sessions/9923/evaluations/7707/scales/27808/scale_teams/6115761"
+			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_6227573"
+				action="https://projects.intra.42.fr/projects/42cursus-push_swap/project_sessions/9923/evaluations/7707/scales/30826/scale_teams/6227573"
 				accept-charset="UTF-8" method="post">
 				<div class="scale-section-answers col-sm-12 scale-div">
-					<section class="scale-section-item dancer from-down" id="section-77397">
+					<section class="scale-section-item dancer from-down" id="section-85134">
 						<div class="section-header">
 							<h3 class="font-weight-bold mb-1">Mandatory part</h3>
 							<p class="font-italic">
@@ -247,23 +231,23 @@ require(PATH . "/utils/menu.php");
 
 						<ul>
 							<li>
-								<p>Run the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>push_swap 42". The program<br>
+								<p>Run the following command "$&gt;./push_swap 42". The program<br>
 									should display nothing (0 instruction).</p>
 							</li>
 							<li>
-								<p>Run the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>push_swap 2 3". The<br>
+								<p>Run the following command "$&gt;./push_swap 2 3". The<br>
 									program should display nothing (0 instruction).</p>
 							</li>
 							<li>
-								<p>Run the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>push_swap 0 1 2 3". The<br>
+								<p>Run the following command "$&gt;./push_swap 0 1 2 3". The<br>
 									program should display nothing (0 instruction).</p>
 							</li>
 							<li>
-								<p>Run the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>push_swap 0 1 2 3 4 5 6 7 8<br>
+								<p>Run the following command "$&gt;./push_swap 0 1 2 3 4 5 6 7 8<br>
 									9". The program should display nothing (0 instruction).</p>
 							</li>
 							<li>
-								<p>Run the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>push_swap 'Between 0 and 9 randomly <br>
+								<p>Run the following command "$&gt;./push_swap 'Between 0 and 9 randomly <br>
 									sorted values chosen&gt;'. The program should display nothing <br>
 									(0 instruction).</p>
 							</li>
@@ -306,14 +290,14 @@ require(PATH . "/utils/menu.php");
 
 						<ul>
 							<li>
-								<p>Run "$&gt;ARG="2 1 0"; <?php echo htmlspecialchars($prefix); ?>push_swap $ARG | <?php echo htmlspecialchars($prefix); ?>checker_OS $ARG".<br>
+								<p>Run "$&gt;ARG="2 1 0"; ./push_swap $ARG | ./checker_OS $ARG".<br>
 									Check that the checker program displays "OK" and that the<br>
 									size of the list of instructions from push_swap is 2 OR 3.<br>
 									Otherwise the test fails.</p>
 							</li>
 							<li>
-								<p>Run "$&gt;ARG="'Between 0 and 3 randomly values chosen'"; <?php echo htmlspecialchars($prefix); ?>push_swap <br>
-									$ARG | <?php echo htmlspecialchars($prefix); ?>checker_OS $ARG". Check that the checker program displays <br>
+								<p>Run "$&gt;ARG="'Between 0 and 3 randomly values chosen'"; ./push_swap <br>
+									$ARG | ./checker_OS $ARG". Check that the checker program displays <br>
 									"OK" and that the size of the list of instructions from push_swap <br>
 									is between 0 AND 3. Otherwise the test fails.</p>
 							</li>
@@ -356,13 +340,13 @@ require(PATH . "/utils/menu.php");
 
 						<ul>
 							<li>
-								<p>Run "$&gt;ARG="1 5 2 4 3"; <?php echo htmlspecialchars($prefix); ?>push_swap $ARG | <?php echo htmlspecialchars($prefix); ?>checker_OS $ARG".<br>
+								<p>Run "$&gt;ARG="1 5 2 4 3"; ./push_swap $ARG | ./checker_OS $ARG".<br>
 									Check that the checker program displays "OK" and that the<br>
 									size of the list of instructions from push_swap isn't more<br>
 									than 12. Kudos if the size of the list of instructions is 8.</p>
 							</li>
 							<li>
-								<p>Run "$&gt;ARG="&lt;5 random values&gt;"; <?php echo htmlspecialchars($prefix); ?>push_swap $ARG | <?php echo htmlspecialchars($prefix); ?>checker_OS<br>
+								<p>Run "$&gt;ARG="&lt;5 random values&gt;"; ./push_swap $ARG | ./checker_OS<br>
 									$ARG" and replace the placeholder by 5 random valid values.<br>
 									Check that the checker program displays "OK" and that the<br>
 									size of the list of instructions from push_swap isn't more<br>
@@ -410,8 +394,8 @@ require(PATH . "/utils/menu.php");
 							binary given on the attachments.</p>
 
 						<ul>
-							<li>Run "$&gt;ARG="&lt;100 random values&gt;"; <?php echo htmlspecialchars($prefix); ?>push_swap $ARG |
-								<?php echo htmlspecialchars($prefix); ?>checker_OS $ARG" and replace the placeholder by 100 random
+							<li>Run "$&gt;ARG="&lt;100 random values&gt;"; ./push_swap $ARG |
+								./checker_OS $ARG" and replace the placeholder by 100 random
 								valid values. Check that the checker program displays "OK"
 								and that the size of the list of instructions.
 								Give points in accordance:
@@ -440,7 +424,7 @@ require(PATH . "/utils/menu.php");
 							</div>
 							<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
 							<input autocomplete="off" class="star-range" data-star-range="" max="5"
-								name="[scale_team][answers_attributes][5][value]" step="1" type="range" value="0"
+								name="[scale_team][answers_attributes][3][value]" step="1" type="range" value="0"
 								style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
 							<hr>
 						</div>
@@ -452,8 +436,8 @@ require(PATH . "/utils/menu.php");
 							binary given on the attachments.</p>
 
 						<ul>
-							<li>Run "$&gt;ARG="&lt;500 random values&gt;"; <?php echo htmlspecialchars($prefix); ?>push_swap $ARG |
-								<?php echo htmlspecialchars($prefix); ?>checker_OS $ARG" and replace the placeholder by 500 random
+							<li>Run "$&gt;ARG="&lt;500 random values&gt;"; ./push_swap $ARG |
+								./checker_OS $ARG" and replace the placeholder by 500 random
 								valid values (One is not called John/Jane Script for
 								nothing). Check that the checker program displays "OK" and
 								that the size of the list of instructions
@@ -482,12 +466,12 @@ require(PATH . "/utils/menu.php");
 							</div>
 							<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
 							<input autocomplete="off" class="star-range" data-star-range="" max="5"
-								name="[scale_team][answers_attributes][6][value]" step="1" type="range" value="0"
+								name="[scale_team][answers_attributes][3][value]" step="1" type="range" value="0"
 								style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
 							<hr>
 						</div>
 					</section>
-					<section class="scale-section-item dancer from-down" id="section-77398">
+					<section class="scale-section-item dancer from-down" id="section-85135">
 						<div class="section-header">
 							<hr>
 							<h3 class="font-weight-bold mb-1">Bonus</h3>
@@ -583,7 +567,7 @@ require(PATH . "/utils/menu.php");
 
 						<ul>
 							<li>
-								<p>Run checker with the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>checker 0 9 1 8 2<br>
+								<p>Run checker with the following command "$&gt;./checker 0 9 1 8 2<br>
 									7 3 6 4 5" then write the following valid action list "[sa,<br>
 									pb, rrr]". Checker should display "KO".</p>
 							</li>
@@ -639,12 +623,12 @@ require(PATH . "/utils/menu.php");
 
 						<ul>
 							<li>
-								<p>Run checker with the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>checker 0 1 2"<br>
+								<p>Run checker with the following command "$&gt;./checker 0 1 2"<br>
 									then press CTRL+D without writing any instruction. The program<br>
 									should display "OK".</p>
 							</li>
 							<li>
-								<p>Run checker with the following command "$&gt;<?php echo htmlspecialchars($prefix); ?>checker 0 9 1 8 2"<br>
+								<p>Run checker with the following command "$&gt;./checker 0 9 1 8 2"<br>
 									then write the following valid action list "[pb, ra, pb, ra,<br>
 									sa, ra, pa, pa]". The program should display "OK".</p>
 							</li>
@@ -690,7 +674,7 @@ require(PATH . "/utils/menu.php");
 					</section>
 				</div>
 				<div class="col-sm-12 scale-div pb-4">
-					<div class="dancer from-down" id="ratings-27808">
+					<div class="dancer from-down" id="ratings-30826">
 						<h3 class="font-weight-bold mb-1">Ratings</h3>
 						<p class="marked-title">Don’t forget to check the flag corresponding to the defense</p>
 						<div class="btn-group block flags-buttons" data-radio-item="flag-small">
@@ -761,11 +745,70 @@ require(PATH . "/utils/menu.php");
 					</div>
 
 				</div>
+				<div class="col-sm-12 scale-div">
+					<h3 class="font-weight-bold mb-1">Conclusion</h3>
+					<div class="scale-final-evaluation hidden">
+						<div class="form-group radio_buttons optional scale_team_flag"><label
+								class="col-sm-2 control-label radio_buttons optional">Flag</label>
+							<div class="col-sm-10"><span class="radio"><label for="scale_team_flag_id_1"><input
+											class="radio_buttons optional" type="radio" value="1" checked="checked"
+											name="scale_team[flag_id]" id="scale_team_flag_id_1">Ok</label></span><span
+									class="radio"><label for="scale_team_flag_id_3"><input
+											class="radio_buttons optional" type="radio" value="3"
+											name="scale_team[flag_id]" id="scale_team_flag_id_3">Incomplete
+										work</label></span><span class="radio"><label for="scale_team_flag_id_5"><input
+											class="radio_buttons optional" type="radio" value="5"
+											name="scale_team[flag_id]" id="scale_team_flag_id_5">Invalid
+										compilation</label></span><span class="radio"><label
+										for="scale_team_flag_id_6"><input class="radio_buttons optional" type="radio"
+											value="6" name="scale_team[flag_id]"
+											id="scale_team_flag_id_6">Norme</label></span><span class="radio"><label
+										for="scale_team_flag_id_7"><input class="radio_buttons optional" type="radio"
+											value="7" name="scale_team[flag_id]"
+											id="scale_team_flag_id_7">Cheat</label></span><span class="radio"><label
+										for="scale_team_flag_id_8"><input class="radio_buttons optional" type="radio"
+											value="8" name="scale_team[flag_id]"
+											id="scale_team_flag_id_8">Crash</label></span><span class="radio"><label
+										for="scale_team_flag_id_9"><input class="radio_buttons optional" type="radio"
+											value="9" name="scale_team[flag_id]" id="scale_team_flag_id_9">Outstanding
+										project</label></span><span class="radio"><label
+										for="scale_team_flag_id_11"><input class="radio_buttons optional" type="radio"
+											value="11" name="scale_team[flag_id]" id="scale_team_flag_id_11">Concerning
+										situation</label></span><span class="radio"><label
+										for="scale_team_flag_id_12"><input class="radio_buttons optional" type="radio"
+											value="12" name="scale_team[flag_id]"
+											id="scale_team_flag_id_12">Leaks</label></span><span class="radio"><label
+										for="scale_team_flag_id_13"><input class="radio_buttons optional" type="radio"
+											value="13" name="scale_team[flag_id]" id="scale_team_flag_id_13">Forbidden
+										Function</label></span><span class="radio"><label
+										for="scale_team_flag_id_14"><input class="radio_buttons optional" type="radio"
+											value="14" name="scale_team[flag_id]" id="scale_team_flag_id_14">Can’t
+										support / explain code</label></span><span class="radio"><label
+										for="scale_team_flag_id_2"><input class="radio_buttons optional" type="radio"
+											value="2" name="scale_team[flag_id]" id="scale_team_flag_id_2">Empty
+										work</label></span></div>
+						</div>
+					</div>
+					<div class="scale-final-comments" id="comments-30826">
+						<p class="marked-title">Leave a comment on this evaluation</p>
+						<textarea required="required" label="false" class="text required col-sm-12 mb-4"
+							aria-required="true" name="scale_team[comment]" id="scale_team_comment"></textarea>
+
+					</div>
+
+				</div>
+				<div class="scale-final-submit">
+					<input class="btn btn-primary btn-block font-weight-bold"
+						data-disable-with="Finishing evaluation..." name="commit" type="submit"
+						value="Finish evaluation">
+				</div>
 				<div class="scale-final-submit"><a href="https://github.com/rphlr/42-Evals">
 						<input class="btn btn-primary btn-block font-weight-bold" type="button"
 							value="Give this repository a star. ⭐" /></a>
 				</div>
 			</form>
+		</div>
+	</div>
 </body>
 
 </html>
