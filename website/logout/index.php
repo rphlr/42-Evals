@@ -1,3 +1,3 @@
 <?php
-	require(PATH . "/utils/logout.php");
+	require("../utils/logout.php");
 ?>
