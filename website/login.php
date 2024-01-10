@@ -1,4 +1,8 @@
 <?php
+require_once 'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable('./');
+$dotenv->load();
+
 session_start();
 if (isset($_SESSION['error'])) {
 	$error = $_SESSION['error'];
