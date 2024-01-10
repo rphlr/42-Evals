@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-require("utils/menu.php");
+define('PATH', './');
+require(PATH . "utils/menu.php");
 ?>
 
 <!DOCTYPE html>

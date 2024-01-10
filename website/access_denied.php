@@ -11,7 +11,8 @@ if (isset($_SESSION['user'])) {
 	exit();
 }
 
-require("utils/menu.php");
+define('PATH', './');
+require(PATH . "utils/menu.php");
 ?>
 
 <!DOCTYPE html>

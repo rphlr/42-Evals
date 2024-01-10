@@ -1,4 +1,8 @@
 <?php
+require_once PATH . 'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(PATH);
+$dotenv->load();
+
 session_start();
 
 $excludedExtensions = array('.otf', '.jpg', '.png', '.css', '.js');
