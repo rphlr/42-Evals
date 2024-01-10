@@ -13,13 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$mail->isSMTP();
 		$mail->Host = 'mail.infomaniak.com';
 		$mail->SMTPAuth = true;
-		$mail->Username = $_SERVER['REDIRECT_FORM_EMAIL'];
-		$mail->Password = $_SERVER['REDIRECT_EMAIL_PASSWORD'];
+		$mail->Username = $_ENV['FORM_EMAIL'];
+		$mail->Password = $_ENV['EMAIL_PASSWORD'];
 		$mail->SMTPSecure = 'tls';
 		$mail->Port = 587;
 
-		$mail->setFrom($_SERVER['REDIRECT_FORM_EMAIL'], 'Mailer');
-		$mail->addAddress($_SERVER['REDIRECT_PERSONAL_EMAIL'], '42 Evals');
+		$mail->setFrom($_ENV['FORM_EMAIL'], 'Mailer');
+		$mail->addAddress($_ENV['PERSONAL_EMAIL'], '42 Evals');
 		if (isset($_FILES['fileUpload']) && $_FILES['fileUpload']['error'] == 0)
 			$mail->addAttachment($_FILES['fileUpload']['tmp_name'], $_FILES['fileUpload']['name']);
 		$mail->isHTML(true);

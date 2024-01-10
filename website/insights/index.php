@@ -52,7 +52,7 @@ require("../utils/menu.php");
 				<p>Click on a column header to sort the table by that column.</p>
 			</div>
 			<?php
-			define($_SERVER['REDIRECT_SECURE_KEY'], true);
+			define($_ENV['SECURE_KEY'], true);
 			require_once "../utils/db_config.php";
 
 			$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -113,10 +113,10 @@ require("../utils/menu.php");
 			$conn->close();
 
 			// Connection to database
-			$dbservername = $_SERVER['REDIRECT_DB_SERVER'];
-			$dbname = $_SERVER['REDIRECT_DB_FLOGIN_NAME'];
-			$username = $_SERVER['REDIRECT_DB_FLOGIN_USERNAME'];
-			$dbpass = $_SERVER['REDIRECT_DB_FLOGIN_PASSWORD'];
+			$dbservername = $_ENV['DB_SERVER'];
+			$dbname = $_ENV['DB_FLOGIN_NAME'];
+			$username = $_ENV['DB_FLOGIN_USERNAME'];
+			$dbpass = $_ENV['DB_FLOGIN_PASSWORD'];
 
 			$conn = new mysqli($dbservername, $username, $dbpass, $dbname);
 
