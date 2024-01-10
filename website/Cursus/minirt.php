@@ -1,8 +1,8 @@
 <?php
 define('PATH', '../');
-require(PATH . "/utils/check_session.php");
-require(PATH . "/utils/show_popup.php");
-require(PATH . "/utils/menu.php");
+require(PATH . "utils/check_session.php");
+require(PATH . "utils/show_popup.php");
+require(PATH . "utils/menu.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,18 +14,18 @@ require(PATH . "/utils/menu.php");
 		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
 		name="viewport">
 	<title>miniRT correction</title>
-	<link rel="shortcut icon" href="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico" type="image/x-icon">
-	<link href="<?php echo htmlspecialchars($prefix); ?>css/styles.css" media="all" rel="stylesheet" />
-	<link rel="manifest" href="<?php echo htmlspecialchars($prefix); ?>manifest.json">
-	<script src="<?php echo htmlspecialchars($prefix); ?>js/script.js"></script>
-	<script src="<?php echo htmlspecialchars($prefix); ?>js/js"></script>
-	<script src="<?php echo htmlspecialchars($prefix); ?>js/main.js"></script>
+	<link rel="shortcut icon" href="<?php echo PATH; ?>assets/favicons/favicon_no-bg.ico" type="image/x-icon">
+	<link href="<?php echo PATH; ?>css/styles.css" media="all" rel="stylesheet" />
+	<link rel="manifest" href="<?php echo PATH; ?>manifest.json">
+	<script src="<?php echo PATH; ?>js/script.js"></script>
+	<script src="<?php echo PATH; ?>js/js"></script>
+	<script src="<?php echo PATH; ?>js/main.js"></script>
 </head>
 
 <body>
 	<script>
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('../../js/service-worker.js')
+			navigator.serviceWorker.register('<?php echo PATH; ?>js/service-worker.js')
 				.then(function (registration) {
 					console.log('Service Worker registered successfully:', registration);
 				})
@@ -34,7 +34,7 @@ require(PATH . "/utils/menu.php");
 				});
 		}
 	</script>
-	<?php require(PATH . "/utils/header.php"); ?>
+	<?php require(PATH . "utils/header.php"); ?>
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<div class="scale-section-infos col-sm-12 scale-div">
@@ -588,7 +588,7 @@ require(PATH . "/utils/menu.php");
 							<li>Color disruption: checkerboard.</li>
 							<li>Colored and multi-spot lights.</li>
 							<li>One other 2nd degree object: Cone, Hyperboloid, Paraboloid..</li>
-							<li>Handle bump map textures<?php echo htmlspecialchars($prefix); ?>li>
+							<li>Handle bump map textures<?php echo PATH; ?>li>
 						</ul>
 
 						<p></p>

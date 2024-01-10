@@ -2,8 +2,8 @@
 	<div class="main-navbar">
 		<div class="main-navbar-left">
 			<div class="main-navbar-logo" data-turbolinks-scaffold="">
-				<a href="<?php echo htmlspecialchars($prefix); ?>"><img alt="42"
-						src="<?php echo htmlspecialchars($prefix); ?>assets/favicons/favicon_no-bg.ico">
+				<a href="<?php echo PATH; ?>"><img alt="42"
+						src="<?php echo PATH; ?>assets/favicons/favicon_no-bg.ico">
 				</a>
 			</div>
 			<span class="hidden-sidebars main-menu-trigger lines-button x" data-trigger-menu="">
@@ -17,7 +17,7 @@
 						<?php echo htmlspecialchars($username); ?>
 					</span>
 					<div class="user-profile-picture visible-sidebars"
-						style="background-image: url(<?php echo htmlspecialchars($prefix); ?>assets/images/no_picture.jpeg)">
+						style="background-image: url(<?php echo PATH; ?>assets/images/no_picture.jpeg)">
 					</div>
 				</a>
 				<ul aria-labelledby="User menu" class="dropdown-menu" role="menu">

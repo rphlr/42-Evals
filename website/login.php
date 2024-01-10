@@ -12,7 +12,7 @@ if (isset($_SESSION['user'])) {
 }
 
 define('PATH', './');
-require(PATH . "/utils/functions.php");
+require(PATH . "utils/functions.php");
 
 $message = isMobileDevice()
 	? "<p>Hello and thank you for visiting. Due to certain constraints, the full experience of my site is challenging to navigate on mobile devices. I recommend accessing my site on a computer to enjoy the full features and ease of navigation. Don't worry, finding what you need is straightforward and simple!</p><hr>"
