@@ -1,6 +1,6 @@
 <?php
 define($_ENV['SECURE_KEY'], true);
-define('PATH', '../');
+// define('PATH', '../');
 require_once "db_config.php";
 require_once PATH . "vendor/autoload.php";
 require_once "functions.php";

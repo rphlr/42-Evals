@@ -1,4 +1,8 @@
 <?php
+require_once PATH . 'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(PATH);
+$dotenv->load();
+
 if (!defined($_ENV['SECURE_KEY']))
 	exit('No direct access allowed');
 define('DB_SERVER', $_ENV['DB_SERVER']);
