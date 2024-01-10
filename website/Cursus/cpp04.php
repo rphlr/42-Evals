@@ -839,12 +839,14 @@ require(PATH . "/utils/menu.php");
 								<span class="iconf-delete-2"></span>
 								Forbidden function
 							</label>
+						</div>
+					</div>
+
 				</div>
-			</div>
-			<div class="scale-final-submit"><a href="https://github.com/rphlr/42-Evals">
-					<input class="btn btn-primary btn-block font-weight-bold" type="button"
-						value="Give this repository a star. ⭐" /></a>
-			</div>
+				<div class="scale-final-submit"><a href="https://github.com/rphlr/42-Evals">
+						<input class="btn btn-primary btn-block font-weight-bold" type="button"
+							value="Give this repository a star. ⭐" /></a>
+				</div>
 			</form>
 		</div>
 	</div>

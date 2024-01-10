@@ -547,60 +547,6 @@ require(PATH . "/utils/menu.php");
 					</div>
 
 				</div>
-				<div class="col-sm-12 scale-div">
-					<h3 class="font-weight-bold mb-1">Conclusion</h3>
-					<div class="scale-final-evaluation hidden">
-						<div class="form-group radio_buttons optional scale_team_flag"><label
-								class="col-sm-2 control-label radio_buttons optional">Flag</label>
-							<div class="col-sm-10"><span class="radio"><label for="scale_team_flag_id_1"><input
-											class="radio_buttons optional" type="radio" value="1" checked="checked"
-											name="scale_team[flag_id]" id="scale_team_flag_id_1">Ok</label></span><span
-									class="radio"><label for="scale_team_flag_id_3"><input
-											class="radio_buttons optional" type="radio" value="3"
-											name="scale_team[flag_id]" id="scale_team_flag_id_3">Incomplete
-										work</label></span><span class="radio"><label for="scale_team_flag_id_5"><input
-											class="radio_buttons optional" type="radio" value="5"
-											name="scale_team[flag_id]" id="scale_team_flag_id_5">Invalid
-										compilation</label></span><span class="radio"><label
-										for="scale_team_flag_id_7"><input class="radio_buttons optional" type="radio"
-											value="7" name="scale_team[flag_id]"
-											id="scale_team_flag_id_7">Cheat</label></span><span class="radio"><label
-										for="scale_team_flag_id_8"><input class="radio_buttons optional" type="radio"
-											value="8" name="scale_team[flag_id]"
-											id="scale_team_flag_id_8">Crash</label></span><span class="radio"><label
-										for="scale_team_flag_id_9"><input class="radio_buttons optional" type="radio"
-											value="9" name="scale_team[flag_id]" id="scale_team_flag_id_9">Outstanding
-										project</label></span><span class="radio"><label
-										for="scale_team_flag_id_11"><input class="radio_buttons optional" type="radio"
-											value="11" name="scale_team[flag_id]" id="scale_team_flag_id_11">Concerning
-										situation</label></span><span class="radio"><label
-										for="scale_team_flag_id_12"><input class="radio_buttons optional" type="radio"
-											value="12" name="scale_team[flag_id]"
-											id="scale_team_flag_id_12">Leaks</label></span><span class="radio"><label
-										for="scale_team_flag_id_13"><input class="radio_buttons optional" type="radio"
-											value="13" name="scale_team[flag_id]" id="scale_team_flag_id_13">Forbidden
-										Function</label></span><span class="radio"><label
-										for="scale_team_flag_id_14"><input class="radio_buttons optional" type="radio"
-											value="14" name="scale_team[flag_id]" id="scale_team_flag_id_14">Can’t
-										support / explain code</label></span><span class="radio"><label
-										for="scale_team_flag_id_2"><input class="radio_buttons optional" type="radio"
-											value="2" name="scale_team[flag_id]" id="scale_team_flag_id_2">Empty
-										work</label></span></div>
-						</div>
-					</div>
-					<div class="scale-final-comments" id="comments-29673">
-						<p class="marked-title">Leave a comment on this evaluation</p>
-						<textarea required="required" label="false" class="text required col-sm-12 mb-4"
-							aria-required="true" name="scale_team[comment]" id="scale_team_comment"></textarea>
-
-					</div>
-
-				</div>
-				<div class="scale-final-submit">
-					<input class="btn btn-primary btn-block font-weight-bold"
-						data-disable-with="Finishing evaluation..." name="commit" type="submit"
-						value="Finish evaluation">
-				</div>
 				<div class="scale-final-submit"><a href="https://github.com/rphlr/42-Evals">
 						<input class="btn btn-primary btn-block font-weight-bold" type="button"
 							value="Give this repository a star. ⭐" /></a>
@@ -610,4 +556,5 @@ require(PATH . "/utils/menu.php");
 	</div>
 </body>
 
+</html>
 </html>

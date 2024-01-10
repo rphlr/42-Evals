@@ -501,6 +501,8 @@ require(PATH . "/utils/menu.php");
 					value="Give this repository a star. ⭐" /></a>
 		</div>
 		</form>
+		</div>
+	</div>
 </body>
 
 </html>

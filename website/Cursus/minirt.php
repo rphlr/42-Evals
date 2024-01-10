@@ -668,8 +668,8 @@ require(PATH . "/utils/menu.php");
 							value="Give this repository a star. ⭐" /></a>
 				</div>
 			</form>
-			<script src="<?php echo htmlspecialchars($prefix); ?>.<?php echo htmlspecialchars($prefix); ?>js/js"></script>
-			<script src="<?php echo htmlspecialchars($prefix); ?>.<?php echo htmlspecialchars($prefix); ?>js/main.js"></script>
+		</div>
+	</div>
 </body>
 
 </html>
