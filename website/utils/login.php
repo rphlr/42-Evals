@@ -1,5 +1,5 @@
 <?php
-define($_ENV['SECURE_KEY'], true);
+define($_SERVER['REDIRECT_SECURE_KEY'], true);
 require_once "db_config.php";
 require_once "../vendor/autoload.php";
 require_once "functions.php";
@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
 	header("Location: ../");
 }
 
-if ($nomUtilisateur == $_ENV['SECRET_ADMIN_USERNAME'])
+if ($nomUtilisateur == $_SERVER['REDIRECT_SECRET_ADMIN_USERNAME'])
 	$conn->close();
 if (!isset($motDePasse))
 	$loginSuccess = 0;
