@@ -1,4 +1,7 @@
 <?php
+require_once '../vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable('../');
+$dotenv->load();
 define($_ENV['SECURE_KEY'], true);
 require_once "db_config.php";
 require_once "../vendor/autoload.php";
