@@ -1,8 +1,8 @@
 <?php
 define('PATH', '../');
-require(PATH . "utils/check_session.php");
-require(PATH . "utils/show_popup.php");
-require(PATH . "utils/menu.php");
+require(PATH . "/utils/check_session.php");
+require(PATH . "/utils/show_popup.php");
+require(PATH . "/utils/menu.php");
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ require(PATH . "utils/menu.php");
 				});
 		}
 	</script>
-	<?php require(PATH . "utils/header.php"); ?>
+	<?php require(PATH . "/utils/header.php"); ?>
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<div class="scale-section-infos col-sm-12 scale-div">

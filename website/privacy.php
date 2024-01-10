@@ -2,7 +2,7 @@
 session_start();
 
 define('PATH', './');
-require(PATH . "utils/menu.php");
+require(PATH . "/utils/menu.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ require(PATH . "utils/menu.php");
 	</headi>
 
 <body>
-	<?php require(PATH . "utils/header.php"); ?>
+	<?php require(PATH . "/utils/header.php"); ?>
 	<div class="container-item scale-team-container">
 		<h3 lass="font-weight-bold text-uppercase text-center mt-4 pt-4">Privacy Policy for 42evals App</h3>
 		<p><em>Effective as of 5. January 2024</em></p>
