@@ -1,6 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(PATH);
+$dotenv = Dotenv\Dotenv::createImmutable('../');
 $dotenv->load();
 
 if (!defined($_ENV['SECURE_KEY']))
