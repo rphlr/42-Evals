@@ -112,7 +112,6 @@ require("../utils/menu.php");
 
 			$conn->close();
 
-			// display table for when someone clicked on the "fast_login" button
 			// Connection to database
 			$dbservername = $_SERVER['REDIRECT_DB_SERVER'];
 			$dbname = $_SERVER['REDIRECT_DB_FLOGIN_NAME'];
@@ -130,7 +129,7 @@ require("../utils/menu.php");
 				echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Fast Login Attempts</h2>";
 				echo "<table id=\"tableFastLogin\" class=\"table table-striped table-bordered table-hover table-sm\">";
 				echo "<tr>";
-				echo "<th onclick=\"sortTable(0, 'tableFastLogin')\">Number of Attempts</th>";
+				echo "<th>Number of Attempts</th>";
 				echo "</tr>";
 				echo "<tr>";
 				echo "<td>" . $row['total'] . "</td>";
@@ -138,7 +137,18 @@ require("../utils/menu.php");
 				echo "</table>";
 			} else
 				echo "0 results";
+
+			$sql = "SELECT timestamp FROM UserActivity ORDER BY timestamp DESC LIMIT 1";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$row = $result->fetch_assoc();
+				$lastTimestamp = $row['timestamp'];
+				echo "<p>Last 'rickrolled' occurred at: " . $lastTimestamp . "</p>";
+			} else
+				echo "<p>No 'rickrolled' records found.</p>";
+
 			$conn->close();
+			
 			?>
 		</div>
 	</div>
