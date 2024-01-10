@@ -51,10 +51,10 @@ if ($logged_in) {
 		'Give this repository a star. ⭐' => 'https://github.com/rphlr/42-Evals',
 		'Follow me on github' => 'https://github.com/rphlr',
 		'Add me on LinkedIn' => 'https://www.linkedin.com/in/rphlr/',
-		'privacy policy' => $prefix . 'privacy_policy'
+		'privacy policy' => $prefix . 'privacy'
 	];
 
-	if ($username == $_ENV['SECRET_ADMIN_USERNAME']) {
+	if ($username == $_SERVER['REDIRECT_SECRET_ADMIN_USERNAME']) {
 		$menu['Admin Panel'] = $prefix . 'admin';
 	}
 	$menu['Logout'] = $prefix . 'logout';

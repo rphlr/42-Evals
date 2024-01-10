@@ -1,9 +1,13 @@
+<?php
+if (!defined('PATH'))
+	define('PATH', './');
+?>
+
 <?php if ($menu): ?>
 	<div class="main-navbar">
 		<div class="main-navbar-left">
 			<div class="main-navbar-logo" data-turbolinks-scaffold="">
-				<a href="<?php echo PATH; ?>"><img alt="42"
-						src="<?php echo PATH; ?>assets/favicons/favicon_no-bg.ico">
+				<a href="<?php echo PATH; ?>"><img alt="42" src="<?php echo PATH; ?>assets/favicons/favicon_no-bg.ico">
 				</a>
 			</div>
 			<span class="hidden-sidebars main-menu-trigger lines-button x" data-trigger-menu="">

@@ -7,6 +7,7 @@ require(PATH . "utils/menu.php");
 
 <!DOCTYPE html>
 <html lang="en">
+<script src="chrome-extension://hmflgigeigiejaogcgamkecmlibcpdgo/generic/inject.js"></script>
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -44,75 +45,61 @@ require(PATH . "utils/menu.php");
 					<a href="https://projects.intra.42.fr/projects/cpp-module-09">CPP Module 09</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 1 student in this team</h5>
-
-				<hr>
-				<div class="p-0 scale-introduction dancer from-down" id="introduction-24662">
+				<hr />
+				<div class="p-0 scale-introduction dancer from-down" id="introduction-24830">
 					<h3 class="font-weight-bold mb-1">Introduction</h3>
 					<p>
-						- Remain polite, courteous, respectful and constructive<br>throughout the evaluation process.
-						The
-						well-being of the community<br>depends on it.<br><br>- Identify with the person (or the group)
-						evaluated the eventual<br>dysfunctions of the work. Take the time to discuss<br>and debate the
-						problems you have identified.<br><br>- You must consider that there might be some difference in
-						how
-						your<br>peers might have understood the project's instructions and the<br>scope of its
-						functionalities. Always keep an open mind and grade<br>him/her as honestly as possible. The
-						pedagogy
+						- Remain polite, courteous, respectful and constructive<br>throughout the evaluation
+						process. The well-being of the community<br>depends on it.<br><br>- Identify with
+						the person (or the group) evaluated the eventual<br>dysfunctions of the work. Take
+						the time to discuss<br>and debate the problems you have identified.<br><br>- You
+						must consider that there might be some difference in how your<br>peers might have
+						understood the project's instructions and the<br>scope of its functionalities.
+						Always keep an open mind and grade<br>him/her as honestly as possible. The pedagogy
 						is valid only and<br>only if peer-evaluation is conducted seriously.<br>
 					</p>
 				</div>
-				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-24662">
+				<div class="p-0 scale-guidelines dancer from-down" id="guidelines-27282">
 					<h3 class="font-weight-bold mb-1">Guidelines</h3>
 					<p>
-						- Only grade the work that is in the student or group's<br>GiT repository.<br><br>- Double-check
-						that
-						the GiT repository belongs to the student<br>or the group. Ensure that the work is for the
-						relevant
-						project<br>and also check that "git clone" is used in an empty folder.<br><br>- Check carefully
-						that
-						no malicious aliases was used to fool you<br>and make you evaluate something other than the
-						content of
-						the<br>official repository.<br><br>- To avoid any surprises, carefully check that both the
-						evaluating<br>and the evaluated students have reviewed the possible scripts used<br>to
-						facilitate the
-						grading.<br><br>- If the evaluating student has not completed that particular<br>project yet, it
-						is
-						mandatory for this student to read the<br>entire subject prior to starting the defence.<br><br>-
-						Use
-						the flags available on this scale to signal an empty repository,<br>non-functioning program, a
-						norm
-						error, cheating etc. In these cases,<br>the grading is over and the final grade is 0 (or -42 in
-						case
-						of<br>cheating). However, with the exception of cheating, you are<br>encouraged to continue to
-						discuss
-						your work (even if you have not<br>finished it) in order to identify any issues that may have
-						caused<br>this failure and avoid repeating the same mistake in the future.<br><br>- Remember
-						that for
-						the duration of the defence, no segfault,<br>no other unexpected, premature, uncontrolled or
-						unexpected<br>termination of the program, else the final grade is 0. Use the<br>appropriate
-						flag.
-						<br>You should never have to edit any file except the configuration file if it exists.<br>If you
-						want
-						to edit a file, take the time to explicit the reasons with the <br>evaluated student and make
-						sure
-						both of you are okay with this.<br><br>- You must also verify the absence of memory leaks. Any
-						memory
-						allocated on the heap must<br>be properly freed before the end of execution.<br>You are allowed
-						to use
-						any of the different tools available on the computer, such as<br>leaks, valgrind, or e_fence. In
-						case
-						of memory leaks, tick the appropriate flag.<br>
+						- Only grade the work that is in the student or group's<br>GiT repository.<br><br>-
+						Double-check that the GiT repository belongs to the student<br>or the group. Ensure
+						that the work is for the relevant project<br>and also check that "git clone" is used
+						in an empty folder.<br><br>- Check carefully that no malicious aliases was used to
+						fool you<br>and make you evaluate something other than the content of
+						the<br>official repository.<br><br>- To avoid any surprises, carefully check that
+						both the evaluating<br>and the evaluated students have reviewed the possible scripts
+						used<br>to facilitate the grading.<br><br>- If the evaluating student has not
+						completed that particular<br>project yet, it is mandatory for this student to read
+						the<br>entire subject prior to starting the defence.<br><br>- Use the flags
+						available on this scale to signal an empty repository,<br>non-functioning program, a
+						norm error, cheating etc. In these cases,<br>the grading is over and the final grade
+						is 0 (or -42 in case of<br>cheating). However, with the exception of cheating, you
+						are<br>encouraged to continue to discuss your work (even if you have not<br>finished
+						it) in order to identify any issues that may have caused<br>this failure and avoid
+						repeating the same mistake in the future.<br><br>- Remember that for the duration of
+						the defence, no segfault,<br>no other unexpected, premature, uncontrolled or
+						unexpected<br>termination of the program, else the final grade is 0. Use
+						the<br>appropriate flag. <br>You should never have to edit any file except the
+						configuration file if it exists.<br>If you want to edit a file, take the time to
+						explicit the reasons with the <br>evaluated student and make sure both of you are
+						okay with this.<br><br>- You must also verify the absence of memory leaks. Any
+						memory allocated on the heap must<br>be properly freed before the end of
+						execution.<br>You are allowed to use any of the different tools available on the
+						computer, such as<br>leaks, valgrind, or e_fence. In case of memory leaks, tick the
+						appropriate flag.<br>
 					</p>
 				</div>
 
 				<hr>
-				<div class="dancer from-down" id="attachments-24662">
+				<div class="dancer from-down" id="attachments-27282">
 					<h3 class="font-weight-bold mb-1">Attachments</h3>
 					<div class="project-attachments-list">
 						<div class="project-attachment-item">
 							<h4 class="attachment-name">
 								<span class="icon-file"></span>
-								<a target="_blank" href="https://github.com/rphlr/42-Subjects/">input.csv</a>
+								<a target="_blank"
+									href="https://cdn.intra.42.fr/document/document/20226/input.csv">input.csv</a>
 							</h4>
 						</div>
 					</div>
@@ -121,13 +108,15 @@ require(PATH . "utils/menu.php");
 						<div class="project-attachment-item">
 							<h4 class="attachment-name">
 								<span class="icon-file"></span>
-								<a target="_blank" href="https://github.com/rphlr/42-Subjects/">subject.pdf</a>
+								<a target="_blank"
+									href="https://cdn.intra.42.fr/pdf/pdf/101923/en.subject.pdf">subject.pdf</a>
 							</h4>
 						</div>
 						<div class="project-attachment-item">
 							<h4 class="attachment-name">
 								<span class="icon-file"></span>
-								<a target="_blank" href="https://github.com/rphlr/42-Subjects/">cpp_09.tgz</a>
+								<a target="_blank"
+									href="https://cdn.intra.42.fr/document/document/20227/cpp_09.tgz">cpp_09.tgz</a>
 							</h4>
 						</div>
 					</div>
@@ -135,17 +124,16 @@ require(PATH . "utils/menu.php");
 				</div>
 
 			</div>
-			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_5486293"
-				action="https://projects.intra.42.fr/projects/cpp-module-09/project_sessions/9246/evaluations/6995/scales/24662/scale_teams/5486293"
+			<form class="simple_form form-horizontal" novalidate="novalidate" id="edit_scale_team_6214644"
+				action="https://projects.intra.42.fr/projects/cpp-module-09/project_sessions/9246/evaluations/6995/scales/27282/scale_teams/6214644"
 				accept-charset="UTF-8" method="post">
 				<div class="scale-section-answers col-sm-12 scale-div">
-					<section class="scale-section-item dancer from-down" id="section-69415">
+					<section class="scale-section-item dancer from-down" id="section-75743">
 						<div class="section-header">
 							<h3 class="font-weight-bold mb-1">Preliminary tests</h3>
-							<p class="font-italic">If cheating is suspected, the evaluation stops here. Use the "Cheat"
-								flag to
-								report it. Take this decision calmly, wisely, and please, use this button with caution.
-							</p>
+							<p class="font-italic">If cheating is suspected, the evaluation stops here. Use
+								the "Cheat" flag to report it. Take this decision calmly, wisely, and
+								please, use this button with caution.</p>
 						</div>
 						<h4 class="scale-question-name">Prerequisites</h4>
 						<p class="scale-section-guidelines">
@@ -204,11 +192,12 @@ require(PATH . "utils/menu.php");
 							</div>
 						</div>
 					</section>
-					<section class="scale-section-item dancer from-down" id="section-69416">
+					<section class="scale-section-item dancer from-down" id="section-75744">
 						<div class="section-header">
 							<hr>
 							<h3 class="font-weight-bold mb-1">Exercise 00: Bitcoin Exchange</h3>
-							<p class="font-italic">For this first exercise, you have to find a makefile with the usual
+							<p class="font-italic">For this first exercise, you have to find a makefile with
+								the usual
 								compilation rules and the files requested in the subject.
 							</p>
 						</div>
@@ -337,11 +326,12 @@ require(PATH . "utils/menu.php");
 							</div>
 						</div>
 					</section>
-					<section class="scale-section-item dancer from-down" id="section-69417">
+					<section class="scale-section-item dancer from-down" id="section-75745">
 						<div class="section-header">
 							<hr>
 							<h3 class="font-weight-bold mb-1">Exercise 01: Reverse Polish Notation</h3>
-							<p class="font-italic">For this second exercise, you have to find a makefile with the usual
+							<p class="font-italic">For this second exercise, you have to find a makefile
+								with the usual
 								compilation rules and the files requested in the subject.
 							</p>
 						</div>
@@ -391,10 +381,13 @@ require(PATH . "utils/menu.php");
 						<h4 class="scale-question-name">Main usage</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>Check that the program runs correctly using different formulas of your choice.</p>
+						<p>Check that the program runs correctly using different formulas of your choice.
+						</p>
 
-						<p>The program is not required to handle expressions with parenthesis or decimals <br>
-							number.</p>
+						<p>The program is not required to handle expressions with parenthesis or decimals
+							<br>
+							number.
+						</p>
 
 						<p>If there is any problem during the execution then the evaluation stops here.</p>
 
@@ -429,19 +422,20 @@ require(PATH . "utils/menu.php");
 						<h4 class="scale-question-name">Usage advanced</h4>
 						<p class="scale-section-guidelines">
 						</p>
-						<p>Check that the program runs correctly using different formulas of your choice.</p>
+						<p>Check that the program runs correctly using different formulas of your choice.
+						</p>
 
 						<p>Here is some tests:</p>
 
 						<pre><code>8 9 * 9 - 9 - 9 - 4 - 1 +
-  &gt; Result: 42
-  
-  9 8 * 4 * 4 / 2 + 9 - 8 - 8 - 1 - 6 -
-  &gt; Result: 42
-  
-  1 2 * 2 / 2 + 5 * 6 - 1 3 * - 4 5 * * 8 / 
-  &gt; Result: 15
-  </code></pre>
+	&gt; Result: 42
+	
+	9 8 * 4 * 4 / 2 + 9 - 8 - 8 - 1 - 6 -
+	&gt; Result: 42
+	
+	1 2 * 2 / 2 + 5 * 6 - 1 3 * - 4 5 * * 8 / 
+	&gt; Result: 15
+	</code></pre>
 
 						<p>You can use the examples in the topic if you don't know which formula to use.</p>
 
@@ -476,11 +470,12 @@ require(PATH . "utils/menu.php");
 							</div>
 						</div>
 					</section>
-					<section class="scale-section-item dancer from-down" id="section-69418">
+					<section class="scale-section-item dancer from-down" id="section-75746">
 						<div class="section-header">
 							<hr>
 							<h3 class="font-weight-bold mb-1">Exercise 02: PmergeMe</h3>
-							<p class="font-italic">As usual, there has to be enough tests to prove the program works as
+							<p class="font-italic">As usual, there has to be enough tests to prove the
+								program works as
 								expected. If there isn't, do not grade this exercise. If any non-interface
 								class is not in orthodox canonical class form, do not grade this exercise.
 							</p>
@@ -494,12 +489,15 @@ require(PATH . "utils/menu.php");
 
 						<p>If not, the evaluation stops here.</p>
 
-						<p>The person being evaluated must explain why they chose to use these containers <br>
-							and not another?</p>
+						<p>The person being evaluated must explain why they chose to use these containers
+							<br>
+							and not another?
+						</p>
 
 						<p>Check in the code that the merge-insert sort algorithm is present and <br>
 							is used for each container. The Ford-Johnson algorithm must be used. <br>
-							A brief explanation is expected. In case of doubt, the evaluation stops here.</p>
+							A brief explanation is expected. In case of doubt, the evaluation stops here.
+						</p>
 
 						<p>If one of the containers chosen here is included in one of the previous <br>
 							exercises then the evaluation stops here.</p>
@@ -538,8 +536,10 @@ require(PATH . "utils/menu.php");
 						<p>You can now manually check that the program works correctly by using between <br>
 							5 and 10 different positive integers of your choice as program arguments.</p>
 
-						<p>If this first test works and gives a sorted sequence of numbers you can continue. <br>
-							If not, the evaluation stops now.</p>
+						<p>If this first test works and gives a sorted sequence of numbers you can continue.
+							<br>
+							If not, the evaluation stops now.
+						</p>
 
 						<p>Now you have to check this operation by using the following command as an <br>
 							argument to the program:</p>
@@ -547,12 +547,12 @@ require(PATH . "utils/menu.php");
 						<p>For linux:</p>
 
 						<pre><code>`shuf -i 1-1000 -n 3000 | tr "\n" " " `
-  </code></pre>
+	</code></pre>
 
 						<p>For OSX:</p>
 
 						<pre><code>`jot -r 3000 1 1000 | tr '\n' ' '`
-  </code></pre>
+	</code></pre>
 
 						<p>If the command works correctly, the person being evaluated should be able to <br>
 							explain the difference in time used for each container selected.</p>
@@ -591,9 +591,10 @@ require(PATH . "utils/menu.php");
 					</section>
 				</div>
 				<div class="col-sm-12 scale-div pb-4">
-					<div class="dancer from-down" id="ratings-24662">
+					<div class="dancer from-down" id="ratings-27282">
 						<h3 class="font-weight-bold mb-1">Ratings</h3>
-						<p class="marked-title">Don’t forget to check the flag corresponding to the defense</p>
+						<p class="marked-title">Don’t forget to check the flag corresponding to the defense
+						</p>
 						<div class="btn-group block flags-buttons" data-radio-item="flag-small">
 							<label class="btn btn-default btn-success label_flag_ok on-active positive"
 								for="scale_team_flag_id_1" name="scale_team[flag_id]">
