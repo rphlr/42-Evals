@@ -110,20 +110,19 @@ require("../utils/menu.php");
 			echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Login Attempts by IP Address</h2>";
 			displayTable($results['ip'], ['IP Address', 'Number of Attempts', 'Failures', 'Successes'], 'tableIP');
 
-			// $conn->close();
+			$conn->close();
 
-			// // display table for when someone clicked on the "fast_login" button
-			// // Connection to database
-			// $dbservername = $_SERVER['REDIRECT_DB_SERVER'];
-			// $dbname = $_SERVER['REDIRECT_DB_FLOGIN_NAME'];
-			// $username = $_SERVER['REDIRECT_DB_FLOGIN_USERNAME'];
-			// $dbpass = $_SERVER['REDIRECT_DB_FLOGIN_PASSWORD'];
+			// display table for when someone clicked on the "fast_login" button
+			// Connection to database
+			$dbservername = $_SERVER['REDIRECT_DB_SERVER'];
+			$dbname = $_SERVER['REDIRECT_DB_FLOGIN_NAME'];
+			$username = $_SERVER['REDIRECT_DB_FLOGIN_USERNAME'];
+			$dbpass = $_SERVER['REDIRECT_DB_FLOGIN_PASSWORD'];
 
-			// $conn = new mysqli($servername, $username, $dbpass, $dbname);
+			$conn = new mysqli($dbservername, $username, $dbpass, $dbname);
 
-			// if ($conn->connect_error) {
-			// 	die("Connection failed: " . $conn->connect_error);
-			// }
+			if ($conn->connect_error)
+				die("Connection failed: " . $conn->connect_error);
 			$sql = "SELECT COUNT(*) AS total FROM UserActivity";
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
@@ -137,9 +136,8 @@ require("../utils/menu.php");
 				echo "<td>" . $row['total'] . "</td>";
 				echo "</tr>";
 				echo "</table>";
-			} else {
+			} else
 				echo "0 results";
-			}
 			$conn->close();
 			?>
 		</div>
