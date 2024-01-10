@@ -1,9 +1,8 @@
 <?php
-define("PATH","../");
-require(PATH . "utils/check_session.php");
-require(PATH . "utils/show_popup.php");
-require(PATH . "utils/functions.php");
-require(PATH . "utils/menu.php");
+require("../utils/check_session.php");
+require("../utils/show_popup.php");
+require("../utils/functions.php");
+require("../utils/menu.php");
 ?>
 
 <!DOCTYPE html>
