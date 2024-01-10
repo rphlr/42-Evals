@@ -41,7 +41,7 @@ require(PATH . "utils/menu.php");
 				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">
 					Scale for project
 
-					<a href="https://projects.intra.42.fr/projects/ft_irc">ft_irc</a>
+					<a target="_blank" href="https://projects.intra.42.fr/projects/ft_irc">ft_irc</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 2 students in this team</h5>
 

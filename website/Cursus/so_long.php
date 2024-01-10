@@ -42,7 +42,7 @@ require(PATH . "utils/menu.php");
 				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">
 					Scale for project
 
-					<a href="https://projects.intra.42.fr/projects/so_long">so_long</a>
+					<a target="_blank" href="https://projects.intra.42.fr/projects/so_long">so_long</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 1 student in this team</h5>
 

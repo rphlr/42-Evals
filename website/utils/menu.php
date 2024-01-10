@@ -54,9 +54,8 @@ if ($logged_in) {
 		'privacy policy' => $prefix . 'privacy'
 	];
 
-	if ($username == $_SERVER['REDIRECT_SECRET_ADMIN_USERNAME']) {
+	if ($username == $_ENV['SECRET_ADMIN_USERNAME'])
 		$menu['Admin Panel'] = $prefix . 'admin';
-	}
 	$menu['Logout'] = $prefix . 'logout';
 
 } else {

@@ -42,7 +42,7 @@ require(PATH . "utils/menu.php");
 			<div class="scale-section-infos col-sm-12 scale-div">
 				<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">
 					<br />Scale for project
-					<a href="https://projects.intra.42.fr/projects/born2beroot">Born2beroot</a>
+					<a target="_blank" href="https://projects.intra.42.fr/projects/born2beroot">Born2beroot</a>
 				</h3>
 				<h5 class="text-muted text-center">You should evaluate 1 student in this team</h5>
 				<hr />
