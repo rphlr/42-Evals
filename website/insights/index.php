@@ -126,10 +126,10 @@ require("../utils/menu.php");
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
 				$row = $result->fetch_assoc();
-				echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Table of Fast Login Attempts</h2>";
+				echo "<h4 class=\"font-weight-bold text-uppercase text-center mt-4 pt-4\">Total number of 'rickrolled'</h2>";
 				echo "<table id=\"tableFastLogin\" class=\"table table-striped table-bordered table-hover table-sm\">";
 				echo "<tr>";
-				echo "<th>Number of Attempts</th>";
+				echo "<th>Number of 'Rickrolled'</th>";
 				echo "</tr>";
 				echo "<tr>";
 				echo "<td>" . $row['total'] . "</td>";
@@ -148,7 +148,7 @@ require("../utils/menu.php");
 				echo "<p>No 'rickrolled' records found.</p>";
 
 			$conn->close();
-			
+
 			?>
 		</div>
 	</div>
@@ -196,6 +196,20 @@ require("../utils/menu.php");
 				}
 			}
 		}
+
+		function loadMoreRows(tableId) {
+			var table = document.getElementById(tableId);
+			var rows = table.getElementsByClassName('table-row');
+			var totalShown = 0;
+
+			for (var i = 0; i < rows.length; i++) {
+				if (rows[i].style.display === 'none' && totalShown < 5) {
+					rows[i].style.display = '';
+					totalShown++;
+				}
+			}
+		}
+
 	</script>
 </body>
 
