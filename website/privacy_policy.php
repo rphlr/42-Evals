@@ -4,7 +4,6 @@ $dotenv = Dotenv\Dotenv::createImmutable('./');
 $dotenv->load();
 
 session_start();
-
 require("utils/menu.php");
 ?>
 
