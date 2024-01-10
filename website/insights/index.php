@@ -44,7 +44,7 @@ require(PATH . "utils/menu.php");
 </head>
 
 <body>
-	<?php require(PATH . "../utils/header.php"); ?>
+	<?php require(PATH . "utils/header.php"); ?>
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<h3 class="font-weight-bold text-uppercase text-center mt-4 pt-4">Login Attempt Statistics</h3>
@@ -54,7 +54,7 @@ require(PATH . "utils/menu.php");
 			</div>
 			<?php
 			define($_ENV['SECURE_KEY'], true);
-			require_once "../utils/db_config.php";
+			require_once PATH . "utils/db_config.php";
 
 			$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 			if ($conn->connect_error) {
