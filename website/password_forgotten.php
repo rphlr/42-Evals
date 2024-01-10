@@ -34,7 +34,7 @@ require(PATH . "utils/menu.php");
 </head>
 
 <body>
-	<?php require("utils/header.php"); ?>
+	<?php require(PATH . "utils/header.php"); ?>
 	<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('js/service-worker.js')

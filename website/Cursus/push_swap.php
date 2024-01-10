@@ -35,7 +35,7 @@ require(PATH . "utils/menu.php");
 				});
 		}
 	</script>
-	<?php require("../utils/header.php"); ?>
+	<?php require(PATH . "../utils/header.php"); ?>
 	<div class="container-item scale-team-container">
 		<div class="row mt-4">
 			<div class="scale-section-infos col-sm-12 scale-div">
