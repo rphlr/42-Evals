@@ -1,4 +1,8 @@
 <?php
+require_once '../vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable('../');
+$dotenv->load();
+
 $dbservername = $_ENV['DB_SERVER'];
 $dbname = $_ENV['DB_FLOGIN_NAME'];
 $username = $_ENV['DB_FLOGIN_USERNAME'];
