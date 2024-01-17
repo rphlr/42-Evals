@@ -74,9 +74,8 @@ require(PATH . "utils/menu.php");
 							<td>26 December 2023</td>
 						</tr>
 						<tr>
-							<td><a href="https://github.com/rphlr/42-Evals/tree/main/Cursus/ft_printf"
-									title="Go to ft_printf ➡️">ft_printf</a></td>
-							<td>❌</td>
+							<td><a href="Cursus/ft_printf" title="Go to ft_printf ➡️">ft_printf</a></td>
+							<td>10 January 2024</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/get_next_line" title="Go to get_next_line ➡️">get_next_line</a></td>
