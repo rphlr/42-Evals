@@ -58,11 +58,7 @@ require(PATH . "utils/menu.php");
 					<hr>
 					<h3 class="font-weight-bold mb-1">Evaluation Status</h3>
 					<p>
-						The table below provides an overview of the evaluation sheet statuses. The 🖼 symbol indicates a
-						screenshot,
-						and the 🌐 symbol denotes a web page representation. All sheets will soon be converted into web
-						page
-						representations.
+						The table below provides an overview of the evaluation sheet statuses with their date of upload. 😊
 					</p>
 					<table class="table">
 						<tr>
