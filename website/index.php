@@ -98,7 +98,7 @@ require(PATH . "utils/menu.php");
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/Pipex"
+							<td><a href="Cursus/pipex"
 									title="Go to pipex ➡️">pipex</a>
 							</td>
 							<td>8 January 2024</td>
