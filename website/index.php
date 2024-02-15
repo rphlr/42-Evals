@@ -276,9 +276,9 @@ require(PATH . "utils/menu.php");
 							for starring the repository! 🎉</p>
 					</center>
 					<b>Star Count: <a href="https://github.com/rphlr/42-Evals"
-							target="_blank"><!--stars_start-->535<!--stars_end--></a> 🌟</b>
+							target="_blank"><!--stars_start-->534<!--stars_end--></a> 🌟</b>
 					<br />
-					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->15.02.2024, 00:16:34<!--date_end_HTML-->
+					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->15.02.2024, 02:06:22<!--date_end_HTML-->
 						(CET)</p>
 					<center>
 						<div>
