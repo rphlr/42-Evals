@@ -63,6 +63,10 @@ require(PATH . "utils/menu.php");
 							<a href="./">Maybe you should try again?</a>
 						</p>
 					</div>
+				<div>
+					
+						<p>By popular demand, it's finally here! Visit my <a href="https://github.com/rphlr/42-Evals/wiki">wiki page</a> for the comprehensive solution.</p>
+				</div>
 				</div>
 			</div>
 		</div>
