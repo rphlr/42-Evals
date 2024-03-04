@@ -268,17 +268,17 @@ require(PATH . "utils/menu.php");
 					<h3 class="font-weight-bold mb-1">Funny Stats 📊</h3>
 					<center>
 						<b>Last stargazer:</b>
-						<p><!--last_stargazer_start_HTML--><a href="https://github.com/fafa-kh"><img
-                  src="https://avatars.githubusercontent.com/u/121870698?v=4&s=250"
+						<p><!--last_stargazer_start_HTML--><a href="https://github.com/mirsella"><img
+                  src="https://avatars.githubusercontent.com/u/45905567?v=4&s=250"
                   target="_blank"></a><!--last_stargazer_end_HTML-->
 						</p>
-						<p>Thanks to <!--name_start_HTML--><a href="https://github.com/fafa-kh">fafa-kh</a><!--name_end_HTML-->
+						<p>Thanks to <!--name_start_HTML--><a href="https://github.com/mirsella">mirsella</a><!--name_end_HTML-->
 							for starring the repository! 🎉</p>
 					</center>
 					<b>Star Count: <a href="https://github.com/rphlr/42-Evals"
-							target="_blank"><!--stars_start-->555<!--stars_end--></a> 🌟</b>
+							target="_blank"><!--stars_start-->556<!--stars_end--></a> 🌟</b>
 					<br />
-					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->04.03.2024, 18:15:46<!--date_end_HTML-->
+					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->04.03.2024, 19:18:26<!--date_end_HTML-->
 						(CET)</p>
 					<center>
 						<div>
