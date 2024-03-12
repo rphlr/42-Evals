@@ -278,7 +278,7 @@ require(PATH . "utils/menu.php");
 					<b>Star Count: <a href="https://github.com/rphlr/42-Evals"
 							target="_blank"><!--stars_start-->571<!--stars_end--></a> 🌟</b>
 					<br />
-					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->12.03.2024, 09:18:41<!--date_end_HTML-->
+					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->12.03.2024, 10:20:14<!--date_end_HTML-->
 						(CET)</p>
 					<center>
 						<div>
