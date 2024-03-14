@@ -268,17 +268,17 @@ require(PATH . "utils/menu.php");
 					<h3 class="font-weight-bold mb-1">Funny Stats 📊</h3>
 					<center>
 						<b>Last stargazer:</b>
-						<p><!--last_stargazer_start_HTML--><a href="https://github.com/TCFD"><img
-                  src="https://avatars.githubusercontent.com/u/63243705?v=4&s=250"
+						<p><!--last_stargazer_start_HTML--><a href="https://github.com/Folkenciyo"><img
+                  src="https://avatars.githubusercontent.com/u/86403857?v=4&s=250"
                   target="_blank"></a><!--last_stargazer_end_HTML-->
 						</p>
-						<p>Thanks to <!--name_start_HTML--><a href="https://github.com/TCFD">TCFD</a><!--name_end_HTML-->
+						<p>Thanks to <!--name_start_HTML--><a href="https://github.com/Folkenciyo">Folkenciyo</a><!--name_end_HTML-->
 							for starring the repository! 🎉</p>
 					</center>
 					<b>Star Count: <a href="https://github.com/rphlr/42-Evals"
-							target="_blank"><!--stars_start-->578<!--stars_end--></a> 🌟</b>
+							target="_blank"><!--stars_start-->579<!--stars_end--></a> 🌟</b>
 					<br />
-					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->14.03.2024, 19:18:53<!--date_end_HTML-->
+					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->14.03.2024, 20:11:24<!--date_end_HTML-->
 						(CET)</p>
 					<center>
 						<div>
