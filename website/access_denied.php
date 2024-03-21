@@ -59,9 +59,13 @@ require(PATH . "utils/menu.php");
 							Hmm... I think it was something like "HelloDarknessMyOldFriend" but I'm not sure.
 						</p>
 	  					<!-- Note to self: Read my GitHub profile description -->
-						<p>Click <a href="/utils/fast_login">here</a> for a fast login.</p>
-							<a href="./">Maybe you should try again?</a>
+						<p>
+							Click <a href="/utils/fast_login">here</a> for a fast login.
 						</p>
+						<p>
+							By popular demand, it's finally here! Visit my <a href="https://github.com/rphlr/42-Evals/wiki">wiki page</a> for the comprehensive solution.
+						</p>
+							<a href="./">Maybe you should try again?</a>
 					</div>
 				</div>
 			</div>

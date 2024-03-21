@@ -58,11 +58,7 @@ require(PATH . "utils/menu.php");
 					<hr>
 					<h3 class="font-weight-bold mb-1">Evaluation Status</h3>
 					<p>
-						The table below provides an overview of the evaluation sheet statuses. The 🖼 symbol indicates a
-						screenshot,
-						and the 🌐 symbol denotes a web page representation. All sheets will soon be converted into web
-						page
-						representations.
+						The table below provides an overview of the evaluation sheet statuses with their date of upload. 😊
 					</p>
 					<table class="table">
 						<tr>
@@ -74,9 +70,8 @@ require(PATH . "utils/menu.php");
 							<td>26 December 2023</td>
 						</tr>
 						<tr>
-							<td><a href="https://github.com/rphlr/42-Evals/tree/main/Cursus/ft_printf"
-									title="Go to ft_printf ➡️">ft_printf</a></td>
-							<td>❌</td>
+							<td><a href="Cursus/ft_printf" title="Go to ft_printf ➡️">ft_printf</a></td>
+							<td>10 January 2024</td>
 						</tr>
 						<tr>
 							<td><a href="Cursus/get_next_line" title="Go to get_next_line ➡️">get_next_line</a></td>
@@ -103,7 +98,7 @@ require(PATH . "utils/menu.php");
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/Pipex"
+							<td><a href="Cursus/pipex"
 									title="Go to pipex ➡️">pipex</a>
 							</td>
 							<td>8 January 2024</td>
@@ -273,17 +268,17 @@ require(PATH . "utils/menu.php");
 					<h3 class="font-weight-bold mb-1">Funny Stats 📊</h3>
 					<center>
 						<b>Last stargazer:</b>
-						<p><!--last_stargazer_start_HTML--><a href="https://github.com/MicchelFAB"><img
-                  src="https://avatars.githubusercontent.com/u/88142367?v=4&s=250"
+						<p><!--last_stargazer_start_HTML--><a href="https://github.com/davidmonteiro03"><img
+                  src="https://avatars.githubusercontent.com/u/102864199?v=4&s=250"
                   target="_blank"></a><!--last_stargazer_end_HTML-->
 						</p>
-						<p>Thanks to <!--name_start_HTML--><a href="https://github.com/MicchelFAB">MicchelFAB</a><!--name_end_HTML-->
+						<p>Thanks to <!--name_start_HTML--><a href="https://github.com/davidmonteiro03">davidmonteiro03</a><!--name_end_HTML-->
 							for starring the repository! 🎉</p>
 					</center>
 					<b>Star Count: <a href="https://github.com/rphlr/42-Evals"
-							target="_blank"><!--stars_start-->478<!--stars_end--></a> 🌟</b>
+							target="_blank"><!--stars_start-->587<!--stars_end--></a> 🌟</b>
 					<br />
-					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->10.01.2024, 16:08:25<!--date_end_HTML-->
+					<p><b>Updates occur hourly. Last update :</b> <!--date_start_HTML-->21.03.2024, 14:19:00<!--date_end_HTML-->
 						(CET)</p>
 					<center>
 						<div>
