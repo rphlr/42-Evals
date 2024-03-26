@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/120510404?v=4&s=250)](https://github.com/jAzzvdou)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/115368485?v=4&s=250)](https://github.com/jin1898)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[jAzzvdou](https://github.com/jAzzvdou)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[jin1898](https://github.com/jin1898)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->26.03.2024, 10:15:41<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->26.03.2024, 11:17:15<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
