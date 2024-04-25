@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/64481411?v=4&s=250)](https://github.com/Hellom-World)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/110429589?v=4&s=250)](https://github.com/atalayerdgn)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[Hellom-World](https://github.com/Hellom-World)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[atalayerdgn](https://github.com/atalayerdgn)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->25.04.2024, 18:16:11<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->25.04.2024, 19:20:00<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
