@@ -10,7 +10,7 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 }
 
 $prefix = 'https://42evals.com/';
-$cursus = $prefix . 'Cursus/';
+$cursus = $prefix . 'common-core/';
 
 $left_menu = [
 	'libft' => $cursus . 'libft',

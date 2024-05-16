@@ -66,59 +66,59 @@ require(PATH . "utils/menu.php");
 							<th>Version</th>
 						</tr>
 						<tr>
-							<td><a href="Cursus/libft" title="Go to Libft ➡️">Libft</a></td>
+							<td><a href="common-core/libft" title="Go to Libft ➡️">Libft</a></td>
 							<td>26 December 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/ft_printf" title="Go to ft_printf ➡️">ft_printf</a></td>
+							<td><a href="common-core/ft_printf" title="Go to ft_printf ➡️">ft_printf</a></td>
 							<td>10 January 2024</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/get_next_line" title="Go to get_next_line ➡️">get_next_line</a></td>
+							<td><a href="common-core/get_next_line" title="Go to get_next_line ➡️">get_next_line</a></td>
 							<td>18 December 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/born2beroot" title="Go to Born2beroot ➡️">Born2beroot</a></td>
+							<td><a href="common-core/born2beroot" title="Go to Born2beroot ➡️">Born2beroot</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/push_swap" title="Go to push_swap ➡️">push_swap</a></td>
+							<td><a href="common-core/push_swap" title="Go to push_swap ➡️">push_swap</a></td>
 							<td>8 January 2024</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/so_long" title="Go to so_long ➡️">so_long</a></td>
+							<td><a href="common-core/so_long" title="Go to so_long ➡️">so_long</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/fract-ol" title="Go to fract-ol ➡️">fract-ol</a></td>
+							<td><a href="common-core/fract-ol" title="Go to fract-ol ➡️">fract-ol</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/fdf" title="Go to FdF ➡️">FdF</a></td>
+							<td><a href="common-core/fdf" title="Go to FdF ➡️">FdF</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/pipex"
+							<td><a href="common-core/pipex"
 									title="Go to pipex ➡️">pipex</a>
 							</td>
 							<td>8 January 2024</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/minitalk" title="Go to minitalk ➡️">minitalk</a>
+							<td><a href="common-core/minitalk" title="Go to minitalk ➡️">minitalk</a>
 							</td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/minishell" title="Go to minishell ➡️">minishell</a>
+							<td><a href="common-core/minishell" title="Go to minishell ➡️">minishell</a>
 							</td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/philosophers" title="Go to Philosophers ➡️">Philosophers</a></td>
+							<td><a href="common-core/philosophers" title="Go to Philosophers ➡️">Philosophers</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/netpractice" title="Go to NetPractice ➡️">netpractice</a></td>
+							<td><a href="common-core/netpractice" title="Go to NetPractice ➡️">netpractice</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
@@ -127,30 +127,30 @@ require(PATH . "utils/menu.php");
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/cub3d" title="Go to cub3d ➡️">cub3d</a></td>
+							<td><a href="common-core/cub3d" title="Go to cub3d ➡️">cub3d</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/minirt" title="Go to miniRT ➡️">miniRT</a></td>
+							<td><a href="common-core/minirt" title="Go to miniRT ➡️">miniRT</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/inception" title="Go to Inception ➡️">Inception</a>
+							<td><a href="common-core/inception" title="Go to Inception ➡️">Inception</a>
 							</td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/webserv" title="Go to webserv ➡️">webserv</a></td>
+							<td><a href="common-core/webserv" title="Go to webserv ➡️">webserv</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/ft_irc" title="Go to ft_irc ➡️">ft_irc</a></td>
+							<td><a href="common-core/ft_irc" title="Go to ft_irc ➡️">ft_irc</a></td>
 							<td>August 2023</td>
 						</tr>
 						<tr>
-							<td><a href="Cursus/ft_transcendence" title="Go to ft_transcendence ➡️">ft_transcendence</a>
+							<td><a href="common-core/ft_transcendence" title="Go to ft_transcendence ➡️">ft_transcendence</a>
 							</td>
-							<td>August 2023</td>
+							<td>April 2024</td>
 						</tr>
 					</table>
 				</div>
@@ -164,45 +164,45 @@ require(PATH . "utils/menu.php");
 								<th>Status</th>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp00" title="Go to CPP00 ➡️">CPP00</a>
+								<td><a href="common-core/cpp00" title="Go to CPP00 ➡️">CPP00</a>
 								</td>
 								<td>28 December 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp01" title="Go to CPP01 ➡️">CPP01</a></td>
+								<td><a href="common-core/cpp01" title="Go to CPP01 ➡️">CPP01</a></td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp02" title="Go to CPP02 ➡️">CPP02</a></td>
+								<td><a href="common-core/cpp02" title="Go to CPP02 ➡️">CPP02</a></td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp03" title="Go to CPP03 ➡️">CPP03</a>
+								<td><a href="common-core/cpp03" title="Go to CPP03 ➡️">CPP03</a>
 								</td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp04" title="Go to CPP04 ➡️">CPP04</a></td>
+								<td><a href="common-core/cpp04" title="Go to CPP04 ➡️">CPP04</a></td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp05" title="Go to CPP05 ➡️">CPP05</a></td>
+								<td><a href="common-core/cpp05" title="Go to CPP05 ➡️">CPP05</a></td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp06" title="Go to CPP06 ➡️">CPP06</a></td>
+								<td><a href="common-core/cpp06" title="Go to CPP06 ➡️">CPP06</a></td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp07" title="Go to CPP07 ➡️">CPP07</a></td>
+								<td><a href="common-core/cpp07" title="Go to CPP07 ➡️">CPP07</a></td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp08" title="Go to CPP08 ➡️">CPP08</a></td>
+								<td><a href="common-core/cpp08" title="Go to CPP08 ➡️">CPP08</a></td>
 								<td>August 2023</td>
 							</tr>
 							<tr>
-								<td><a href="Cursus/cpp09" title="Go to CPP09 ➡️">CPP09</a></td>
+								<td><a href="common-core/cpp09" title="Go to CPP09 ➡️">CPP09</a></td>
 								<td>28 December 2023</td>
 							</tr>
 						</table>
