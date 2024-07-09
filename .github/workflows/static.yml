@@ -10,13 +10,12 @@ on:
       - "README.md"
       - "website/index.php"
 
-permissions:
-  contents: read
-  id-token: write
+# permissions:
+#   contents: read
 
-concurrency:
-  group: "ftp-deploy"
-  cancel-in-progress: false
+# concurrency:
+#   group: "ftp-deploy"
+#   cancel-in-progress: false
 
 # jobs:
 #   deploy:
@@ -34,6 +33,15 @@ concurrency:
 #           local-dir: "./website/"
 
 # During maintenance, website must be shown at https://rphlr.github.io/42-Evals
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   deploy:
     environment:
