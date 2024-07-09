@@ -17,17 +17,37 @@ concurrency:
   group: "ftp-deploy"
   cancel-in-progress: false
 
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+
+#       - name: Deploy to FTP Server
+#         uses: SamKirkland/FTP-Deploy-Action@4.2.0
+#         with:
+#           server: ${{ secrets.FTP_SERVEUR }}
+#           username: ${{ secrets.FTP_USERNAME }}
+#           password: ${{ secrets.FTP_PASSWORD }}
+#           local-dir: "./website/"
+
+# During maintenance, website must be shown at https://rphlr.github.io/42-Evals
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Deploy to FTP Server
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          server: ${{ secrets.FTP_SERVEUR }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./website/"
+          path: ./website/*
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
