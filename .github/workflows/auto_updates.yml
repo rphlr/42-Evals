@@ -1,32 +1,32 @@
-# name: Auto Updates
+name: Auto Updates
 
-# on:
-#   workflow_dispatch:
-#   schedule:
-#     - cron: "0 * * * *"
-#   push:
-#     branches: ["main"]
-#     paths-ignore:
-#       - 'README.md'
-#       - 'website/index.php'
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - 'README.md'
+      - 'website/index.php'
 
-# jobs:
-#   update-readme:
-#     runs-on: ubuntu-latest
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - name: Checkout
-#       uses: actions/checkout@v2
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
 
-#     - name: Set up Python
-#       uses: actions/setup-python@v2
-#       with:
-#         python-version: "3.x"
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.x"
 
-#     - name: Install dependencies
-#       run: pip install PyGithub
+    - name: Install dependencies
+      run: pip install PyGithub
 
-#     - name: Update README
-#       env:
-#         PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-#       run: python scripts/auto_updates.py
+    - name: Update README
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      run: python scripts/auto_updates.py
