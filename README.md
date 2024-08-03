@@ -34,12 +34,12 @@ I'm in a constant state of learning and improvement, much like the code I write.
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/119340710?v=4&s=250)](https://github.com/berestv)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/88571393?v=4&s=250)](https://github.com/GustaDNS)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[berestv](https://github.com/berestv)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[GustaDNS](https://github.com/GustaDNS)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->03.08.2024, 17:20:13<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->03.08.2024, 18:14:01<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
