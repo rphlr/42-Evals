@@ -25,9 +25,4 @@ foreach ($excludedPaths as $path) {
     }
 }
 
-if (!$isResourceRequest && !isset($_SESSION['user'])) {
-    $_SESSION['redirect_url'] = $requestUri;
-    header("Location: ../login");
-    exit();
-}
 ?>
