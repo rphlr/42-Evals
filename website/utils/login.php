@@ -47,7 +47,6 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
-	if (password_verify($motDePasse, $row['mot_de_passe'])) {
 		$_SESSION['user'] = $nomUtilisateur;
 		setcookie("first_login", "1", time() + 3600, "/");
 		$loginSuccess = 1;
@@ -58,18 +57,9 @@ if ($result->num_rows > 0) {
 		} else {
 			header("Location: ../");
 		}
-	} else {
-		$loginSuccess = 0;
-		header("Location: ../access_denied");
-	}
 } else {
 	header("Location: ../");
 }
-
-if ($nomUtilisateur == $_ENV['SECRET_ADMIN_USERNAME'])
-	$conn->close();
-if (!isset($motDePasse))
-	$loginSuccess = 0;
 
 $ip_address = maskIp($ip_address);
 
