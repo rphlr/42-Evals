@@ -1,15 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['error'])) {
-	$error = $_SESSION['error'];
-	echo "<script>alert('" . addslashes($error) . "');</script>";
-	unset($_SESSION['error']);
-}
-
-if (isset($_SESSION['user'])) {
-	header("Location: ./");
-	exit();
-}
 
 define('PATH', './');
 require(PATH . "utils/functions.php");
