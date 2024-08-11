@@ -73,14 +73,7 @@ function page() {
 
 
 
-    // Handle mandatory options
-
-    // const [mandatoryOptionsData, setMandatoryOptionsData] = useState([])
-
-    // const handleTitle = (e) => {
-    //     const title = e.target.value
-    //     setMandatoryOptionsData({ ...mandatoryOptionsData, title })
-    // }
+    // Handle mandatory Sections
 
     const [numberOfMandatorySections, setNumberOfMandatorySections] = useState(1)
 
@@ -89,77 +82,43 @@ function page() {
     }
 
     const removeMandatorySection = () => {
-        setNumberOfMandatorySections(numberOfMandatorySections - 1)
+        if (numberOfMandatorySections > 1) {
+            setNumberOfMandatorySections(numberOfMandatorySections - 1)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Ooops!',
+                text: 'You need to have at least one mandatory section',
+                showConfirmButton: true,
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#0D94B6'
+            })
+        }
     }
 
 
+    // Handle bonus sections
 
-    // handle title
+    const [numberOfBonusSections, setNumberOfBonusSections] = useState(1)
 
-    // const handleTitle = (e) => {
-    //     const title = e.target.value
-    //     setMandatoryOptionsData({ ...mandatoryOptionsData, title })
-    // }
+    const addBonusSection = () => {
+        setNumberOfBonusSections(numberOfBonusSections + 1)
+    }
 
-
-    // handle description (separate each guideline with a new line and arrange them in an array)
-
-    // const handleDescription = (e) => {
-    //     // take the splitted guidelines from guidelines and create an array of guidelines
-    //     const descriptionArray = []
-    //     const description = e.target.value.split('\n')
-
-    //     description.map(desc => {
-    //         descriptionArray.push(desc)
-    //     })
-    //     setMandatoryOptionsData({ ...mandatoryOptionsData, description: descriptionArray })
-    // }
-
-    // const handleYesNo = (e) => {
-    //     const yes_no = e.target.value
-    //     setMandatoryOptionsData({ ...mandatoryOptionsData, yes_no })
-    // }
-
-
-    // create an array of mandatory options data and push them to the mandatoryOptionsData state
-    // data is coming from the form 
-
-    // const handleMandatoryOptions = (data) => {
-    //     const mandatoryOptions = []
-
-    //     for (let i = 0; i < numberOfMandatorySections; i++) {
-    //         mandatoryOptions.push({
-    //             title: data.title,
-    //             description: data.description,
-    //             yes_no: data.yes_no
-    //         })
-    //     }
-
-    //     setMandatoryOptionsData(mandatoryOptions)
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    const removeBonusSection = () => {
+        if (numberOfBonusSections > 1) {
+            setNumberOfBonusSections(numberOfBonusSections - 1)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Ooops!',
+                text: 'You need to have at least one bonus section',
+                showConfirmButton: true,
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#0D94B6'
+            })
+        }
+    }
 
 
 
@@ -235,7 +194,7 @@ function page() {
 
     // -------------------- Submit form --------------------
 
-    const createSheet = async (newData, newMandatoryOptionsData, newGradingOptionsData) => {
+    const createSheet = async (newData, newMandatoryOptionsData, newBonusOptionsData, newGradingOptionsData) => {
 
         // sweet alert loading until all process is done
 
@@ -270,35 +229,47 @@ function page() {
                     .then(data => {
                         console.log('STEP 2: SUCCESS', data.data)
 
-                        // Now create a grading options using the sheet id
+                        // Now create a bonus sections using the sheet id
 
-                        fetch(`/api/gradingOption/${sheetId}`, {
+                        fetch(`/api/bonusSection/${sheetId}`, {
                             method: 'POST',
-                            body: JSON.stringify(newGradingOptionsData)
+                            body: JSON.stringify(newBonusOptionsData)
                         })
                             .then(res => res.json())
                             .then(data => {
                                 console.log('STEP 3: SUCCESS', data.data)
 
-                                if (data.success) {
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Sheet created successfully',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
-                                } else {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Failed to create sheet',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
-                                }
 
-                                // reset the form after successful submission
-                                reset()
+                                // Now create a grading options using the sheet id
 
+                                fetch(`/api/gradingOption/${sheetId}`, {
+                                    method: 'POST',
+                                    body: JSON.stringify(newGradingOptionsData)
+                                })
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        console.log('STEP 4: SUCCESS', data.data)
+
+                                        if (data.success) {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Sheet created successfully',
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            })
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Failed to create sheet',
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            })
+                                        }
+
+                                        // reset the form after successful submission
+                                        reset()
+
+                                    })
                             })
                     })
 
@@ -328,22 +299,25 @@ function page() {
 
         const newMandatoryOptionsData = []
 
-        // create an array of mandatory options data from title, description, yes_no array
-        // example from: title: ['title1', 'title2'], description: ['desc1', 'desc2'], yes_no: ['yes', 'no']
-        // to: [{title: 'title1', description: 'desc1', yes_no: 'yes'}, {title: 'title2', description: 'desc2', yes_no: 'no'}]
-
         for (let i = 0; i < numberOfMandatorySections; i++) {
             newMandatoryOptionsData.push({
                 title: data.title[i],
+                subtitle: data.subtitle[i],
                 description: data.description[i],
                 yes_no: data.yes_no[i] === 'true' ? true : false
             })
         }
 
+        const newBonusOptionsData = []
 
-
-
-
+        for (let i = 0; i < numberOfBonusSections; i++) {
+            newBonusOptionsData.push({
+                title: data.bonus_title[i],
+                subtitle: data.bonus_subtitle[i],
+                description: data.bonus_description[i],
+                yes_no: data.bonus_yes_no[i] === 'true' ? true : false
+            })
+        }
 
 
         const newGradingOptionsData = {
@@ -361,10 +335,11 @@ function page() {
             cannot_support: gradingOptionsData.cannot_support === 'true' ? true : false
         }
 
-        createSheet(newData, newMandatoryOptionsData, newGradingOptionsData)
+        createSheet(newData, newMandatoryOptionsData, newBonusOptionsData, newGradingOptionsData)
 
         // console.log(newData)
         // console.log(newMandatoryOptionsData)
+        // console.log(newBonusOptionsData)
         // console.log(newGradingOptionsData)
     }
 
@@ -622,7 +597,7 @@ function page() {
                             </div>
 
 
-                            {/* mandatory options: data- title, description, yes_no */}
+                            {/* mandatory options: data- title, subtitle, description, yes_no */}
 
                             <div className="flex flex-col p-5 lg:p-10 bg-white rounded-xl gap-5 mt-10">
                                 <di className="flex justify-between items-center">
@@ -631,13 +606,20 @@ function page() {
                                     </label>
 
                                     <div className='flex gap-2'>
+
+                                        <button type='button' onClick={removeMandatorySection} className='bg-[#666666] hover:bg-[#525252] text-white py-3 px-5 rounded-full transition duration-200'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                                            </svg>
+
+                                        </button>
                                         <button type='button' onClick={addMandatorySection} className='bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-5 rounded-full transition duration-200'>
-                                            +
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                            </svg>
+
                                         </button>
 
-                                        <button type='button' onClick={removeMandatorySection} className='bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-5 rounded-full transition duration-200'>
-                                            -
-                                        </button>
                                     </div>
                                 </di>
 
@@ -657,6 +639,20 @@ function page() {
                                             <input
                                                 {...register(`title.${index}`, { required: true })}
                                                 placeholder='Enter a title'
+                                                type='text'
+                                                className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                            />
+                                        </div>
+
+                                        {/* subtitle */}
+
+                                        <div>
+                                            <label htmlFor='subtitle' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                Subtitle:
+                                            </label>
+                                            <input
+                                                {...register(`subtitle.${index}`, { required: true })}
+                                                placeholder='Enter a subtitle (optional)'
                                                 type='text'
                                                 className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                             />
@@ -694,6 +690,7 @@ function page() {
                                         </div>
                                     </div>
                                 ))}
+                            </div>
 
 
 
@@ -701,6 +698,99 @@ function page() {
 
 
 
+
+
+                            {/* bonus options: data- title, subtitle, description, yes_no */}
+
+                            <div className="flex flex-col p-5 lg:p-10 bg-white rounded-xl gap-5 mt-10">
+                                <div className="flex justify-between items-center">
+                                    <label className='block  font-medium text-gray-700'>
+                                        Bonus Sections
+                                    </label>
+
+                                    <div className='flex gap-2'>
+                                        <button type='button' onClick={removeBonusSection} className='bg-[#666666] hover:bg-[#525252] text-white py-3 px-5 rounded-full transition duration-200'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                                            </svg>
+
+                                        </button>
+                                        <button type='button' onClick={addBonusSection} className='bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-5 rounded-full transition duration-200'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                            </svg>
+
+                                        </button>
+                                    </div>
+                                </div>
+
+
+
+
+                                {[...Array(numberOfBonusSections)].map((_, index) => (
+                                    <div key={index} className='mt-5'>
+                                        {/* title */}
+                                        <div>
+                                            <div className='mt-3 mb-7 border-sky-500 ' >
+                                                <h1 className='text-xl font-medium text-gray-700'>Bonus Section {index + 1}</h1>
+                                            </div>
+                                            <label htmlFor='bonus_title' className='block text-sm text-gray-500 mb-1'>
+                                                Title of the evaluation criteria:
+                                            </label>
+                                            <input
+                                                {...register(`bonus_title.${index}`, { required: true })}
+                                                placeholder='Enter a title'
+                                                type='text'
+                                                className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                            />
+                                        </div>
+
+                                        {/* subtitle */}
+
+                                        <div>
+                                            <label htmlFor='bonus_subtitle' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                Subtitle:
+                                            </label>
+                                            <input
+                                                {...register(`bonus_subtitle.${index}`, { required: true })}
+                                                placeholder='Enter a subtitle (optional)'
+                                                type='text'
+                                                className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                            />
+                                        </div>
+
+                                        {/* description */}
+                                        <div>
+                                            <label htmlFor='bonus_description' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                Detailed dscription:
+                                            </label>
+
+                                            <textarea
+                                                {...register(`bonus_description.${index}`, { required: true })}
+                                                rows={5}
+                                                placeholder='Enter detailed description separated by a new line'
+                                                className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                            />
+                                            < p className='mt-2 text-sm text-gray-500' > NOTE: Please separate each description with a new line</p>
+                                        </div>
+
+                                        {/* yes_no */}
+                                        <div>
+                                            <label htmlFor='bonus_yes_no' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                Yes/No button or slider:
+                                            </label>
+
+                                            <select
+                                                {...register(`bonus_yes_no.${index}`, { required: true })}
+                                                className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                            >
+                                                <option value={null}>Select one</option>
+                                                <option value={true}>Yes/No button</option>
+                                                <option value={false}>Slider with value</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
 

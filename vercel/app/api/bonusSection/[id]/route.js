@@ -3,11 +3,11 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic'
 
 
-// GET /api/mandatorySection/[id] and get mandatory section by sheet id
+// GET /api/bonusSection/[id] and get bonus section by sheet id
 
 export const GET = async (req, { params }) => {
     const { id } = params;
-    const mandatorySectionData = await prisma.mandatorySection.findMany({
+    const bonusSectionData = await prisma.bonusSection.findMany({
         where: {
             sheetId: id
         }
@@ -15,20 +15,20 @@ export const GET = async (req, { params }) => {
 
     return NextResponse.json({
         success: true,
-        data: mandatorySectionData,
-        message: 'Mandatory section retrieved successfully'
+        data: bonusSectionData,
+        message: 'bonus section retrieved successfully'
     })
 }
 
 
 
-// PUT /api/mandatorySection/[id] and update mandatory section by sheet id
+// PUT /api/bonusSection/[id] and update bonus section by sheet id
 
 export const PUT = async (req, { params }) => {
     const { id } = params;
     const body = await req.json();
     const { title, subtitle, description, yes_no } = body;
-    const mandatorySectionData = await prisma.mandatorySection.updateMany({
+    const bonusSectionData = await prisma.bonusSection.updateMany({
         // where: {
         //     id
         // },
@@ -50,12 +50,10 @@ export const PUT = async (req, { params }) => {
 
     });
 
-    console.log(mandatorySectionData)
-
     return NextResponse.json({
         success: true,
-        data: mandatorySectionData,
-        message: 'Mandatory section updated successfully'
+        data: bonusSectionData,
+        message: 'bonus section updated successfully'
     })
 
 }
@@ -65,14 +63,14 @@ export const PUT = async (req, { params }) => {
 
 
 
-// POST /api/mandatorySection/[id] and connect to sheet
+// POST /api/bonusSection/[id] and connect to sheet
 
 
 export const POST = async (req, { params }) => {
     const { id } = params;
     const body = await req.json();
 
-    const mandatorySectionData = await prisma.mandatorySection.createMany({
+    const bonusSectionData = await prisma.bonusSection.createMany({
         data: body.map((item) => {
             return {
                 title: item.title,
@@ -87,20 +85,20 @@ export const POST = async (req, { params }) => {
 
     return NextResponse.json({
         success: true,
-        data: mandatorySectionData,
-        message: 'Mandatory section created successfully'
+        data: bonusSectionData,
+        message: 'bonus section created successfully'
     })
 
 }
 
 
 
-// DELETE /api/mandatorySection/[id] and delete mandatory section by sheet id
+// DELETE /api/bonusSection/[id] and delete bonus section by sheet id
 
 export const DELETE = async (req, { params }) => {
     try {
         const { id } = params;
-        const mandatorySectionData = await prisma.mandatorySection.deleteMany({
+        const bonusSectionData = await prisma.bonusSection.deleteMany({
             where: {
                 sheetId: id
             }
@@ -109,14 +107,14 @@ export const DELETE = async (req, { params }) => {
 
         return NextResponse.json({
             success: true,
-            data: mandatorySectionData,
-            message: 'Mandatory section deleted successfully'
+            data: bonusSectionData,
+            message: 'bonus section deleted successfully'
         })
 
     } catch (error) {
         return NextResponse.json({
             success: false,
-            message: 'Mandatory section not deleted',
+            message: 'bonus section not deleted',
             error: error
         })
     }

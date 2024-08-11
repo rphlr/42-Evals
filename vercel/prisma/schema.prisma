@@ -24,6 +24,7 @@ model Sheet {
   attachments             String[]
   optional_bonus_sections String?
   mandatory_sections      MandatorySection[]
+  bonus_sections          BonusSection[]
   grading_options         GradingOption[]
   created_at              DateTime           @default(now())
   updated_at              DateTime           @updatedAt
@@ -32,6 +33,19 @@ model Sheet {
 model MandatorySection {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String
+  subtitle    String?
+  description String
+  yes_no      Boolean
+  sheet       Sheet    @relation(fields: [sheetId], references: [id], onDelete: Cascade)
+  sheetId     String   @db.ObjectId
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model BonusSection {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  subtitle    String?
   description String
   yes_no      Boolean
   sheet       Sheet    @relation(fields: [sheetId], references: [id], onDelete: Cascade)

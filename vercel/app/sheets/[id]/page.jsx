@@ -60,6 +60,23 @@ function page({ params }) {
     }, [])
 
 
+    // get all bonus sections
+
+    const [bonusSections, setBonusSections] = useState([])
+    const [loadingBonusSections, setLoadingBonusSections] = useState(true)
+
+    useEffect(() => {
+        fetch(`/api/bonusSection/${sheetId}`)
+            .then(res => res.json())
+            .then(data => {
+                setBonusSections(data.data)
+                setLoadingBonusSections(false)
+            })
+    }, [])
+
+
+
+
     // get all grading options
 
     const [gradingOptions, setGradingOptions] = useState([])
@@ -148,7 +165,7 @@ function page({ params }) {
 
 
 
-    if (loadingSheet || !isLogged || loadingMandatorySections || loadingGradingOptions) {
+    if (loadingSheet || !isLogged || loadingMandatorySections || loadingGradingOptions || loadingBonusSections) {
         return (
             <LoadingSpinner title='Evaluation Sheet' />
         )
@@ -293,6 +310,81 @@ function page({ params }) {
                     <div className='pt-5'>
                         {
                             mandatorySections.map((section, index) => (
+                                <div className='bg-white p-5 rounded-lg mb-5' key={index}>
+                                    <h3 className='text-xl font-bold pb-3'>
+                                        {section.title}
+                                    </h3>
+                                    <p className='pt-2 pb-5'>
+                                        {
+                                            // detect new line and replace with <br> tag to display it
+
+                                            // section.description.replace(/(?:\r\n|\r|\n)/g, '<br>') // replace new line with <br> tag
+                                            section.description.split('\n').map((line, index) => (
+                                                <span key={index} className='flex gap-2 items-center mb-2'>
+                                                    <span className='text-[#0D94B6]'>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                        </svg>
+
+                                                    </span>
+                                                    {line}
+                                                    <br />
+                                                </span>
+                                            ))
+                                        }
+                                    </p>
+
+                                    {/* if yes_no is true then an yes no button, if false then a slider with value 1-5 */}
+                                    {
+                                        section.yes_no ? (
+                                            <div className='flex gap-1 items-center w-full'>
+                                                <button
+                                                    className=' bg-gray-100 text-green-500 hover:bg-green-100 transition duration-200 px-5 p-3 w-full '>
+                                                    Yes
+                                                </button>
+                                                <button className=' bg-gray-100 text-red-500 hover:bg-red-100 transition duration-200 px-5 p-3 w-full '>
+                                                    No
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className='w-full lg:w-1/2 mx-auto mt-7'>
+                                                <p className='text-sm font-medium text-center pb-2'>
+                                                    Rate it from 0 (failed) through 5 (excellent)
+                                                </p>
+                                                <input type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
+                                                <div className="flex w-full justify-between px-2 text-xs">
+                                                    <span>0</span>
+                                                    <span>1</span>
+                                                    <span>2</span>
+                                                    <span>3</span>
+                                                    <span>4</span>
+                                                    <span>5</span>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+
+
+                                </div>
+                            ))
+
+
+                        }
+                    </div>
+                </div>
+
+
+
+                {/* BONUS SECTIONS */}
+
+                <div className='mt-10 bg-white p-5 lg:p-10 rounded-lg'>
+                    <h2 className='text-2xl font-bold'>
+                        Bonus Part
+                    </h2>
+
+                    <div className='pt-5'>
+                        {
+                            bonusSections.map((section, index) => (
                                 <div className='bg-white p-5 rounded-lg mb-5' key={index}>
                                     <h3 className='text-xl font-bold pb-3'>
                                         {section.title}
