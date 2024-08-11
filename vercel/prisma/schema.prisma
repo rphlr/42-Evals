@@ -32,7 +32,7 @@ model Sheet {
 model MandatorySection {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String
-  description String[]
+  description String
   yes_no      Boolean
   sheet       Sheet    @relation(fields: [sheetId], references: [id], onDelete: Cascade)
   sheetId     String   @db.ObjectId

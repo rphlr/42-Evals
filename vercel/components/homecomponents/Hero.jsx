@@ -9,7 +9,7 @@ function Hero() {
                     <h1 className='text-3xl lg:text-4xl font-bold'>42 Evaluation Sheets Hub 🎯</h1>
                     <p className=' pt-2 text-gray-600'>Welcome to the heart of self-evaluation for 42 School projects! 📝</p>
                     <Link href='/sheets'>
-                        <button className='bg-sky-600 mt-7 px-5 py-2 rounded-md text-white'>Get Started</button>
+                        <button className='bg-sky-600 mt-10 px-5 py-3 rounded-md text-white'>Get Started</button>
                     </Link>
                 </div>
                 <div className='px-5 lg:px-14 mx-auto mt-7'>

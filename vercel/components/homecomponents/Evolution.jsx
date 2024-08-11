@@ -1,41 +1,22 @@
-import React from 'react'
+'use client'
+import { React, useEffect, useState } from 'react'
 
 function Evolution() {
 
 
 
-    const projectInfo = [
-        {
-            project: 'Project 1',
-            date: '10th August 2021'
-        },
-        {
-            project: 'Project 2',
-            date: '12th August 2021'
-        },
-        {
-            project: 'Project 3',
-            date: '15th August 2021'
-        },
-        {
-            project: 'Project 4',
-            date: '17th August 2021'
-        },
-        {
-            project: 'Project 5',
-            date: '19th August 2021'
-        }
-    ]
+    const [projectInfo, setProjectInfo] = useState([])
+    const [loadingSheet, setLoadingSheet] = useState(true)
 
-
-
-
-
-
-
-
-
-
+    useEffect(() => {
+        fetch('/api/sheet')
+            .then(res => res.json())
+            .then(data => {
+                setProjectInfo(data.data)
+                setLoadingSheet(false)
+            })
+    }
+        , [])
 
 
 
@@ -61,21 +42,23 @@ function Evolution() {
                             {
                                 projectInfo.map((project, index) => (
                                     <tr key={index} className='border-b border-gray-200'>
-                                        <td className='py-3 px-5 text-[#0D94B6] cursor-pointer'>{project.project}</td>
-                                        <td className='py-3 px-5 '>{project.date}</td>
+                                        <td className='py-3 px-5 text-[#0D94B6] cursor-pointer'>{project.project_title}</td>
+                                        <td className='py-3 px-5 '>
+                                            {
+                                                // 26 december 2021 format
+                                                new Date(project.updated_at).toLocaleDateString('en-GB', {
+                                                    day: 'numeric',
+                                                    month: 'long',
+                                                    year: 'numeric'
+                                                })
+                                            }
+                                        </td>
                                     </tr>
                                 ))
                             }
 
                         </tbody>
                     </table>
-
-
-
-
-
-
-
                 </div>
             </div>
         </div>

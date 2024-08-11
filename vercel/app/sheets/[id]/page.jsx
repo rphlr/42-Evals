@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-
+import LoadingSpinner from '../../../components/LoadingSpinner'
 import Link from 'next/link'
 import React from 'react'
 import Swal from 'sweetalert2'
@@ -8,20 +8,151 @@ export const dynamic = 'force-dynamic'
 
 function page({ params }) {
 
+    const [isLogged, setIsLogged] = useState(false)
+
+    //check if the user is logged in
+    useEffect(() => {
+        if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
+            Swal.fire({
+                title: 'Unauthorized',
+                text: 'You need to login to view this page',
+                icon: 'error',
+                confirmButtonText: 'Login'
+            }).then(() => {
+                window.location.href = '/login'
+            })
+        } else {
+            setIsLogged(true)
+        }
+    }, [])
+
+
+
+
     const sheetId = params.id
 
 
     const [sheetData, setSheetData] = useState({})
+    const [loadingSheet, setLoadingSheet] = useState(true)
 
     useEffect(() => {
         fetch(`/api/sheet/${sheetId}`)
             .then(res => res.json())
             .then(data => {
                 setSheetData(data.data)
+                setLoadingSheet(false)
             })
     }, [])
 
-    console.log(sheetData)
+
+    // get all mandatory sections
+
+    const [mandatorySections, setMandatorySections] = useState([])
+    const [loadingMandatorySections, setLoadingMandatorySections] = useState(true)
+
+    useEffect(() => {
+        fetch(`/api/mandatorySection/${sheetId}`)
+            .then(res => res.json())
+            .then(data => {
+                setMandatorySections(data.data)
+                setLoadingMandatorySections(false)
+            })
+    }, [])
+
+
+    // get all grading options
+
+    const [gradingOptions, setGradingOptions] = useState([])
+    const [loadingGradingOptions, setLoadingGradingOptions] = useState(true)
+
+    useEffect(() => {
+        fetch(`/api/gradingOption/${sheetId}`)
+            .then(res => res.json())
+            .then(data => {
+                setGradingOptions(data.data)
+                setLoadingGradingOptions(false)
+            })
+    }, [])
+
+
+    // destructuring the grading options
+
+    //   ok
+    //   outstanding
+    //   empty_work
+    //   incomplete_work
+    //   invalid_compilation
+    //   norme
+    //   cheat
+    //   crash
+    //   concerning_situations
+    //   leaks
+    //   forbidden_functions
+    //   cannot_support
+
+    // const [ok, outstanding, empty_work, incomplete_work, invalid_compilation, norme, cheat, crash, concerning_situations, leaks, forbidden_functions, cannot_support] = gradingOptions
+
+    console.log(gradingOptions)
+
+
+
+
+    // state to change the color of the yes no button for each mandatory section
+    // example: if the user clicks yes then the yes button will be green and if the user clicks no then the no button will be red
+
+    // const [yesNoColor, setYesNoColor] = useState({
+    //     yes: 'bg-gray-100 text-green-500 hover:bg-green-100',
+    //     no: 'bg-gray-100 text-red-500 hover:bg-red-100'
+    // })
+
+    // // function to change the color of the yes no button
+    // const changeYesNoColor = (type) => {
+    //     if (type === 'yes') {
+    //         setYesNoColor({
+    //             yes: 'bg-green-100 text-green-500 hover:bg-green-500',
+    //             no: 'bg-gray-100 text-red-500 hover:bg-red-100'
+    //         })
+    //     } else {
+    //         setYesNoColor({
+    //             yes: 'bg-gray-100 text-green-500 hover:bg-green-100',
+    //             no: 'bg-red-100 text-red-500 hover:bg-red-500'
+    //         })
+    //     }
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (loadingSheet || !isLogged || loadingMandatorySections || loadingGradingOptions) {
+        return (
+            <LoadingSpinner title='Evaluation Sheet' />
+        )
+    }
 
 
 
@@ -133,8 +264,8 @@ function page({ params }) {
                             })
                                 .map((attachment, index) => (
                                     <a href={
-                                        // after comma
-                                        attachment.slice(attachment.indexOf(',') + 1) // get the string after the comma
+
+                                        attachment.slice(attachment.indexOf(',') + 1).includes('http') ? attachment.slice(attachment.indexOf(',') + 1) : null
                                     } target='_blank' className='text-xl font-medium text-sky-500 rounded-lg mb-2 flex gap-2 items-center ' key={index}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -150,6 +281,306 @@ function page({ params }) {
                         }
                     </div>
                 </div>
+
+
+                {/* MANDATORY SECTIONS */}
+
+                <div className='mt-10 bg-white p-5 lg:p-10 rounded-lg'>
+                    <h2 className='text-2xl font-bold'>
+                        Mandatory Part
+                    </h2>
+
+                    <div className='pt-5'>
+                        {
+                            mandatorySections.map((section, index) => (
+                                <div className='bg-white p-5 rounded-lg mb-5' key={index}>
+                                    <h3 className='text-xl font-bold pb-3'>
+                                        {section.title}
+                                    </h3>
+                                    <p className='pt-2 pb-5'>
+                                        {
+                                            // detect new line and replace with <br> tag to display it
+
+                                            // section.description.replace(/(?:\r\n|\r|\n)/g, '<br>') // replace new line with <br> tag
+                                            section.description.split('\n').map((line, index) => (
+                                                <span key={index} className='flex gap-2 items-center mb-2'>
+                                                    <span className='text-[#0D94B6]'>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                        </svg>
+
+                                                    </span>
+                                                    {line}
+                                                    <br />
+                                                </span>
+                                            ))
+                                        }
+                                    </p>
+
+                                    {/* if yes_no is true then an yes no button, if false then a slider with value 1-5 */}
+                                    {
+                                        section.yes_no ? (
+                                            <div className='flex gap-1 items-center w-full'>
+                                                <button
+                                                    className=' bg-gray-100 text-green-500 hover:bg-green-100 transition duration-200 px-5 p-3 w-full '>
+                                                    Yes
+                                                </button>
+                                                <button className=' bg-gray-100 text-red-500 hover:bg-red-100 transition duration-200 px-5 p-3 w-full '>
+                                                    No
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className='w-full lg:w-1/2 mx-auto mt-7'>
+                                                <p className='text-sm font-medium text-center pb-2'>
+                                                    Rate it from 0 (failed) through 5 (excellent)
+                                                </p>
+                                                <input type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
+                                                <div className="flex w-full justify-between px-2 text-xs">
+                                                    <span>0</span>
+                                                    <span>1</span>
+                                                    <span>2</span>
+                                                    <span>3</span>
+                                                    <span>4</span>
+                                                    <span>5</span>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+
+
+                                </div>
+                            ))
+
+
+                        }
+                    </div>
+                </div>
+
+
+                {/* GRADING OPTIONS */}
+                {/*  we need specific button based on specific boolean value */}
+
+                <div className='mt-10 bg-white p-5 lg:p-10 rounded-lg'>
+                    <h2 className='text-2xl font-bold'>
+                        Ratings
+                    </h2>
+
+                    <div className='pt-10 flex flex-wrap gap-2'>
+
+                        <div>
+                            {
+                                gradingOptions[0].ok ? (
+                                    <button className='bg-green-100 text-green-500 hover:bg-green-500 hover:text-white transition duration-200 py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+
+                                        </span>
+                                        OK
+                                    </button>
+                                ) : null
+
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].outstanding ? (
+                                    <button className='bg-green-100 text-green-500 hover:bg-green-500 hover:text-white transition duration-200 py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+
+
+                                        </span>
+                                        Outstanding
+                                    </button>
+                                ) : null
+
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].empty_work ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                            </svg>
+
+
+                                        </span>
+                                        Empty Work
+                                    </button>
+                                ) : null
+
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].incomplete_work ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M7.498 15.25H4.372c-1.026 0-1.945-.694-2.054-1.715a12.137 12.137 0 0 1-.068-1.285c0-2.848.992-5.464 2.649-7.521C5.287 4.247 5.886 4 6.504 4h4.016a4.5 4.5 0 0 1 1.423.23l3.114 1.04a4.5 4.5 0 0 0 1.423.23h1.294M7.498 15.25c.618 0 .991.724.725 1.282A7.471 7.471 0 0 0 7.5 19.75 2.25 2.25 0 0 0 9.75 22a.75.75 0 0 0 .75-.75v-.633c0-.573.11-1.14.322-1.672.304-.76.93-1.33 1.653-1.715a9.04 9.04 0 0 0 2.86-2.4c.498-.634 1.226-1.08 2.032-1.08h.384m-10.253 1.5H9.7m8.075-9.75c.01.05.027.1.05.148.593 1.2.925 2.55.925 3.977 0 1.487-.36 2.89-.999 4.125m.023-8.25c-.076-.365.183-.75.575-.75h.908c.889 0 1.713.518 1.972 1.368.339 1.11.521 2.287.521 3.507 0 1.553-.295 3.036-.831 4.398-.306.774-1.086 1.227-1.918 1.227h-1.053c-.472 0-.745-.556-.5-.96a8.95 8.95 0 0 0 .303-.54" />
+                                            </svg>
+
+
+                                        </span>
+                                        Incomplete Work
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].invalid_compilation ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                                            </svg>
+
+
+                                        </span>
+                                        Invalid Compilation
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].norme ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+
+
+                                        </span>
+                                        Norme
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].cheat ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                                            </svg>
+
+
+                                        </span>
+                                        Cheat
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].crash ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                                            </svg>
+
+
+                                        </span>
+                                        Crash
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].concerning_situations ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                                            </svg>
+
+
+                                        </span>
+                                        Concerning Situations
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+                        <div>
+                            {
+                                gradingOptions[0].leaks ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21" />
+                                            </svg>
+
+
+                                        </span>
+                                        Leaks
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+                        <div>
+                            {
+                                gradingOptions[0].forbidden_functions ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                                            </svg>
+
+
+                                        </span>
+                                        Forbidden Functions
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+                        <div>
+                            {
+
+                                gradingOptions[0].cannot_support ? (
+                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                                            </svg>
+
+
+                                        </span>
+                                        Cannot Support/Explain code
+                                    </button>
+                                ) : null
+                            }
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </div>
+
 
 
 

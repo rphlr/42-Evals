@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-
+import LoadingSpinner from '../../components/LoadingSpinner'
 import Link from 'next/link'
 import React from 'react'
 import Swal from 'sweetalert2'
@@ -10,15 +10,22 @@ function page() {
 
 
     const [sheetData, setSheetData] = useState([])
+    const [loadingSheet, setLoadingSheet] = useState(true)
 
     useEffect(() => {
         fetch('/api/sheet')
             .then(res => res.json())
             .then(data => {
                 setSheetData(data.data)
+                setLoadingSheet(false)
             })
     }, [])
 
+    if (loadingSheet) {
+        return (
+            <LoadingSpinner title='All Evaluation Sheets' />
+        )
+    }
 
 
     return (

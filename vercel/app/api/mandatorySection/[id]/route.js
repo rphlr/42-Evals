@@ -28,22 +28,35 @@ export const PUT = async (req, { params }) => {
     const { id } = params;
     const body = await req.json();
     const { title, description, yes_no } = body;
-    const mandatorySectionData = await prisma.mandatorySection.update({
+    const mandatorySectionData = await prisma.mandatorySection.updateMany({
+        // where: {
+        //     id
+        // },
+        // data: {
+        //     title: title,
+        //     description: description,
+        //     yes_no: yes_no
+        // }
+
         where: {
-            id
+            sheetId: id
         },
         data: {
             title: title,
             description: description,
             yes_no: yes_no
         }
+
     });
+
+    console.log(mandatorySectionData)
 
     return NextResponse.json({
         success: true,
         data: mandatorySectionData,
         message: 'Mandatory section updated successfully'
     })
+
 }
 
 
@@ -57,18 +70,17 @@ export const PUT = async (req, { params }) => {
 export const POST = async (req, { params }) => {
     const { id } = params;
     const body = await req.json();
-    const { title, description, yes_no } = body;
-    const mandatorySectionData = await prisma.mandatorySection.create({
-        data: {
-            title: title,
-            description: description,
-            yes_no: yes_no,
-            sheet: {
-                connect: {
-                    id: id
-                }
+
+    const mandatorySectionData = await prisma.mandatorySection.createMany({
+        data: body.map((item) => {
+            return {
+                title: item.title,
+                description: item.description,
+                yes_no: item.yes_no,
+                sheetId: id
             }
-        }
+        })
+
     });
 
     return NextResponse.json({
@@ -86,10 +98,11 @@ export const POST = async (req, { params }) => {
 export const DELETE = async (req, { params }) => {
     try {
         const { id } = params;
-        const mandatorySectionData = await prisma.mandatorySection.delete({
+        const mandatorySectionData = await prisma.mandatorySection.deleteMany({
             where: {
                 sheetId: id
             }
+
         });
 
         return NextResponse.json({
