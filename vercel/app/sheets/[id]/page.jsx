@@ -10,20 +10,20 @@ function page({ params }) {
 
     const [isLogged, setIsLogged] = useState(false)
 
-    //check if the user is logged in
+    // check if the user is logged in
     useEffect(() => {
-        if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
-            Swal.fire({
-                title: 'Unauthorized',
-                text: 'You need to login to view this page',
-                icon: 'error',
-                confirmButtonText: 'Login'
-            }).then(() => {
-                window.location.href = '/login'
-            })
-        } else {
+        // if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
+        //     Swal.fire({
+        //         title: 'Unauthorized',
+        //         text: 'You need to login to view this page',
+        //         icon: 'error',
+        //         confirmButtonText: 'Login'
+        //     }).then(() => {
+        //         window.location.href = '/login'
+        //     })
+        // } else {
             setIsLogged(true)
-        }
+        // }
     }, [])
 
 
