@@ -113,29 +113,281 @@ function page({ params }) {
 
 
 
+    // color state for all grading options buttons
 
-    // state to change the color of the yes no button for each mandatory section
-    // example: if the user clicks yes then the yes button will be green and if the user clicks no then the no button will be red
+    const greenColor = 'bg-green-100 text-green-500 hover:bg-green-500 hover:text-white transition duration-200  py-3 px-10 rounded-lg mb-3 flex gap-2 items-center';
+    const redColor = 'bg-red-50 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white transition duration-200  py-3 px-10 rounded-lg mb-3 flex gap-2 items-center';
 
-    // const [yesNoColor, setYesNoColor] = useState({
-    //     yes: 'bg-gray-100 text-green-500 hover:bg-green-100',
-    //     no: 'bg-gray-100 text-red-500 hover:bg-red-100'
-    // })
+    const clickedGreenColor = 'bg-green-500 text-white  py-3 px-10 rounded-lg mb-3 flex gap-2 items-center';
+    const clickedRedColor = 'bg-red-500 text-white  py-3 px-10 rounded-lg mb-3 flex gap-2 items-center';
 
-    // // function to change the color of the yes no button
-    // const changeYesNoColor = (type) => {
-    //     if (type === 'yes') {
-    //         setYesNoColor({
-    //             yes: 'bg-green-100 text-green-500 hover:bg-green-500',
-    //             no: 'bg-gray-100 text-red-500 hover:bg-red-100'
-    //         })
-    //     } else {
-    //         setYesNoColor({
-    //             yes: 'bg-gray-100 text-green-500 hover:bg-green-100',
-    //             no: 'bg-red-100 text-red-500 hover:bg-red-500'
-    //         })
-    //     }
-    // }
+    const [okColor, setOkColor] = useState(greenColor)
+    const [outstandingColor, setOutstandingColor] = useState(greenColor)
+    const [emptyWorkColor, setEmptyWorkColor] = useState(redColor)
+    const [incompleteWorkColor, setIncompleteWorkColor] = useState(redColor)
+    const [invalidCompilationColor, setInvalidCompilationColor] = useState(redColor)
+    const [normeColor, setNormeColor] = useState(redColor)
+    const [cheatColor, setCheatColor] = useState(redColor)
+    const [crashColor, setCrashColor] = useState(redColor)
+    const [concerningSituationsColor, setConcerningSituationsColor] = useState(redColor)
+    const [leaksColor, setLeaksColor] = useState(redColor)
+    const [forbiddenFunctionsColor, setForbiddenFunctionsColor] = useState(redColor)
+    const [cannotSupportColor, setCannotSupportColor] = useState(redColor)
+
+    // handle the color change of the buttons on click
+
+
+    const setAllColorToDefault = () => {
+        setOkColor(greenColor)
+        setOutstandingColor(greenColor)
+        setEmptyWorkColor(redColor)
+        setIncompleteWorkColor(redColor)
+        setInvalidCompilationColor(redColor)
+        setNormeColor(redColor)
+        setCheatColor(redColor)
+        setCrashColor(redColor)
+        setConcerningSituationsColor(redColor)
+        setLeaksColor(redColor)
+        setForbiddenFunctionsColor(redColor)
+        setCannotSupportColor(redColor)
+    }
+
+
+    const handleOkColor = () => {
+        if (okColor === greenColor) {
+            setAllColorToDefault()
+            setOkColor(clickedGreenColor)
+        } else {
+            setOkColor(greenColor)
+        }
+    }
+
+    const handleOutstandingColor = () => {
+        if (outstandingColor === greenColor) {
+            setAllColorToDefault()
+            setOutstandingColor(clickedGreenColor)
+        } else {
+            setOutstandingColor(greenColor)
+        }
+    }
+
+    const handleEmptyWorkColor = () => {
+        if (emptyWorkColor === redColor) {
+            setAllColorToDefault()
+            setEmptyWorkColor(clickedRedColor)
+        } else {
+            setEmptyWorkColor(redColor)
+        }
+    }
+
+    const handleIncompleteWorkColor = () => {
+        if (incompleteWorkColor === redColor) {
+            setAllColorToDefault()
+            setIncompleteWorkColor(clickedRedColor)
+        } else {
+            setIncompleteWorkColor(redColor)
+        }
+    }
+
+    const handleInvalidCompilationColor = () => {
+        if (invalidCompilationColor === redColor) {
+            setAllColorToDefault()
+            setInvalidCompilationColor(clickedRedColor)
+        } else {
+            setInvalidCompilationColor(redColor)
+        }
+    }
+
+    const handleNormeColor = () => {
+        if (normeColor === redColor) {
+            setAllColorToDefault()
+            setNormeColor(clickedRedColor)
+        } else {
+            setNormeColor(redColor)
+        }
+
+    }
+
+    const handleCheatColor = () => {
+        if (cheatColor === redColor) {
+            setAllColorToDefault()
+            setCheatColor(clickedRedColor)
+        } else {
+            setCheatColor(redColor)
+        }
+    }
+
+    const handleCrashColor = () => {
+        if (crashColor === redColor) {
+            setAllColorToDefault()
+            setCrashColor(clickedRedColor)
+        } else {
+            setCrashColor(redColor)
+        }
+    }
+
+    const handleConcerningSituationsColor = () => {
+        if (concerningSituationsColor === redColor) {
+            setAllColorToDefault()
+            setConcerningSituationsColor(clickedRedColor)
+        } else {
+            setConcerningSituationsColor(redColor)
+        }
+    }
+
+    const handleLeaksColor = () => {
+        if (leaksColor === redColor) {
+            setAllColorToDefault()
+            setLeaksColor(clickedRedColor)
+        } else {
+            setLeaksColor(redColor)
+        }
+    }
+
+    const handleForbiddenFunctionsColor = () => {
+        if (forbiddenFunctionsColor === redColor) {
+            setAllColorToDefault()
+            setForbiddenFunctionsColor(clickedRedColor)
+        } else {
+            setForbiddenFunctionsColor(redColor)
+        }
+
+    }
+
+    const handleCannotSupportColor = () => {
+        if (cannotSupportColor === redColor) {
+            setAllColorToDefault()
+            setCannotSupportColor(clickedRedColor)
+        } else {
+            setCannotSupportColor(redColor)
+        }
+    }
+
+
+
+
+    const initialYesColor = 'bg-green-100 text-green-600 hover:bg-green-500 hover:text-white transition duration-200  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
+    const initialNoColor = 'bg-red-50 text-red-600 hover:bg-red-500 transition duration-200 hover:text-white transition duration-200  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
+
+    const clickedYesColor = 'bg-green-500 text-white  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
+    const clickedNoColor = 'bg-red-500 text-white  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
+
+
+    // color state handling for yes no buttons each section based on index of the section
+
+    const [yesColor, setYesColor] = useState([])
+    const [noColor, setNoColor] = useState([])
+
+    const handleYesColor = (index) => {
+        let temp = [...yesColor]
+        let temp2 = [...noColor]
+
+        if (temp[index] === initialYesColor) {
+            temp[index] = clickedYesColor
+            temp2[index] = initialNoColor
+        } else {
+            temp[index] = initialYesColor
+        }
+
+        setYesColor(temp)
+        setNoColor(temp2)
+    }
+
+    const handleNoColor = (index) => {
+        let temp = [...noColor]
+        let temp2 = [...yesColor]
+
+        if (temp[index] === initialNoColor) {
+            temp[index] = clickedNoColor
+            temp2[index] = initialYesColor
+        } else {
+            temp[index] = initialNoColor
+        }
+
+        setNoColor(temp)
+        setYesColor(temp2)
+    }
+
+
+    useEffect(() => {
+
+        // a defalut click on all yes no buttons
+        let temp = []
+        let temp2 = []
+
+        for (let i = 0; i < mandatorySections.length; i++) {
+            temp.push(initialYesColor)
+            temp2.push(initialNoColor)
+        }
+
+        setYesColor(temp)
+        setNoColor(temp2)
+
+    }, [mandatorySections])
+
+
+
+    // same for bonus sections
+
+    const [yesColorBonus, setYesColorBonus] = useState([])
+    const [noColorBonus, setNoColorBonus] = useState([])
+
+    const handleYesColorBonus = (index) => {
+        let temp = [...yesColorBonus]
+        let temp2 = [...noColorBonus]
+
+        if (temp[index] === initialYesColor) {
+            temp[index] = clickedYesColor
+            temp2[index] = initialNoColor
+        }
+
+        setYesColorBonus(temp)
+        setNoColorBonus(temp2)
+    }
+
+    const handleNoColorBonus = (index) => {
+        let temp = [...noColorBonus]
+        let temp2 = [...yesColorBonus]
+
+        if (temp[index] === initialNoColor) {
+            temp[index] = clickedNoColor
+            temp2[index] = initialYesColor
+        }
+
+        setNoColorBonus(temp)
+        setYesColorBonus(temp2)
+    }
+
+
+    useEffect(() => {
+
+        // a defalut click on all yes no buttons
+        let temp = []
+        let temp2 = []
+
+        for (let i = 0; i < bonusSections.length; i++) {
+            temp.push(initialYesColor)
+            temp2.push(initialNoColor)
+        }
+
+        setYesColorBonus(temp)
+        setNoColorBonus(temp2)
+
+    }, [bonusSections])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -314,6 +566,9 @@ function page({ params }) {
                                     <h3 className='text-xl font-bold pb-3'>
                                         {section.title}
                                     </h3>
+                                    <p className='pt-3 pb-5'>
+                                        {section.subtitle}
+                                    </p>
                                     <p className='pt-2 pb-5'>
                                         {
                                             // detect new line and replace with <br> tag to display it
@@ -339,10 +594,17 @@ function page({ params }) {
                                         section.yes_no ? (
                                             <div className='flex gap-1 items-center w-full'>
                                                 <button
-                                                    className=' bg-gray-100 text-green-500 hover:bg-green-100 transition duration-200 px-5 p-3 w-full '>
+                                                    onClick={() => handleYesColor(index)}
+                                                    className={
+                                                        yesColor[index] ? yesColor[index] : initialYesColor
+                                                    }>
                                                     Yes
                                                 </button>
-                                                <button className=' bg-gray-100 text-red-500 hover:bg-red-100 transition duration-200 px-5 p-3 w-full '>
+                                                <button
+                                                    onClick={() => handleNoColor(index)}
+                                                    className={
+                                                        noColor[index] ? noColor[index] : initialNoColor
+                                                    }>
                                                     No
                                                 </button>
                                             </div>
@@ -389,6 +651,11 @@ function page({ params }) {
                                     <h3 className='text-xl font-bold pb-3'>
                                         {section.title}
                                     </h3>
+
+                                    <p className='pt-3 pb-5'>
+                                        {section.subtitle}
+                                    </p>
+
                                     <p className='pt-2 pb-5'>
                                         {
                                             // detect new line and replace with <br> tag to display it
@@ -414,10 +681,17 @@ function page({ params }) {
                                         section.yes_no ? (
                                             <div className='flex gap-1 items-center w-full'>
                                                 <button
-                                                    className=' bg-gray-100 text-green-500 hover:bg-green-100 transition duration-200 px-5 p-3 w-full '>
+                                                    onClick={() => handleYesColorBonus(index)}
+                                                    className={
+                                                        yesColorBonus[index] ? yesColorBonus[index] : initialYesColor
+                                                    }>
                                                     Yes
                                                 </button>
-                                                <button className=' bg-gray-100 text-red-500 hover:bg-red-100 transition duration-200 px-5 p-3 w-full '>
+                                                <button
+                                                    onClick={() => handleNoColorBonus(index)}
+                                                    className={
+                                                        noColorBonus[index] ? noColorBonus[index] : initialNoColor
+                                                    }>
                                                     No
                                                 </button>
                                             </div>
@@ -462,7 +736,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].ok ? (
-                                    <button className='bg-green-100 text-green-500 hover:bg-green-500 hover:text-white transition duration-200 py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleOkColor}
+                                        className={okColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -479,7 +755,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].outstanding ? (
-                                    <button className='bg-green-100 text-green-500 hover:bg-green-500 hover:text-white transition duration-200 py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleOutstandingColor}
+                                        className={outstandingColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
@@ -497,7 +775,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].empty_work ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleEmptyWorkColor}
+                                        className={emptyWorkColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
@@ -515,7 +795,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].incomplete_work ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleIncompleteWorkColor}
+                                        className={incompleteWorkColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M7.498 15.25H4.372c-1.026 0-1.945-.694-2.054-1.715a12.137 12.137 0 0 1-.068-1.285c0-2.848.992-5.464 2.649-7.521C5.287 4.247 5.886 4 6.504 4h4.016a4.5 4.5 0 0 1 1.423.23l3.114 1.04a4.5 4.5 0 0 0 1.423.23h1.294M7.498 15.25c.618 0 .991.724.725 1.282A7.471 7.471 0 0 0 7.5 19.75 2.25 2.25 0 0 0 9.75 22a.75.75 0 0 0 .75-.75v-.633c0-.573.11-1.14.322-1.672.304-.76.93-1.33 1.653-1.715a9.04 9.04 0 0 0 2.86-2.4c.498-.634 1.226-1.08 2.032-1.08h.384m-10.253 1.5H9.7m8.075-9.75c.01.05.027.1.05.148.593 1.2.925 2.55.925 3.977 0 1.487-.36 2.89-.999 4.125m.023-8.25c-.076-.365.183-.75.575-.75h.908c.889 0 1.713.518 1.972 1.368.339 1.11.521 2.287.521 3.507 0 1.553-.295 3.036-.831 4.398-.306.774-1.086 1.227-1.918 1.227h-1.053c-.472 0-.745-.556-.5-.96a8.95 8.95 0 0 0 .303-.54" />
@@ -532,7 +814,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].invalid_compilation ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleInvalidCompilationColor}
+                                        className={invalidCompilationColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
@@ -549,7 +833,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].norme ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleNormeColor}
+                                        className={normeColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
@@ -566,7 +852,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].cheat ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleCheatColor}
+                                        className={cheatColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
@@ -583,7 +871,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].crash ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleCrashColor}
+                                        className={crashColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
@@ -600,7 +890,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].concerning_situations ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleConcerningSituationsColor}
+                                        className={concerningSituationsColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
@@ -617,7 +909,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].leaks ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleLeaksColor}
+                                        className={leaksColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21" />
@@ -633,7 +927,9 @@ function page({ params }) {
                         <div>
                             {
                                 gradingOptions[0].forbidden_functions ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleForbiddenFunctionsColor}
+                                        className={forbiddenFunctionsColor}>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
@@ -651,7 +947,9 @@ function page({ params }) {
                             {
 
                                 gradingOptions[0].cannot_support ? (
-                                    <button className='bg-red-100 text-red-500 hover:bg-red-500 transition duration-200 hover:text-white py-3 px-10 rounded-lg mb-3 flex gap-2 items-center'>
+                                    <button
+                                        onClick={handleCannotSupportColor}
+                                        className={cannotSupportColor} >
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />

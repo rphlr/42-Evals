@@ -27,35 +27,28 @@ export const GET = async (req, { params }) => {
 export const PUT = async (req, { params }) => {
     const { id } = params;
     const body = await req.json();
-    const { title, subtitle, description, yes_no } = body;
-    const bonusSectionData = await prisma.bonusSection.updateMany({
-        // where: {
-        //     id
-        // },
-        // data: {
-        //     title: title,
-        //     description: description,
-        //     yes_no: yes_no
-        // }
 
-        where: {
-            sheetId: id
-        },
-        data: {
-            title: title,
-            subtitle: subtitle,
-            description: description,
-            yes_no: yes_no
-        }
-
+    const updatePromises = body.map(item => {
+        return prisma.bonusSection.update({
+            where: {
+                id: item.ids,  // Ensure each item has a unique identifier
+            },
+            data: {
+                title: item.title,
+                subtitle: item.subtitle,
+                description: item.description,
+                yes_no: item.yes_no
+            }
+        });
     });
+
+    const bonusSectionData = await Promise.all(updatePromises);
 
     return NextResponse.json({
         success: true,
         data: bonusSectionData,
-        message: 'bonus section updated successfully'
-    })
-
+        message: 'Bonus sections updated successfully'
+    });
 }
 
 

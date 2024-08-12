@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { React, useEffect, useState } from 'react'
 
 function Evolution() {
@@ -42,7 +43,9 @@ function Evolution() {
                             {
                                 projectInfo.map((project, index) => (
                                     <tr key={index} className='border-b border-gray-200'>
-                                        <td className='py-3 px-5 text-[#0D94B6] cursor-pointer'>{project.project_title}</td>
+                                        <td className='py-3 px-5 text-[#0D94B6] cursor-pointer'>
+                                            <Link href={`/sheets/${project.id}`}>{project.project_title}</Link>
+                                        </td>
                                         <td className='py-3 px-5 '>
                                             {
                                                 // 26 december 2021 format

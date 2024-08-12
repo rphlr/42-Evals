@@ -27,37 +27,28 @@ export const GET = async (req, { params }) => {
 export const PUT = async (req, { params }) => {
     const { id } = params;
     const body = await req.json();
-    const { title, subtitle, description, yes_no } = body;
-    const mandatorySectionData = await prisma.mandatorySection.updateMany({
-        // where: {
-        //     id
-        // },
-        // data: {
-        //     title: title,
-        //     description: description,
-        //     yes_no: yes_no
-        // }
 
-        where: {
-            sheetId: id
-        },
-        data: {
-            title: title,
-            subtitle: subtitle,
-            description: description,
-            yes_no: yes_no
-        }
-
+    const updatePromises = body.map(item => {
+        return prisma.mandatorySection.update({
+            where: {
+                id: item.ids,  // Ensure each item has a unique identifier
+            },
+            data: {
+                title: item.title,
+                subtitle: item.subtitle,
+                description: item.description,
+                yes_no: item.yes_no
+            }
+        });
     });
 
-    console.log(mandatorySectionData)
+    const mandatorySectionData = await Promise.all(updatePromises);
 
     return NextResponse.json({
         success: true,
         data: mandatorySectionData,
-        message: 'Mandatory section updated successfully'
-    })
-
+        message: 'mandatory sections updated successfully'
+    });
 }
 
 

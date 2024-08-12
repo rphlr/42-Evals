@@ -44,18 +44,18 @@ export const PUT = async (req, { params }) => {
             id
         },
         data: {
-            ok: ok || false,
-            outstanding: outstanding || false,
-            empty_work: empty_work || false,
-            incomplete_work: incomplete_work || false,
-            invalid_compilation: invalid_compilation || false,
-            norme: norme || false,
-            cheat: cheat || false,
-            crash: crash || false,
-            concerning_situations: concerning_situations || false,
-            leaks: leaks || false,
-            forbidden_functions: forbidden_functions || false,
-            cannot_support: cannot_support || false
+            ok: ok,
+            outstanding: outstanding,
+            empty_work: empty_work,
+            incomplete_work: incomplete_work,
+            invalid_compilation: invalid_compilation,
+            norme: norme,
+            cheat: cheat,
+            crash: crash,
+            concerning_situations: concerning_situations,
+            leaks: leaks,
+            forbidden_functions: forbidden_functions,
+            cannot_support: cannot_support
 
         }
     });

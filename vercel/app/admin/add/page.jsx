@@ -578,7 +578,7 @@ function page() {
 
 
 
-                            <div className="flex flex-col p-5 lg:p-10 bg-white rounded-xl gap-5 mt-10">
+                            {/* <div className="flex flex-col p-5 lg:p-10 bg-white rounded-xl gap-5 mt-10">
                                 <div className='sm:col-span-2'>
                                     <label htmlFor='optional_bonus_sections' className='block font-medium text-gray-700'>
                                         Optional Bonus Sections
@@ -594,7 +594,7 @@ function page() {
                                     {errors.optional_bonus_sections && <span className='text-red-500'>This field is required</span>}
                                 </div>
 
-                            </div>
+                            </div> */}
 
 
                             {/* mandatory options: data- title, subtitle, description, yes_no */}
