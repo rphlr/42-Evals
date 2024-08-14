@@ -42,7 +42,7 @@ def update_readme(repo_name, last_stargazer, last_stargazer_avatar, last_stargaz
 def update_funnystats(repo_name, last_stargazer, last_stargazer_avatar, last_stargazer_url):
 	g = Github(PERSONAL_ACCESS_TOKEN)
 	repo = g.get_repo(repo_name)
-	contents = repo.get_contents("vercel/components/homecomponents/FunnyStats.jsx")
+	contents = repo.get_contents("components/homecomponents/FunnyStats.jsx")
 	index_text = contents.decoded_content.decode()
 	stars_count = repo.stargazers_count
 
