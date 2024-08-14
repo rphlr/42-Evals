@@ -48,20 +48,20 @@ def update_funnystats(repo_name, last_stargazer, last_stargazer_avatar, last_sta
 
 	now = (datetime.now() + timedelta(hours=1)).strftime("%d.%m.%Y, %H:%M:%S")
 
-	index_text = re.sub(r'{/* last_stargazer_start_JSX */}.*?{/* last_stargazer_end_JSX */}', 
-						f'{/* last_stargazer_start_JSX */}<a href="{last_stargazer_url}"><img src="{last_stargazer_avatar}&s=250"\n                  target="_blank"></a>{/* last_stargazer_end_JSX */}', 
+	index_text = re.sub(r'{/\* last_stargazer_start_JSX \*/}.*?{/\* last_stargazer_end_JSX \*/}', 
+						f'{{/* last_stargazer_start_JSX */}}<a href="{last_stargazer_url}"><img src="{last_stargazer_avatar}&s=250"\n                  target="_blank"></a>{{/* last_stargazer_end_JSX */}}', 
 						index_text, flags=re.DOTALL)
 
-	index_text = re.sub(r'{/* name_start_JSX */}.*?{/* name_end_JSX */}', 
-						f'{/* name_start_JSX */}<a\n                            href="{last_stargazer_url}"\n                            target="_blank"\n                            className=\'text-[#0D94B6] hover:underline\'\n                        >{last_stargazer}</a>{/* name_end_JSX */}', 
+	index_text = re.sub(r'{/\* name_start_JSX \*/}.*?{/\* name_end_JSX \*/}', 
+						f'{{/* name_start_JSX */}}<a\n                            href="{last_stargazer_url}"\n                            target="_blank"\n                            className=\'text-[#0D94B6] hover:underline\'\n                        >{last_stargazer}</a>{{/* name_end_JSX */}}', 
 						index_text, flags=re.DOTALL)
 
-	index_text = re.sub(r'{/* date_start_JSX */}.*?{/* date_end_JSX */}', 
-						f'{/* date_start_JSX */}{now}{/* date_end_JSX */}', 
+	index_text = re.sub(r'{/\* date_start_JSX \*/}.*?{/\* date_end_JSX \*/}', 
+						f'{{/* date_start_JSX */}}{now}{{/* date_end_JSX */}}', 
 						index_text, flags=re.DOTALL)
 
-	index_text = re.sub(r'{/* stars_start */}.*?{/* stars_end */}', 
-						f'{/* stars_start */}{stars_count}{/* stars_end */}', 
+	index_text = re.sub(r'{/\* stars_start \*/}.*?{/\* stars_end \*/}', 
+						f'{{/* stars_start */}}{stars_count}{{/* stars_end */}}', 
 						index_text, flags=re.DOTALL)
 
 
