@@ -11,7 +11,7 @@ function FunnyStats() {
                     </p>
                     <div className="flex justify-center items-center">
                     {/* last_stargazer_start_JSX */}<a href="https://github.com/FizzYxWizzY"><img src="https://avatars.githubusercontent.com/u/102967945?v=4&s=250"
-                  target="_blank"></a>{/* last_stargazer_end_JSX */}
+                  target="_blank"/></a>{/* last_stargazer_end_JSX */}
                     </div>
 
                     <p className=' pt-2 text-gray-600 text-center'>
