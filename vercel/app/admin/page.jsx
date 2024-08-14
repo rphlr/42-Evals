@@ -15,6 +15,7 @@ function page() {
 
     // check login status
 
+
     useEffect(() => {
         if (sessionStorage.getItem('admin') !== 'true' && localStorage.getItem('admin') !== 'true') {
             Swal.fire({

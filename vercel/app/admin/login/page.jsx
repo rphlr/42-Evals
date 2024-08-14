@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation'
 import Swal from 'sweetalert2';
+import { env } from 'process';
 function page() {
 
     const router = useRouter()
@@ -34,8 +35,11 @@ function page() {
     const submitForm = (data) => {
         console.log(data)
 
+        const adminUsername = process.env.NEXT_PUBLIC_ADMIN_USERNAME;
+        const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+
         // check user credentials
-        if (data.username === 'admin' && data.password === 'admin') {
+        if (data.username === adminUsername && data.password === adminPassword) {
 
             if (checked) {
                 localStorage.setItem('admin', 'true') // remember me

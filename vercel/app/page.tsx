@@ -9,6 +9,7 @@ import Language from '@/components/homecomponents/Language';
 import Resources from '@/components/homecomponents/Resources';
 import Voice from '@/components/homecomponents/Voice';
 import FunnyStats from '@/components/homecomponents/FunnyStats';
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
 
@@ -17,8 +18,8 @@ export default function Home() {
     useEffect(() => {
         const Swal = require('sweetalert2');
         Swal.fire({
-            title: 'This is not an official 42-school site, but a student developed project',
-            text: 'Evaluation sheets are for reference only, and may not reflect official evaluations with 100% accuracy.',
+            title: 'Welcome to 42 Evaluation Sheets V2!',
+            text: '42 Evals has been updated to a new version. Please feel free to explore and share your feedback with me (rrouille@student.42lausanne.ch)! Evaluation sheets are provided for reference only and may not reflect official evaluations with complete accuracy. There may still be some bugs, and this version might not be 100% functional yet. Due to legal requirements, I had to develop this quickly, but improvements will be made in the coming days and weeks to enhance functionality.',
             icon: 'info',
             confirmButtonText: 'Got it!',
             confirmButtonColor: '#4B5563',
