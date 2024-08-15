@@ -149,25 +149,30 @@ function Header() {
                         {
                             loggedIn ? (
                                 <MenuItem>
+                                <Link href='/privacy'
+                                    className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
                                     <div
                                         onClick={handleLogout}
                                     >
-                                        <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                        <button className="">
                                             Logout
                                         </button>
                                     </div>
-
+                                </Link>
 
                                 </MenuItem>
                             ) : (
                                 <MenuItem>
+                                <Link href='/privacy'
+                                    className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
                                     <div
                                         onClick={handleLogin}
                                     >
-                                        <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                        <button className="">
                                             Login
                                         </button>
                                     </div>
+                                </Link>
                                 </MenuItem>
                             )
                         }
