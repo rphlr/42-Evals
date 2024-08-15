@@ -108,37 +108,40 @@ function Header() {
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                            <a
+                            <Link
                                 target='_blank'
-                                href="https://github.com/rphlr/42-Evals" >
-                                <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                href="https://github.com/rphlr/42-Evals"
+                                className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
+                                <button className="">
                                     Give this repo a star
                                 </button>
-                            </a>
+                            </Link>
                         </MenuItem>
                         <MenuItem>
-
-                            <a
+                            <Link
                                 target='_blank'
-                                href="https://github.com/rphlr" >
-                                <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                href="https://github.com/rphlr"
+                                className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
+                                <button className="">
                                     Follow me on GitHub
                                 </button>
-                            </a>
+                            </Link>
                         </MenuItem>
                         <MenuItem>
 
-                            <a
+                            <Link
                                 target='_blank'
-                                href="https://www.linkedin.com/in/rphlr" >
-                                <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                href="https://www.linkedin.com/in/rphlr"
+                                className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
+                                <button className="">
                                     Add me on LinkedIn
                                 </button>
-                            </a>
+                            </Link>
                         </MenuItem>
                         <MenuItem>
-                            <Link href='/privacy'>
-                                <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                            <Link href='/privacy'
+                                className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
+                                <button className="">
                                     Privacy Policy
                                 </button>
                             </Link>

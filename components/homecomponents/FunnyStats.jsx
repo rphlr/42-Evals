@@ -5,7 +5,7 @@ function FunnyStats() {
         <div className='bg-white rounded-lg mt-5'>
             <div className='max-w-6xl mx-auto py-14 px-5 2xl:px-14'>
                 <div className=''>
-                    <h1 className='text-2xl lg:text-3xl font-bold'>Funny Stats 📊</h1>
+                    <h1 className='text-2xl lg:text-3xl font-bold' id="FunnyStats">Funny Stats 📊</h1>
                     <p className=' pt-2 text-gray-600 text-center text-sm font-bold'>
                         Last stargazer:
                     </p>
@@ -20,7 +20,7 @@ function FunnyStats() {
                             href="https://github.com/Bravnar"
                             target="_blank"
                             className='text-[#0D94B6] hover:underline'
-                        >Bravnar</a>{/* name_end_JSX */}
+                        > Bravnar </a>{/* name_end_JSX */}
                         for starring the repository! 🎉
                     </p>
                     <p className=' pt-2 text-gray-600 font-bold '>

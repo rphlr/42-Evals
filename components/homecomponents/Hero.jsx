@@ -15,7 +15,7 @@ function Hero() {
                 <div className='px-5 lg:px-14 mx-auto mt-7'>
                     <p className='text-lg pt-5 text-gray-600'>Whether you're gearing up for a peer-evaluation or refining your code masterpiece, these sheets offer a sneak peek into the evaluation process, setting you up for success. 🌟</p>
                     <p className='text-lg pt-5 text-gray-600'>Dive into my meticulously curated evaluation sheets, sourced directly from the official 42 School, and fine-tune your projects to ace that evaluation. 42-Evals Web Page - your digital companion for project assessments, updated regularly for seamless access. 🖥️✨</p>
-                    <p className='text-lg pt-5 text-gray-600'> <span className='text-sky-600 font-bold'>NEW !</span> You can now see the stats of the repository here. 📊</p>
+                    <p className='text-lg pt-5 text-gray-600'> <span className='text-sky-600 font-bold'>NEW !</span> You can now see the stats of the repository <a className='text-sky-600 underline' href="#FunnyStats">here</a>. 📊</p>
 
                 </div>
             </div>
