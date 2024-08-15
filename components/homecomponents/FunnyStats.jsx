@@ -27,7 +27,7 @@ function FunnyStats() {
                         Star Count: <span className='text-[#0D94B6] font-bold'>{/* stars_start */}748{/* stars_end */}</span> 🌟
                     </p>
                     <p className=' pt-2 text-gray-600 font-bold '>
-                        Updates occur hourly. Last update : <span className=' font-normal'> {/* date_start_JSX */}15.08.2024, 12:13:31{/* date_end_JSX */} (CET)</span>
+                        Updates occur hourly. Last update : <span className=' font-normal'> {/* date_start_JSX */}15.08.2024, 13:31:44{/* date_end_JSX */} (CET)</span>
                     </p>
                     <a href="https://github.com/rphlr/42-Evals" target="_blank"><img src="https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date&" className='mt-5' alt="rphlr's Blue Github Chart"/></a>
                     <p className=' pt-2 text-gray-600 '>
