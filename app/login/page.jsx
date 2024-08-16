@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation'
 import Swal from 'sweetalert2';
 function page() {
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const router = useRouter()
 
     const {
@@ -28,7 +30,49 @@ function page() {
         setPasswordVisible(!passwordVisible)
     }
 
-
+    // 42 login
+    const handle42Login = async () => {
+        try {
+            setIsLoading(true);
+            
+            Swal.fire({
+                title: 'Connecting to 42...',
+                text: 'Please wait while we redirect you.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+    
+            const clientId = process.env.NEXT_PUBLIC_42_CLIENT_ID;
+            const redirectUri = process.env.NEXT_PUBLIC_42_REDIRECT_URI;
+            const authUrl = process.env.NEXT_PUBLIC_42_AUTH_URL;
+    
+            if (!clientId || !redirectUri || !authUrl) {
+                throw new Error('Missing environment variables');
+            }
+    
+            // Generate a random state value
+            const state = Math.random().toString(36).substring(2, 15);
+            
+            // Set the state as a cookie
+            document.cookie = `oauth_state=${state}; path=/; max-age=300; SameSite=Lax`;
+    
+            const url = `${authUrl}?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=public&state=${state}`;
+    
+            router.push(url);
+    
+        } catch (error) {
+            console.error('Error during 42 login:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Login Error',
+                text: 'An error occurred during login. Please try again.'
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
 
     const submitForm = (data) => {
@@ -64,9 +108,6 @@ function page() {
                 text: 'Invalid credentials'
             })
         }
-
-
-
     }
 
 
@@ -152,6 +193,10 @@ function page() {
 
                         <button type='submit' className='bg-gray-700 hover:bg-gray-800 text-white py-3 px-4 rounded mt-10 transition duration-200 w-full'>
                             Login
+                        </button>
+                        <button type='button' onClick={handle42Login}
+                            className='bg-gray-700 hover:bg-gray-800 text-white py-3 px-4 rounded mt-10 transition duration-200 w-full flex items-center justify-center'>
+                            Login with <img src='/42.svg' alt='42 Logo' className='w-6 h-6 ml-2' />
                         </button>
                     </form>
                 </div>

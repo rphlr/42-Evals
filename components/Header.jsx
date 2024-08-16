@@ -128,7 +128,6 @@ function Header() {
                             </Link>
                         </MenuItem>
                         <MenuItem>
-
                             <Link
                                 target='_blank'
                                 href="https://www.linkedin.com/in/rphlr"
@@ -140,39 +139,29 @@ function Header() {
                         </MenuItem>
                         <MenuItem>
                             <Link href='/privacy'
-                                className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
-                                <button className="">
-                                    Privacy Policy
-                                </button>
+                                className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'
+                            >
+                                Privacy Policy
                             </Link>
                         </MenuItem>
                         {
                             loggedIn ? (
                                 <MenuItem>
-                                <Link href='/privacy'
-                                    className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
-                                    <div
+                                    <Link href='/logout'
+                                        className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'
                                         onClick={handleLogout}
                                     >
-                                        <button className="">
-                                            Logout
-                                        </button>
-                                    </div>
-                                </Link>
-
+                                        Logout
+                                    </Link>
                                 </MenuItem>
                             ) : (
                                 <MenuItem>
-                                <Link href='/privacy'
-                                    className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10' >
-                                    <div
+                                    <Link href='/login'
+                                        className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'
                                         onClick={handleLogin}
                                     >
-                                        <button className="">
-                                            Login
-                                        </button>
-                                    </div>
-                                </Link>
+                                        Login
+                                    </Link>
                                 </MenuItem>
                             )
                         }

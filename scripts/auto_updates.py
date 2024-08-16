@@ -53,7 +53,7 @@ def update_funnystats(repo_name, last_stargazer, last_stargazer_avatar, last_sta
 						index_text, flags=re.DOTALL)
 
 	index_text = re.sub(r'{/\* name_start_JSX \*/}.*?{/\* name_end_JSX \*/}', 
-						f'{{/* name_start_JSX */}}<a\n                            href="{last_stargazer_url}"\n                            target="_blank"\n                            className=\'text-[#0D94B6] hover:underline\'\n                        > {last_stargazer} </a>{{/* name_end_JSX */}}', 
+						f'{{/* name_start_JSX */}} <a\n                            href="{last_stargazer_url}"\n                            target="_blank"\n                            className=\'text-[#0D94B6] hover:underline\'\n                        >{last_stargazer}</a> {{/* name_end_JSX */}}', 
 						index_text, flags=re.DOTALL)
 
 	index_text = re.sub(r'{/\* date_start_JSX \*/}.*?{/\* date_end_JSX \*/}', 

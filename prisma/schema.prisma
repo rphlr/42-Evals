@@ -73,3 +73,16 @@ model GradingOption {
   created_at            DateTime @default(now())
   updated_at            DateTime @updatedAt
 }
+
+model User {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  intraId    Int      @unique  // Ajoutez cette ligne
+  login      String   @unique
+  email      String   @unique
+  displayname String?
+  campus     String?
+  pool_year  Int?
+  pool_month String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
