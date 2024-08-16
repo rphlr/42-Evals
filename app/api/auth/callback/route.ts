@@ -111,6 +111,15 @@ export async function GET(req: NextRequest) {
   
 	  return response;
 	} catch (error) {
-	  return NextResponse.redirect(`${req.nextUrl.origin}/login?error=${encodeURIComponent(error.message)}`);
+		let errorMessage = 'An unknown error occurred';
+		if (error instanceof Error) {
+		  errorMessage = error.message;
+		} else if (typeof error === 'string') {
+		  errorMessage = error;
+		} else if (error && typeof error === 'object' && 'message' in error) {
+		  errorMessage = String(error.message);
+		}
+		return NextResponse.redirect(`${req.nextUrl.origin}/login?error=${encodeURIComponent(errorMessage)}`);
+	  }
 	}
   }
