@@ -3,12 +3,7 @@ name: Auto Updates
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
-  push:
-    branches: ["main"]
-    paths-ignore:
-      - 'README.md'
-      - 'components/homecomponents/FunnyStats.jsx'
+    - cron: "0 * * * *" # Every hour
 
 jobs:
   update-readme:
