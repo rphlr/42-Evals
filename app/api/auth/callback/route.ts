@@ -49,67 +49,67 @@ export async function GET(req: NextRequest) {
 
     const userData = await userResponse.json();
     let user = await prisma.user.findUnique({
-      where: { intraId: userData.id },
-    });
-
-    if (user) {
-      user = await prisma.user.update({
-        where: { intraId: userData.id },
-        data: {
-          login: userData.login,
-          email: userData.email,
-          displayname: userData.displayname,
-          campus: userData.campus?.[0]?.name,
-          pool_year: userData.pool_year ? parseInt(userData.pool_year) : null,
-          pool_month: userData.pool_month,
-        },
-      });
-    } else {
-      try {
-        user = await prisma.user.create({
-          data: {
-            intraId: userData.id,
-            login: userData.login,
-            email: userData.email,
-            displayname: userData.displayname,
-            campus: userData.campus?.[0]?.name,
-            pool_year: userData.pool_year ? parseInt(userData.pool_year) : null,
-            pool_month: userData.pool_month,
-          },
-        });
-      } catch (createError) {
-        if (createError.code === 'P2002') {
-          user = await prisma.user.update({
-            where: { login: userData.login },
-            data: {
-              intraId: userData.id,
-              email: userData.email,
-              displayname: userData.displayname,
-              campus: userData.campus?.[0]?.name,
-              pool_year: userData.pool_year ? parseInt(userData.pool_year) : null,
-              pool_month: userData.pool_month,
-            },
-          });
-        } else {
-          throw createError;
-        }
-      }
-    }
-
-    const response = NextResponse.redirect(`${req.nextUrl.origin}/profile`);
-
-    response.cookies.set('user_id', user.id, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 3600,
-      path: '/',
-    });
-
-    response.cookies.delete('oauth_state');
-
-    return response;
-  } catch (error) {
-    return NextResponse.redirect(`${req.nextUrl.origin}/login?error=${encodeURIComponent(error.message)}`);
+		where: { intraId: userData.id },
+	  });
+  
+	  if (user) {
+		user = await prisma.user.update({
+		  where: { intraId: userData.id },
+		  data: {
+			login: userData.login,
+			email: userData.email,
+			displayname: userData.displayname,
+			campus: userData.campus?.[0]?.name,
+			pool_year: userData.pool_year ? parseInt(userData.pool_year) : null,
+			pool_month: userData.pool_month,
+		  },
+		});
+	  } else {
+		try {
+		  user = await prisma.user.create({
+			data: {
+			  intraId: userData.id,
+			  login: userData.login,
+			  email: userData.email,
+			  displayname: userData.displayname,
+			  campus: userData.campus?.[0]?.name,
+			  pool_year: userData.pool_year ? parseInt(userData.pool_year) : null,
+			  pool_month: userData.pool_month,
+			},
+		  });
+		} catch (error) {
+		  if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+			user = await prisma.user.update({
+			  where: { login: userData.login },
+			  data: {
+				intraId: userData.id,
+				email: userData.email,
+				displayname: userData.displayname,
+				campus: userData.campus?.[0]?.name,
+				pool_year: userData.pool_year ? parseInt(userData.pool_year) : null,
+				pool_month: userData.pool_month,
+			  },
+			});
+		  } else {
+			throw error;
+		  }
+		}
+	  }
+  
+	  const response = NextResponse.redirect(`${req.nextUrl.origin}/profile`);
+  
+	  response.cookies.set('user_id', user.id, {
+		httpOnly: true,
+		secure: process.env.NODE_ENV === 'production',
+		sameSite: 'lax',
+		maxAge: 3600,
+		path: '/',
+	  });
+  
+	  response.cookies.delete('oauth_state');
+  
+	  return response;
+	} catch (error) {
+	  return NextResponse.redirect(`${req.nextUrl.origin}/login?error=${encodeURIComponent(error.message)}`);
+	}
   }
-}
