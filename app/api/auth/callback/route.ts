@@ -111,15 +111,14 @@ export async function GET(req: NextRequest) {
   
 	  return response;
 	} catch (error) {
-		let errorMessage = 'An unknown error occurred';
-		if (error instanceof Error) {
-		  errorMessage = error.message;
-		} else if (typeof error === 'string') {
-		  errorMessage = error;
-		} else if (error && typeof error === 'object' && 'message' in error) {
-		  errorMessage = String(error.message);
-		}
-		return NextResponse.redirect(`${req.nextUrl.origin}/login?error=${encodeURIComponent(errorMessage)}`);
-	  }
+	  let errorMessage = 'An unknown error occurred';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    } else if (typeof error === 'string') {
+      errorMessage = error;
+    } else if (error && typeof error === 'object' && 'message' in error) {
+      errorMessage = String(error.message);
+    }
+    return NextResponse.redirect(`${req.nextUrl.origin}/login?error=${encodeURIComponent(errorMessage)}`);
 	}
   }
