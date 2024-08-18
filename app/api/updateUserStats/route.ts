@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
     const cursusData = await cursusResponse.json();
 
     // Prepare cursus data
-    const cursusDataToUpdate = cursusData.map(cu => ({
+    const cursusDataToUpdate = cursusData.map((cu: any) => ({
       cursus_id: cu.cursus.id,
       cursus_name: cu.cursus.name,
       grade: cu.grade ?? null,
@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
     });
 
     // Update cursus data separately
-    await Promise.all(cursusDataToUpdate.map(async (cu) => {
+    await Promise.all(cursusDataToUpdate.map(async (cu: any) => {
       await prisma.cursus.upsert({
         where: {
           userId_cursus_id: {
