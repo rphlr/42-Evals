@@ -59,7 +59,7 @@ export async function GET(req: NextRequest) {
 		const cursusData = await cursusResponse.json();
 
 
-		const cursus_users = userData.cursus_users?.map(cu => ({
+		const cursus_users = userData.cursus_users?.map((cu: any) => ({
 			cursus_id: cu.cursus.id,
 			cursus_name: cu.cursus.name,
 			grade: cu.grade ?? null,
@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
 			begin_at: cu.begin_at ? new Date(cu.begin_at) : null,
 			end_at: cu.end_at ? new Date(cu.end_at) : null,
 			has_coalition: cu.has_coalition ?? false,
-		})) ?? [];
+		})) ?? [];		
 
 		const userUpdateData = {
 			login: userData.login,
@@ -113,7 +113,7 @@ export async function GET(req: NextRequest) {
 		// 	});
 		// }
 
-		await Promise.all(cursus_users.map(async (cu : any) => {
+		await Promise.all(cursus_users.map(async (cu) => {
 			if (!prisma || typeof prisma.cursus.upsert !== 'function') {
 				throw new Error('Prisma client is not properly initialized');
 			}
