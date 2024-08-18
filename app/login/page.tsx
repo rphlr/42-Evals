@@ -48,7 +48,7 @@ function page() {
     const handle42Login = async () => {
         try {
             setIsLoading(true);
-            
+
             Swal.fire({
                 title: 'Connecting to 42...',
                 text: 'Please wait while we redirect you.',
@@ -57,25 +57,25 @@ function page() {
                     Swal.showLoading();
                 }
             });
-    
+
             const clientId = process.env.NEXT_PUBLIC_42_CLIENT_ID;
             const redirectUri = process.env.NEXT_PUBLIC_42_REDIRECT_URI;
             const authUrl = process.env.NEXT_PUBLIC_42_AUTH_URL;
-    
+
             if (!clientId || !redirectUri || !authUrl) {
                 throw new Error('Missing environment variables');
             }
-    
+
             // Generate a random state value
             const state = Math.random().toString(36).substring(2, 15);
-            
+
             // Set the state as a cookie
             document.cookie = `oauth_state=${state}; path=/; max-age=300; SameSite=Lax`;
-    
+
             const url = `${authUrl}?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=public&state=${state}`;
-    
+
             router.push(url);
-    
+
         } catch (error) {
             console.error('Error during 42 login:', error);
             Swal.fire({
@@ -88,47 +88,51 @@ function page() {
         }
     }
 
+    interface LoginData {
+        username: string;
+        password: string;
+    }
 
-    const submitForm = async (data) => {
-    try {
-        const response = await fetch('/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: `User ${result.username} created successfully`,
+    const submitForm = async (data: LoginData) => {
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
             });
 
-            // Redirigez l'utilisateur ou effectuez d'autres actions ici
-            router.push('/');
-        } else {
+            const result = await response.json();
+
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: `User ${result.username} created successfully`,
+                });
+
+                // Redirigez l'utilisateur ou effectuez d'autres actions ici
+                router.push('/');
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: result.message,
+                });
+            }
+        } catch (error) {
+            console.error('Error during user creation:', error);
             Swal.fire({
                 icon: 'error',
-                title: 'Error',
-                text: result.message,
+                title: 'Creation Error',
+                text: 'An error occurred during user creation. Please try again.',
             });
         }
-    } catch (error) {
-        console.error('Error during user creation:', error);
-        Swal.fire({
-            icon: 'error',
-            title: 'Creation Error',
-            text: 'An error occurred during user creation. Please try again.',
-        });
-    }
-};
+    };
 
-    
-    
+
+
 
 
 
