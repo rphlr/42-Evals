@@ -4,24 +4,37 @@ import Link from 'next/link';
 import React, { useEffect, useState, useRef } from 'react'
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
-function page() {
+function AddSheetPage() {
+    const router = useRouter();
 
+    // Retrieve the admin list from environment variable
+    const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
 
     // check login status
-
     useEffect(() => {
-        if (sessionStorage.getItem('admin') !== 'true' && localStorage.getItem('admin') !== 'true') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Unauthorized',
-                text: 'You need to login first'
-            }).then(() => {
-                window.location.href = '/admin/login'
-            })
-        }
-    }, [])
+        async function checkAdminAccess() {
+            const response = await fetch('/api/getUserData');
+            const userData = await response.json();
 
+            if (!admins?.includes(userData?.login)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Unauthorized',
+                    text: 'You need to be logged in as an admin to access this page.',
+                }).then(() => {
+                    if (userData?.login) {
+                        router.push('/');
+                    } else {
+                        router.push('/login');
+                    }
+                });
+            }
+        }
+
+        checkAdminAccess();
+    }, [router, admins]);
 
     const {
         register,
@@ -1006,4 +1019,4 @@ function page() {
     )
 }
 
-export default page
+export default AddSheetPage

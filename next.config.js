@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
-	// Vous pouvez ajouter d'autres configurations ici si nécessaire
+	images: {
+	  domains: ['cdn.intra.42.fr'],
+	},
   };
   
   module.exports = nextConfig;

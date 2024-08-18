@@ -3,8 +3,22 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 function page() {
+
+    useEffect(() => {
+        // Check if the alert should be shown
+        const showAlert = new URLSearchParams(window.location.search).get('unauthorized');
+
+        if (showAlert) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Unauthorized',
+                text: 'You need to be logged in to access this page.',
+            });
+        }
+    }, []);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -75,40 +89,46 @@ function page() {
     }
 
 
-    const submitForm = (data) => {
-        console.log(data)
+    const submitForm = async (data) => {
+    try {
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
 
-        // check user credentials
-        if (data.username === 'user' && data.password === 'user') {
+        const result = await response.json();
 
-            if (checked) {
-                localStorage.setItem('user', 'true') // remember me
-                sessionStorage.setItem('user', 'true')
-            } else {
-                sessionStorage.setItem('user', 'true')
-            }
-
-            // go to admin panel
-            router.push('/')
+        if (response.ok) {
             Swal.fire({
                 icon: 'success',
                 title: 'Success',
-                text: 'You are logged in as user'
-            })
+                text: `User ${result.username} created successfully`,
+            });
 
-            //reload after 2 seconds
-            setTimeout(() => {
-                window.location.reload()
-            }, 300)
-
+            // Redirigez l'utilisateur ou effectuez d'autres actions ici
+            router.push('/');
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Invalid credentials'
-            })
+                text: result.message,
+            });
         }
+    } catch (error) {
+        console.error('Error during user creation:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Creation Error',
+            text: 'An error occurred during user creation. Please try again.',
+        });
     }
+};
+
+    
+    
 
 
 
@@ -188,8 +208,6 @@ function page() {
                                 </a>
                             </div>
                         </div>
-
-
 
                         <button type='submit' className='bg-gray-700 hover:bg-gray-800 text-white py-3 px-4 rounded mt-10 transition duration-200 w-full'>
                             Login

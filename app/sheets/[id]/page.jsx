@@ -5,26 +5,29 @@ import Link from 'next/link'
 import React from 'react'
 import Swal from 'sweetalert2'
 export const dynamic = 'force-dynamic'
+import { useRouter } from 'next/navigation';
 
 function page({ params }) {
+    const router = useRouter();
 
     const [isLogged, setIsLogged] = useState(false)
 
     // check if the user is logged in
     useEffect(() => {
-        // if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
-        //     Swal.fire({
-        //         title: 'Unauthorized',
-        //         text: 'You need to login to view this page',
-        //         icon: 'error',
-        //         confirmButtonText: 'Login'
-        //     }).then(() => {
-        //         window.location.href = '/login'
-        //     })
-        // } else {
-            setIsLogged(true)
-        // }
-    }, [])
+        async function fetchUserData() {
+            const response = await fetch("/api/getUserData");
+            if (response.status === 401) {
+                router.push('/login?unauthorized=true');
+            }
+            else {
+                setIsLogged(true);
+            }
+            // const data = await response.json();
+            // setUserData(data);
+        }
+
+        fetchUserData();
+    }, []);
 
 
 

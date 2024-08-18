@@ -75,14 +75,42 @@ model GradingOption {
 }
 
 model User {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  intraId    Int      @unique
-  login      String   @unique
-  email      String   @unique
-  displayname String?
-  campus     String?
-  pool_year  Int?
-  pool_month String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  intraId          Int      @unique
+  login            String   @unique
+  email            String   @unique
+  displayname      String?
+  campus           String?
+  pool_year        Int?
+  pool_month       String?
+  image_url        String?
+  wallet           Int
+  correction_point Int
+  cursus_users     Cursus[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Cursus {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  user          User     @relation(fields: [userId], references: [id])
+  userId        String   @db.ObjectId
+  cursus_id     Int
+  cursus_name   String
+  grade         String?
+  level         Float
+  blackholed_at DateTime?
+  begin_at      DateTime?
+  end_at        DateTime?
+  has_coalition Boolean
+
+  @@unique([userId, cursus_id])
+}
+
+model OtherUser {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
