@@ -113,7 +113,7 @@ export async function GET(req: NextRequest) {
 		// 	});
 		// }
 
-		await Promise.all(cursus_users.map(async (cu) => {
+		await Promise.all(cursus_users.map(async (cu: any) => {
 			if (!prisma || typeof prisma.cursus.upsert !== 'function') {
 				throw new Error('Prisma client is not properly initialized');
 			}
@@ -130,7 +130,7 @@ export async function GET(req: NextRequest) {
 					userId: user.id,
 				},
 			});
-		}));
+		}));		
 
 		const response = NextResponse.redirect(`${req.nextUrl.origin}/profile`);
 
