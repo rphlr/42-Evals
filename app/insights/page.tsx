@@ -28,31 +28,31 @@ export default function InsightPage() {
 	const [campusData, setCampusData] = useState([]);
 
 	// Retrieve the admin list from environment variable
-    const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
+	const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
 
-    // check login status
-    useEffect(() => {
-        async function checkAdminAccess() {
-            const response = await fetch('/api/getUserData');
-            const userData = await response.json();
+	// check login status
+	useEffect(() => {
+		async function checkAdminAccess() {
+			const response = await fetch('/api/getUserData');
+			const userData = await response.json();
 
-            if (!admins?.includes(userData?.login)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Unauthorized',
-                    text: 'You need to be logged in as an admin to access this page.',
-                }).then(() => {
-                    if (userData?.login) {
-                        router.push('/');
-                    } else {
-                        router.push('/login');
-                    }
-                });
-            }
-        }
+			if (!admins?.includes(userData?.login)) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Unauthorized',
+					text: 'You need to be logged in as an admin to access this page.',
+				}).then(() => {
+					if (userData?.login) {
+						router.push('/');
+					} else {
+						router.push('/login');
+					}
+				});
+			}
+		}
 
-        checkAdminAccess();
-    }, [router, admins]);
+		checkAdminAccess();
+	}, [router, admins]);
 
 	useEffect(() => {
 		fetchAllUsers();
@@ -254,6 +254,44 @@ export default function InsightPage() {
 					Next
 				</button>
 			</div>
+
+			<hr className='my-5' />
+			<h2 className='text-xl font-semibold mb-4'>Top 5 Campuses</h2>
+			<table className='w-full mt-10 table table-auto'>
+				<thead>
+					<tr className='bg-[#f0f0f0] text-gray-900 text-center'>
+						<th className='py-3 text-center px-5 font-semibold'>Campus</th>
+						<th className='py-3 text-center px-5 font-semibold'>Students</th>
+					</tr>
+				</thead>
+				<tbody className='text-center'>
+					{campusData.slice(0, 5).map((campus, index) => (
+						<tr key={index}>
+							<td className='py-3 px-5'>{campus.name}</td>
+							<td className='py-3 px-5'>{campus.value}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+
+			<hr className='my-5' />
+			<h2 className='text-xl font-semibold mb-4'>Bottom 5 Campuses</h2>
+			<table className='w-full mt-10 table table-auto'>
+				<thead>
+					<tr className='bg-[#f0f0f0] text-gray-900 text-center'>
+						<th className='py-3 text-center px-5 font-semibold'>Campus</th>
+						<th className='py-3 text-center px-5 font-semibold'>Students</th>
+					</tr>
+				</thead>
+				<tbody className='text-center'>
+					{campusData.slice(-5).map((campus, index) => (
+						<tr key={index}>
+							<td className='py-3 px-5'>{campus.name}</td>
+							<td className='py-3 px-5'>{campus.value}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
 
 			{zoomedImage && (
 				<div
