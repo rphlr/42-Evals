@@ -3,6 +3,7 @@ import PieChartComponent from '@/components/PieChart';
 
 function FunnyStats() {
     const [campusData, setCampusData] = useState([]);
+    const [totalUsers, setTotalUsers] = useState(0); // Ajoutez cet état pour le total des utilisateurs
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -25,7 +26,9 @@ function FunnyStats() {
                         color: `#${Math.floor(Math.random() * 16777215).toString(16)}`
                     }))
                     .sort((a, b) => b.value - a.value);
+                
                 setCampusData(chartData);
+                setTotalUsers(data.totalUsers); // Stocke le total des utilisateurs
             } catch (error) {
                 console.error('Error fetching users:', error);
                 setError(error.message);
@@ -67,13 +70,13 @@ function FunnyStats() {
                         Updates occur hourly. Last update : <span className=' font-normal'> {/* date_start_JSX */}19.08.2024, 11:19:31{/* date_end_JSX */} (CET)</span>
                     </p>
                     <a href="https://github.com/rphlr/42-Evals" target="_blank"><img src="https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date&" className='mt-5' alt="rphlr's Blue Github Chart" /></a>
-                    <p className=' pt-2 text-gray-600 '>
-                        More stats are coming soon! 🤖
-                    </p>
+                    <hr className='my-5' />
 
                     {/* Pie Chart Section */}
-                    <hr className='my-5' />
-                    <h2 className='text-xl font-semibold mb-4'>Who's using this tool?</h2>
+                    <h2 className='text-xl font-semibold mb-4'>Who's using this tool? (by campuses)</h2>
+                    <p className=' pt-2 text-gray-600 text-center'>
+                        Total Users: <span className='text-[#0D94B6] font-bold'>{totalUsers}</span>
+                    </p>
                     {loading ? (
                         <p>Loading chart data...</p>
                     ) : error ? (
@@ -83,7 +86,51 @@ function FunnyStats() {
                     ) : (
                         <p>No data available for the chart.</p>
                     )}
-
+                    <p className=' pt-2 text-gray-600 '>
+                        The pie chart above shows the distribution of users by campus. The data is fetched from the 42 API and is updated hourly. 🕒
+                    </p>
+                    <hr className='my-5' />
+                    <h2 className='text-xl font-semibold mb-4'>Top 5 Campuses</h2>
+                    <table className='w-full mt-10 table table-auto'>
+                        <thead>
+                            <tr className='bg-[#f0f0f0] text-gray-900 text-center'>
+                                <th className='py-3 text-center px-5 font-semibold'>Campus</th>
+                                <th className='py-3 text-center px-5 font-semibold'>Students</th>
+                            </tr>
+                        </thead>
+                        <tbody className='text-center'>
+                            {campusData.slice(0, 5).map((campus, index) => (
+                                <tr key={index}>
+                                    <td className='py-3 px-5'>{campus.name}</td>
+                                    <td className='py-3 px-5'>{campus.value}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <p className=' pt-2 text-gray-600 '>The table above shows the top 5 campuses with the highest number of users. 🏆</p>
+                    <hr className='my-5' />
+                    <h2 className='text-xl font-semibold mb-4'>Bottom 5 Campuses</h2>
+                    <table className='w-full mt-10 table table-auto'>
+                        <thead>
+                            <tr className='bg-[#f0f0f0] text-gray-900 text-center'>
+                                <th className='py-3 text-center px-5 font-semibold'>Campus</th>
+                                <th className='py-3 text-center px-5 font-semibold'>Students</th>
+                            </tr>
+                        </thead>
+                        <tbody className='text-center'>
+                            {campusData.slice(-5).map((campus, index) => (
+                                <tr key={index}>
+                                    <td className='py-3 px-5'>{campus.name}</td>
+                                    <td className='py-3 px-5'>{campus.value}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <p className=' pt-2 text-gray-600 '>The table above shows the bottom 5 campuses with the lowest number of users. 🥉</p>
+                    <hr className='my-5' />
+                    <p className=' pt-2 text-gray-600 '>
+                        More stats are coming soon! 🤖
+                    </p>
                     <hr className='my-5' />
                     <p className=' pt-2 text-gray-600 '>
                         Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies my reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
