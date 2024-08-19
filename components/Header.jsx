@@ -58,8 +58,8 @@ export default function Header() {
                 confirmButtonText: "Close",
             });
         }
-    };    
-    
+    };
+
 
     const handleLogin = () => {
         router.push("/login");
@@ -106,14 +106,24 @@ export default function Header() {
                                     </Link>
                                 </MenuItem>
                                 {isAdmin && (
-                                    <MenuItem>
-                                        <Link
-                                            href="/admin"
-                                            className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10"
-                                        >
-                                            Admin Panel
-                                        </Link>
-                                    </MenuItem>
+                                    <>
+                                        <MenuItem>
+                                            <Link
+                                                href="/admin"
+                                                className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10"
+                                            >
+                                                Admin Panel
+                                            </Link>
+                                        </MenuItem>
+                                        <MenuItem>
+                                            <Link
+                                                href="/insights"
+                                                className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10"
+                                            >
+                                                Insights
+                                            </Link>
+                                        </MenuItem>
+                                    </>
                                 )}
                             </>
                         )}

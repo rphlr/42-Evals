@@ -84,8 +84,8 @@ model User {
   pool_year        Int?
   pool_month       String?
   image_url        String?
-  wallet           Int
-  correction_point Int
+  wallet           Int?
+  correction_point Int?
   cursus_users     Cursus[]
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt

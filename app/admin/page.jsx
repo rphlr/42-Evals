@@ -10,7 +10,6 @@ export const dynamic = 'force-dynamic'
 
 
 function adminPage() {
-
     const router = useRouter()
 
     // Retrieve the admin list from environment variable
