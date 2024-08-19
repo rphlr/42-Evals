@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/getUserData/route.ts", "app/api/login/route.js", "app/api/updateUserStats/route.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/getUserData/route.ts", "app/api/login/route.js", "app/api/updateUserStats/route.js", "components/PieChart.tsx"],
   "exclude": ["node_modules"]
 }
