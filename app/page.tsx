@@ -9,7 +9,6 @@ import Language from '@/components/homecomponents/Language';
 import Resources from '@/components/homecomponents/Resources';
 import Voice from '@/components/homecomponents/Voice';
 import FunnyStats from '@/components/homecomponents/FunnyStats';
-import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
 
