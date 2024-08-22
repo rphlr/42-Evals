@@ -3,7 +3,7 @@ import PieChartComponent from '@/components/PieChart';
 
 function FunnyStats() {
     const [campusData, setCampusData] = useState([]);
-    const [totalUsers, setTotalUsers] = useState(0); // Ajoutez cet état pour le total des utilisateurs
+    const [totalUsers, setTotalUsers] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -28,7 +28,7 @@ function FunnyStats() {
                     .sort((a, b) => b.value - a.value);
                 
                 setCampusData(chartData);
-                setTotalUsers(data.totalUsers); // Stocke le total des utilisateurs
+                setTotalUsers(data.totalUsers);
             } catch (error) {
                 console.error('Error fetching users:', error);
                 setError(error.message);
@@ -87,7 +87,7 @@ function FunnyStats() {
                         <p>No data available for the chart.</p>
                     )}
                     <p className=' pt-2 text-gray-600 '>
-                        The pie chart above shows the distribution of users by campus. The data is fetched from the 42 API and is updated hourly. 🕒
+                        The pie chart above shows the distribution of users by campus.
                     </p>
                     <hr className='my-5' />
                     <h2 className='text-xl font-semibold mb-4'>Top 5 Campuses</h2>
