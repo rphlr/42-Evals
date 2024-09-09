@@ -31,6 +31,10 @@ export default function Home() {
             <li>And more useful features designed specifically for 42 students</li>
           </ul>
           <p class="mb-4">Thank you for your support, and I hope you find these new tools helpful as you continue your learning journey!</p>
+          <p class="mb-4">If you'd like to support this project, please consider giving it a star on GitHub:</p>
+          <p class="mb-4"><a href="https://github.com/rphlr/42-Evals" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Star 42-Evals on GitHub</a></p>
+          <p class="mb-4">You can also connect with me on LinkedIn:</p>
+          <p class="mb-4"><a href="https://www.linkedin.com/in/rphlr" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Connect on LinkedIn</a></p>
           <p>Best regards,<br/>Raphael</p>
         </div>
       `,
