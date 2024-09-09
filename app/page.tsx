@@ -42,10 +42,10 @@ export default function Home() {
       customClass: {
         container: 'custom-swal-container',
         popup: 'custom-swal-popup',
-        header: 'custom-swal-header',
+        // header: 'custom-swal-header',
         title: 'custom-swal-title',
         closeButton: 'custom-swal-close-button',
-        content: 'custom-swal-content',
+        htmlContainer: 'custom-swal-content',
         confirmButton: 'custom-swal-confirm-button',
       },
     });
