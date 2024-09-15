@@ -17,6 +17,7 @@ datasource db {
 
 model Sheet {
   id                      String             @id @default(auto()) @map("_id") @db.ObjectId
+  // Removed: slug                    String
   project_title           String
   number_of_student       Int
   introduction            String[]
@@ -83,14 +84,15 @@ model User {
   campus           String?
   pool_year        Int?
   pool_month       String?
-  image_url        String?
-  wallet           Int?
-  correction_point Int?
-  cursus_users     Cursus[]
+  image_url        String?  // New: Added image_url field
+  wallet           Int?     // New: Added wallet field
+  correction_point Int?     // New: Added correction_point field
+  cursus_users     Cursus[] // New: Added relation to Cursus model
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 }
 
+// New: Added Cursus model
 model Cursus {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   user          User     @relation(fields: [userId], references: [id])
@@ -107,6 +109,7 @@ model Cursus {
   @@unique([userId, cursus_id])
 }
 
+// New: Added OtherUser model
 model OtherUser {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   username  String   @unique

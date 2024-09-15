@@ -1,40 +1,33 @@
 'use client'
 
 import Link from 'next/link';
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
+import InfoModal from '@/components/InfoModal';
 
-function AddSheetPage() {
-    const router = useRouter();
+function page() {
 
-    // Retrieve the admin list from environment variable
-    const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
+
+    const router = useRouter()
+
+
 
     // check login status
+
     useEffect(() => {
-        async function checkAdminAccess() {
-            const response = await fetch('/api/getUserData');
-            const userData = await response.json();
-
-            if (!admins?.includes(userData?.login)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Unauthorized',
-                    text: 'You need to be logged in as an admin to access this page.',
-                }).then(() => {
-                    if (userData?.login) {
-                        router.push('/');
-                    } else {
-                        router.push('/login');
-                    }
-                });
-            }
+        if (sessionStorage.getItem('admin') !== 'true' && localStorage.getItem('admin') !== 'true') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Unauthorized',
+                text: 'You need to login first'
+            }).then(() => {
+                window.location.href = '/admin/login'
+            })
         }
+    }, [])
 
-        checkAdminAccess();
-    }, [router, admins]);
 
     const {
         register,
@@ -92,11 +85,25 @@ function AddSheetPage() {
 
     const addMandatorySection = () => {
         setNumberOfMandatorySections(numberOfMandatorySections + 1)
+        Swal.fire({
+            icon: 'success',
+            position: 'top-end',
+            title: 'New mandatory section added',
+            showConfirmButton: false,
+            timer: 1000
+        })
     }
 
     const removeMandatorySection = () => {
         if (numberOfMandatorySections > 1) {
             setNumberOfMandatorySections(numberOfMandatorySections - 1)
+            Swal.fire({
+                icon: 'success',
+                position: 'top-end',
+                title: 'Mandatory section removed',
+                showConfirmButton: false,
+                timer: 1000
+            })
         } else {
             Swal.fire({
                 icon: 'error',
@@ -112,26 +119,52 @@ function AddSheetPage() {
 
     // Handle bonus sections
 
-    const [numberOfBonusSections, setNumberOfBonusSections] = useState(1)
+    const [numberOfBonusSections, setNumberOfBonusSections] = useState(0)
 
     const addBonusSection = () => {
         setNumberOfBonusSections(numberOfBonusSections + 1)
+        Swal.fire({
+            icon: 'success',
+            position: 'top-end',
+            title: 'New bonus section added',
+            showConfirmButton: false,
+            timer: 1000
+        })
     }
 
     const removeBonusSection = () => {
-        if (numberOfBonusSections > 1) {
+
+        if (numberOfBonusSections > 0) {
             setNumberOfBonusSections(numberOfBonusSections - 1)
-        } else {
             Swal.fire({
-                icon: 'error',
-                title: 'Ooops!',
-                text: 'You need to have at least one bonus section',
-                showConfirmButton: true,
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#0D94B6'
+                icon: 'success',
+                position: 'top-end',
+                title: 'Bonus section removed',
+                showConfirmButton: false,
+                timer: 1000
             })
         }
+
     }
+
+
+    // Guidelines Jodit Editor
+
+    // const [guidelineContents, setGuidelineContents] = useState('')
+
+    // const guidelineEditor = useRef(null);
+
+
+    // const config =
+    // {
+    //     readonly: false,
+    //     placeholder: 'Start typing guidelines...'
+    // }
+
+    // const handleGuidelinesContent = (newContent) => {
+    //     setGuidelineContents(newContent)
+    // }
+
 
 
 
@@ -207,7 +240,7 @@ function AddSheetPage() {
 
     // -------------------- Submit form --------------------
 
-    const createSheet = async (newData, newMandatoryOptionsData, newBonusOptionsData, newGradingOptionsData) => {
+    const createSheet = async (newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData) => {
 
         // sweet alert loading until all process is done
 
@@ -242,48 +275,56 @@ function AddSheetPage() {
                     .then(data => {
                         console.log('STEP 2: SUCCESS', data.data)
 
-                        // Now create a bonus sections using the sheet id
+                        // Now create a grading options using the sheet id
 
-                        fetch(`/api/bonusSection/${sheetId}`, {
+                        fetch(`/api/gradingOption/${sheetId}`, {
                             method: 'POST',
-                            body: JSON.stringify(newBonusOptionsData)
+                            body: JSON.stringify(newGradingOptionsData)
                         })
                             .then(res => res.json())
                             .then(data => {
                                 console.log('STEP 3: SUCCESS', data.data)
 
-
-                                // Now create a grading options using the sheet id
-
-                                fetch(`/api/gradingOption/${sheetId}`, {
-                                    method: 'POST',
-                                    body: JSON.stringify(newGradingOptionsData)
-                                })
-                                    .then(res => res.json())
-                                    .then(data => {
-                                        console.log('STEP 4: SUCCESS', data.data)
-
-                                        if (data.success) {
-                                            Swal.fire({
-                                                icon: 'success',
-                                                title: 'Sheet created successfully',
-                                                showConfirmButton: false,
-                                                timer: 1500
-                                            })
-                                        } else {
-                                            Swal.fire({
-                                                icon: 'error',
-                                                title: 'Failed to create sheet',
-                                                showConfirmButton: false,
-                                                timer: 1500
-                                            })
-                                        }
-
-                                        // reset the form after successful submission
-                                        reset()
-
+                                if (data.success) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Sheet created successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
                                     })
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Failed to create sheet',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+
+                                // reset the form after successful submission
+                                reset()
+
+
+
                             })
+
+                        // Now create a bonus sections using the sheet id only if there is a bonus section
+
+                        if (newBonusOptionsDatacheck !== null) {
+                            fetch(`/api/bonusSection/${sheetId}`, {
+                                method: 'POST',
+                                body: JSON.stringify(newBonusOptionsDatacheck)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log('STEP 4: SUCCESS', data.data)
+                                })
+                        }
+
+                        //redirect to the admin page after successful submission
+                        router.push('/admin')
+
+
                     })
 
 
@@ -299,6 +340,7 @@ function AddSheetPage() {
         const newData = {
             optional_bonus_sections: data.optional_bonus_sections,
             project_title: data.project_title,
+            // slug: data.slug,
             introduction: introductionData,
             attachments: [
                 `${data.attachment1Title},${data.attachment1Url}`,
@@ -334,27 +376,70 @@ function AddSheetPage() {
 
 
         const newGradingOptionsData = {
-            ok: gradingOptionsData.ok === 'true' ? true : false,
-            outstanding: gradingOptionsData.outstanding === 'true' ? true : false,
-            empty_work: gradingOptionsData.empty_work === 'true' ? true : false,
-            incomplete_work: gradingOptionsData.incomplete_work === 'true' ? true : false,
-            invalid_compilation: gradingOptionsData.invalid_compilation === 'true' ? true : false,
-            norme: gradingOptionsData.norme === 'true' ? true : false,
-            cheat: gradingOptionsData.cheat === 'true' ? true : false,
-            crash: gradingOptionsData.crash === 'true' ? true : false,
-            concerning_situations: gradingOptionsData.concerning_situations === 'true' ? true : false,
-            leaks: gradingOptionsData.leaks === 'true' ? true : false,
-            forbidden_functions: gradingOptionsData.forbidden_functions === 'true' ? true : false,
-            cannot_support: gradingOptionsData.cannot_support === 'true' ? true : false
+            ok: gradingOptionsData.ok === 'false' ? false : true,
+            outstanding: gradingOptionsData.outstanding === 'false' ? false : true,
+            empty_work: gradingOptionsData.empty_work === 'false' ? false : true,
+            incomplete_work: gradingOptionsData.incomplete_work === 'false' ? false : true,
+            invalid_compilation: gradingOptionsData.invalid_compilation === 'false' ? false : true,
+            norme: gradingOptionsData.norme === 'false' ? false : true,
+            cheat: gradingOptionsData.cheat === 'false' ? false : true,
+            crash: gradingOptionsData.crash === 'false' ? false : true,
+            concerning_situations: gradingOptionsData.concerning_situations === 'false' ? false : true,
+            leaks: gradingOptionsData.leaks === 'false' ? false : true,
+            forbidden_functions: gradingOptionsData.forbidden_functions === 'false' ? false : true,
+            cannot_support: gradingOptionsData.cannot_support === 'false' ? false : true
+
         }
 
-        createSheet(newData, newMandatoryOptionsData, newBonusOptionsData, newGradingOptionsData)
+        const newBonusOptionsDatacheck = newBonusOptionsData.length > 0 ? newBonusOptionsData : null
 
-        // console.log(newData)
-        // console.log(newMandatoryOptionsData)
-        // console.log(newBonusOptionsData)
-        // console.log(newGradingOptionsData)
+
+
+        createSheet(newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData)
+
+        console.log(newData)
+        console.log(newMandatoryOptionsData)
+        console.log(newBonusOptionsDatacheck)
+        console.log(newGradingOptionsData)
     }
+
+
+
+    const defaultValues = {
+
+        introduction: `- Remain polite, courteous, respectful, and constructive throughout the evaluation process. The community's well-being depends on it.
+- Work with the student or group being evaluated to identify potential issues in their project. Take time to discuss and debate the problems identified.
+- Understand that there may be differences in how peers interpret the project instructions and scope. Always keep an open mind and grade as honestly as possible. Pedagogy is effective only when peer evaluations are taken seriously.`,
+        guidelines: `- Only grade the work submitted to the **Git repository** of the evaluated student or group.
+- Double-check that the **Git repository** belongs to the student(s) and that the project is the one expected. Ensure that **git clone** is used in an empty folder.
+- Carefully verify that no malicious aliases are used to deceive the evaluator into grading non-official content.
+- If applicable, review any **scripts** used for testing or automation together with the student.
+- If you haven’t completed the assignment you’re evaluating, read the entire subject before starting the evaluation.
+- Use the available flags to report an empty repository, a non-functioning program, a **Norm** error, or cheating. The evaluation process ends with a final grade of 0 (or -42 for cheating). However, except in cases of cheating, students are encouraged to review the work together to identify mistakes to avoid in the future.
+- Remember that no **segfaults** or other unexpected program terminations will be tolerated during the evaluation. If this occurs, the final grade is 0. Use the appropriate flag.
+- You should not need to edit any files except the configuration file, if it exists. If editing a file is necessary, explain the reasons to the evaluated student and ensure mutual agreement.
+- Verify the absence of **memory leaks.** All memory allocated on the heap must be properly freed before the program ends.
+- You may use tools like leaks, **valgrind,** or **e_fence** to check for memory leaks. If memory leaks are found, tick the appropriate flag.`,
+
+    }
+
+
+
+    // Modal state for InfoModal
+
+
+    let [isOpen, setIsOpen] = useState(false)
+
+    function closeModal() {
+        setIsOpen(false)
+    }
+
+    function openModal() {
+        setIsOpen(true)
+    }
+
+
+
 
 
 
@@ -396,6 +481,9 @@ function AddSheetPage() {
                     </h1>
                 </div>
 
+
+
+
                 <div>
                     <form onSubmit={handleSubmit(submitForm)} className='mt-10'>
                         <div className=''>
@@ -415,6 +503,20 @@ function AddSheetPage() {
                                     {errors.project_title && <span className='text-red-500'>This field is required</span>}
                                 </div>
 
+                                {/* <div>
+                                    <label htmlFor='slug' className='block text-sm font-medium text-gray-700'>
+                                        Slug
+                                    </label>
+                                    <input
+                                        placeholder='Enter project slug (must be unique)'
+                                        type='text'
+                                        id='slug'
+                                        {...register('slug', { required: true })}
+                                        className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                    />
+                                    {errors.slug && <span className='text-red-500'>This field is required</span>}
+                                </div> */}
+
                                 <div>
                                     <label htmlFor='number_of_student' className='block text-sm font-medium text-gray-700'>
                                         Number of Student
@@ -422,6 +524,9 @@ function AddSheetPage() {
                                     <input
                                         placeholder='Enter number of student'
                                         type='number'
+                                        defaultValue={1}
+                                        max={5}
+                                        min={1}
                                         id='number_of_student'
                                         {...register('number_of_student', { required: true })}
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
@@ -430,36 +535,101 @@ function AddSheetPage() {
                                 </div>
 
                                 <div className='sm:col-span-2'>
-                                    <label htmlFor='introduction' className='block text-sm font-medium text-gray-700'>
-                                        Introduction
-                                    </label>
+                                    <div className="flex justify-between items-center">
+                                        <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700'>
+                                            Introduction
+                                        </label>
+                                        <button
+                                            onClick={openModal}
+                                            type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+
+                                        </button>
+
+                                    </div>
                                     <textarea
-                                        rows={5}
+                                        rows={7}
                                         placeholder='Enter introduction text separated by a new line'
                                         id='introduction'
+                                        defaultValue={defaultValues.introduction}
                                         required
                                         onChange={(e) => handleIntroduction(e)}
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                     ></textarea>
 
-                                    <p className='mt-2 text-sm text-gray-500'>NOTE: Please separate each introduction with a new line</p>
+
                                 </div>
 
                                 <div className='sm:col-span-2'>
-                                    <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700'>
-                                        Guidelines
-                                    </label>
+                                    <div className="flex justify-between items-center">
+                                        <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700'>
+                                            Guidelines
+                                        </label>
+                                        <button
+                                            onClick={openModal}
+                                            type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+
+                                        </button>
+
+                                    </div>
                                     <textarea
-                                        rows={5}
+                                        rows={20}
                                         placeholder='Enter guidelines text separated by a new line'
                                         onChange={(e) => handleGuidelines(e)}
+                                        defaultValue={defaultValues.guidelines}
                                         id='guidelines'
                                         required
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                     />
 
-                                    <p className='mt-2 text-sm text-gray-500'>NOTE: Please separate each guideline with a new line</p>
+
                                 </div>
+
+
+                                {/* Guidelines Text Editor */}
+
+                                {/* <div>
+                                    <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700 pb-1'>
+                                        Guidelines
+                                    </label>
+                                    <JoditEditor
+                                        ref={guidelineEditor}
+                                        value={guidelineContents}
+                                        config={config}
+                                        tabIndex={1}
+                                        onBlur={newContent => handleGuidelinesContent(newContent)}
+                                        onChange={newContent => { }}
+                                    />
+                                </div> */}
+
+                                {/* Show content */}
+                                {/* <div className='mt-5'>
+                                    <h1 className='text-xl font-medium text-gray-700'>Guidelines Content</h1>
+                                    <div className='mt-5' dangerouslySetInnerHTML={{ __html: guidelineContents }}></div>
+                                </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
 
 
@@ -664,7 +834,7 @@ function AddSheetPage() {
                                                 Subtitle:
                                             </label>
                                             <input
-                                                {...register(`subtitle.${index}`, { required: true })}
+                                                {...register(`subtitle.${index}`)}
                                                 placeholder='Enter a subtitle (optional)'
                                                 type='text'
                                                 className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
@@ -673,9 +843,22 @@ function AddSheetPage() {
 
                                         {/* description */}
                                         <div>
-                                            <label htmlFor='description' className='block text-sm text-gray-500 mt-5 mb-1'>
-                                                Detailed dscription:
-                                            </label>
+
+                                            <div className="flex justify-between items-center">
+                                                <label htmlFor='description' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                    Detailed dscription:
+                                                </label>
+                                                <button
+                                                    onClick={openModal}
+                                                    type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                    </svg>
+
+                                                </button>
+
+                                            </div>
+
 
                                             <textarea
                                                 {...register(`description.${index}`, { required: true })}
@@ -683,7 +866,7 @@ function AddSheetPage() {
                                                 placeholder='Enter detailed description separated by a new line'
                                                 className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                             />
-                                            < p className='mt-2 text-sm text-gray-500' > NOTE: Please separate each description with a new line</p>
+
                                         </div>
 
                                         {/* yes_no */}
@@ -694,6 +877,7 @@ function AddSheetPage() {
 
                                             <select
                                                 {...register(`yes_no.${index}`, { required: true })}
+                                                defaultValue={true}
                                                 className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                             >
                                                 <option value={null}>Select one</option>
@@ -722,12 +906,16 @@ function AddSheetPage() {
                                     </label>
 
                                     <div className='flex gap-2'>
-                                        <button type='button' onClick={removeBonusSection} className='bg-[#666666] hover:bg-[#525252] text-white py-3 px-5 rounded-full transition duration-200'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                                            </svg>
+                                        {
+                                            numberOfBonusSections > 0 && (
+                                                <button type='button' onClick={removeBonusSection} className='bg-[#666666] hover:bg-[#525252] text-white py-3 px-5 rounded-full transition duration-200'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                                                    </svg>
 
-                                        </button>
+                                                </button>
+                                            )
+                                        }
                                         <button type='button' onClick={addBonusSection} className='bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-5 rounded-full transition duration-200'>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -765,7 +953,7 @@ function AddSheetPage() {
                                                 Subtitle:
                                             </label>
                                             <input
-                                                {...register(`bonus_subtitle.${index}`, { required: true })}
+                                                {...register(`bonus_subtitle.${index}`)}
                                                 placeholder='Enter a subtitle (optional)'
                                                 type='text'
                                                 className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
@@ -774,9 +962,21 @@ function AddSheetPage() {
 
                                         {/* description */}
                                         <div>
-                                            <label htmlFor='bonus_description' className='block text-sm text-gray-500 mt-5 mb-1'>
-                                                Detailed dscription:
-                                            </label>
+                                            <div className="flex justify-between items-center">
+                                                <label htmlFor='bonus_description' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                    Detailed description:
+                                                </label>
+                                                <button
+                                                    onClick={openModal}
+                                                    type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                    </svg>
+
+                                                </button>
+
+                                            </div>
+
 
                                             <textarea
                                                 {...register(`bonus_description.${index}`, { required: true })}
@@ -795,6 +995,7 @@ function AddSheetPage() {
 
                                             <select
                                                 {...register(`bonus_yes_no.${index}`, { required: true })}
+                                                defaultValue={true}
                                                 className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                             >
                                                 <option value={null}>Select one</option>
@@ -820,7 +1021,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleOk(e)}
                                             id='ok'
-
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -836,6 +1037,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleOutstanding(e)}
                                             id='outstanding'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -851,6 +1053,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleEmptyWork(e)}
                                             id='empty_work'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -866,6 +1069,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleIncompleteWork(e)}
                                             id='incomplete_work'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -881,6 +1085,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleInvalidCompilation(e)}
                                             id='invalid_compilation'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -896,6 +1101,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleNorme(e)}
                                             id='norme'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -911,6 +1117,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleCheat(e)}
                                             id='cheat'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -926,6 +1133,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleCrash(e)}
                                             id='crash'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -941,6 +1149,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleConcerningSituations(e)}
                                             id='concerning_situations'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -956,6 +1165,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleLeaks(e)}
                                             id='leaks'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -971,6 +1181,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleForbiddenFunctions(e)}
                                             id='forbidden_functions'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -986,6 +1197,7 @@ function AddSheetPage() {
                                         <select
                                             onChange={(e) => handleCannotSupport(e)}
                                             id='cannot_support'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1014,9 +1226,14 @@ function AddSheetPage() {
 
                 </div>
 
+                <InfoModal isOpen={isOpen}
+                    closeModal={closeModal}
+
+                />
+
             </div>
         </div>
     )
 }
 
-export default AddSheetPage
+export default page

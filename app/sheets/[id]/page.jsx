@@ -4,30 +4,30 @@ import LoadingSpinner from '../../../components/LoadingSpinner'
 import Link from 'next/link'
 import React from 'react'
 import Swal from 'sweetalert2'
+import { useRouter } from 'next/navigation'
 export const dynamic = 'force-dynamic'
-import { useRouter } from 'next/navigation';
 
 function page({ params }) {
+
     const router = useRouter();
 
     const [isLogged, setIsLogged] = useState(false)
 
     // check if the user is logged in
     useEffect(() => {
-        async function fetchUserData() {
-            const response = await fetch("/api/getUserData");
-            if (response.status === 401) {
-                router.push('/login?unauthorized=true');
-            }
-            else {
-                setIsLogged(true);
-            }
-            // const data = await response.json();
-            // setUserData(data);
-        }
-
-        fetchUserData();
-    }, []);
+        // if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
+        //     Swal.fire({
+        //         title: 'Unauthorized',
+        //         text: 'You need to login to view this page',
+        //         icon: 'error',
+        //         confirmButtonText: 'Login'
+        //     }).then(() => {
+        //         window.location.href = '/login'
+        //     })
+        // } else {
+        setIsLogged(true)
+        // }
+    }, [])
 
 
 
@@ -267,6 +267,35 @@ function page({ params }) {
     }
 
 
+    // handle back to top button active after scrolling 200px
+
+    const [showBackToTop, setShowBackToTop] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                setShowBackToTop(true)
+            } else {
+                setShowBackToTop(false)
+            }
+        })
+    }, [])
+
+
+
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0)
+    }
+
+
+
+    const handleBackToAllProjects = () => {
+        router.push('/sheets')
+    }
+
+
+
 
 
     const initialYesColor = 'bg-green-100 text-green-600 hover:bg-green-500 hover:text-white transition duration-200  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
@@ -379,42 +408,79 @@ function page({ params }) {
     }, [bonusSections])
 
 
+    // Function to normalize the text by replacing special quotes or spaces
+    const normalizeText = (text) => {
+        // Ensure text is a string
+        if (typeof text !== 'string') {
+            return String(text);
+        }
+        return text
+            .replace(/‘|’/g, "'")  // normalize single quotes
+            .replace(/“|”/g, '"')  // normalize double quotes
+            .replace(/\u00A0/g, ' '); // replace non-breaking spaces with regular spaces
+    };
 
+    const formatText = (text) => {
+        // Ensure the text is normalized
+        text = normalizeText(text);
 
+        // Regular expression to match bold, underline, code, strikethrough, and new line with icon
+        const regex = /(\*\*[^\*]+\*\*|__[^\_]+__|`[^`]+`|~~[^~]+~~|- )/g;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return text.split(regex).map((part, index) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+                return (
+                    <span key={index} className="font-bold">
+                        {part.slice(2, -2)} {/* Removes ** */}
+                    </span>
+                );
+            }
+            if (part.startsWith('__') && part.endsWith('__')) {
+                return (
+                    <span key={index} className="underline">
+                        {part.slice(2, -2)} {/* Removes __ */}
+                    </span>
+                );
+            }
+            if (part.startsWith('`') && part.endsWith('`')) {
+                return (
+                    <code key={index} className="bg-gray-100 p-1 rounded">
+                        {part.slice(1, -1)} {/* Removes ` */}
+                    </code>
+                );
+            }
+            if (part.startsWith('~~') && part.endsWith('~~')) {
+                return (
+                    <span key={index} className="line-through">
+                        {part.slice(2, -2)} {/* Removes ~~ */}
+                    </span>
+                );
+            }
+            if (part === '- ') {
+                return (
+                    <span key={index} className="inline-flex items-center gap-2  align-middle">
+                        <span className="text-[#0D94B6] mr-2  align-middle">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="size-6"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                />
+                            </svg>
+                        </span>
+                    </span>
+                );
+            }
+            return <span key={index}>{part}</span>; // plain text
+        });
+    };
 
 
 
@@ -471,19 +537,11 @@ function page({ params }) {
                     </p>
 
                     <p className='pt-5'>
-                        {
-                            sheetData.introduction ? sheetData.introduction.map((intro, index) => (
-                                <p className='pb-5 flex items-center gap-2' key={index}>
-                                    <span className='text-[#0D94B6]'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                        </svg>
-
-                                    </span>
-                                    {intro}
-                                </p>
-                            )) : ''
-                        }
+                        {sheetData.introduction ? sheetData.introduction.map((intro, index) => (
+                            <p className="pb-5" key={index}>
+                                {formatText(intro)}
+                            </p>
+                        )) : ''}
                     </p>
                 </div>
 
@@ -496,21 +554,13 @@ function page({ params }) {
                         Please follow the guidelines below:
                     </p>
 
-                    <p className='pt-5'>
-                        {
-                            sheetData.guidelines ? sheetData.guidelines.map((guideline, index) => (
-                                <p className='pb-5  flex items-center gap-2' key={index}>
-                                    <span className='text-[#0D94B6]'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                        </svg>
-
-                                    </span>
-                                    {guideline}
-                                </p>
-                            )) : ''
-                        }
-                    </p>
+                    <div className="pt-5">
+                        {sheetData.guidelines ? sheetData.guidelines.map((guideline, index) => (
+                            <p className="pb-5" key={index}>
+                                {formatText(guideline)}
+                            </p>
+                        )) : ''}
+                    </div>
                 </div>
 
 
@@ -574,20 +624,11 @@ function page({ params }) {
                                     </p>
                                     <p className='pt-2 pb-5'>
                                         {
-                                            // detect new line and replace with <br> tag to display it
 
-                                            // section.description.replace(/(?:\r\n|\r|\n)/g, '<br>') // replace new line with <br> tag
                                             section.description.split('\n').map((line, index) => (
-                                                <span key={index} className='flex gap-2 items-center mb-2'>
-                                                    <span className='text-[#0D94B6]'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                        </svg>
-
-                                                    </span>
-                                                    {line}
-                                                    <br />
-                                                </span>
+                                                <p key={index} className='pb-5'>
+                                                    {formatText(line)}
+                                                </p>
                                             ))
                                         }
                                     </p>
@@ -642,88 +683,82 @@ function page({ params }) {
 
                 {/* BONUS SECTIONS */}
 
-                <div className='mt-10 bg-white p-5 lg:p-10 rounded-lg'>
-                    <h2 className='text-2xl font-bold'>
-                        Bonus Part
-                    </h2>
+                {
+                    bonusSections.length > 0 ? (
+                        <div className='mt-10 bg-white p-5 lg:p-10 rounded-lg'>
+                            <h2 className='text-2xl font-bold'>
+                                Bonus Part
+                            </h2>
 
-                    <div className='pt-5'>
-                        {
-                            bonusSections.map((section, index) => (
-                                <div className='bg-white p-5 rounded-lg mb-5' key={index}>
-                                    <h3 className='text-xl font-bold pb-3'>
-                                        {section.title}
-                                    </h3>
+                            <div className='pt-5'>
+                                {
+                                    bonusSections.map((section, index) => (
+                                        <div className='bg-white p-5 rounded-lg mb-5' key={index}>
+                                            <h3 className='text-xl font-bold pb-3'>
+                                                {section.title}
+                                            </h3>
 
-                                    <p className='pt-3 pb-5'>
-                                        {section.subtitle}
-                                    </p>
+                                            <p className='pt-3 pb-5'>
+                                                {section.subtitle}
+                                            </p>
 
-                                    <p className='pt-2 pb-5'>
-                                        {
-                                            // detect new line and replace with <br> tag to display it
+                                            <p className='pt-2 pb-5'>
+                                                {
+                                                    section.description.split('\n').map((line, index) => (
+                                                        <p key={index} className='pb-5'>
+                                                            {formatText(line)}
+                                                        </p>
+                                                    ))
+                                                }
+                                            </p>
 
-                                            // section.description.replace(/(?:\r\n|\r|\n)/g, '<br>') // replace new line with <br> tag
-                                            section.description.split('\n').map((line, index) => (
-                                                <span key={index} className='flex gap-2 items-center mb-2'>
-                                                    <span className='text-[#0D94B6]'>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                        </svg>
-
-                                                    </span>
-                                                    {line}
-                                                    <br />
-                                                </span>
-                                            ))
-                                        }
-                                    </p>
-
-                                    {/* if yes_no is true then an yes no button, if false then a slider with value 1-5 */}
-                                    {
-                                        section.yes_no ? (
-                                            <div className='flex gap-1 items-center w-full'>
-                                                <button
-                                                    onClick={() => handleYesColorBonus(index)}
-                                                    className={
-                                                        yesColorBonus[index] ? yesColorBonus[index] : initialYesColor
-                                                    }>
-                                                    Yes
-                                                </button>
-                                                <button
-                                                    onClick={() => handleNoColorBonus(index)}
-                                                    className={
-                                                        noColorBonus[index] ? noColorBonus[index] : initialNoColor
-                                                    }>
-                                                    No
-                                                </button>
-                                            </div>
-                                        ) : (
-                                            <div className='w-full lg:w-1/2 mx-auto mt-7'>
-                                                <p className='text-sm font-medium text-center pb-2'>
-                                                    Rate it from 0 (failed) through 5 (excellent)
-                                                </p>
-                                                <input type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
-                                                <div className="flex w-full justify-between px-2 text-xs">
-                                                    <span>0</span>
-                                                    <span>1</span>
-                                                    <span>2</span>
-                                                    <span>3</span>
-                                                    <span>4</span>
-                                                    <span>5</span>
-                                                </div>
-                                            </div>
-                                        )
-                                    }
+                                            {/* if yes_no is true then an yes no button, if false then a slider with value 1-5 */}
+                                            {
+                                                section.yes_no ? (
+                                                    <div className='flex gap-1 items-center w-full'>
+                                                        <button
+                                                            onClick={() => handleYesColorBonus(index)}
+                                                            className={
+                                                                yesColorBonus[index] ? yesColorBonus[index] : initialYesColor
+                                                            }>
+                                                            Yes
+                                                        </button>
+                                                        <button
+                                                            onClick={() => handleNoColorBonus(index)}
+                                                            className={
+                                                                noColorBonus[index] ? noColorBonus[index] : initialNoColor
+                                                            }>
+                                                            No
+                                                        </button>
+                                                    </div>
+                                                ) : (
+                                                    <div className='w-full lg:w-1/2 mx-auto mt-7'>
+                                                        <p className='text-sm font-medium text-center pb-2'>
+                                                            Rate it from 0 (failed) through 5 (excellent)
+                                                        </p>
+                                                        <input type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
+                                                        <div className="flex w-full justify-between px-2 text-xs">
+                                                            <span>0</span>
+                                                            <span>1</span>
+                                                            <span>2</span>
+                                                            <span>3</span>
+                                                            <span>4</span>
+                                                            <span>5</span>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
 
 
-                                </div>
-                            ))
+                                        </div>
+                                    ))
 
 
-                        }
-                    </div>
-                </div>
+                                }
+                            </div>
+                        </div>
+                    ) : null
+                }
 
 
                 {/* GRADING OPTIONS */}
@@ -738,7 +773,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].ok ? (
+                                gradingOptions[0]?.ok ? (
                                     <button
                                         onClick={handleOkColor}
                                         className={okColor}>
@@ -757,7 +792,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].outstanding ? (
+                                gradingOptions[0]?.outstanding ? (
                                     <button
                                         onClick={handleOutstandingColor}
                                         className={outstandingColor}>
@@ -777,7 +812,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].empty_work ? (
+                                gradingOptions[0]?.empty_work ? (
                                     <button
                                         onClick={handleEmptyWorkColor}
                                         className={emptyWorkColor}>
@@ -797,7 +832,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].incomplete_work ? (
+                                gradingOptions[0]?.incomplete_work ? (
                                     <button
                                         onClick={handleIncompleteWorkColor}
                                         className={incompleteWorkColor}>
@@ -816,7 +851,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].invalid_compilation ? (
+                                gradingOptions[0]?.invalid_compilation ? (
                                     <button
                                         onClick={handleInvalidCompilationColor}
                                         className={invalidCompilationColor}>
@@ -835,7 +870,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].norme ? (
+                                gradingOptions[0]?.norme ? (
                                     <button
                                         onClick={handleNormeColor}
                                         className={normeColor}>
@@ -854,7 +889,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].cheat ? (
+                                gradingOptions[0]?.cheat ? (
                                     <button
                                         onClick={handleCheatColor}
                                         className={cheatColor}>
@@ -873,7 +908,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].crash ? (
+                                gradingOptions[0]?.crash ? (
                                     <button
                                         onClick={handleCrashColor}
                                         className={crashColor}>
@@ -892,7 +927,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].concerning_situations ? (
+                                gradingOptions[0]?.concerning_situations ? (
                                     <button
                                         onClick={handleConcerningSituationsColor}
                                         className={concerningSituationsColor}>
@@ -911,7 +946,7 @@ function page({ params }) {
 
                         <div>
                             {
-                                gradingOptions[0].leaks ? (
+                                gradingOptions[0]?.leaks ? (
                                     <button
                                         onClick={handleLeaksColor}
                                         className={leaksColor}>
@@ -929,7 +964,7 @@ function page({ params }) {
                         </div>
                         <div>
                             {
-                                gradingOptions[0].forbidden_functions ? (
+                                gradingOptions[0]?.forbidden_functions ? (
                                     <button
                                         onClick={handleForbiddenFunctionsColor}
                                         className={forbiddenFunctionsColor}>
@@ -949,7 +984,7 @@ function page({ params }) {
                         <div>
                             {
 
-                                gradingOptions[0].cannot_support ? (
+                                gradingOptions[0]?.cannot_support ? (
                                     <button
                                         onClick={handleCannotSupportColor}
                                         className={cannotSupportColor} >
@@ -976,6 +1011,40 @@ function page({ params }) {
 
 
 
+                {
+                    showBackToTop ? (
+                        <div className="fixed bottom-0 right-0 p-4">
+                            <button
+                                onClick={scrollToTop}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    ) : null
+                }
+
+
+                {/* back to all project button fixed at the top left */}
+
+                {
+                    showBackToTop ? (
+                        <div className="fixed top-0 left-0 p-4">
+                            <button
+                                onClick={handleBackToAllProjects}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    ) : null
+                }
 
 
 

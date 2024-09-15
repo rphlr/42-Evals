@@ -3,26 +3,27 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
-import Image from 'next/image';
+import Image from 'next/image'; // New: Added Image component from Next.js
 
 export default function ProfilePage() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [updating, setUpdating] = useState(false);
-  const [selectedCursusIndex, setSelectedCursusIndex] = useState(0);
+  const [updating, setUpdating] = useState(false); // New: State for updating stats
+  const [selectedCursusIndex, setSelectedCursusIndex] = useState(0); // New: State for selected cursus
   const router = useRouter();
 
   useEffect(() => {
     fetchUserData();
   }, [router]);
 
+  // Refactored: Moved fetchUserData into a separate function
   const fetchUserData = async () => {
     try {
       const response = await fetch('/api/getUserData');
       if (response.ok) {
         const data = await response.json();
         setUserData(data);
-        // Set the default selected cursus to the most recent one
+        // New: Set the default selected cursus to the most recent one
         if (data.cursus_users && data.cursus_users.length > 0) {
           const sortedCursus = [...data.cursus_users].sort((a, b) =>
             new Date(b.begin_at) - new Date(a.begin_at)
@@ -46,6 +47,7 @@ export default function ProfilePage() {
     }
   };
 
+  // New: Function to handle updating user stats
   const handleUpdateStats = async () => {
     setUpdating(true);
     try {
@@ -71,6 +73,7 @@ export default function ProfilePage() {
     }
   };
 
+  // New: Navigation functions
   const handleGoBackHome = () => {
     router.push('/');
   };
@@ -79,10 +82,10 @@ export default function ProfilePage() {
     router.push('/sheets');
   };
 
+  // New: Logout function
   const handleLogout = async () => {
     try {
-        // Make a request to the logout API to delete the cookie
-        const response = await fetch('/api/logout');
+      const response = await fetch('/api/logout');
       if (response.ok) {
         Swal.fire({
           icon: 'success',
@@ -116,6 +119,7 @@ export default function ProfilePage() {
     ? userData.cursus_users[selectedCursusIndex]
     : { cursus_name: 'No cursus available', grade: 'N/A', level: 0 };
 
+  // New: Completely revamped UI with more detailed information and better layout
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Welcome, {userData.login}</h1>

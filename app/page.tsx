@@ -16,43 +16,45 @@ const MySwal = withReactContent(Swal);
 
 export default function Home() {
   useEffect(() => {
-    MySwal.fire({
-      title: 'Important Notice: Changes Coming to 42Evals',
-      html: `
-        <div class="text-left">
-          <p class="mb-4">Hello everyone,</p>
-          <p class="mb-4">It has been a joy contributing to this project for nearly two years. Unfortunately, 42 Network has decided that this site no longer aligns with their image and pedagogical goals, which I can understand. My intent was never to encourage cheating, as 42 Network may believe, but rather to help you review and prepare for your projects before the official evaluation.</p>
-          <p class="mb-4"><strong>What's next for 42Evals?</strong></p>
-          <p class="mb-4">The site will continue to exist, but the official evaluation sheets will no longer be available. However, each project will still have evaluation points, which will be written by me and supplemented by your input. These evaluations will no longer be based on official sources, and may sometimes be simpler or more challenging than the real ones. The goal remains the same: to help you self-evaluate your projects, but in a new, unique way.</p>
-          <p class="mb-4">In addition, I plan to introduce several new tools to help you in your journey, including:</p>
-          <ul class="list-disc list-inside mb-4">
-            <li>An XP calculator</li>
-            <li>A "Pace" tool to track your progress</li>
-            <li>And more useful features designed specifically for 42 students</li>
-          </ul>
-          <p class="mb-4">Thank you for your support, and I hope you find these new tools helpful as you continue your learning journey!</p>
-          <p class="mb-4">If you'd like to support this project, please consider giving it a star on GitHub:</p>
-          <p class="mb-4"><a href="https://github.com/rphlr/42-Evals" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Star 42-Evals on GitHub</a></p>
-          <p class="mb-4">You can also connect with me on LinkedIn:</p>
-          <p class="mb-4"><a href="https://www.linkedin.com/in/rphlr" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Connect on LinkedIn</a></p>
-          <p>Best regards,<br/>Raphael</p>
-        </div>
-      `,
-      icon: 'warning',
-      iconColor: '#ff9800',
-      confirmButtonText: 'Got it!',
-      confirmButtonColor: '#4B5563',
-      width: '800px',
-      customClass: {
-        container: 'custom-swal-container',
-        popup: 'custom-swal-popup',
-        // header: 'custom-swal-header',
-        title: 'custom-swal-title',
-        closeButton: 'custom-swal-close-button',
-        htmlContainer: 'custom-swal-content',
-        confirmButton: 'custom-swal-confirm-button',
-      },
-    });
+    if (!sessionStorage.getItem('gotIt')) {
+      MySwal.fire({
+        title: 'Important Notice: Changes Coming to 42Evals',
+        html: `
+          <div class="text-left">
+            <p class="mb-4">Hello everyone,</p>
+            <p class="mb-4">It has been a joy contributing to this project for nearly two years. Unfortunately, 42 Network has decided that this site no longer aligns with their image and pedagogical goals, which I can understand. My intent was never to encourage cheating, as 42 Network may believe, but rather to help you review and prepare for your projects before the official evaluation.</p>
+            <p class="mb-4"><strong>What's next for 42Evals?</strong></p>
+            <p class="mb-4">The site will continue to exist, but the official evaluation sheets will no longer be available. However, each project will still have evaluation points, which will be written by me and supplemented by your input. These evaluations will no longer be based on official sources, and may sometimes be simpler or more challenging than the real ones. The goal remains the same: to help you self-evaluate your projects, but in a new, unique way.</p>
+            <p class="mb-4">In addition, I plan to introduce several new tools to help you in your journey, including:</p>
+            <ul class="list-disc list-inside mb-4">
+              <li>An XP calculator</li>
+              <li>A "Pace" tool to track your progress</li>
+              <li>And more useful features designed specifically for 42 students</li>
+            </ul>
+            <p class="mb-4">Thank you for your support, and I hope you find these new tools helpful as you continue your learning journey!</p>
+            <p class="mb-4">If you'd like to support this project, please consider giving it a star on GitHub:</p>
+            <p class="mb-4"><a href="https://github.com/rphlr/42-Evals" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Star 42-Evals on GitHub</a></p>
+            <p class="mb-4">You can also connect with me on LinkedIn:</p>
+            <p class="mb-4"><a href="https://www.linkedin.com/in/rphlr" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Connect on LinkedIn</a></p>
+            <p>Best regards,<br/>Raphael</p>
+          </div>
+        `,
+        icon: 'warning',
+        iconColor: '#ff9800',
+        confirmButtonText: 'Got it!',
+        confirmButtonColor: '#4B5563',
+        width: '800px',
+        customClass: {
+          container: 'custom-swal-container',
+          popup: 'custom-swal-popup',
+          title: 'custom-swal-title',
+          closeButton: 'custom-swal-close-button',
+          htmlContainer: 'custom-swal-content',
+          confirmButton: 'custom-swal-confirm-button',
+        },
+      });
+      sessionStorage.setItem('gotIt', 'true');
+    }
   }, []);
 
   return (
@@ -75,9 +77,6 @@ export default function Home() {
           background-color: #f9fafb;
           border-radius: 10px;
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        .custom-swal-header {
-          border-bottom: 1px solid #e5e7eb;
         }
         .custom-swal-title {
           color: #1f2937;

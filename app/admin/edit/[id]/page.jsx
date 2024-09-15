@@ -5,38 +5,29 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
+import InfoModal from '@/components/InfoModal';
 
-function updateSheet({ params }) {
-    const router = useRouter();
+function page({ params }) {
 
-    // Retrieve the admin list from environment variable
-    const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
+    const router = useRouter()
 
     // check login status
+
     useEffect(() => {
-        async function checkAdminAccess() {
-            const response = await fetch('/api/getUserData');
-            const userData = await response.json();
-
-            if (!admins?.includes(userData?.login)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Unauthorized',
-                    text: 'You need to be logged in as an admin to access this page.',
-                }).then(() => {
-                    if (userData?.login) {
-                        router.push('/');
-                    } else {
-                        router.push('/login');
-                    }
-                });
-            }
+        if (sessionStorage.getItem('admin') !== 'true' && localStorage.getItem('admin') !== 'true') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Unauthorized',
+                text: 'You need to login first'
+            }).then(() => {
+                window.location.href = '/admin/login'
+            })
         }
+    }, [])
 
-        checkAdminAccess();
-    }, [router, admins]);
 
     // Get the sheet id from the url
+
     const sheetId = params.id
 
     // Get the sheet data from the server
@@ -173,11 +164,25 @@ function updateSheet({ params }) {
 
     const addMandatorySection = () => {
         setNumberOfMandatorySections(numberOfMandatorySections + 1)
+        Swal.fire({
+            icon: 'success',
+            position: 'top-end',
+            title: 'New mandatory section added',
+            showConfirmButton: false,
+            timer: 1000
+        })
     }
 
     const removeMandatorySection = () => {
         if (numberOfMandatorySections > 1) {
             setNumberOfMandatorySections(numberOfMandatorySections - 1)
+            Swal.fire({
+                icon: 'success',
+                position: 'top-end',
+                title: 'Mandatory section removed',
+                showConfirmButton: false,
+                timer: 1000
+            })
         } else {
             Swal.fire({
                 icon: 'error',
@@ -201,19 +206,24 @@ function updateSheet({ params }) {
 
     const addBonusSection = () => {
         setNumberOfBonusSections(numberOfBonusSections + 1)
+        Swal.fire({
+            icon: 'success',
+            position: 'top-end',
+            title: 'New bonus section added',
+            showConfirmButton: false,
+            timer: 1000
+        })
     }
 
     const removeBonusSection = () => {
-        if (numberOfBonusSections > 1) {
+        if (numberOfBonusSections > 0) {
             setNumberOfBonusSections(numberOfBonusSections - 1)
-        } else {
             Swal.fire({
-                icon: 'error',
-                title: 'Ooops!',
-                text: 'You need to have at least one bonus section',
-                showConfirmButton: true,
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#0D94B6'
+                icon: 'success',
+                position: 'top-end',
+                title: 'Bonus section removed',
+                showConfirmButton: false,
+                timer: 1000
             })
         }
     }
@@ -368,7 +378,7 @@ function updateSheet({ params }) {
 
     // -------------------- Submit form --------------------
 
-    const updateSheet = async (newData, newMandatoryOptionsData, newBonusOptionsData, newGradingOptionsData) => {
+    const updateSheet = async (newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData) => {
 
         // sweet alert loading until all process is done
 
@@ -401,47 +411,54 @@ function updateSheet({ params }) {
                     .then(data => {
                         console.log('Step 2: Updating mandatory options SUCCESS', data.data)
 
+                        // Now update grading options using the sheet id
+
+                        fetch(`/api/gradingOption/${gradingOptionsDataId}`, {
+                            method: 'PUT',
+                            body: JSON.stringify(newGradingOptionsData)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log('Step 3: Updating grading options SUCCESS', data.data)
+
+                                if (data.success) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Sheet updated successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Failed to update sheet',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+
+                                // window.location.reload()
+
+                            })
+
                         // Now update bonus sections using the sheet id
 
                         fetch(`/api/bonusSection/${sheetId}`, {
                             method: 'PUT',
-                            body: JSON.stringify(newBonusOptionsData)
+                            body: JSON.stringify(newBonusOptionsDatacheck)
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log('Step 3: Updating bonus sections SUCCESS', data.data)
+                                console.log('Step 4: Updating bonus sections SUCCESS', data.data)
 
 
-                                // Now update grading options using the sheet id
 
-                                fetch(`/api/gradingOption/${gradingOptionsDataId}`, {
-                                    method: 'PUT',
-                                    body: JSON.stringify(newGradingOptionsData)
-                                })
-                                    .then(res => res.json())
-                                    .then(data => {
-                                        console.log('Step 3: Updating grading options SUCCESS', data.data)
-
-                                        if (data.success) {
-                                            Swal.fire({
-                                                icon: 'success',
-                                                title: 'Sheet updated successfully',
-                                                showConfirmButton: false,
-                                                timer: 1500
-                                            })
-                                        } else {
-                                            Swal.fire({
-                                                icon: 'error',
-                                                title: 'Failed to update sheet',
-                                                showConfirmButton: false,
-                                                timer: 1500
-                                            })
-                                        }
-
-                                        // window.location.reload()
-
-                                    })
                             })
+
+
+
+                        //redirect to the admin page after successful submission
+                        router.push('/admin')
                     })
 
 
@@ -502,36 +519,50 @@ function updateSheet({ params }) {
         }
 
         const newGradingOptionsData = {
-            ok: data.ok === "true" ? true : false,
-            outstanding: data.outstanding === "true" ? true : false,
-            empty_work: data.empty_work === "true" ? true : false,
-            incomplete_work: data.incomplete_work === "true" ? true : false,
-            invalid_compilation: data.invalid_compilation === "true" ? true : false,
-            norme: data.norme === "true" ? true : false,
-            cheat: data.cheat === "true" ? true : false,
-            crash: data.crash === "true" ? true : false,
-            concerning_situations: data.concerning_situations === "true" ? true : false,
-            leaks: data.leaks === "true" ? true : false,
-            forbidden_functions: data.forbidden_functions === "true" ? true : false,
-            cannot_support: data.cannot_support === "true" ? true : false,
-
-
-
-
+            ok: data.ok === 'false' ? false : true,
+            outstanding: data.outstanding === 'false' ? false : true,
+            empty_work: data.empty_work === 'false' ? false : true,
+            incomplete_work: data.incomplete_work === 'false' ? false : true,
+            invalid_compilation: data.invalid_compilation === 'false' ? false : true,
+            norme: data.norme === 'false' ? false : true,
+            cheat: data.cheat === 'false' ? false : true,
+            crash: data.crash === 'false' ? false : true,
+            concerning_situations: data.concerning_situations === 'false' ? false : true,
+            leaks: data.leaks === 'false' ? false : true,
+            forbidden_functions: data.forbidden_functions === 'false' ? false : true,
+            cannot_support: data.cannot_support === 'false'
 
         }
+
+        const newBonusOptionsDatacheck = newBonusOptionsData.length > 0 ? newBonusOptionsData : null
 
 
         console.log('New data', newData)
         console.log('New mandatory options data', newMandatoryOptionsData)
-        console.log('New bonus options data', newBonusOptionsData)
+        console.log('New bonus options data', newBonusOptionsDatacheck)
         console.log('New grading options data', newGradingOptionsData)
 
 
-        updateSheet(newData, newMandatoryOptionsData, newBonusOptionsData, newGradingOptionsData)
+        updateSheet(newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData)
 
 
     }
+
+
+
+    // Modal state for InfoModal
+
+
+    let [isOpen, setIsOpen] = useState(false)
+
+    function closeModal() {
+        setIsOpen(false)
+    }
+
+    function openModal() {
+        setIsOpen(true)
+    }
+
 
 
 
@@ -633,9 +664,20 @@ function updateSheet({ params }) {
                                 </div>
 
                                 <div className='sm:col-span-2'>
-                                    <label htmlFor='introduction' className='block text-sm font-medium text-gray-700'>
-                                        Introduction
-                                    </label>
+                                    <div className="flex justify-between items-center">
+                                        <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700'>
+                                            Introduction
+                                        </label>
+                                        <button
+                                            onClick={openModal}
+                                            type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+
+                                        </button>
+
+                                    </div>
                                     <textarea
                                         defaultValue={
                                             sheetDataFromServer?.introduction ? sheetDataFromServer?.introduction.join('\n') : ''
@@ -652,9 +694,20 @@ function updateSheet({ params }) {
                                 </div>
 
                                 <div className='sm:col-span-2'>
-                                    <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700'>
-                                        Guidelines
-                                    </label>
+                                    <div className="flex justify-between items-center">
+                                        <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700'>
+                                            Guidelines
+                                        </label>
+                                        <button
+                                            onClick={openModal}
+                                            type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+
+                                        </button>
+
+                                    </div>
                                     <textarea
                                         defaultValue={
                                             sheetDataFromServer?.guidelines ? sheetDataFromServer?.guidelines.join('\n') : ''
@@ -913,9 +966,20 @@ function updateSheet({ params }) {
 
                                         {/* description */}
                                         <div>
-                                            <label htmlFor='description' className='block text-sm text-gray-500 mt-5 mb-1'>
-                                                Detailed dscription:
-                                            </label>
+                                            <div className="flex justify-between items-center">
+                                                <label htmlFor='description' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                    Detailed dscription:
+                                                </label>
+                                                <button
+                                                    onClick={openModal}
+                                                    type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                    </svg>
+
+                                                </button>
+
+                                            </div>
 
                                             <textarea
                                                 defaultValue={
@@ -964,12 +1028,16 @@ function updateSheet({ params }) {
 
                                     <div className='flex gap-2'>
 
-                                        <button type='button' onClick={removeBonusSection} className='bg-[#666666] hover:bg-[#525252] text-white py-3 px-5 rounded-full transition duration-200'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                                            </svg>
+                                        {
+                                            numberOfBonusSections > 0 && (
+                                                <button type='button' onClick={removeBonusSection} className='bg-[#666666] hover:bg-[#525252] text-white py-3 px-5 rounded-full transition duration-200'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                                                    </svg>
 
-                                        </button>
+                                                </button>
+                                            )
+                                        }
                                         <button type='button' onClick={addBonusSection} className='bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-5 rounded-full transition duration-200'>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -1023,9 +1091,20 @@ function updateSheet({ params }) {
 
                                         {/* description */}
                                         <div>
-                                            <label htmlFor='bonus_description' className='block text-sm text-gray-500 mt-5 mb-1'>
-                                                Detailed dscription:
-                                            </label>
+                                            <div className="flex justify-between items-center">
+                                                <label htmlFor='bonus_description' className='block text-sm text-gray-500 mt-5 mb-1'>
+                                                    Detailed description:
+                                                </label>
+                                                <button
+                                                    onClick={openModal}
+                                                    type='button' className='ml-2 bg-[#0d94b6] hover:bg-[#0d829c] text-white p-1 rounded-full transition duration-200'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                                    </svg>
+
+                                                </button>
+
+                                            </div>
 
                                             <textarea
                                                 defaultValue={
@@ -1315,7 +1394,10 @@ function updateSheet({ params }) {
                 </div>
 
 
+                <InfoModal isOpen={isOpen}
+                    closeModal={closeModal}
 
+                />
 
 
 
@@ -1324,4 +1406,4 @@ function updateSheet({ params }) {
     )
 }
 
-export default updateSheet
+export default page

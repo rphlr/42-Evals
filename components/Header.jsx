@@ -7,16 +7,20 @@ import Link from "next/link";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 export default function Header() {
+    // State to hold user data
     const [userData, setUserData] = useState(null);
     const router = useRouter();
 
     // Retrieve the admin list from environment variable
+    // This is more secure and flexible than hardcoding admin users
     const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
 
     useEffect(() => {
+        // Function to fetch user data from the server
         async function fetchUserData() {
             const response = await fetch("/api/getUserData");
             if (response.status === 401) {
+                // User is not authenticated
                 return;
             }
             const data = await response.json();
@@ -25,10 +29,14 @@ export default function Header() {
 
         fetchUserData();
     }, []);
+
+    // Determine if user is logged in based on userData
     const loggedIn = userData;
     const userName = userData?.login || "";
+    // Check if the user is an admin
     const isAdmin = admins?.includes(userName);
 
+    // Improved logout handler with error handling
     const handleLogout = async () => {
         try {
             // Make a request to the logout API to delete the cookie
@@ -59,7 +67,6 @@ export default function Header() {
             });
         }
     };
-
 
     const handleLogin = () => {
         router.push("/login");
@@ -95,6 +102,7 @@ export default function Header() {
                         anchor="bottom end"
                         className="w-52 origin-top-right rounded-xl border border-sky-500 border-opacity-20 bg-gray-700 bg-opacity-800 p-2 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
                     >
+                        {/* Conditional rendering based on user login status */}
                         {loggedIn && (
                             <>
                                 <MenuItem>
@@ -105,6 +113,7 @@ export default function Header() {
                                         My Profile
                                     </Link>
                                 </MenuItem>
+                                {/* Admin-only menu items */}
                                 {isAdmin && (
                                     <>
                                         <MenuItem>
@@ -127,6 +136,7 @@ export default function Header() {
                                 )}
                             </>
                         )}
+                        {/* Common menu items */}
                         <MenuItem>
                             <Link
                                 href="/sheets"
@@ -170,6 +180,7 @@ export default function Header() {
                                 Privacy Policy
                             </Link>
                         </MenuItem>
+                        {/* Conditional rendering of login/logout button */}
                         {loggedIn ? (
                             <MenuItem>
                                 <button
