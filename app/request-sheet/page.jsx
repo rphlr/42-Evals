@@ -14,21 +14,37 @@ function page() {
 
     const [isLogged, setIsLogged] = useState(null)
 
-    // check if the user is logged in
-    useEffect(() => {
-        if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
-            Swal.fire({
-                title: 'Unauthorized',
-                text: 'You need to login to view this page',
-                icon: 'error',
-                confirmButtonText: 'Login'
-            }).then(() => {
-                window.location.href = '/login'
-            })
-        } else {
-            setIsLogged(true)
-        }
-    }, [])
+        // Check if user is logged in, admin or not
+        useEffect(() => {
+            async function checkLoginStatus() {
+                try {
+                    const response = await fetch('/api/getUserData');
+                    const userData = await response.json();
+
+                    if (userData?.login) {
+                        // Set isLogged to true if the user is logged in
+                        setIsLogged(true);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Unauthorized',
+                            text: 'You need to login to access this page.',
+                        }).then(() => {
+                            router.push('/login');
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error fetching user data:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Something went wrong while checking login status.',
+                    });
+                }
+            }
+
+            checkLoginStatus();
+        }, [router]);
 
 
 
