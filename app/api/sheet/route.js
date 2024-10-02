@@ -23,6 +23,8 @@ export const POST = async (req) => {
         const body = await req.json();
         const {
             project_title,
+            cursus_id,
+            status,
             number_of_student,
             introduction,
             guidelines,
@@ -33,7 +35,9 @@ export const POST = async (req) => {
         const sheetData = await prisma.sheet.create({
             data: {
                 project_title,
+                status: status || 'pending',
                 number_of_student,
+                cursus_id,
                 introduction,
                 guidelines,
                 attachments,
@@ -53,4 +57,3 @@ export const POST = async (req) => {
 
     }
 }
-

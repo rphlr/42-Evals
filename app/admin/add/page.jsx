@@ -14,8 +14,6 @@ function page() {
 
 
 
-    // check login status
-
     // Retrieve the admin list from environment variable
     const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
 
@@ -50,6 +48,31 @@ function page() {
         reset,
         formState: { errors },
     } = useForm();
+
+
+
+    // Get all cursus
+
+    const [cursusData, setCursusData] = useState([])
+
+    useEffect(() => {
+        fetch('/api/cursus')
+            .then(res => res.json())
+            .then(data => {
+                setCursusData(data.data)
+            })
+    }, [])
+
+    const [selectedCursus, setSelectedCursus] = useState('')
+
+    const handleSelectCursus = (e) => {
+        const cursus_id = e.target.value
+        setSelectedCursus(cursus_id)
+    }
+
+
+
+
 
 
 
@@ -355,7 +378,7 @@ function page() {
         const newData = {
             optional_bonus_sections: data.optional_bonus_sections,
             project_title: data.project_title,
-            // slug: data.slug,
+            status: 'active',
             introduction: introductionData,
             attachments: [
                 `${data.attachment1Title},${data.attachment1Url}`,
@@ -365,6 +388,7 @@ function page() {
             ],
             guidelines: guidelinesData,
             number_of_student: parseInt(data.number_of_student),
+            cursus_id: selectedCursus
         }
 
         const newMandatoryOptionsData = []
@@ -548,6 +572,31 @@ function page() {
                                     />
                                     {errors.number_of_student && <span className='text-red-500'>This field is required</span>}
                                 </div>
+
+
+                                {/* select cursus */}
+
+                                <div>
+                                    <label htmlFor='cursus' className='block text-sm font-medium text-gray-700'>
+                                        Select Cursus
+                                    </label>
+                                    <select
+                                        onChange={handleSelectCursus}
+                                        id='cursus'
+                                        className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                    >
+                                        <option value=''>Select Cursus</option>
+                                        {cursusData.map(cursus => (
+                                            <option key={cursus.id}
+                                                value={cursus.cursus_id}
+                                            >
+                                                {cursus.cursus_name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+
+
 
                                 <div className='sm:col-span-2'>
                                     <div className="flex justify-between items-center">

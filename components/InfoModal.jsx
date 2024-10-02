@@ -1,14 +1,11 @@
 'use client'
 
-
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 function InfoModal({ isOpen, closeModal }) {
     return (
         <>
-
-
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child
@@ -44,20 +41,19 @@ function InfoModal({ isOpen, closeModal }) {
 
                                         <ul className="list-disc pl-5 mb-4">
                                             <li>
-                                                <span className="font-bold">New Paragraph/Point </span>: Start the text you want to make new Point (
+                                                <span className="font-bold">New Paragraph/Point </span>: Start the text you want to make a new point (
                                                 <code>- </code>).
                                                 <br />
                                                 <strong>Example:</strong>
                                                 <br />
-                                                Input: <code> - This is a new line.</code>
+                                                Input: <code>- This is a new paragraph/point. </code>
                                                 <br />
-                                                <span className='flex items-center gap-2'>
-                                                    <span>Output:</span> <span className='flex items-center gap-2' >
-                                                        <span className='text-[#0D94B6]'>
+                                                <span className="flex items-center gap-2">
+                                                    <span>Output:</span> <span className="flex items-center gap-2">
+                                                        <span className="text-[#0D94B6]">
                                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                                             </svg>
-
                                                         </span>
                                                         This is a new paragraph/point.
                                                     </span>

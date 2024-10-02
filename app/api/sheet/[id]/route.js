@@ -29,11 +29,13 @@ export const PUT = async (req, { params }) => {
     const body = await req.json();
     const {
         project_title,
+        status,
         number_of_student,
         introduction,
         guidelines,
         attachments,
-        optional_bonus_sections
+        optional_bonus_sections,
+        cursus_id
     } = body;
 
     const sheetData = await prisma.sheet.update({
@@ -42,11 +44,13 @@ export const PUT = async (req, { params }) => {
         },
         data: {
             project_title,
+            status: status || 'pending',
             number_of_student,
             introduction,
             guidelines,
             attachments,
-            optional_bonus_sections
+            optional_bonus_sections,
+            cursus_id
         }
     });
     return NextResponse.json({
@@ -82,7 +86,6 @@ export const DELETE = async (req, { params }) => {
 
 
 }
-
 
 
 

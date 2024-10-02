@@ -2,9 +2,9 @@ import React from 'react'
 
 function page() {
     return (
-        <div className='max-w-7xl mx-auto flex flex-col gap-5'>
+        <div className='max-w-7xl mx-auto flex flex-col gap-5 px-5 2xl:px-0 pb-28'>
             <h1 className='text-3xl pt-20 pb-7 font-bold'>Privacy Policy</h1>
-            <p>Last updated: September 14, 2024</p>
+            <p className='italic text-gray-400'>Last updated: September 27, 2024</p>
             <p className='pb-5'>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
             <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank">Privacy Policy Generator</a>.</p>
             <h2>Interpretation and Definitions</h2>

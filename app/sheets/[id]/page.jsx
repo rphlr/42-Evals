@@ -11,22 +11,22 @@ function page({ params }) {
 
     const router = useRouter();
 
-    const [isLogged, setIsLogged] = useState(false)
+    const [isLogged, setIsLogged] = useState(null)
 
     // check if the user is logged in
     useEffect(() => {
-        // if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
-        //     Swal.fire({
-        //         title: 'Unauthorized',
-        //         text: 'You need to login to view this page',
-        //         icon: 'error',
-        //         confirmButtonText: 'Login'
-        //     }).then(() => {
-        //         window.location.href = '/login'
-        //     })
-        // } else {
-        setIsLogged(true)
-        // }
+        if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
+            Swal.fire({
+                title: 'Unauthorized',
+                text: 'You need to login to view this page',
+                icon: 'error',
+                confirmButtonText: 'Login'
+            }).then(() => {
+                window.location.href = '/login'
+            })
+        } else {
+            setIsLogged(true)
+        }
     }, [])
 
 
@@ -443,9 +443,10 @@ function page({ params }) {
                 );
             }
             if (part.startsWith('`') && part.endsWith('`')) {
+                // Trim any accidental leading or trailing spaces inside the backticks
                 return (
                     <code key={index} className="bg-gray-100 p-1 rounded">
-                        {part.slice(1, -1)} {/* Removes ` */}
+                        {part.slice(1, -1).trim()} {/* Removes ` and trims spaces */}
                     </code>
                 );
             }

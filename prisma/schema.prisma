@@ -17,7 +17,7 @@ datasource db {
 
 model Sheet {
   id                      String             @id @default(auto()) @map("_id") @db.ObjectId
-  // Removed: slug                    String
+  status                  String             @default("pending")
   project_title           String
   number_of_student       Int
   introduction            String[]
@@ -27,6 +27,7 @@ model Sheet {
   mandatory_sections      MandatorySection[]
   bonus_sections          BonusSection[]
   grading_options         GradingOption[]
+  cursus_id               String?
   created_at              DateTime           @default(now())
   updated_at              DateTime           @updatedAt
 }
@@ -92,7 +93,6 @@ model User {
   updatedAt        DateTime @updatedAt
 }
 
-// New: Added Cursus model
 model Cursus {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   user          User     @relation(fields: [userId], references: [id])
@@ -109,7 +109,14 @@ model Cursus {
   @@unique([userId, cursus_id])
 }
 
-// New: Added OtherUser model
+model cursus_evals {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  cursus_id   String   @unique
+  cursus_name String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model OtherUser {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   username  String   @unique

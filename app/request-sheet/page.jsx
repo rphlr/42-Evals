@@ -7,113 +7,28 @@ import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
 import InfoModal from '@/components/InfoModal';
 
-function page({ params }) {
+function page() {
+
 
     const router = useRouter()
 
-    // Retrieve the admin list from environment variable
-    const admins = process.env.NEXT_PUBLIC_ADMINS?.split(',');
+    const [isLogged, setIsLogged] = useState(null)
 
-    // check login status
+    // check if the user is logged in
     useEffect(() => {
-        async function checkAdminAccess() {
-            const response = await fetch('/api/getUserData');
-            const userData = await response.json();
-
-            if (!admins?.includes(userData?.login)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Unauthorized',
-                    text: 'You need to be logged in as an admin to access this page.',
-                }).then(() => {
-                    if (userData?.login) {
-                        router.push('/');
-                    } else {
-                        router.push('/login');
-                    }
-                });
-            }
+        if (!localStorage.getItem('user') && !sessionStorage.getItem('user') && !localStorage.getItem('admin') && !sessionStorage.getItem('admin')) {
+            Swal.fire({
+                title: 'Unauthorized',
+                text: 'You need to login to view this page',
+                icon: 'error',
+                confirmButtonText: 'Login'
+            }).then(() => {
+                window.location.href = '/login'
+            })
+        } else {
+            setIsLogged(true)
         }
-
-        checkAdminAccess();
-    }, [router, admins]);
-
-
-    // Get the sheet id from the url
-
-    const sheetId = params.id
-
-    // Get the sheet data from the server
-
-
-    const [sheetDataFromServer, setSheetDataFromServer] = useState({})
-    const [loadingSheetData, setLoadingSheetData] = useState(true)
-
-    useEffect(() => {
-        fetch(`/api/sheet/${sheetId}`)
-            .then(res => res.json())
-            .then(data => {
-                setSheetDataFromServer(data.data)
-                setLoadingSheetData(false)
-            }
-            )
     }, [])
-
-    // Get the mandatory options data from the server
-
-    const [mandatoryOptionsDataFromServer, setMandatoryOptionsDataFromServer] = useState([])
-    const [loadingMandatoryOptionsData, setLoadingMandatoryOptionsData] = useState(true)
-
-    useEffect(() => {
-        fetch(`/api/mandatorySection/${sheetId}`)
-            .then(res => res.json())
-            .then(data => {
-                setMandatoryOptionsDataFromServer(data.data)
-                setLoadingMandatoryOptionsData(false)
-            }
-            )
-    }, [])
-
-
-    //Get the Bonus sections data from the server
-
-    const [bonusSectionsDataFromServer, setBonusSectionsDataFromServer] = useState([])
-    const [loadingBonusSectionsData, setLoadingBonusSectionsData] = useState(true)
-
-    useEffect(() => {
-        fetch(`/api/bonusSection/${sheetId}`)
-            .then(res => res.json())
-            .then(data => {
-                setBonusSectionsDataFromServer(data.data)
-                setLoadingBonusSectionsData(false)
-            }
-            )
-    }, [])
-
-
-
-
-
-    // Get the grading options data from the server
-
-    const [gradingOptionsDataFromServer, setGradingOptionsDataFromServer] = useState([])
-    const [loadingGradingOptionsData, setLoadingGradingOptionsData] = useState(true)
-
-    useEffect(() => {
-        fetch(`/api/gradingOption/${sheetId}`)
-            .then(res => res.json())
-            .then(data => {
-                setGradingOptionsDataFromServer(data.data)
-                setLoadingGradingOptionsData(false)
-            }
-            )
-    }, [])
-
-
-
-    // console.log(sheetDataFromServer);
-    // console.log(mandatoryOptionsDataFromServer);
-    // console.log(gradingOptionsDataFromServer);
 
 
 
@@ -122,10 +37,7 @@ function page({ params }) {
         handleSubmit,
         reset,
         formState: { errors },
-    } = useForm()
-
-
-
+    } = useForm();
 
 
 
@@ -147,14 +59,6 @@ function page({ params }) {
         const cursus_id = e.target.value
         setSelectedCursus(cursus_id)
     }
-
-
-
-
-
-
-
-
 
 
 
@@ -198,16 +102,9 @@ function page({ params }) {
 
 
 
-    // Handle mandatory sections
-
+    // Handle mandatory Sections
 
     const [numberOfMandatorySections, setNumberOfMandatorySections] = useState(1)
-
-    useEffect(() => {
-        setNumberOfMandatorySections(mandatoryOptionsDataFromServer.length)
-    }, [mandatoryOptionsDataFromServer])
-
-
 
     const addMandatorySection = () => {
         setNumberOfMandatorySections(numberOfMandatorySections + 1)
@@ -234,7 +131,7 @@ function page({ params }) {
             Swal.fire({
                 icon: 'error',
                 title: 'Ooops!',
-                text: 'You need to have at least one bonus section',
+                text: 'You need to have at least one mandatory section',
                 showConfirmButton: true,
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#0D94B6'
@@ -245,11 +142,7 @@ function page({ params }) {
 
     // Handle bonus sections
 
-    const [numberOfBonusSections, setNumberOfBonusSections] = useState(1)
-
-    useEffect(() => {
-        setNumberOfBonusSections(bonusSectionsDataFromServer.length)
-    }, [bonusSectionsDataFromServer])
+    const [numberOfBonusSections, setNumberOfBonusSections] = useState(0)
 
     const addBonusSection = () => {
         setNumberOfBonusSections(numberOfBonusSections + 1)
@@ -263,6 +156,7 @@ function page({ params }) {
     }
 
     const removeBonusSection = () => {
+
         if (numberOfBonusSections > 0) {
             setNumberOfBonusSections(numberOfBonusSections - 1)
             Swal.fire({
@@ -273,151 +167,95 @@ function page({ params }) {
                 timer: 1000
             })
         }
+
     }
 
 
+    // Guidelines Jodit Editor
+
+    // const [guidelineContents, setGuidelineContents] = useState('')
+
+    // const guidelineEditor = useRef(null);
 
 
-
-
-
-
-    // // Handle grading options
-
-    // const [gradingOptionsData, setGradingOptionsData] = useState([])
-
-    // useEffect(() => {
-    //     setGradingOptionsData(gradingOptionsDataFromServer[0])
-    // }, [gradingOptionsDataFromServer])
-
-    // const handleOk = (e) => {
-    //     const ok = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, ok })
-    //     console.log(gradingOptionsData)
+    // const config =
+    // {
+    //     readonly: false,
+    //     placeholder: 'Start typing guidelines...'
     // }
 
-    // const handleOutstanding = (e) => {
-    //     const outstanding = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, outstanding })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleEmptyWork = (e) => {
-    //     const empty_work = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, empty_work })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleIncompleteWork = (e) => {
-    //     const incomplete_work = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, incomplete_work })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleInvalidCompilation = (e) => {
-    //     const invalid_compilation = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, invalid_compilation })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleNorme = (e) => {
-    //     const norme = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, norme })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleCheat = (e) => {
-    //     const cheat = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, cheat })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleCrash = (e) => {
-    //     const crash = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, crash })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleConcerningSituations = (e) => {
-    //     const concerning_situations = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, concerning_situations })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleLeaks = (e) => {
-    //     const leaks = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, leaks })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleForbiddenFunctions = (e) => {
-    //     const forbidden_functions = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, forbidden_functions })
-    //     console.log(gradingOptionsData)
-    // }
-
-    // const handleCannotSupport = (e) => {
-    //     const cannot_support = e.target.value
-    //     setGradingOptionsData({ ...gradingOptionsData, cannot_support })
-    //     console.log(gradingOptionsData)
+    // const handleGuidelinesContent = (newContent) => {
+    //     setGuidelineContents(newContent)
     // }
 
 
 
-    // Get all the mandatory options data from the server
 
-    const [allMandatoryOptionsDataFromServer, setAllMandatoryOptionsDataFromServer] = useState([])
 
-    useEffect(() => {
-        fetch(`/api/mandatorySection`)
-            .then(res => res.json())
-            .then(data => {
-                setAllMandatoryOptionsDataFromServer(data.data)
-            }
-            )
-    }, [])
 
-    // Find the mandatory options data from the server for the sheet id
+    // Handle grading options
 
-    const findMandatoryOptionsData = (id) => {
-        const mandatoryOptionsData = allMandatoryOptionsDataFromServer.filter(data => data.sheetId === id)
-        return mandatoryOptionsData
+    const [gradingOptionsData, setGradingOptionsData] = useState([])
+
+    const handleOk = (e) => {
+        const ok = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, ok })
     }
 
-    // get the mandatory options data id
-
-    const mandatoryOptionsDataId = findMandatoryOptionsData(sheetId)[0]?.id
-
-    // console.log('Mandatory options data id', mandatoryOptionsDataId)
-
-
-
-    // Get all the grading options data from the server
-
-    const [allGradingOptionsDataFromServer, setAllGradingOptionsDataFromServer] = useState([])
-
-    useEffect(() => {
-        fetch(`/api/gradingOption`)
-            .then(res => res.json())
-            .then(data => {
-                setAllGradingOptionsDataFromServer(data.data)
-            }
-            )
-    }, [])
-
-    // Find the grading options data from the server for the sheet id
-
-    const findGradingOptionsData = (id) => {
-        const gradingOptionsData = allGradingOptionsDataFromServer.filter(data => data.sheetId === id)
-        return gradingOptionsData
+    const handleOutstanding = (e) => {
+        const outstanding = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, outstanding })
     }
 
+    const handleEmptyWork = (e) => {
+        const empty_work = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, empty_work })
+    }
 
-    // get the grading options data id
+    const handleIncompleteWork = (e) => {
+        const incomplete_work = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, incomplete_work })
+    }
 
-    const gradingOptionsDataId = findGradingOptionsData(sheetId)[0]?.id
+    const handleInvalidCompilation = (e) => {
+        const invalid_compilation = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, invalid_compilation })
+    }
 
-    // console.log('Grading options data id', gradingOptionsDataId)
+    const handleNorme = (e) => {
+        const norme = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, norme })
+    }
+
+    const handleCheat = (e) => {
+        const cheat = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, cheat })
+    }
+
+    const handleCrash = (e) => {
+        const crash = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, crash })
+    }
+
+    const handleConcerningSituations = (e) => {
+        const concerning_situations = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, concerning_situations })
+    }
+
+    const handleLeaks = (e) => {
+        const leaks = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, leaks })
+    }
+
+    const handleForbiddenFunctions = (e) => {
+        const forbidden_functions = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, forbidden_functions })
+    }
+
+    const handleCannotSupport = (e) => {
+        const cannot_support = e.target.value
+        setGradingOptionsData({ ...gradingOptionsData, cannot_support })
+    }
 
 
 
@@ -425,12 +263,12 @@ function page({ params }) {
 
     // -------------------- Submit form --------------------
 
-    const updateSheet = async (newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData) => {
+    const createSheet = async (newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData) => {
 
         // sweet alert loading until all process is done
 
         Swal.fire({
-            title: 'Updating Sheet',
+            title: 'Creating Sheet Request',
             html: 'Please wait...',
             timerProgressBar: true,
             didOpen: () => {
@@ -440,83 +278,76 @@ function page({ params }) {
 
         // send Post request to create a sheet
 
-        fetch(`/api/sheet/${sheetId}`, {
-            method: 'PUT',
+        fetch('/api/sheet', {
+            method: 'POST',
             body: JSON.stringify(newData)
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Step 1: Updating sheet data SUCCESS', data.data)
+                console.log('STEP 1: SUCCESS', data.data)
 
-                // Now update mandatory options using the sheet id
+                const sheetId = data.data.id
+
+                // Now create a mandatory options using the sheet id
 
                 fetch(`/api/mandatorySection/${sheetId}`, {
-                    method: 'PUT',
+                    method: 'POST',
                     body: JSON.stringify(newMandatoryOptionsData)
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log('Step 2: Updating mandatory options SUCCESS', data.data)
+                        console.log('STEP 2: SUCCESS', data.data)
 
-                        // Now update grading options using the sheet id
+                        // Now create a grading options using the sheet id
 
-                        fetch(`/api/gradingOption/${gradingOptionsDataId}`, {
-                            method: 'PUT',
+                        fetch(`/api/gradingOption/${sheetId}`, {
+                            method: 'POST',
                             body: JSON.stringify(newGradingOptionsData)
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log('Step 3: Updating grading options SUCCESS', data.data)
+                                console.log('STEP 3: SUCCESS', data.data)
 
                                 if (data.success) {
                                     Swal.fire({
                                         icon: 'success',
-                                        title: 'Sheet updated successfully',
+                                        title: 'Sheet request created successfully',
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
                                 } else {
                                     Swal.fire({
                                         icon: 'error',
-                                        title: 'Failed to update sheet',
+                                        title: 'Failed to create sheet',
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
                                 }
 
-                                // window.location.reload()
+                                // reset the form after successful submission
+                                reset()
+
+
 
                             })
 
-                        // Now update bonus sections using the sheet id
+                        // Now create a bonus sections using the sheet id only if there is a bonus section
 
                         if (newBonusOptionsDatacheck !== null) {
                             fetch(`/api/bonusSection/${sheetId}`, {
-                                method: 'PUT',
+                                method: 'POST',
                                 body: JSON.stringify(newBonusOptionsDatacheck)
                             })
                                 .then(res => res.json())
                                 .then(data => {
-                                    console.log('Step 4: Updating bonus sections SUCCESS', data.data)
-
-
-
-                                })
-                        } else {
-                            // delete existing bonus sections
-                            fetch(`/api/bonusSection/${sheetId}`, {
-                                method: 'DELETE'
-                            })
-                                .then(res => res.json())
-                                .then(data => {
-                                    console.log('Step 4: Deleting bonus sections SUCCESS', data.data)
+                                    console.log('STEP 4: SUCCESS', data.data)
                                 })
                         }
 
+                        //redirect to home
+                        router.push('/')
 
 
-                        //redirect to the admin page after successful submission
-                        router.push('/admin')
                     })
 
 
@@ -524,45 +355,35 @@ function page({ params }) {
     }
 
 
-    // console.log('Sheet data from server - INTRODUCTION', sheetDataFromServer.introduction)
-    // console.log('Sheet data from server - GUIDELINES', sheetDataFromServer.guidelines)
-    // console.log('INTRDUCTION DATA', introductionData)
-
-
 
     const submitForm = (data) => {
 
+
+
         const newData = {
-            optional_bonus_sections: data.optional_bonus_sections || sheetDataFromServer.optional_bonus_sections,
-            project_title: data.project_title || sheetDataFromServer.project_title,
-            introduction: introductionData.length === 0 ? sheetDataFromServer.introduction : introductionData,
-            status: sheetDataFromServer.status,
+            optional_bonus_sections: data.optional_bonus_sections,
+            project_title: data.project_title,
+            status: 'pending',
+            introduction: introductionData,
             attachments: [
                 `${data.attachment1Title},${data.attachment1Url}`,
                 `${data.attachment2Title},${data.attachment2Url}`,
                 `${data.attachment3Title},${data.attachment3Url}`,
                 `${data.attachment4Title},${data.attachment4Url}`
             ],
-            guidelines: guidelinesData.length === 0 ? sheetDataFromServer.guidelines : guidelinesData,
-            number_of_student: parseInt(data.number_of_student) || sheetDataFromServer.number_of_student,
-            cursus_id: selectedCursus || sheetDataFromServer.cursus_id
+            guidelines: guidelinesData,
+            number_of_student: parseInt(data.number_of_student),
+            cursus_id: selectedCursus
         }
-
-        // const newMandatoryOptionsData = {
-        //     title: mandatoryOptionsData.title || mandatoryOptionsDataFromServer[0].title,
-        //     description: mandatoryOptionsData.description ? mandatoryOptionsData.description : mandatoryOptionsDataFromServer[0].description,
-        //     yes_no: mandatoryOptionsData.yes_no === 'true' ? true : false
-        // }
 
         const newMandatoryOptionsData = []
 
         for (let i = 0; i < numberOfMandatorySections; i++) {
             newMandatoryOptionsData.push({
-                ids: mandatoryOptionsDataFromServer[i].id,
-                title: data.title[i] || mandatoryOptionsDataFromServer[i].title,
-                subtitle: data.subtitle[i] || mandatoryOptionsDataFromServer[i].subtitle,
-                description: data.description[i] || mandatoryOptionsDataFromServer[i].description,
-                yes_no: data.yes_no[i] == 'true' ? true : false
+                title: data.title[i],
+                subtitle: data.subtitle[i],
+                description: data.description[i],
+                yes_no: data.yes_no[i] === 'true' ? true : false
             })
         }
 
@@ -570,41 +391,59 @@ function page({ params }) {
 
         for (let i = 0; i < numberOfBonusSections; i++) {
             newBonusOptionsData.push({
-                ids: bonusSectionsDataFromServer[i].id,
-                title: data.bonus_title[i] || bonusSectionsDataFromServer[i].title,
-                subtitle: data.bonus_subtitle[i] || bonusSectionsDataFromServer[i].subtitle,
-                description: data.bonus_description[i] || bonusSectionsDataFromServer[i].description,
-                yes_no: data.bonus_yes_no[i] == 'true' ? true : false
+                title: data.bonus_title[i],
+                subtitle: data.bonus_subtitle[i],
+                description: data.bonus_description[i],
+                yes_no: data.bonus_yes_no[i] === 'true' ? true : false
             })
         }
 
+
         const newGradingOptionsData = {
-            ok: data.ok === 'false' ? false : true,
-            outstanding: data.outstanding === 'false' ? false : true,
-            empty_work: data.empty_work === 'false' ? false : true,
-            incomplete_work: data.incomplete_work === 'false' ? false : true,
-            invalid_compilation: data.invalid_compilation === 'false' ? false : true,
-            norme: data.norme === 'false' ? false : true,
-            cheat: data.cheat === 'false' ? false : true,
-            crash: data.crash === 'false' ? false : true,
-            concerning_situations: data.concerning_situations === 'false' ? false : true,
-            leaks: data.leaks === 'false' ? false : true,
-            forbidden_functions: data.forbidden_functions === 'false' ? false : true,
-            cannot_support: data.cannot_support === 'false'
+            ok: gradingOptionsData.ok === 'false' ? false : true,
+            outstanding: gradingOptionsData.outstanding === 'false' ? false : true,
+            empty_work: gradingOptionsData.empty_work === 'false' ? false : true,
+            incomplete_work: gradingOptionsData.incomplete_work === 'false' ? false : true,
+            invalid_compilation: gradingOptionsData.invalid_compilation === 'false' ? false : true,
+            norme: gradingOptionsData.norme === 'false' ? false : true,
+            cheat: gradingOptionsData.cheat === 'false' ? false : true,
+            crash: gradingOptionsData.crash === 'false' ? false : true,
+            concerning_situations: gradingOptionsData.concerning_situations === 'false' ? false : true,
+            leaks: gradingOptionsData.leaks === 'false' ? false : true,
+            forbidden_functions: gradingOptionsData.forbidden_functions === 'false' ? false : true,
+            cannot_support: gradingOptionsData.cannot_support === 'false' ? false : true
 
         }
 
         const newBonusOptionsDatacheck = newBonusOptionsData.length > 0 ? newBonusOptionsData : null
 
 
-        console.log('New data', newData)
-        console.log('New mandatory options data', newMandatoryOptionsData)
-        console.log('New bonus options data', newBonusOptionsDatacheck)
-        console.log('New grading options data', newGradingOptionsData)
+
+        createSheet(newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData)
+
+        console.log(newData)
+        console.log(newMandatoryOptionsData)
+        console.log(newBonusOptionsDatacheck)
+        console.log(newGradingOptionsData)
+    }
 
 
-        updateSheet(newData, newMandatoryOptionsData, newBonusOptionsDatacheck, newGradingOptionsData)
 
+    const defaultValues = {
+
+        introduction: `- Remain polite, courteous, respectful, and constructive throughout the evaluation process. The community's well-being depends on it.
+- Work with the student or group being evaluated to identify potential issues in their project. Take time to discuss and debate the problems identified.
+- Understand that there may be differences in how peers interpret the project instructions and scope. Always keep an open mind and grade as honestly as possible. Pedagogy is effective only when peer evaluations are taken seriously.`,
+        guidelines: `- Only grade the work submitted to the **Git repository** of the evaluated student or group.
+- Double-check that the **Git repository** belongs to the student(s) and that the project is the one expected. Ensure that **git clone** is used in an empty folder.
+- Carefully verify that no malicious aliases are used to deceive the evaluator into grading non-official content.
+- If applicable, review any **scripts** used for testing or automation together with the student.
+- If you haven’t completed the assignment you’re evaluating, read the entire subject before starting the evaluation.
+- Use the available flags to report an empty repository, a non-functioning program, a **Norm** error, or cheating. The evaluation process ends with a final grade of 0 (or -42 for cheating). However, except in cases of cheating, students are encouraged to review the work together to identify mistakes to avoid in the future.
+- Remember that no **segfaults** or other unexpected program terminations will be tolerated during the evaluation. If this occurs, the final grade is 0. Use the appropriate flag.
+- You should not need to edit any files except the configuration file, if it exists. If editing a file is necessary, explain the reasons to the evaluated student and ensure mutual agreement.
+- Verify the absence of **memory leaks.** All memory allocated on the heap must be properly freed before the program ends.
+- You may use tools like leaks, **valgrind,** or **e_fence** to check for memory leaks. If memory leaks are found, tick the appropriate flag.`,
 
     }
 
@@ -626,49 +465,9 @@ function page({ params }) {
 
 
 
-    if (loadingSheetData || loadingMandatoryOptionsData || loadingGradingOptionsData) {
-        return (
-            <div className='bg-gray-100 text-gray-900 min-h-screen'>
-                <div className="max-w-7xl mx-auto pb-20 px-5 md:px-14 lg:px-20 2xl:px-32">
-
-                    {/* Back to admin */}
-                    <div className="flex gap-3 items-center">
-                        <Link href='/admin'>
-                            <button
-                                className='w-10 h-10 bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-3 rounded-full mt-10 transition duration-200'>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                                </svg>
-                            </button>
-                        </Link>
-                        <h1 className=' mt-10  text-gray-400'>Back to dashboard</h1>
-                    </div>
-
-                    <div className='mt-10 flex justify-center items-center min-h-[65vh]'>
-                        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
 
 
-       // if (!authorized) {
-    //     return (
-    //         <div className='bg-gray-100 text-gray-900 min-h-screen'>
-    //             <div className="max-w-7xl mx-auto pb-20 pt-10">
-    //                 <h1 className='text-3xl text-center font-bold'>
-    //                     Checking Authorization
-    //                 </h1>
-    //                 <div className='text-center mt-10'>
-    //                     <p className='text-lg'>
-    //                         Please wait...
-    //                     </p>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+
 
 
 
@@ -679,34 +478,22 @@ function page({ params }) {
         <div className='bg-gray-100 text-gray-900'>
             <div className="max-w-7xl mx-auto pb-20 px-5 md:px-14 lg:px-20 2xl:px-32">
 
-                {/* Back to admin */}
-                <div className="flex gap-3 items-center">
-                    <Link href='/admin'>
-                        <button
-                            className='w-10 h-10 bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-3 rounded-full mt-10 transition duration-200'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                            </svg>
-                        </button>
-                    </Link>
-                    <h1 className=' mt-10  text-gray-400'>Back to dashboard</h1>
-                </div>
 
-
-
-                <div className="flex mt-10 items-center gap-2">
+                <div className="flex pt-10 items-center gap-2">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
-
 
                     </span>
                     <h1 className='text-3xl '>
 
-                        Edit Sheet
+                        Add a new sheet request
                     </h1>
                 </div>
+
+
+
 
                 <div>
                     <form onSubmit={handleSubmit(submitForm)} className='mt-10'>
@@ -718,7 +505,6 @@ function page({ params }) {
                                         Project Title
                                     </label>
                                     <input
-                                        defaultValue={sheetDataFromServer?.project_title}
                                         placeholder='Enter project title'
                                         type='text'
                                         id='project_title'
@@ -728,14 +514,30 @@ function page({ params }) {
                                     {errors.project_title && <span className='text-red-500'>This field is required</span>}
                                 </div>
 
+                                {/* <div>
+                                    <label htmlFor='slug' className='block text-sm font-medium text-gray-700'>
+                                        Slug
+                                    </label>
+                                    <input
+                                        placeholder='Enter project slug (must be unique)'
+                                        type='text'
+                                        id='slug'
+                                        {...register('slug', { required: true })}
+                                        className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
+                                    />
+                                    {errors.slug && <span className='text-red-500'>This field is required</span>}
+                                </div> */}
+
                                 <div>
                                     <label htmlFor='number_of_student' className='block text-sm font-medium text-gray-700'>
                                         Number of Student
                                     </label>
                                     <input
-                                        defaultValue={sheetDataFromServer?.number_of_student}
                                         placeholder='Enter number of student'
                                         type='number'
+                                        defaultValue={1}
+                                        max={5}
+                                        min={1}
                                         id='number_of_student'
                                         {...register('number_of_student', { required: true })}
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
@@ -751,7 +553,6 @@ function page({ params }) {
                                         Select Cursus
                                     </label>
                                     <select
-                                        defaultValue={sheetDataFromServer?.cursus_id}
                                         onChange={handleSelectCursus}
                                         id='cursus'
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
@@ -766,10 +567,6 @@ function page({ params }) {
                                         ))}
                                     </select>
                                 </div>
-
-
-
-
 
 
 
@@ -790,18 +587,16 @@ function page({ params }) {
 
                                     </div>
                                     <textarea
-                                        defaultValue={
-                                            sheetDataFromServer?.introduction ? sheetDataFromServer?.introduction.join('\n') : ''
-                                        }
-                                        rows={5}
+                                        rows={7}
                                         placeholder='Enter introduction text separated by a new line'
                                         id='introduction'
+                                        defaultValue={defaultValues.introduction}
                                         required
                                         onChange={(e) => handleIntroduction(e)}
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                     ></textarea>
 
-                                    <p className='mt-2 text-sm text-gray-500'>NOTE: Please separate each introduction with a new line</p>
+
                                 </div>
 
                                 <div className='sm:col-span-2'>
@@ -820,19 +615,58 @@ function page({ params }) {
 
                                     </div>
                                     <textarea
-                                        defaultValue={
-                                            sheetDataFromServer?.guidelines ? sheetDataFromServer?.guidelines.join('\n') : ''
-                                        }
-                                        rows={5}
+                                        rows={20}
                                         placeholder='Enter guidelines text separated by a new line'
                                         onChange={(e) => handleGuidelines(e)}
+                                        defaultValue={defaultValues.guidelines}
                                         id='guidelines'
                                         required
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                     />
 
-                                    <p className='mt-2 text-sm text-gray-500'>NOTE: Please separate each guideline with a new line</p>
+
                                 </div>
+
+
+                                {/* Guidelines Text Editor */}
+
+                                {/* <div>
+                                    <label htmlFor='guidelines' className='block text-sm font-medium text-gray-700 pb-1'>
+                                        Guidelines
+                                    </label>
+                                    <JoditEditor
+                                        ref={guidelineEditor}
+                                        value={guidelineContents}
+                                        config={config}
+                                        tabIndex={1}
+                                        onBlur={newContent => handleGuidelinesContent(newContent)}
+                                        onChange={newContent => { }}
+                                    />
+                                </div> */}
+
+                                {/* Show content */}
+                                {/* <div className='mt-5'>
+                                    <h1 className='text-xl font-medium text-gray-700'>Guidelines Content</h1>
+                                    <div className='mt-5' dangerouslySetInnerHTML={{ __html: guidelineContents }}></div>
+                                </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
 
 
@@ -849,9 +683,6 @@ function page({ params }) {
                                             Attachment 1 Title:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[0].split(',')[0] : ''
-                                            }
                                             {...register('attachment1Title', { required: true })}
                                             placeholder='Enter attachment title'
                                             type='text'
@@ -865,9 +696,6 @@ function page({ params }) {
                                             Attachment 1 URL:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[0].split(',')[1] : ''
-                                            }
                                             {...register('attachment1Url')}
                                             placeholder='Enter attachment URL'
                                             type='text'
@@ -885,9 +713,6 @@ function page({ params }) {
                                             Attachment 2 Title:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[1].split(',')[0] : ''
-                                            }
                                             {...register('attachment2Title')}
                                             placeholder='Enter attachment title'
                                             type='text'
@@ -901,9 +726,6 @@ function page({ params }) {
                                             Attachment 2 URL:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[1].split(',')[1] : ''
-                                            }
                                             {...register('attachment2Url')}
                                             placeholder='Enter attachment URL'
                                             type='text'
@@ -921,9 +743,6 @@ function page({ params }) {
                                             Attachment 3 Title:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[2].split(',')[0] : ''
-                                            }
                                             {...register('attachment3Title')}
                                             placeholder='Enter attachment title'
                                             type='text'
@@ -937,9 +756,6 @@ function page({ params }) {
                                             Attachment 3 URL:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[2].split(',')[1] : ''
-                                            }
                                             {...register('attachment3Url')}
                                             placeholder='Enter attachment URL'
                                             type='text'
@@ -957,9 +773,6 @@ function page({ params }) {
                                             Attachment 4 Title:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[3].split(',')[0] : ''
-                                            }
                                             {...register('attachment4Title')}
                                             placeholder='Enter attachment title'
                                             type='text'
@@ -973,9 +786,6 @@ function page({ params }) {
                                             Attachment 4 URL:
                                         </label>
                                         <input
-                                            defaultValue={
-                                                sheetDataFromServer?.attachments ? sheetDataFromServer.attachments[3].split(',')[1] : ''
-                                            }
                                             {...register('attachment4Url')}
                                             placeholder='Enter attachment URL'
                                             type='text'
@@ -994,7 +804,6 @@ function page({ params }) {
                                         Optional Bonus Sections
                                     </label>
                                     <textarea
-                                        defaultValue={sheetDataFromServer?.optional_bonus_sections}
                                         rows={5}
                                         placeholder='Enter optional bonus section text'
                                         {...register('optional_bonus_sections')}
@@ -1013,7 +822,7 @@ function page({ params }) {
                             <div className="flex flex-col p-5 lg:p-10 bg-white rounded-xl gap-5 mt-10">
                                 <di className="flex justify-between items-center">
                                     <label className='block  font-medium text-gray-700'>
-                                        Mandatory Part
+                                        Mandatory Sections
                                     </label>
 
                                     <div className='flex gap-2'>
@@ -1048,9 +857,6 @@ function page({ params }) {
                                                 Title of the evaluation criteria:
                                             </label>
                                             <input
-                                                defaultValue={
-                                                    mandatoryOptionsDataFromServer[index]?.title ? mandatoryOptionsDataFromServer[index]?.title : ''
-                                                }
                                                 {...register(`title.${index}`, { required: true })}
                                                 placeholder='Enter a title'
                                                 type='text'
@@ -1065,10 +871,7 @@ function page({ params }) {
                                                 Subtitle:
                                             </label>
                                             <input
-                                                defaultValue={
-                                                    mandatoryOptionsDataFromServer[index]?.subtitle ? mandatoryOptionsDataFromServer[index]?.subtitle : ''
-                                                }
-                                                {...register(`subtitle.${index}`, { required: true })}
+                                                {...register(`subtitle.${index}`)}
                                                 placeholder='Enter a subtitle (optional)'
                                                 type='text'
                                                 className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
@@ -1077,6 +880,7 @@ function page({ params }) {
 
                                         {/* description */}
                                         <div>
+
                                             <div className="flex justify-between items-center">
                                                 <label htmlFor='description' className='block text-sm text-gray-500 mt-5 mb-1'>
                                                     Detailed dscription:
@@ -1092,16 +896,14 @@ function page({ params }) {
 
                                             </div>
 
+
                                             <textarea
-                                                defaultValue={
-                                                    mandatoryOptionsDataFromServer[index]?.description ? mandatoryOptionsDataFromServer[index]?.description : ''
-                                                }
                                                 {...register(`description.${index}`, { required: true })}
                                                 rows={5}
                                                 placeholder='Enter detailed description separated by a new line'
                                                 className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                             />
-                                            < p className='mt-2 text-sm text-gray-500' > NOTE: Please separate each description with a new line</p>
+
                                         </div>
 
                                         {/* yes_no */}
@@ -1111,10 +913,8 @@ function page({ params }) {
                                             </label>
 
                                             <select
-                                                defaultValue={
-                                                    mandatoryOptionsDataFromServer[index]?.yes_no === true ? 'true' : 'false'
-                                                }
                                                 {...register(`yes_no.${index}`, { required: true })}
+                                                defaultValue={true}
                                                 className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                             >
                                                 <option value={null}>Select one</option>
@@ -1124,21 +924,25 @@ function page({ params }) {
                                         </div>
                                     </div>
                                 ))}
-
                             </div>
 
 
 
-                            {/* Bonus options: data- title, subtitle, description, yes_no */}
+
+
+
+
+
+
+                            {/* bonus options: data- title, subtitle, description, yes_no */}
 
                             <div className="flex flex-col p-5 lg:p-10 bg-white rounded-xl gap-5 mt-10">
-                                <di className="flex justify-between items-center">
+                                <div className="flex justify-between items-center">
                                     <label className='block  font-medium text-gray-700'>
-                                        Bonus Part
+                                        Bonus Sections
                                     </label>
 
                                     <div className='flex gap-2'>
-
                                         {
                                             numberOfBonusSections > 0 && (
                                                 <button type='button' onClick={removeBonusSection} className='bg-[#666666] hover:bg-[#525252] text-white py-3 px-5 rounded-full transition duration-200'>
@@ -1155,9 +959,8 @@ function page({ params }) {
                                             </svg>
 
                                         </button>
-
                                     </div>
-                                </di>
+                                </div>
 
 
 
@@ -1173,9 +976,6 @@ function page({ params }) {
                                                 Title of the evaluation criteria:
                                             </label>
                                             <input
-                                                defaultValue={
-                                                    bonusSectionsDataFromServer[index]?.title ? bonusSectionsDataFromServer[index]?.title : ''
-                                                }
                                                 {...register(`bonus_title.${index}`, { required: true })}
                                                 placeholder='Enter a title'
                                                 type='text'
@@ -1190,10 +990,7 @@ function page({ params }) {
                                                 Subtitle:
                                             </label>
                                             <input
-                                                defaultValue={
-                                                    bonusSectionsDataFromServer[index]?.subtitle ? bonusSectionsDataFromServer[index]?.subtitle : ''
-                                                }
-                                                {...register(`bonus_subtitle.${index}`, { required: true })}
+                                                {...register(`bonus_subtitle.${index}`)}
                                                 placeholder='Enter a subtitle (optional)'
                                                 type='text'
                                                 className=' block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
@@ -1217,10 +1014,8 @@ function page({ params }) {
 
                                             </div>
 
+
                                             <textarea
-                                                defaultValue={
-                                                    bonusSectionsDataFromServer[index]?.description ? bonusSectionsDataFromServer[index]?.description : ''
-                                                }
                                                 {...register(`bonus_description.${index}`, { required: true })}
                                                 rows={5}
                                                 placeholder='Enter detailed description separated by a new line'
@@ -1236,10 +1031,8 @@ function page({ params }) {
                                             </label>
 
                                             <select
-                                                defaultValue={
-                                                    bonusSectionsDataFromServer[index]?.yes_no === true ? 'true' : 'false'
-                                                }
                                                 {...register(`bonus_yes_no.${index}`, { required: true })}
+                                                defaultValue={true}
                                                 className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                             >
                                                 <option value={null}>Select one</option>
@@ -1249,17 +1042,7 @@ function page({ params }) {
                                         </div>
                                     </div>
                                 ))}
-
                             </div>
-
-
-
-
-
-
-
-
-
 
 
                             <div className="flex flex-col p-5 lg:p-10 bg-white rounded-xl gap-5 mt-10">
@@ -1273,11 +1056,9 @@ function page({ params }) {
                                             OK:
                                         </label>
                                         <select
-                                            {...register('ok')}
+                                            onChange={(e) => handleOk(e)}
                                             id='ok'
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].ok : null
-                                            }
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1291,11 +1072,9 @@ function page({ params }) {
                                             Outstanding:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].outstanding : null
-                                            }
-                                            {...register('outstanding')}
+                                            onChange={(e) => handleOutstanding(e)}
                                             id='outstanding'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1309,11 +1088,9 @@ function page({ params }) {
                                             Empty Work:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].empty_work : null
-                                            }
-                                            {...register('empty_work')}
+                                            onChange={(e) => handleEmptyWork(e)}
                                             id='empty_work'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1327,11 +1104,9 @@ function page({ params }) {
                                             Incomplete Work:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].incomplete_work : null
-                                            }
-                                            {...register('incomplete_work')}
+                                            onChange={(e) => handleIncompleteWork(e)}
                                             id='incomplete_work'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1345,11 +1120,9 @@ function page({ params }) {
                                             Invalid Compilation:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].invalid_compilation : null
-                                            }
-                                            {...register('invalid_compilation')}
+                                            onChange={(e) => handleInvalidCompilation(e)}
                                             id='invalid_compilation'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1363,11 +1136,9 @@ function page({ params }) {
                                             Norme:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].norme : null
-                                            }
-                                            {...register('norme')}
+                                            onChange={(e) => handleNorme(e)}
                                             id='norme'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1381,11 +1152,9 @@ function page({ params }) {
                                             Cheat:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].cheat : null
-                                            }
-                                            {...register('cheat')}
+                                            onChange={(e) => handleCheat(e)}
                                             id='cheat'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1399,11 +1168,9 @@ function page({ params }) {
                                             Crash:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].crash : null
-                                            }
-                                            {...register('crash')}
+                                            onChange={(e) => handleCrash(e)}
                                             id='crash'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1417,11 +1184,9 @@ function page({ params }) {
                                             Concerning Situations:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].concerning_situations : null
-                                            }
-                                            {...register('concerning_situations')}
+                                            onChange={(e) => handleConcerningSituations(e)}
                                             id='concerning_situations'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1435,11 +1200,9 @@ function page({ params }) {
                                             Leaks:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].leaks : null
-                                            }
-                                            {...register('leaks')}
+                                            onChange={(e) => handleLeaks(e)}
                                             id='leaks'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1453,11 +1216,9 @@ function page({ params }) {
                                             Forbidden Functions:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].forbidden_functions : null
-                                            }
-                                            {...register('forbidden_functions')}
+                                            onChange={(e) => handleForbiddenFunctions(e)}
                                             id='forbidden_functions'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1471,11 +1232,9 @@ function page({ params }) {
                                             Cannot Support:
                                         </label>
                                         <select
-                                            defaultValue={
-                                                gradingOptionsDataFromServer ? gradingOptionsDataFromServer[0].cannot_support : null
-                                            }
-                                            {...register('cannot_support')}
+                                            onChange={(e) => handleCannotSupport(e)}
                                             id='cannot_support'
+                                            defaultValue={true}
                                             className='block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                         >
                                             <option value={null}>Select one</option>
@@ -1492,7 +1251,7 @@ function page({ params }) {
 
                             < div className='mt-5'>
                                 <button type='submit' className='bg-[#0d94b6] hover:bg-[#0d829c] text-white py-3 px-10 rounded mt-10 transition duration-200'>
-                                    Update Sheet
+                                    Submit Request
                                 </button>
                                 <div div className='mt-5'>
                                 </div>
@@ -1504,13 +1263,10 @@ function page({ params }) {
 
                 </div>
 
-
                 <InfoModal isOpen={isOpen}
                     closeModal={closeModal}
 
                 />
-
-
 
             </div>
         </div>
