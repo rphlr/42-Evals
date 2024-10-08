@@ -36,12 +36,12 @@ Please note that the evaluation sheets are no longer hosted on GitHub but on a s
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/15942792?v=4&s=250)](https://github.com/see7e)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/149401955?v=4&s=250)](https://github.com/Welepy-dev)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[see7e](https://github.com/see7e)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[Welepy-dev](https://github.com/Welepy-dev)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->08.10.2024, 21:15:42<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->08.10.2024, 22:17:44<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
