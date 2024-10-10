@@ -20,13 +20,6 @@ function page() {
     }
         , [])
 
-
-
-
-
-
-
-
     // form
     const { register, handleSubmit, formState: { errors } } = useForm()
 

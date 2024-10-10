@@ -38,7 +38,6 @@ function page({ params }) {
         checkAdminAccess();
     }, [router, admins]);
 
-
     // Get the sheet id from the url
 
     const sheetId = params.id
@@ -243,9 +242,16 @@ function page({ params }) {
     }
 
 
+
+
+
+
+
+
+
     // Handle bonus sections
 
-    const [numberOfBonusSections, setNumberOfBonusSections] = useState(1)
+    const [numberOfBonusSections, setNumberOfBonusSections] = useState(0)
 
     useEffect(() => {
         setNumberOfBonusSections(bonusSectionsDataFromServer.length)
@@ -448,48 +454,98 @@ function page({ params }) {
             .then(data => {
                 console.log('Step 1: Updating sheet data SUCCESS', data.data)
 
+
+                // if a mandatory section is added, create a new mandatory section
+                // filter out the mandatory options that are new and create them using the sheet id
+
+                const createMandatoryOptionsData = newMandatoryOptionsData.filter(mandatoryOption => mandatoryOption.ids === undefined)
+
+                if (createMandatoryOptionsData.length > 0) {
+                    fetch(`/api/mandatorySection/${sheetId}`, {
+                        method: 'POST',
+                        body: JSON.stringify(createMandatoryOptionsData)
+                    })
+
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log('Step 2A: Creating new mandatory options SUCCESS', data.data)
+                        })
+                } else {
+                    console.log('No new mandatory options to create')
+                }
+
+
+
+
+
                 // Now update mandatory options using the sheet id
 
-                fetch(`/api/mandatorySection/${sheetId}`, {
+                // filter out the mandatory options that are not new and update them
+
+                const updatedMandatoryOptionsData = newMandatoryOptionsData.filter(mandatoryOption => mandatoryOption.ids !== undefined)
+
+                fetch(`/api/mandatorySection/${mandatoryOptionsDataId}`, {
                     method: 'PUT',
-                    body: JSON.stringify(newMandatoryOptionsData)
+                    body: JSON.stringify(updatedMandatoryOptionsData)
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('Step 2B: Updating mandatory options SUCCESS', data.data)
+                    })
+
+
+                // if a grading section is added, create a new grading section
+                // filter out the grading options that are new and create them using the sheet id
+                // if all are newly added, create all of them using the sheet id
+
+
+
+                if (newBonusOptionsDatacheck !== null) {
+                    const createBonusOptionsData = newBonusOptionsDatacheck.filter(bonusOption => bonusOption.ids === undefined)
+
+                    if (createBonusOptionsData.length > 0) {
+                        fetch(`/api/bonusSection/${sheetId}`, {
+                            method: 'POST',
+                            body: JSON.stringify(createBonusOptionsData)
+                        })
+
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log('Step 2C: Creating new grading options SUCCESS', data.data)
+                            })
+                    } else {
+                        console.log('No new grading options to create')
+                    }
+                }
+
+
+
+
+
+
+                // Now update grading options using the sheet id
+
+
+                fetch(`/api/gradingOption/${gradingOptionsDataId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(newGradingOptionsData)
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log('Step 2: Updating mandatory options SUCCESS', data.data)
+                        console.log('Step 3: Updating grading options SUCCESS', data.data)
 
-                        // Now update grading options using the sheet id
+                    })
 
-                        fetch(`/api/gradingOption/${gradingOptionsDataId}`, {
-                            method: 'PUT',
-                            body: JSON.stringify(newGradingOptionsData)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log('Step 3: Updating grading options SUCCESS', data.data)
 
-                                if (data.success) {
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Sheet updated successfully',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
-                                } else {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Failed to update sheet',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
-                                }
 
-                                // window.location.reload()
+                // Now update bonus sections using the sheet id
+                // filter out the bonus options that are not new and update them
 
-                            })
+                if (newBonusOptionsDatacheck !== null) {
+                    const updatedBonusOptionsData = newBonusOptionsDatacheck.filter(bonusOption => bonusOption.ids !== undefined)
 
-                        // Now update bonus sections using the sheet id
-
+                    if (updatedBonusOptionsData.length > 0) {
                         if (newBonusOptionsDatacheck !== null) {
                             fetch(`/api/bonusSection/${sheetId}`, {
                                 method: 'PUT',
@@ -502,22 +558,37 @@ function page({ params }) {
 
 
                                 })
-                        } else {
-                            // delete existing bonus sections
-                            fetch(`/api/bonusSection/${sheetId}`, {
-                                method: 'DELETE'
-                            })
-                                .then(res => res.json())
-                                .then(data => {
-                                    console.log('Step 4: Deleting bonus sections SUCCESS', data.data)
-                                })
                         }
-
-
-
-                        //redirect to the admin page after successful submission
-                        router.push('/admin')
+                    } else {
+                        console.log('No bonus sections to update')
+                    }
+                } else {
+                    // delete existing bonus sections
+                    fetch(`/api/bonusSection/${sheetId}`, {
+                        method: 'DELETE'
                     })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log('Step 4: Deleting bonus sections SUCCESS', data.data)
+                        })
+                }
+
+
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sheet updated successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+
+
+
+
+
+                //redirect to the admin page after successful submission
+                router.push('/admin')
 
 
             })
@@ -558,7 +629,7 @@ function page({ params }) {
 
         for (let i = 0; i < numberOfMandatorySections; i++) {
             newMandatoryOptionsData.push({
-                ids: mandatoryOptionsDataFromServer[i].id,
+                ids: mandatoryOptionsDataFromServer[i]?.id,
                 title: data.title[i] || mandatoryOptionsDataFromServer[i].title,
                 subtitle: data.subtitle[i] || mandatoryOptionsDataFromServer[i].subtitle,
                 description: data.description[i] || mandatoryOptionsDataFromServer[i].description,
@@ -570,7 +641,7 @@ function page({ params }) {
 
         for (let i = 0; i < numberOfBonusSections; i++) {
             newBonusOptionsData.push({
-                ids: bonusSectionsDataFromServer[i].id,
+                ids: bonusSectionsDataFromServer[i]?.id,
                 title: data.bonus_title[i] || bonusSectionsDataFromServer[i].title,
                 subtitle: data.bonus_subtitle[i] || bonusSectionsDataFromServer[i].subtitle,
                 description: data.bonus_description[i] || bonusSectionsDataFromServer[i].description,
@@ -653,7 +724,7 @@ function page({ params }) {
     }
 
 
-       // if (!authorized) {
+    // if (!authorized) {
     //     return (
     //         <div className='bg-gray-100 text-gray-900 min-h-screen'>
     //             <div className="max-w-7xl mx-auto pb-20 pt-10">
@@ -669,7 +740,6 @@ function page({ params }) {
     //         </div>
     //     )
     // }
-
 
 
 
@@ -1041,11 +1111,11 @@ function page({ params }) {
                                     <div key={index} className='mt-5'>
                                         {/* title */}
                                         <div>
-                                            <div className='mt-3 mb-7 border-sky-500 ' >
+                                            <div className='mt-3 mb-7 flex ' >
                                                 <h1 className='text-xl font-medium text-gray-700'>Mandatory Section {index + 1}</h1>
                                             </div>
                                             <label htmlFor='title' className='block text-sm text-gray-500 mb-1'>
-                                                Title of the evaluation criteria:
+                                                Title of the evaluation criteria: (Rename just the title to "null" if you don't want to display that section)
                                             </label>
                                             <input
                                                 defaultValue={
@@ -1170,7 +1240,7 @@ function page({ params }) {
                                                 <h1 className='text-xl font-medium text-gray-700'>Bonus Section {index + 1}</h1>
                                             </div>
                                             <label htmlFor='bonus_title' className='block text-sm text-gray-500 mb-1'>
-                                                Title of the evaluation criteria:
+                                                Title of the evaluation criteria: (Rename just the title to "null" if you don't want to display that section)
                                             </label>
                                             <input
                                                 defaultValue={

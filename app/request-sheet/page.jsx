@@ -47,15 +47,12 @@ function page() {
         }, [router]);
 
 
-
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
     } = useForm();
-
-
 
     // Get all cursus
 
@@ -82,7 +79,11 @@ function page() {
 
     // handle introduction (separator by a new line and arrange them in an array)
 
-    const [introductionData, setIntroductionData] = useState([])
+    const [introductionData, setIntroductionData] = useState([
+        "- Remain polite, courteous, respectful, and constructive throughout the evaluation process. The community's well-being depends on it.",
+        "- Work with the student or group being evaluated to identify potential issues in their project. Take time to discuss and debate the problems identified.",
+        "- Understand that there may be differences in how peers interpret the project instructions and scope. Always keep an open mind and grade as honestly as possible. Pedagogy is effective only when peer evaluations are taken seriously."
+    ])
 
     const handleIntroduction = (e) => {
         // take the splitted introduction from introduction and create an array of introduction
@@ -101,7 +102,18 @@ function page() {
 
     // handle guidelines (separate each guideline with a new line and arrange them in an array)
 
-    const [guidelinesData, setGuidelinesData] = useState([])
+    const [guidelinesData, setGuidelinesData] = useState([
+        "- Only grade the work submitted to the **Git repository** of the evaluated student or group.",
+        "- Double-check that the **Git repository** belongs to the student(s) and that the project is the one expected. Ensure that **git clone** is used in an empty folder.",
+        "- Carefully verify that no malicious aliases are used to deceive the evaluator into grading non-official content.",
+        "- If applicable, review any **scripts** used for testing or automation together with the student.",
+        "- If you haven’t completed the assignment you’re evaluating, read the entire subject before starting the evaluation.",
+        "- Use the available flags to report an empty repository, a non-functioning program, a **Norm** error, or cheating. The evaluation process ends with a final grade of 0 (or -42 for cheating). However, except in cases of cheating, students are encouraged to review the work together to identify mistakes to avoid in the future.",
+        "- Remember that no **segfaults** or other unexpected program terminations will be tolerated during the evaluation. If this occurs, the final grade is 0. Use the appropriate flag.",
+        "- You should not need to edit any files except the configuration file, if it exists. If editing a file is necessary, explain the reasons to the evaluated student and ensure mutual agreement.",
+        "- Verify the absence of **memory leaks.** All memory allocated on the heap must be properly freed before the program ends.",
+        "- You may use tools like leaks, **valgrind,** or **e_fence** to check for memory leaks. If memory leaks are found, tick the appropriate flag."
+    ])
 
 
     const handleGuidelines = (e) => {
@@ -609,6 +621,7 @@ function page() {
                                         defaultValue={defaultValues.introduction}
                                         required
                                         onChange={(e) => handleIntroduction(e)}
+                                        onBlur={(e) => handleIntroduction(e)}
                                         className='mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm'
                                     ></textarea>
 
@@ -634,6 +647,7 @@ function page() {
                                         rows={20}
                                         placeholder='Enter guidelines text separated by a new line'
                                         onChange={(e) => handleGuidelines(e)}
+                                        onBlur={(e) => handleGuidelines(e)}
                                         defaultValue={defaultValues.guidelines}
                                         id='guidelines'
                                         required

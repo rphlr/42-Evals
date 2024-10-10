@@ -45,12 +45,7 @@ function page({ params }) {
             checkLoginStatus();
         }, [router]);
 
-
-
-
     const sheetId = params.id
-
-
     const [sheetData, setSheetData] = useState({})
     const [loadingSheet, setLoadingSheet] = useState(true)
 
@@ -73,7 +68,15 @@ function page({ params }) {
         fetch(`/api/mandatorySection/${sheetId}`)
             .then(res => res.json())
             .then(data => {
-                setMandatorySections(data.data)
+                setMandatorySections((
+                    data.data.filter((section) => {
+                        if (section.title !== 'null') {
+                            return true
+                        } else {
+                            return false
+                        }
+                    })
+                ))
                 setLoadingMandatorySections(false)
             })
     }, [])
@@ -88,7 +91,16 @@ function page({ params }) {
         fetch(`/api/bonusSection/${sheetId}`)
             .then(res => res.json())
             .then(data => {
-                setBonusSections(data.data)
+                setBonusSections(
+                    data.data.filter((section) => {
+                        if (section.title !== 'null') {
+                            return true
+                        } else {
+                            return false
+                        }
+                    })
+
+                )
                 setLoadingBonusSections(false)
             })
     }, [])
@@ -128,7 +140,6 @@ function page({ params }) {
 
     // const [ok, outstanding, empty_work, incomplete_work, invalid_compilation, norme, cheat, crash, concerning_situations, leaks, forbidden_functions, cannot_support] = gradingOptions
 
-    console.log(gradingOptions)
 
 
 
@@ -173,6 +184,7 @@ function page({ params }) {
 
 
     const handleOkColor = () => {
+        handleGradingOptions()
         if (okColor === greenColor) {
             setAllColorToDefault()
             setOkColor(clickedGreenColor)
@@ -182,6 +194,7 @@ function page({ params }) {
     }
 
     const handleOutstandingColor = () => {
+        handleGradingOptions()
         if (outstandingColor === greenColor) {
             setAllColorToDefault()
             setOutstandingColor(clickedGreenColor)
@@ -191,6 +204,7 @@ function page({ params }) {
     }
 
     const handleEmptyWorkColor = () => {
+        handleGradingOptions()
         if (emptyWorkColor === redColor) {
             setAllColorToDefault()
             setEmptyWorkColor(clickedRedColor)
@@ -200,6 +214,7 @@ function page({ params }) {
     }
 
     const handleIncompleteWorkColor = () => {
+        handleGradingOptions()
         if (incompleteWorkColor === redColor) {
             setAllColorToDefault()
             setIncompleteWorkColor(clickedRedColor)
@@ -209,6 +224,7 @@ function page({ params }) {
     }
 
     const handleInvalidCompilationColor = () => {
+        handleGradingOptions()
         if (invalidCompilationColor === redColor) {
             setAllColorToDefault()
             setInvalidCompilationColor(clickedRedColor)
@@ -218,6 +234,7 @@ function page({ params }) {
     }
 
     const handleNormeColor = () => {
+        handleGradingOptions()
         if (normeColor === redColor) {
             setAllColorToDefault()
             setNormeColor(clickedRedColor)
@@ -228,6 +245,7 @@ function page({ params }) {
     }
 
     const handleCheatColor = () => {
+        handleGradingOptions()
         if (cheatColor === redColor) {
             setAllColorToDefault()
             setCheatColor(clickedRedColor)
@@ -237,6 +255,7 @@ function page({ params }) {
     }
 
     const handleCrashColor = () => {
+        handleGradingOptions()
         if (crashColor === redColor) {
             setAllColorToDefault()
             setCrashColor(clickedRedColor)
@@ -246,6 +265,7 @@ function page({ params }) {
     }
 
     const handleConcerningSituationsColor = () => {
+        handleGradingOptions()
         if (concerningSituationsColor === redColor) {
             setAllColorToDefault()
             setConcerningSituationsColor(clickedRedColor)
@@ -255,6 +275,7 @@ function page({ params }) {
     }
 
     const handleLeaksColor = () => {
+        handleGradingOptions()
         if (leaksColor === redColor) {
             setAllColorToDefault()
             setLeaksColor(clickedRedColor)
@@ -264,6 +285,7 @@ function page({ params }) {
     }
 
     const handleForbiddenFunctionsColor = () => {
+        handleGradingOptions()
         if (forbiddenFunctionsColor === redColor) {
             setAllColorToDefault()
             setForbiddenFunctionsColor(clickedRedColor)
@@ -274,6 +296,7 @@ function page({ params }) {
     }
 
     const handleCannotSupportColor = () => {
+        handleGradingOptions()
         if (cannotSupportColor === redColor) {
             setAllColorToDefault()
             setCannotSupportColor(clickedRedColor)
@@ -297,28 +320,21 @@ function page({ params }) {
         })
     }, [])
 
-
-
-
     const scrollToTop = () => {
         window.scrollTo(0, 0)
     }
-
-
 
     const handleBackToAllProjects = () => {
         router.push('/sheets')
     }
 
-
-
-
-
     const initialYesColor = 'bg-green-100 text-green-600 hover:bg-green-500 hover:text-white transition duration-200  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
     const initialNoColor = 'bg-red-50 text-red-600 hover:bg-red-500 transition duration-200 hover:text-white transition duration-200  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
 
+
     const clickedYesColor = 'bg-green-500 text-white  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
     const clickedNoColor = 'bg-red-500 text-white  py-3 px-14 rounded-lg mb-3 flex gap-2 items-center';
+
 
 
     // color state handling for yes no buttons each section based on index of the section
@@ -356,25 +372,6 @@ function page({ params }) {
         setYesColor(temp2)
     }
 
-
-    useEffect(() => {
-
-        // a defalut click on all yes no buttons
-        let temp = []
-        let temp2 = []
-
-        for (let i = 0; i < mandatorySections.length; i++) {
-            temp.push(initialYesColor)
-            temp2.push(initialNoColor)
-        }
-
-        setYesColor(temp)
-        setNoColor(temp2)
-
-    }, [mandatorySections])
-
-
-
     // same for bonus sections
 
     const [yesColorBonus, setYesColorBonus] = useState([])
@@ -400,6 +397,8 @@ function page({ params }) {
         if (temp[index] === initialNoColor) {
             temp[index] = clickedNoColor
             temp2[index] = initialYesColor
+        } else {
+            temp[index] = initialNoColor
         }
 
         setNoColorBonus(temp)
@@ -422,6 +421,282 @@ function page({ params }) {
         setNoColorBonus(temp2)
 
     }, [bonusSections])
+
+
+    useEffect(() => {
+
+        // a defalut click on all yes no buttons
+        let temp = []
+        let temp2 = []
+
+        for (let i = 0; i < mandatorySections.length; i++) {
+            temp.push(initialYesColor)
+            temp2.push(initialNoColor)
+        }
+
+        setYesColor(temp)
+        setNoColor(temp2)
+
+    }, [mandatorySections])
+
+    // Get all the slider values for each section of mandatorySections and bonusSections
+    // correction: not each section but for each section with a slider not yes no buttons
+
+    const [mandatorySliderValues, setMandatorySliderValues] = useState([])
+    const [bonusSliderValues, setBonusSliderValues] = useState([])
+
+    console.log("mandatory slider values", mandatorySliderValues)
+    // console.log("bonus slider values", bonusSliderValues)
+
+
+    const handleMandatorySliderValues = (index, value) => {
+        console.log("index", index)
+        console.log("value", value)
+
+        //get indexes of the mandatory sections with sliders only not yes no buttons
+
+        const mandatorySectionsWithSlidersIndexes = mandatorySections.map((section, index) => {
+            if (section.yes_no === false) {
+                return index
+            }
+        }).filter((index) => {
+            if (index !== undefined) {
+                return true
+            } else {
+                return false
+            }
+        })
+
+
+        console.log("mandatory sections with sliders indexes", mandatorySectionsWithSlidersIndexes)
+
+
+
+
+
+
+        let temp = [...mandatorySliderValues]
+
+        console.log("temp", temp)
+
+        // temp[index] = parseInt(value)
+        // setMandatorySliderValues(temp)
+
+        for (let i = 0; i < mandatorySectionsWithSlidersIndexes.length; i++) {
+            if (index === mandatorySectionsWithSlidersIndexes[i]) {
+                temp[i] = parseInt(value)
+                setMandatorySliderValues(temp)
+            }
+        }
+
+
+
+    }
+
+    const handleBonusSliderValues = (index, value) => {
+        let temp = [...bonusSliderValues]
+        temp[index] = parseInt(value)
+        setBonusSliderValues(temp)
+    }
+
+    useEffect(() => {
+        let temp = []
+        let temp2 = []
+
+        // for mandatory sections with sliders only not yes no buttons
+
+        const mandatorySectionsWithSliders = mandatorySections.filter((section) => {
+            if (section.yes_no === false) {
+                return true
+            } else {
+                return false
+            }
+        })
+
+        for (let i = 0; i < mandatorySectionsWithSliders.length; i++) {
+            temp.push(0)
+        }
+
+        setMandatorySliderValues(temp)
+
+        // for bonus sections with sliders only not yes no buttons
+
+        const bonusSectionsWithSliders = bonusSections.filter((section) => {
+            if (section.yes_no === false) {
+                return true
+            } else {
+                return false
+            }
+        })
+
+        for (let i = 0; i < bonusSectionsWithSliders.length; i++) {
+            temp2.push(0)
+        }
+
+        setBonusSliderValues(temp2)
+
+    }, [mandatorySections, bonusSections])
+
+
+    // Points calculation for each mandatorySections and bonusSections
+
+    const [points, setPoints] = useState(0)
+    const [bonusPoints, setBonusPoints] = useState(0)
+
+
+    console.log("points", points)
+    console.log("bonus points", bonusPoints)
+
+    const calculatePoints = () => {
+        console.log("clicked for points calculation")
+        let points = 0
+        let bonusPoints = 0
+
+        // calculate points for mandatory sections yes no buttons
+
+
+        for (let i = 0; i < mandatorySections.length; i++) {
+            if (yesColor[i] === clickedYesColor) {
+                // 100/all questions X numbers of Yes answers.
+                points += 100 / mandatorySections.length
+            }
+
+            // if (noColor[i] === clickedNoColor) {
+            //     if (points > 0) {
+            //         // only substract point for that section as I can see you are substracting 100/all questions X numbers of No answers.
+            //         // but it should be 100/all questions X numbers of No answers.
+            //         points -= 100 / mandatorySections.length
+
+            //     }
+            // }
+
+        }
+
+
+        // calculate points for bonus sections yes no buttons
+
+
+        if (bonusSections.length > 0) {
+            for (let i = 0; i < bonusSections.length; i++) {
+                if (yesColorBonus[i] === clickedYesColor) {
+                    // add bonus point up to 25 (total 125) for each bonus section divided by the number of bonus sections
+                    // if points are less than 100 then dont add bonus points
+                    bonusPoints += 25 / bonusSections.length
+                }
+
+                // if (noColorBonus[i] === clickedNoColor) {
+                //     // substract bonus point up to 25 (total 125) for each bonus section divided by the number of bonus sections
+                //     // if points are less than 100 then dont substract bonus points
+
+                //     points -= 25 / bonusSections.length
+                // }
+
+            }
+        }
+
+        // also calculate points for each slider value from 0-100 for mandatory sections and bonus sections and add them to the points variable in real time as the slider is moved to any value
+
+
+        // for mandatory sections slider values
+
+        for (let i = 0; i < mandatorySliderValues.length; i++) {
+            // point calculation
+            // maximum point for each section 100 / mandatorySections.length
+            // if the slider value is 0 then no point
+            // if the slider value is 20 then 20% of the maximum point
+            // if the slider value is 40 then 40% of the maximum point
+            // if the slider value is 60 then 60% of the maximum point
+            // if the slider value is 80 then 80% of the maximum point
+            // if the slider value is 100 then 100% of the maximum point
+
+            const maxPoint = 100 / mandatorySections.length
+
+            points += (maxPoint * mandatorySliderValues[i]) / 100
+
+
+        }
+
+        // for bonus sections slider values
+
+        for (let i = 0; i < bonusSliderValues.length; i++) {
+            // point calculation
+            // maximum point for each section 25 / bonusSections.length
+            // if the slider value is 0 then no point
+            // if the slider value is 20 then 20% of the maximum point
+            // if the slider value is 40 then 40% of the maximum point
+            // if the slider value is 60 then 60% of the maximum point
+            // if the slider value is 80 then 80% of the maximum point
+            // if the slider value is 100 then 100% of the maximum point
+
+            const maxPoint = 25 / bonusSections.length
+
+            bonusPoints += (maxPoint * bonusSliderValues[i]) / 100
+
+        }
+
+        // set point with 1 decimal place only if there is a decimal point in the number otherwise no decimal point needed
+
+        if (points % 1 !== 0) {
+            setPoints(points.toFixed(1))
+        } else {
+            setPoints(points)
+        }
+
+        if (bonusPoints % 1 !== 0) {
+            setBonusPoints(bonusPoints.toFixed(1))
+        } else {
+            setBonusPoints(bonusPoints)
+        }
+
+    }
+
+
+
+    // when any grading option button is clicked then calculate points to show a Swal alert with the points
+
+    useEffect(() => {
+        calculatePoints()
+    }, [okColor, outstandingColor, emptyWorkColor, incompleteWorkColor, invalidCompilationColor, normeColor, cheatColor, crashColor, concerningSituationsColor, leaksColor, forbiddenFunctionsColor, cannotSupportColor])
+
+    const handleGradingOptions = () => {
+
+        if (points >= 100) {
+            Swal.fire({
+                position: 'top-end',
+                title: 'Congartulations',
+                text: `What a great student, your note is ${parseFloat(points) + parseFloat(bonusPoints)} points out of 100 with bonus points`,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 5000
+            })
+        } else {
+            Swal.fire({
+                position: 'top-end',
+                title: 'Just a little more effort needed',
+                text: `You have earned ${parseFloat(points)} points out of 100`,
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 5000
+            })
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // Function to normalize the text by replacing special quotes or spaces
@@ -462,7 +737,7 @@ function page({ params }) {
                 // Trim any accidental leading or trailing spaces inside the backticks
                 return (
                     <code key={index} className="bg-gray-100 p-1 rounded">
-                        {part.slice(1, -1).trim()} {/* Removes ` and trims spaces */}
+                        {part.slice(1, -1)}
                     </code>
                 );
             }
@@ -500,6 +775,13 @@ function page({ params }) {
     };
 
 
+    // Calculate points on every change of the color buttons real time
+
+    useEffect(() => {
+        calculatePoints()
+    }, [yesColor, noColor, yesColorBonus, noColorBonus, mandatorySliderValues, bonusSliderValues])
+
+
 
 
 
@@ -511,8 +793,42 @@ function page({ params }) {
 
 
 
+
+
+
+
+
+
+
+
+
     return (
         <div className='bg-gray-100 text-gray-900 min-h-screen'>
+
+            {/* floating fixed point display */}
+
+            <div className='fixed top-16 right-5 bg-white p-10 rounded-lg shadow-lg'>
+                <h1 className='text-2xl font-bold'>
+                    Points earned
+                </h1>
+                <p className='text-3xl font-bold text-sky-500'>
+                    {
+                        points >= 100 ?
+                            <span className='text-green-500'>
+                                {
+                                    parseFloat(points) + parseFloat(bonusPoints)
+                                }
+                            </span> :
+                            <span className='text-red-500'>
+                                {
+                                    parseFloat(points)
+                                }
+                            </span>
+                    }
+                </p>
+            </div>
+
+
 
             {/* Back to all sheets */}
             <div className="flex gap-3 items-center max-w-7xl mx-auto pt-10 px-5 2xl:px-0">
@@ -674,7 +990,9 @@ function page({ params }) {
                                                 <p className='text-sm font-medium text-center pb-2'>
                                                     Rate it from 0 (failed) through 5 (excellent)
                                                 </p>
-                                                <input type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
+                                                <input
+                                                    onChange={(e) => handleMandatorySliderValues(index, e.target.value)}
+                                                    type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
                                                 <div className="flex w-full justify-between px-2 text-xs">
                                                     <span>0</span>
                                                     <span>1</span>
@@ -753,7 +1071,9 @@ function page({ params }) {
                                                         <p className='text-sm font-medium text-center pb-2'>
                                                             Rate it from 0 (failed) through 5 (excellent)
                                                         </p>
-                                                        <input type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
+                                                        <input
+                                                            onChange={(e) => handleBonusSliderValues(index, e.target.value)}
+                                                            type="range" defaultValue={0} min={0} max={100} className="range range-info" step={20} />
                                                         <div className="flex w-full justify-between px-2 text-xs">
                                                             <span>0</span>
                                                             <span>1</span>

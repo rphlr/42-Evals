@@ -40,16 +40,17 @@ function page() {
         checkAdminAccess();
     }, [router, admins]);
 
-
     // Fetch all cursus data
 
     const [cursusData, setCursusData] = useState([])
+    const [loadingCursus, setLoadingCursus] = useState(true)
 
     useEffect(() => {
         fetch('/api/cursus')
             .then(res => res.json())
             .then(data => {
                 setCursusData(data.data)
+                setLoadingCursus(false)
             })
     }, [])
 
@@ -59,14 +60,14 @@ function page() {
 
 
     const [sheetData, setSheetData] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [loadingSheetData, setLoadingSheetData] = useState(true)
 
     useEffect(() => {
         fetch('/api/sheet')
             .then(res => res.json())
             .then(data => {
                 setSheetData(data.data)
-                setLoading(false)
+                setLoadingSheetData(false)
             })
     }, [])
 
@@ -160,23 +161,38 @@ function page() {
                     <div className='grid grid-cols-1 md:grid-cols-4 gap-5 mt-10'>
                         <div className=' bg-orange-500 text-white rounded-lg py-7 px-5'>
                             <h2 className='text-xl font-semibold'>Total Sheets</h2>
-                            <p className='text-4xl font-bold'>{sheetData.length}</p>
+                            <p className='text-4xl font-bold'>
+                                {
+                                    loadingSheetData ? '--' : sheetData.length
+                                }
+                            </p>
                         </div>
 
                         <div className='bg-[#0d94b6] text-white rounded-lg py-7 px-5'>
                             <h2 className='text-xl font-semibold'>Pending Sheets</h2>
-                            <p className='text-4xl font-bold'>{sheetData.filter(sheet => sheet.status === 'pending').length}</p>
+                            <p className='text-4xl font-bold'>
+                                {
+                                    loadingSheetData ? '--' :
+                                        sheetData.filter(sheet => sheet.status === 'pending').length
+                                }
+                            </p>
                         </div>
 
                         <div className='bg-green-500 text-white rounded-lg py-7 px-5'>
                             <h2 className='text-xl font-semibold'>Approved Sheets</h2>
-                            <p className='text-4xl font-bold'>{sheetData.filter(sheet => sheet.status === 'active').length}</p>
+                            <p className='text-4xl font-bold'>
+                                {
+                                    loadingSheetData ? '--' :
+                                        sheetData.filter(sheet => sheet.status === 'active').length
+                                }
+                            </p>
                         </div>
                         <div className=' bg-rose-500 text-white rounded-lg py-7 px-5'>
                             <h2 className='text-xl font-semibold'>Cursus</h2>
                             <p className='text-4xl font-bold'>
                                 {
-                                    cursusData?.length
+                                    loadingCursus ? '--' :
+                                        cursusData?.length
                                 }
                             </p>
                         </div>
@@ -231,7 +247,7 @@ function page() {
                     </thead>
 
                     {
-                        loading ? <tbody>
+                        loadingSheetData || loadingCursus ? <tbody>
                             <tr>
                                 <td colSpan='3' className='text-center py-5'>Loading...</td>
                             </tr>
