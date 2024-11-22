@@ -36,12 +36,12 @@ Please note that the evaluation sheets are no longer hosted on GitHub but on a s
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/59312501?v=4&s=250)](https://github.com/maspordes)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/1368384?v=4&s=250)](https://github.com/Wesper-Dev)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[maspordes](https://github.com/maspordes)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[Wesper-Dev](https://github.com/Wesper-Dev)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->22.11.2024, 22:17:04<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->22.11.2024, 23:17:30<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
