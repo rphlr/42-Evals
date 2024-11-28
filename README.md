@@ -36,12 +36,12 @@ Please note that the evaluation sheets are no longer hosted on GitHub but on a s
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/116694569?v=4&s=250)](https://github.com/adamgdm)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/62825602?v=4&s=250)](https://github.com/oussamalahrizi)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[adamgdm](https://github.com/adamgdm)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[oussamalahrizi](https://github.com/oussamalahrizi)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->28.11.2024, 18:16:22<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->28.11.2024, 19:25:32<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
