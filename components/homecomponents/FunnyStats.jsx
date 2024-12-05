@@ -50,24 +50,24 @@ function FunnyStats() {
                         Last stargazer:
                     </p>
                     <div className="flex justify-center items-center">
-                        {/* last_stargazer_start_JSX */}<a href="https://github.com/RogerioLS"><img src="https://avatars.githubusercontent.com/u/60794624?v=4&s=250"
+                        {/* last_stargazer_start_JSX */}<a href="https://github.com/SimonvH03"><img src="https://avatars.githubusercontent.com/u/146749293?v=4&s=250"
                   target="_blank"/></a>{/* last_stargazer_end_JSX */}
                     </div>
 
                     <p className=' pt-2 text-gray-600 text-center'>
                         Thanks to
                         {/* name_start_JSX */} <a
-                            href="https://github.com/RogerioLS"
+                            href="https://github.com/SimonvH03"
                             target="_blank"
                             className='text-[#0D94B6] hover:underline'
-                        >RogerioLS</a> {/* name_end_JSX */}
+                        >SimonvH03</a> {/* name_end_JSX */}
                         for starring the repository! 🎉
                     </p>
                     <p className=' pt-2 text-gray-600 font-bold '>
-                        Star Count: <span className='text-[#0D94B6] font-bold'>{/* stars_start */}820{/* stars_end */}</span> 🌟
+                        Star Count: <span className='text-[#0D94B6] font-bold'>{/* stars_start */}821{/* stars_end */}</span> 🌟
                     </p>
                     <p className=' pt-2 text-gray-600 font-bold '>
-                        Updates occur hourly. Last update : <span className=' font-normal'> {/* date_start_JSX */}05.12.2024, 15:18:14{/* date_end_JSX */} (CET)</span>
+                        Updates occur hourly. Last update : <span className=' font-normal'> {/* date_start_JSX */}05.12.2024, 16:20:55{/* date_end_JSX */} (CET)</span>
                     </p>
                     <a href="https://github.com/rphlr/42-Evals" target="_blank"><img src="https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date&" className='mt-5' alt="rphlr's Blue Github Chart" /></a>
                     <hr className='my-5' />
