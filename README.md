@@ -41,7 +41,7 @@ Please note that the evaluation sheets are no longer hosted on GitHub but on a s
   
   Thanks to <!--name_start-->[AchrafHattabi](https://github.com/AchrafHattabi)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->01.01.2025, 17:21:20<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->01.01.2025, 18:14:37<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
