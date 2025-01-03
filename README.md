@@ -36,12 +36,12 @@ Please note that the evaluation sheets are no longer hosted on GitHub but on a s
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/124877461?v=4&s=250)](https://github.com/Sma0sh)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/162949404?v=4&s=250)](https://github.com/harry-world)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[Sma0sh](https://github.com/Sma0sh)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[harry-world](https://github.com/harry-world)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->03.01.2025, 12:14:16<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->03.01.2025, 13:34:46<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
