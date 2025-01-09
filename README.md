@@ -36,12 +36,12 @@ Please note that the evaluation sheets are no longer hosted on GitHub but on a s
   **Last stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/114365956?v=4&s=250)](https://github.com/whtifigo)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/149727332?v=4&s=250)](https://github.com/MV42)
   <!--last_stargazer_end-->
   
-  Thanks to <!--name_start-->[whtifigo](https://github.com/whtifigo)<!--name_end--> for starring the repository! 🎉
+  Thanks to <!--name_start-->[MV42](https://github.com/MV42)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->09.01.2025, 14:24:07<!--date_end--> (CET)
+  **Updates occur hourly. Last update :** <!--date_start-->09.01.2025, 15:16:19<!--date_end--> (CET)
 
  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
