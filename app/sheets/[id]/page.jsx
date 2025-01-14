@@ -663,7 +663,7 @@ function page({ params }) {
         if (points >= 100) {
             Swal.fire({
                 position: 'top-end',
-                title: 'Congartulations',
+                title: 'Congratulations',
                 text: `What a great student, your note is ${parseFloat(points) + parseFloat(bonusPoints)} points out of 100 with bonus points`,
                 icon: 'success',
                 showConfirmButton: false,
