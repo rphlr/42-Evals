@@ -40,6 +40,38 @@ export default function Home() {
       totalStars: "Nombre total d'étoiles :",
       starHistory: "Historique des étoiles :",
     },
+    it: {
+      title: "42 Fogli di Valutazione 🎯",
+      message: `Con grande rammarico annuncio la chiusura di questo repository a causa di una decisione presa dalla scuola 42. 
+
+        Il progetto non è più aggiornato e tutti i fogli di valutazione non sono più disponibili.
+
+        Grazie a tutti coloro che hanno supportato questo progetto e contribuito a migliorarlo nel corso degli anni. I vostri contributi e il vostro entusiasmo lo hanno reso ciò che era.`,
+      closing: `Sebbene questo progetto non sia più mantenuto, vi invito a rimanere in contatto per i futuri progetti:`,
+      github: "Visita il mio GitHub",
+      linkedin: "Collegati su LinkedIn",
+      statsTitle: "Statistiche del repository 📊",
+      lastStargazer: "Ultimo utente che ha dato una stella:",
+      starProject: "Dai una stella a questo progetto",
+      totalStars: "Stelle totali:",
+      starHistory: "Cronologia delle stelle:",
+    },
+    de: {
+      title: "42 Bewertungsblätter 🎯",
+      message: `Mit großem Bedauern gebe ich die Schließung dieses Repositories aufgrund einer Entscheidung der 42 Schule bekannt. 
+
+        Das Projekt wird nicht mehr aktualisiert und alle Bewertungsblätter sind dauerhaft nicht mehr verfügbar.
+
+        Vielen Dank an alle, die dieses Projekt unterstützt und im Laufe der Jahre verbessert haben. Ihre Beiträge und Begeisterung haben das Projekt zu dem gemacht, was es war.`,
+      closing: `Obwohl dieses Projekt nicht mehr gepflegt wird, lade ich Sie ein, für zukünftige Projekte in Kontakt zu bleiben:`,
+      github: "Besuchen Sie mein GitHub",
+      linkedin: "Verbinden Sie sich auf LinkedIn",
+      statsTitle: "Repository-Statistiken 📊",
+      lastStargazer: "Letzter Benutzer, der eine Sterne vergeben hat:",
+      starProject: "Bewerte dieses Projekt mit einem Stern",
+      totalStars: "Gesamtanzahl der Sterne:",
+      starHistory: "Sternenverlauf:",
+    },
   };
 
   const {
@@ -55,39 +87,29 @@ export default function Home() {
     starHistory,
   } = translations[language];
 
+  // Fetch star count and last stargazer data from GitHub API
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
+        // Fetch repository details
         const repoResponse = await fetch(
           "https://api.github.com/repos/rphlr/42-Evals"
         );
         const repoData = await repoResponse.json();
         setStarCount(repoData.stargazers_count);
-  
-        let stargazers = [];
-        let page = 1;
-        let perPage = 100;
-        let hasMore = true;
-  
-        while (hasMore) {
-          const stargazersResponse = await fetch(
-            `https://api.github.com/repos/rphlr/42-Evals/stargazers?per_page=${perPage}&page=${page}`,
-            {
-              headers: { Accept: "application/vnd.github.v3.star+json" },
-            }
-          );
-          const currentPageStargazers = await stargazersResponse.json();
-  
-          if (currentPageStargazers.length === 0) {
-            hasMore = false;
-          } else {
-            stargazers = [...stargazers, ...currentPageStargazers];
-            page += 1;
+
+        // Fetch stargazers
+        const stargazersResponse = await fetch(
+          "https://api.github.com/repos/rphlr/42-Evals/stargazers",
+          {
+            headers: { Accept: "application/vnd.github.v3.star+json" },
           }
-        }
-  
+        );
+        const stargazers = await stargazersResponse.json();
+
+        // Get the most recent stargazer (first in the list)
         if (stargazers.length > 0) {
-          const recentStargazer = stargazers[stargazers.length - 1];
+          const recentStargazer = stargazers[0];
           setLastStargazer({
             username: recentStargazer.user.login,
             avatar: recentStargazer.user.avatar_url,
@@ -98,9 +120,8 @@ export default function Home() {
         console.error("Failed to fetch data from GitHub:", error);
       }
     };
+
     fetchGitHubData();
-    const interval = setInterval(fetchGitHubData, 5 * 60 * 1000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -114,7 +135,7 @@ export default function Home() {
             href="https://github.com/rphlr"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline font-medium"
+            className="px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center gap-2"
           >
             {github}
           </a>
@@ -122,12 +143,12 @@ export default function Home() {
             href="https://www.linkedin.com/in/rphlr"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline font-medium"
+            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
           >
             {linkedin}
           </a>
         </div>
-        <hr className="my-4" />
+        {/* <hr className="my-4" />
         <h2 className="text-xl font-bold mb-4">{statsTitle}</h2>
         <div className="mb-6">
           <h3 className="text-lg font-medium mb-2">{lastStargazerLabel}</h3>
@@ -177,7 +198,7 @@ export default function Home() {
           >
             {starProject}
           </a>
-        </div>
+        </div> */}
         <div className="mt-6">
           <select
             value={language}
@@ -186,6 +207,8 @@ export default function Home() {
           >
             <option value="en">English</option>
             <option value="fr">Français</option>
+            <option value="it">Italiano</option>
+            <option value="de">Deutsch</option>
           </select>
         </div>
       </div>
