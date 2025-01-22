@@ -1,104 +1,200 @@
-'use client';
+"use client";
 
-import React, { useEffect } from 'react';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-import Hero from '@/components/homecomponents/Hero';
-import Evolution from '@/components/homecomponents/Evolution';
-import Contributing from '@/components/homecomponents/Contributing';
-import Navigating from '@/components/homecomponents/Navigating';
-import Language from '@/components/homecomponents/Language';
-import Resources from '@/components/homecomponents/Resources';
-import Voice from '@/components/homecomponents/Voice';
-import FunnyStats from '@/components/homecomponents/FunnyStats';
-
-const MySwal = withReactContent(Swal);
+import React, { useState, useEffect } from "react";
 
 export default function Home() {
+  const [language, setLanguage] = useState("en");
+  const [starCount, setStarCount] = useState(null);
+  const [lastStargazer, setLastStargazer] = useState(null);
+
+  const translations = {
+    en: {
+      title: "42 Evaluation Sheets Hub 🎯",
+      message: `It is with great regret that I announce the closure of this repository due to a decision made by 42 School. 
+
+        The project is no longer being updated and all evaluation sheets are permanently unavailable.
+
+        Thank you to everyone who supported this project and helped improve it over the years. Your contributions and enthusiasm made it what it was.`,
+      closing: `While this project is no longer maintained, I encourage you to stay connected for future projects:`,
+      github: "Visit my GitHub",
+      linkedin: "Connect on LinkedIn",
+      statsTitle: "Repository Stats 📊",
+      lastStargazer: "Last Stargazer:",
+      starProject: "Star this project",
+      totalStars: "Total Stars:",
+      starHistory: "Star History:",
+    },
+    fr: {
+      title: "42 Évaluation Hub 🎯",
+      message: `C'est avec un grand regret que j'annonce la fermeture de ce dépôt suite à une décision de l'école 42. 
+
+        Le projet n'est plus mis à jour et toutes les feuilles d'évaluation ne sont plus disponibles.
+
+        Merci à tous ceux qui ont soutenu ce projet et contribué à son amélioration au fil des années. Vos contributions et votre enthousiasme ont fait de ce projet ce qu'il était.`,
+      closing: `Bien que ce projet ne soit plus maintenu, je vous encourage à rester en contact pour mes futurs projets :`,
+      github: "Visitez mon GitHub",
+      linkedin: "Ajoutez-moi sur LinkedIn",
+      statsTitle: "Statistiques du dépôt 📊",
+      lastStargazer: "Dernier utilisateur ayant étoilé :",
+      starProject: "Étoilez ce projet",
+      totalStars: "Nombre total d'étoiles :",
+      starHistory: "Historique des étoiles :",
+    },
+  };
+
+  const {
+    title,
+    message,
+    closing,
+    github,
+    linkedin,
+    statsTitle,
+    lastStargazer: lastStargazerLabel,
+    starProject,
+    totalStars,
+    starHistory,
+  } = translations[language];
+
   useEffect(() => {
-    if (!sessionStorage.getItem('gotIt')) {
-      MySwal.fire({
-        title: 'Important Notice: Changes Coming to 42Evals',
-        html: `
-          <div class="text-left">
-            <p class="mb-4">Hello everyone,</p>
-            <p class="mb-4">It has been a joy contributing to this project for nearly two years. Unfortunately, 42 Network has decided that this site no longer aligns with their image and pedagogical goals, which I can understand. My intent was never to encourage cheating, as 42 Network may believe, but rather to help you review and prepare for your projects before the official evaluation.</p>
-            <p class="mb-4"><strong>What's next for 42Evals?</strong></p>
-            <p class="mb-4">The site will continue to exist, but the official evaluation sheets will no longer be available. However, each project will still have evaluation points, which will be written by me and supplemented by your input. These evaluations will no longer be based on official sources, and may sometimes be simpler or more challenging than the real ones. The goal remains the same: to help you self-evaluate your projects, but in a new, unique way.</p>
-            <p class="mb-4">In addition, I plan to introduce several new tools to help you in your journey, including:</p>
-            <ul class="list-disc list-inside mb-4">
-              <li>An XP calculator</li>
-              <li>A "Pace" tool to track your progress</li>
-              <li>And more useful features designed specifically for 42 students</li>
-            </ul>
-            <p class="mb-4">Thank you for your support, and I hope you find these new tools helpful as you continue your learning journey!</p>
-            <p class="mb-4">If you'd like to support this project, please consider giving it a star on GitHub:</p>
-            <p class="mb-4"><a href="https://github.com/rphlr/42-Evals" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Star 42-Evals on GitHub</a></p>
-            <p class="mb-4">You can also connect with me on LinkedIn:</p>
-            <p class="mb-4"><a href="https://www.linkedin.com/in/rphlr" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Connect on LinkedIn</a></p>
-            <p>Best regards,<br/>Raphael</p>
-          </div>
-        `,
-        icon: 'warning',
-        iconColor: '#ff9800',
-        confirmButtonText: 'Got it!',
-        confirmButtonColor: '#4B5563',
-        width: '800px',
-        customClass: {
-          container: 'custom-swal-container',
-          popup: 'custom-swal-popup',
-          title: 'custom-swal-title',
-          closeButton: 'custom-swal-close-button',
-          htmlContainer: 'custom-swal-content',
-          confirmButton: 'custom-swal-confirm-button',
-        },
-      });
-      sessionStorage.setItem('gotIt', 'true');
-    }
+    const fetchGitHubData = async () => {
+      try {
+        const repoResponse = await fetch(
+          "https://api.github.com/repos/rphlr/42-Evals"
+        );
+        const repoData = await repoResponse.json();
+        setStarCount(repoData.stargazers_count);
+  
+        let stargazers = [];
+        let page = 1;
+        let perPage = 100;
+        let hasMore = true;
+  
+        while (hasMore) {
+          const stargazersResponse = await fetch(
+            `https://api.github.com/repos/rphlr/42-Evals/stargazers?per_page=${perPage}&page=${page}`,
+            {
+              headers: { Accept: "application/vnd.github.v3.star+json" },
+            }
+          );
+          const currentPageStargazers = await stargazersResponse.json();
+  
+          if (currentPageStargazers.length === 0) {
+            hasMore = false;
+          } else {
+            stargazers = [...stargazers, ...currentPageStargazers];
+            page += 1;
+          }
+        }
+  
+        if (stargazers.length > 0) {
+          const recentStargazer = stargazers[stargazers.length - 1];
+          setLastStargazer({
+            username: recentStargazer.user.login,
+            avatar: recentStargazer.user.avatar_url,
+            profileUrl: recentStargazer.user.html_url,
+          });
+        }
+      } catch (error) {
+        console.error("Failed to fetch data from GitHub:", error);
+      }
+    };
+  
+    // Initial fetch
+    fetchGitHubData();
+  
+    // Fetch every 5 minutes
+    const interval = setInterval(fetchGitHubData, 5 * 60 * 1000);
+  
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <main className='bg-gray-100 text-gray-900 min-h-screen'>
-      <div className="max-w-7xl mx-auto py-20">
-        <Hero />
-        <Evolution />
-        <Contributing />
-        <Navigating />
-        <Language />
-        <Resources />
-        <Voice />
-        <FunnyStats />
+    <main className="flex items-center justify-center h-full bg-gray-100 text-gray-900 p-4">
+      <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-lg">
+        <h1 className="text-2xl font-bold mb-4">{title}</h1>
+        <p className="text-gray-600 mb-6 whitespace-pre-line">{message}</p>
+        <p className="text-gray-600 mb-6 whitespace-pre-line">{closing}</p>
+        <div className="flex justify-center gap-4 mb-6">
+          <a
+            href="https://github.com/rphlr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline font-medium"
+          >
+            {github}
+          </a>
+          <a
+            href="https://www.linkedin.com/in/rphlr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline font-medium"
+          >
+            {linkedin}
+          </a>
+        </div>
+        <hr className="my-4" />
+        <h2 className="text-xl font-bold mb-4">{statsTitle}</h2>
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-2">{lastStargazerLabel}</h3>
+          {lastStargazer ? (
+            <div>
+              <a
+                href={lastStargazer.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={lastStargazer.avatar}
+                  alt={lastStargazer.username}
+                  className="mx-auto rounded-full"
+                  width={80}
+                  height={80}
+                />
+              </a>
+              <p className="text-lg font-medium mt-2">
+                {lastStargazer.username}
+              </p>
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-2">{totalStars}</h3>
+          <p className="text-2xl font-bold text-gray-700">
+            {starCount !== null ? starCount : "Loading..."}
+          </p>
+        </div>
+        <div className="mb-6">
+          <h3 className="text-lg font-medium mb-2">{starHistory}</h3>
+          <img
+            src="https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date"
+            alt="Star History Chart"
+            className="mx-auto"
+          />
+        </div>
+        <div className="mt-6">
+          <a
+            href="https://github.com/rphlr/42-Evals"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700"
+          >
+            {starProject}
+          </a>
+        </div>
+        <div className="mt-6">
+          <select
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            className="p-2 border rounded"
+          >
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
       </div>
-      <style jsx global>{`
-        .custom-swal-container {
-          z-index: 9999;
-        }
-        .custom-swal-popup {
-          background-color: #f9fafb;
-          border-radius: 10px;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        .custom-swal-title {
-          color: #1f2937;
-          font-size: 1.5rem;
-          font-weight: bold;
-          padding: 1rem;
-        }
-        .custom-swal-close-button {
-          color: #6b7280;
-        }
-        .custom-swal-content {
-          color: #374151;
-          font-size: 1rem;
-          padding: 1rem;
-        }
-        .custom-swal-confirm-button {
-          background-color: #4B5563 !important;
-          color: white;
-          border-radius: 5px;
-          font-weight: bold;
-        }
-      `}</style>
     </main>
   );
 }

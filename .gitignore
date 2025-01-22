@@ -175,4 +175,10 @@ dist
 # Mac files
 .DS_Store
 
+# Yarn 1.0
+package-lock.json
+
+# pnpm
+pnpm-lock.yaml
+
 # End of https://www.toptal.com/developers/gitignore/api/nextjs,node

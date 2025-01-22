@@ -1,52 +1,55 @@
 # 42 Project Evaluation Sheets Hub 🎯
 
-Welcome to the heart of self-evaluation for 42 School projects! 📝 Whether you're gearing up for a peer-evaluation or refining your code masterpiece, these sheets offer a sneak peek into the evaluation process, setting you up for success. 🌟
+## **This project is no longer active.**
 
-Dive into my meticulously curated evaluation sheets, sourced directly from the official 42 School, and fine-tune your projects to ace that evaluation. For the most immersive experience, check out the [42-Evals Web Page](https://42evals.com) - your digital companion for project assessments, updated regularly for seamless access. 🖥️✨
+It is with great regret that I announce the closure of this repository due to a decision made by 42 School. As of now, the project is no longer being updated, and all evaluation sheets are permanently unavailable. 
 
-## Contributing to Excellence 🤝
+This repository was created with the sole intention of helping students at 42 School prepare for their evaluations by providing resources to self-assess and refine their projects. Unfortunately, due to recent changes in policies and copyright regulations, the project cannot continue to operate. I deeply apologize for any inconvenience this may cause.
 
-Your insight and expertise can help countless peers! If you've got an evaluation sheet that could illuminate the path to project perfection, here's how to share that beacon of knowledge:
+Thank you to everyone who supported this project and helped improve it over the years. Your contributions and enthusiasm made it what it was.
 
-1. Fork the repository.
-2. Clone your fork and embark on your contribution journey.
-3. Add new enlightenment or polish existing treasures.
-4. Commit your wisdom with a meaningful message.
-5. Push your contributions upstream.
-6. Open a pull request to merge your light into the main beacon.
+---
 
-## Navigating the Sheets 🗺️
+## Contributing and Repository Details (Archived) 🤝
 
-Each sheet is a roadmap to understanding the intricate expectations of each project. Use them to self-evaluate, discover areas for improvement, and prepare for the peer-evaluation journey that awaits. Review, reflect, and resonate with the criteria that define project success.
+While this project is no longer maintained, the history and contributions made here remain as a testament to the collaborative spirit of the 42 Network. 
 
-## Your Voice Matters 📢
+If you're interested in seeing my future projects, I encourage you to check out my GitHub profile: [rphlr](https://github.com/rphlr). Your continued support means a lot!
 
-I'm in a constant state of learning and improvement, much like the code I write. If you've got ideas, feedback, or enhancements, I'm all ears. Open an issue, submit a pull request, or simply share your thoughts. Together, we grow.
+---
 
-## Important Notes 🛡️
+## Funny Stats 📊
 
-### Security and Data Protection
-Please note that the evaluation sheets are no longer hosted on GitHub but on a secure, separate server. This change has been made to protect the image rights of 42 Network and ensure the confidentiality of all data. Only authorized individuals can access and contribute to the sheets, safeguarding the integrity and privacy of the information.
+Even though this repository is now inactive, let's take a moment to appreciate the support it received:
 
-### Platform Usage
-42Evals is intended as a **supplementary tool** and should not be used as an official source for project evaluations. It provides students with an opportunity to verify their projects before official submission, but the accuracy of the data cannot be guaranteed. This platform is designed to assist, not to replace, the official evaluation processes at 42 School.
-
-<b>Funny Stats 📊</b>
-
-  **Last stargazer:**
+### **Last Stargazer:**
 
   <!--last_stargazer_start-->
   [![Last Stargazer](https://avatars.githubusercontent.com/u/81468953?v=4&s=250)](https://github.com/Flowauni)
   <!--last_stargazer_end-->
-  
-  Thanks to <!--name_start-->[Flowauni](https://github.com/Flowauni)<!--name_end--> for starring the repository! 🎉
 
-  **Updates occur hourly. Last update :** <!--date_start-->22.01.2025, 16:18:36<!--date_end--> (CET)
+  Thank you to <!--name_start-->[Flowauni](https://github.com/Flowauni)<!--name_end--> for starring this repository! 🎉
 
- [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
+### **Star History:**
 
-  More stats are coming soon! 🤖
+  Updates occur hourly.  
+  Last update: <!--date_start-->22.01.2025, 16:18:36<!--date_end--> (CET)
+
+  [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
 ---
 
-Remember to give a star ⭐ to my repository if it helps you navigate the challenges of 42 School projects. Your support amplifies my reach and aids fellow students in finding this repository with ease. Happy coding, and may your evaluations be ever in your favor! 🚀
+## Stay Connected 🌐
+
+While this project is archived, I'm always working on new ideas and tools for the 42 community and beyond. You can follow my journey here:
+
+- GitHub: [rphlr](https://github.com/rphlr)
+- LinkedIn: [Raphael](https://www.linkedin.com/in/rphlr)
+
+---
+
+### A Final Note 🛡️
+
+I want to sincerely thank everyone who gave this repository a star or contributed in any way. It was a privilege to help students navigate the challenges of 42 School projects. Your support and feedback have been invaluable.
+
+Although this chapter is closing, I hope to continue creating and sharing tools that empower students and developers in the future. Until then, happy coding! 🚀
