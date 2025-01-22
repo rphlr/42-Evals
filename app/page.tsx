@@ -98,14 +98,8 @@ export default function Home() {
         console.error("Failed to fetch data from GitHub:", error);
       }
     };
-  
-    // Initial fetch
     fetchGitHubData();
-  
-    // Fetch every 5 minutes
     const interval = setInterval(fetchGitHubData, 5 * 60 * 1000);
-  
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, []);
 
