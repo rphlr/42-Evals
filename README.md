@@ -25,15 +25,15 @@ Even though this repository is now inactive, let's take a moment to appreciate t
 ### **Last Stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/79754018?v=4&s=250)](https://github.com/shomtsm)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/58217032?v=4&s=250)](https://github.com/fidwig)
   <!--last_stargazer_end-->
 
-  Thank you to <!--name_start-->[shomtsm](https://github.com/shomtsm)<!--name_end--> for starring this repository! 🎉
+  Thank you to <!--name_start-->[fidwig](https://github.com/fidwig)<!--name_end--> for starring this repository! 🎉
 
 ### **Star History:**
 
   Updates occur hourly.  
-  Last update: <!--date_start-->13.02.2025, 18:13:27<!--date_end--> (CET)
+  Last update: <!--date_start-->13.02.2025, 19:25:10<!--date_end--> (CET)
 
   [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
