@@ -25,15 +25,15 @@ Even though this repository is now inactive, let's take a moment to appreciate t
 ### **Last Stargazer:**
 
   <!--last_stargazer_start-->
-  [![Last Stargazer](https://avatars.githubusercontent.com/u/119540703?v=4&s=250)](https://github.com/Shan-vv)
+  [![Last Stargazer](https://avatars.githubusercontent.com/u/59610755?v=4&s=250)](https://github.com/RockYou-cmd)
   <!--last_stargazer_end-->
 
-  Thank you to <!--name_start-->[Shan-vv](https://github.com/Shan-vv)<!--name_end--> for starring this repository! 🎉
+  Thank you to <!--name_start-->[RockYou-cmd](https://github.com/RockYou-cmd)<!--name_end--> for starring this repository! 🎉
 
 ### **Star History:**
 
   Updates occur hourly.  
-  Last update: <!--date_start-->21.02.2025, 15:15:44<!--date_end--> (CET)
+  Last update: <!--date_start-->21.02.2025, 16:18:39<!--date_end--> (CET)
 
   [![Star History Chart](https://api.star-history.com/svg?repos=rphlr/42-Evals&type=Date)](https://star-history.com/#rphlr/42-Evals&Date)
 
